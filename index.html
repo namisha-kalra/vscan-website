@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V SCAN – Political Consultancy</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Tab styles */
+    .tabs { margin: 40px auto; max-width: 1000px; }
+    .tab-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
+    .tab-buttons button {
+      background: #003366; color: #fff; border: none;
+      padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;
+    }
+    .tab-buttons button.active { background: #ffcc00; color: #003366; }
+    .tab-content { display: none; text-align: left; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    .tab-content.active { display: block; }
+
+    /* Founders section */
+    .founders {
+      padding: 50px 20px;
+      background: #f9f9f9;
+    }
+    .founders h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #003366;
+      margin-bottom: 40px;
+    }
+    .founder {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+    .founder.reverse {
+      flex-direction: row-reverse;
+    }
+    .founder-img img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    .founder-content {
+      flex: 1;
+      max-width: 700px;
+    }
+    .founder-content h3 {
+      margin-top: 0;
+      color: #003366;
+    }
+    .founder-content p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ HEADER -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="logo.png.png" alt="V SCAN Logo">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cofounders.html">Our Team</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ✅ HERO with video -->
+  <section class="hero" id="hero">
+    <video autoplay muted loop playsinline>
+      <source src="political-ai.mp4.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-content">
+      <h2>V SCAN – Vikas Strategic Citizens Accountable Network</h2>
+      <p>Strategizing Governance. Empowering Democracy.</p>
+      <button>Know More</button>
+    </div>
+  </section>
+
+  <!-- ✅ WHO WE ARE -->
+  <section class="about" id="about">
+    <h2>Who We Are</h2>
+    <p>
+      V SCAN is an alliance of young, highly educated professionals, thinkers, and changemakers from diverse fields—united by the shared purpose of creating a positive, accountable, and people‑centric political ecosystem in India.
+      We don’t just shape political victories—we shape governance.
+      At V SCAN, ‘Vikas’ is not just a name; it is the definition and core of our mission: sustainable, inclusive, and transparent development rooted in democratic values.
+    </p>
+  </section>
+
+  <!-- ✅ OUR TEAM -->
+  <section class="team" id="team">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+      <div class="member">
+        <a href="cofounders.html">
+          <img src="vikas.jpg" alt="Vikas Chaudhry">
+          <h3>Vikas Chaudhry</h3>
+          <p>Founder</p>
+        </a>
+      </div>
+      <div class="member">
+        <a href="cofounders.html">
+          <img src="aditya.jpg" alt="Aditya Singh">
+          <h3>Aditya Singh</h3>
+          <p>Co‑Founder</p>
+        </a>
+      </div>
+      <div class="member">
+        <a href="cofounders.html">
+          <img src="runny.jpg" alt="Runny Tomar">
+          <h3>Runny Tomar</h3>
+          <p>Co‑Founder</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ FEATURED TOPICS SLIDER -->
+<section class="slider-section">
+  <h2>Key Focus Areas</h2>
+  <div class="slider">
+    <div class="slide-card">
+      <img src="mission.jpg.jpeg" alt="Elections">
+      <h3>Elections</h3>
+      <p>Strategic Wins, Real Impact
+We empower candidates with insight-driven strategies, sharp messaging, and real-time ground intelligence. From campaign design to voter outreach, our data-backed election frameworks ensure not just victories — but victories that reflect people’s voices.</p>
+    </div>
+    <div class="slide-card">
+      <img src="leadership.png.jpeg" alt="Governance">
+      <h3>Governance</h3>
+      <p>Delivering Beyond the Ballot
+Elections are the start, not the end. We help leaders fulfill promises through actionable governance plans, continuous policy audits, and citizen-centric delivery systems. With V SCAN, leadership transforms into measurable impact.</p>
+    </div>
+    <div class="slide-card">
+      <img src="team.png.jpeg" alt="Public Connect">
+      <h3>Public Connect</h3>
+      <p>Politics with People at the Core
+We bridge the gap between political power and public need. Through grassroots engagement, surveys, and community feedback loops, we ensure citizens aren’t just voters — they’re co-creators of democratic change.</p>
+    </div>
+    <div class="slide-card">
+      <img src="post.png.jpeg" alt="Public Connect">
+      <h3>Research & Insights</h3>
+      <p>Turning Data into Decisions
+We decode complex political landscapes using real-time research, constituency profiling, and public sentiment tracking. Our insights empower leaders to take informed, grounded decisions that truly reflect citizen priorities.</p>
+    </div>
+    <div class="slide-card">
+      <img src="vision.jpg.jpeg" alt="Public Connect">
+      <h3>Policy Innovation</h3>
+      <p>Ideas That Deliver
+We support visionary leaders with innovative, actionable policy solutions tailored to local needs. From urban reforms to rural upliftment, our frameworks are rooted in feasibility, inclusiveness, and long-term impact.</p>
+    </div>
+    <div class="slide-card">
+      <img src="strategy.png.jpeg" alt="Public Connect">
+      <h3>Youth & Civic Engagement</h3>
+      <p>Igniting the Next Generation
+We mobilize young minds to participate meaningfully in politics — not just as voters, but as changemakers. Through workshops, dialogues, and digital campaigns, we shape a politically aware and socially responsible generation.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- ✅ FOOTER -->
+  <footer id="contact">
+    <p>Location: 1/5153 T/F G-5  
+Balbir Nagar Extension  
+Shahdara, Delhi (110032)|
+ ✉ Vscanalliance@gmail.com 
+ | ☎ +91-8368087258, +91-8126487892, +91-8860573457</p>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/profile.php?id=61576049937047" target="_blank">
+        <img src="facebook-icon.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/vscanalliance/" target="_blank">
+        <img src="instagram-icon.png" alt="Instagram">
+      </a>
+      <a href="https://www.linkedin.com/company/106768933/admin/dashboard/" target="_blank">
+        <img src="linkedin-icon.png" alt="LinkedIn">
+      </a>
+    </div>
+
+    <p>&copy; 2025 V SCAN. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showTab(index) {
+      const contents = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-buttons button');
+      contents.forEach((c, i) => c.classList.toggle('active', i === index));
+      buttons.forEach((b, i) => b.classList.toggle('active', i === index));
+    }
+  </script>
+</body>
+</html>
