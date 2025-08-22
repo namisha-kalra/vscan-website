@@ -456,22 +456,21 @@ footer {
 
 /* advisor image */
 .advisor-row .advisor-image {
-  flex: 0 0 360px;   /* image column thoda bada */
+  flex: 0 0 320px;
   display: flex;
   justify-content: center;
 }
 .advisor-row .advisor-image img {
-  width: 360px;      /* image thoda aur bada */
-  height: 360px;
+  width: 280px;
+  height: 280px;
   object-fit: cover;
   border-radius: 50%;
   border: 6px solid #1a73e8;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease;
 }
 .advisor-row:hover .advisor-image img {
   transform: scale(1.08) rotate(-2deg);
-  box-shadow: 0 10px 25px rgba(26,115,232,0.5);
 }
 
 /* advisor content */
@@ -480,82 +479,63 @@ footer {
   text-align: left;   
   font-size: 1.1rem;
   line-height: 1.8;
-  padding-left: 15px;
+  padding-left: 10px;
   border-left: 4px solid #1a73e8;
 }
 .advisor-row.reverse .advisor-content {
   border-left: none;
   border-right: 4px solid #1a73e8;
   padding-left: 0;
-  padding-right: 15px;
+  padding-right: 10px;
 }
 .advisor-row .advisor-content h2 {
   margin-top: 0;
   color: #003366;
-  font-size: 2.2rem;
-  margin-bottom: 18px;
+  font-size: 2rem;
+  margin-bottom: 15px;
   font-weight: 700;
 }
 .advisor-row .advisor-content p { 
   color: #333; 
-  margin-bottom: 22px; 
+  margin-bottom: 20px; 
 }
 
-/* ===== Know More button (modern glowing style) ===== */
+/* Know More button */
 .advisor-row .advisor-content a {
   display: inline-block;
-  padding: 14px 34px;
+  padding: 12px 28px;
   background: linear-gradient(135deg, #1a73e8, #004ba0);
   color: #fff;
   text-decoration: none;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(26,115,232,0.4);
-  transition: all 0.3s ease;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
-
-/* hover effect */
 .advisor-row .advisor-content a:hover {
-  transform: translateY(-3px) scale(1.07);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.3), 0 0 25px rgba(26,115,232,0.9);
-}
-
-/* animated glowing border */
-.advisor-row .advisor-content a::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: 50px;
-  background: linear-gradient(90deg, #1a73e8, #00c6ff, #004ba0, #1a73e8);
-  background-size: 300%;
-  z-index: -1;
-  filter: blur(8px);
-  animation: glowmove 3s linear infinite;
-}
-
-/* animation */
-@keyframes glowmove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  background: linear-gradient(135deg, #004ba0, #1a73e8);
+  transform: translateY(-3px);
 }
 
 /* responsive design */
 @media (max-width: 950px) {
-  .advisor-row { flex-direction: column; text-align: center; }
-  .advisor-row.reverse { flex-direction: column; }
-  .advisor-row .advisor-image img {
-    width: 260px;
-    height: 260px;
+  .advisor-row { 
+    flex-direction: column; 
+    text-align: center; 
+    padding: 30px;
   }
-  .advisor-row .advisor-content {
+  .advisor-row.reverse { flex-direction: column; }
+  .advisor-row .advisor-image { 
+    flex: 0 0 auto; 
+    margin: 0 auto 20px; 
+  }
+  .advisor-row .advisor-image img {
+    width: 220px;
+    height: 220px;
+  }
+  .advisor-row .advisor-content { 
+    text-align: center; 
     border: none;
     padding: 0;
   }
