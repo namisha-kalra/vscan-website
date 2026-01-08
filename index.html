@@ -4,237 +4,147 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>V SCAN – Political Consultancy</title>
-  <!-- Google Font -->
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Tab styles */
-    .tabs { margin: 40px auto; max-width: 1000px; }
-    .tab-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
-    .tab-buttons button {
-      background: #003366; color: #fff; border: none;
-      padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;
-    }
-    .tab-buttons button.active { background: #ffcc00; color: #003366; }
-    .tab-content { display: none; text-align: left; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    .tab-content.active { display: block; }
-
-    /* Founders section */
-    .founders {
-      padding: 50px 20px;
-      background: #f9f9f9;
-    }
-    .founders h2 {
-      text-align: center;
-      font-size: 2rem;
-      color: #003366;
-      margin-bottom: 40px;
-    }
-    .founder {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      margin-bottom: 60px;
-      flex-wrap: wrap;
-    }
-    .founder.reverse {
-      flex-direction: row-reverse;
-    }
-    .founder-img img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-    .founder-content {
-      flex: 1;
-      max-width: 700px;
-    }
-    .founder-content h3 {
-      margin-top: 0;
-      color: #003366;
-    }
-    .founder-content p {
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
-
-    /* ===== Animation for advisory/fade-in ===== */
-    #advisory .member {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-    }
-    #advisory .member.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
 </head>
 <body>
 
-  <!-- ✅ HEADER -->
+  <!-- HEADER -->
   <header>
-    <div class="logo">
-      <a href="index.html">
-        <img src="logo.png.png" alt="V SCAN Logo">
-      </a>
-    </div>
+    <div class="logo"><a href="index.html"><img src="logo.png" alt="V SCAN Logo"></a></div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#advisory">Advisory</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="cofounders.html">Our Team</a></li>
-        <li><a href="cofounders.html">Join Us</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ✅ HERO with video -->
-  <section class="hero" id="hero">
+  <!-- HERO SECTION -->
+  <section class="hero">
     <video autoplay muted loop playsinline>
-      <source src="political-ai.mp4.mp4" type="video/mp4" />
+      <source src="political-ai.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-      <h2>V SCAN – Vikas Strategic Citizens Accountable Network</h2>
-      <p>Strategizing Governance. Empowering Democracy.</p>
-      <button>Know More</button>
+      <h1>V SCAN</h1>
+      <p>Empowering Democracy through Strategy, Insight & Innovation.</p>
+      <button>Explore More</button>
     </div>
   </section>
 
-  <!-- ✅ WHO WE ARE -->
+  <!-- ABOUT SECTION -->
   <section class="about" id="about">
     <h2>Who We Are</h2>
     <p>
-      V SCAN is an alliance of young, highly educated professionals, thinkers, and changemakers from diverse fields—united by the shared purpose of creating a positive, accountable, and people‑centric political ecosystem in India.
-      We don’t just shape political victories—we shape governance.
-      At V SCAN, ‘Vikas’ is not just a name; it is the definition and core of our mission: sustainable, inclusive, and transparent development rooted in democratic values.
+      V SCAN is a coalition of thinkers, strategists, and changemakers shaping accountable governance in India.  
+      We combine technology, research, and citizen engagement to deliver real impact, not just political wins.
     </p>
   </section>
 
-  <!-- ✅ OUR TEAM -->
+  <!-- TEAM SECTION -->
   <section class="team" id="team">
     <h2>Our Team</h2>
     <div class="team-grid">
       <div class="member">
-        <a href="cofounders.html">
-          <img src="vikas.jpg" alt="Vikas Chaudhry">
-          <h3>Vikas Kumar Choudhary</h3>
-          <p>Founder</p>
-        </a>
+        <img src="vikas.jpg" alt="Vikas Kumar">
+        <h3>Vikas Kumar</h3>
+        <p>Founder</p>
+        <a href="#">Know More</a>
       </div>
       <div class="member">
-        <a href="cofounders.html">
-          <img src="aditya_new.jpg" alt="Aditya Singh">
-          <h3>Aditya Singh</h3>
-          <p>Co‑Founder</p>
-        </a>
+        <img src="aditya_new.jpg" alt="Aditya Singh">
+        <h3>Aditya Singh</h3>
+        <p>Co-Founder</p>
+        <a href="#">Know More</a>
       </div>
       <div class="member">
-        <a href="cofounders.html">
-          <img src="runny.jpg" alt="Runny Tomar">
-          <h3>Runny Tomar</h3>
-          <p>Co‑Founder</p>
-        </a>
+        <img src="runny.jpg" alt="Runny Tomar">
+        <h3>Runny Tomar</h3>
+        <p>Co-Founder</p>
+        <a href="#">Know More</a>
       </div>
     </div>
   </section>
 
-  <!-- ✅ Advisory Committee (Homepage) -->
-  <section id="advisory" class="team">
+  <!-- ADVISORY SECTION -->
+  <section class="advisory" id="advisory">
     <h2>Advisory Committee</h2>
-    <div class="team-grid">
-      <!-- Advisor 1 -->
-      <div class="member">
-        <img src="advisor1.jpg" alt="Mr. K.P. Malik">
+    <div class="advisory-grid">
+      <div class="advisor">
+        <img src="advisor1.jpg" alt="K.P. Malik">
         <h3>Mr. K.P. Malik</h3>
         <p>Senior Journalist & Political Editor</p>
-        <a href="advisory.html#malik" class="btn know-more-btn">Know More</a>
+        <a href="#">Know More</a>
       </div>
-      <!-- Advisor 2 -->
-      <div class="member">
-        <img src="advisor2.jpg" alt="Dr. Gyanendra Kumar Attri">
-        <h3>Dr. Gyanendra Kumar Attri</h3>
+      <div class="advisor">
+        <img src="advisor2.jpg" alt="Gyanendra Attri">
+        <h3>Dr. Gyanendra Attri</h3>
         <p>Environmental Sustainability Expert</p>
-        <a href="advisory.html#attri" class="btn know-more-btn">Know More</a>
+        <a href="#">Know More</a>
       </div>
-      <!-- Advisor 3 -->
-      <div class="member">
-        <img src="advisor 3.jpeg" alt="Prof. (Dr.) Santosh Kumar Karn">
-        <h3>Prof. (Dr.) Santosh Kumar Karn</h3>
+      <div class="advisor">
+        <img src="advisor3.jpeg" alt="Santosh Karn">
+        <h3>Prof. Santosh Karn</h3>
         <p>Research Leader & Global Science Advisor</p>
-        <a href="advisory.html#karn" class="btn know-more-btn">Know More</a>
+        <a href="#">Know More</a>
       </div>
     </div>
   </section>
 
-  <!-- ✅ FEATURED TOPICS SLIDER -->
+  <!-- FOCUS AREAS SLIDER -->
   <section class="slider-section">
     <h2>Key Focus Areas</h2>
     <div class="slider">
       <div class="slide-card">
-        <img src="mission.jpg.jpeg" alt="Elections">
         <h3>Elections</h3>
-        <p>Strategic Wins, Real Impact...</p>
+        <p>Data-backed strategies for citizen-centric victories that truly reflect people’s voices.</p>
       </div>
       <div class="slide-card">
-        <img src="leadership.png.jpeg" alt="Governance">
         <h3>Governance</h3>
-        <p>Delivering Beyond the Ballot...</p>
+        <p>Turning political promises into actionable, measurable impact with transparency.</p>
       </div>
-      <!-- other slides omitted for brevity -->
+      <div class="slide-card">
+        <h3>Public Engagement</h3>
+        <p>Bridging the gap between leadership and citizens through surveys and feedback loops.</p>
+      </div>
+      <div class="slide-card">
+        <h3>Research & Insights</h3>
+        <p>Real-time analytics, constituency profiling, and evidence-based decision frameworks.</p>
+      </div>
+      <div class="slide-card">
+        <h3>Policy Innovation</h3>
+        <p>Actionable policies rooted in feasibility, inclusiveness, and long-term impact.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ✅ FOOTER -->
-  <footer id="contact">
-    <p>Location: 1/5153 T/F G-5  
-Balbir Nagar Extension  
-Shahdara, Delhi (110032)|
- ✉ Vscanalliance@gmail.com 
- | ☎ +91-8368087258, +91-8126487892, +91-8860573457</p>
-
+  <!-- FOOTER -->
+  <footer>
+    <p>📍 1/5153 T/F G-5, Balbir Nagar Extension, Shahdara, Delhi (110032)</p>
+    <p>✉ Vscanalliance@gmail.com | ☎ +91-8368087258</p>
     <div class="footer-social">
-      <a href="https://www.facebook.com/profile.php?id=61576049937047" target="_blank">
-        <img src="facebook-icon.png" alt="Facebook">
-      </a>
-      <a href="https://www.instagram.com/vscanalliance/" target="_blank">
-        <img src="instagram-icon.png" alt="Instagram">
-      </a>
-      <a href="https://www.linkedin.com/company/106768933/admin/dashboard/" target="_blank">
-        <img src="linkedin-icon.png" alt="LinkedIn">
-      </a>
+      <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+      <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+      <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
     </div>
-
     <p>&copy; 2025 V SCAN. All rights reserved.</p>
   </footer>
 
-  <!-- Tab JS -->
   <script>
-    function showTab(index) {
-      const contents = document.querySelectorAll('.tab-content');
-      const buttons = document.querySelectorAll('.tab-buttons button');
-      contents.forEach((c, i) => c.classList.toggle('active', i === index));
-      buttons.forEach((b, i) => b.classList.toggle('active', i === index));
-    }
-  </script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {threshold: 0.2});
 
-  <!-- ✅ Advisory animation JS -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const advisors = document.querySelectorAll('#advisory .member');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-      advisors.forEach(advisor => observer.observe(advisor));
-    });
+    document.querySelectorAll('.member, .advisor').forEach(el => observer.observe(el));
   </script>
 
 </body>
