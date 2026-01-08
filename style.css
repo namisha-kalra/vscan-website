@@ -1,3 +1,4 @@
+/* ===== GLOBAL STYLES ===== */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -18,7 +19,7 @@ body::before {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  opacity: 0.035;
+  opacity: 0.05; /* slightly increased for visibility */
   z-index: -1;
   pointer-events: none;
 }
@@ -31,7 +32,6 @@ body::before {
   position: relative;
   z-index: 0;
 }
-
 .team::before,
 .slider-section::before,
 .contact::before {
@@ -45,7 +45,7 @@ body::before {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  opacity: 0.035;
+  opacity: 0.05;
   z-index: -1;
   pointer-events: none;
 }
@@ -61,7 +61,6 @@ header {
   flex-wrap: wrap;
   gap: 10px;
 }
-
 header .logo img {
   height: 40px;
   width: auto;
@@ -69,7 +68,6 @@ header .logo img {
   max-height: 45px;
   display: block;
 }
-
 nav ul {
   display: flex;
   gap: 20px;
@@ -97,6 +95,7 @@ nav a:hover::after {
   bottom: 0;
 }
 
+/* ===== HERO ===== */
 .hero {
   position: relative;
   height: 400px;
@@ -107,6 +106,14 @@ nav a:hover::after {
   text-align: center;
   overflow: hidden;
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.25); /* overlay for text readability */
+  z-index: 0;
+}
 .hero video {
   position: absolute;
   top: 0;
@@ -116,6 +123,7 @@ nav a:hover::after {
   object-fit: cover;
   z-index: -1;
 }
+.hero-content { z-index: 1; }
 .hero-content h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
@@ -139,6 +147,7 @@ nav a:hover::after {
   background: #e6b800;
 }
 
+/* ===== ABOUT ===== */
 .about {
   padding: 50px 20px;
   text-align: center;
@@ -154,6 +163,7 @@ nav a:hover::after {
   line-height: 1.6;
 }
 
+/* ===== TEAM ===== */
 .team {
   padding: 50px 20px;
   text-align: center;
@@ -173,10 +183,11 @@ nav a:hover::after {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .member:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 .member img {
   width: 120px;
@@ -200,6 +211,7 @@ nav a:hover::after {
   transform: scale(1.05);
 }
 
+/* ===== PROFILE IMAGE ===== */
 .profile-image {
   width: 300px;
   height: 300px;
@@ -209,6 +221,7 @@ nav a:hover::after {
   margin: 40px auto 20px;
 }
 
+/* ===== BACK LINK ===== */
 .back-link {
   text-align: center;
   margin-bottom: 30px;
@@ -222,6 +235,7 @@ nav a:hover::after {
   color: #ffcc00;
 }
 
+/* ===== SERVICES ===== */
 .services {
   padding: 50px 20px;
   text-align: center;
@@ -241,68 +255,27 @@ nav a:hover::after {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(8, 8, 8, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 .card h3 {
   margin-top: 0;
   color: #003366;
 }
 
-footer {
-  background: #003366;
-  color: #fff;
-  text-align: center;
-  padding: 15px 20px;
-  margin-top: 50px;
-  font-size: 0.9rem;
-}
-
-.footer-social {
-  margin: 15px 0 5px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.footer-social a img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.footer-social a img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 6px rgba(255, 204, 0, 0.6);
-}
-
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav ul {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  .profile-image {
-    width: 200px;
-    height: 200px;
-  }
-}
-
+/* ===== SLIDER ===== */
 .slider-section {
   padding: 60px 20px;
   text-align: center;
 }
-
 .slider-section h2 {
   font-size: 2rem;
   color: #003366;
   margin-bottom: 30px;
 }
-
 .slider {
   display: flex;
   overflow-x: auto;
@@ -310,12 +283,9 @@ footer {
   padding: 10px;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  scroll-behavior: smooth; /* smooth scroll */
 }
-
-.slider::-webkit-scrollbar {
-  display: none;
-}
-
+.slider::-webkit-scrollbar { display: none; }
 .slide-card {
   flex: 0 0 280px;
   background: white;
@@ -324,29 +294,28 @@ footer {
   scroll-snap-align: start;
   text-align: center;
   padding: 20px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .slide-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
 .slide-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   border-radius: 8px;
 }
-
 .slide-card h3 {
   color: #003366;
   margin-top: 15px;
 }
-
 .slide-card p {
   font-size: 0.9rem;
   margin-top: 10px;
 }
 
+/* ===== CONTACT ===== */
 .contact {
   padding: 60px 20px;
   text-align: center;
@@ -354,20 +323,17 @@ footer {
   position: relative;
   z-index: 0;
 }
-
 .contact h2 {
   color: #003366;
   font-size: 2rem;
   margin-bottom: 30px;
 }
-
 .contact-info {
   margin-bottom: 30px;
   font-size: 1rem;
   color: #333;
   line-height: 1.6;
 }
-
 .contact-form {
   max-width: 500px;
   margin: 0 auto 40px;
@@ -375,7 +341,6 @@ footer {
   flex-direction: column;
   gap: 15px;
 }
-
 .contact-form input,
 .contact-form textarea {
   padding: 12px;
@@ -384,7 +349,6 @@ footer {
   font-size: 1rem;
   font-family: inherit;
 }
-
 .contact-form button {
   background: #ffcc00;
   border: none;
@@ -396,11 +360,9 @@ footer {
   border-radius: 6px;
   transition: background 0.3s ease;
 }
-
 .contact-form button:hover {
   background: #e6b800;
 }
-
 .map-container {
   width: 100%;
   max-width: 700px;
@@ -410,7 +372,7 @@ footer {
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* ===== Advisory details page layout (modern glass style) ===== */
+/* ===== ADVISORY PAGE ===== */
 .advisory-page { 
   max-width: 1300px; 
   margin: 60px auto; 
@@ -419,8 +381,6 @@ footer {
   position: relative;
   z-index: 1;
 }
-
-/* subtle gradient background (matching website theme) */
 .advisory-page::before {
   content: "";
   position: absolute;
@@ -429,8 +389,6 @@ footer {
   background: linear-gradient(135deg, rgba(0,51,102,0.05), rgba(0,128,255,0.05));
   z-index: -1;
 }
-
-/* advisor row (glass effect card) */
 .advisor-row {
   display: flex;
   gap: 40px;
@@ -441,20 +399,19 @@ footer {
   border-radius: 20px;
   backdrop-filter: blur(12px);
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+  opacity: 0;
+  transform: translateY(20px);
 }
-
+.advisor-row.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 .advisor-row:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 35px rgba(0,0,0,0.25);
 }
-
-/* reverse for even rows */
-.advisor-row.reverse { 
-  flex-direction: row-reverse; 
-}
-
-/* advisor image */
+.advisor-row.reverse { flex-direction: row-reverse; }
 .advisor-row .advisor-image {
   flex: 0 0 320px;
   display: flex;
@@ -472,8 +429,6 @@ footer {
 .advisor-row:hover .advisor-image img {
   transform: scale(1.08) rotate(-2deg);
 }
-
-/* advisor content */
 .advisor-row .advisor-content {
   flex: 1;
   text-align: left;   
@@ -499,8 +454,6 @@ footer {
   color: #333; 
   margin-bottom: 20px; 
 }
-
-/* Know More button */
 .advisor-row .advisor-content a {
   display: inline-block;
   padding: 12px 28px;
@@ -518,7 +471,33 @@ footer {
   transform: translateY(-3px);
 }
 
-/* responsive design */
+/* ===== FOOTER ===== */
+footer {
+  background: #003366;
+  color: #fff;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: 50px;
+  font-size: 0.9rem;
+}
+.footer-social {
+  margin: 15px 0 5px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.footer-social a img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.footer-social a img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgba(255,204,0,0.6);
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 950px) {
   .advisor-row { 
     flex-direction: column; 
@@ -540,6 +519,10 @@ footer {
     padding: 0;
   }
 }
-
-
-
+@media (max-width: 768px) {
+  header { flex-direction: column; align-items: flex-start; }
+  nav ul { flex-wrap: wrap; gap: 15px; }
+  .profile-image { width: 200px; height: 200px; }
+  .hero { height: 300px; }
+  .hero-content h2 { font-size: 2rem; }
+}
