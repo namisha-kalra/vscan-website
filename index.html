@@ -21,12 +21,14 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="cofounders.html">Our Team</a></li>
         <li><a href="contact.html">Join Us</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        
       </ul>
     </nav>
+    <button id="theme-toggle" title="Toggle Theme">🌙</button>
   </header>
 
   <!-- ✅ HERO with video -->
@@ -156,22 +158,6 @@ We mobilize young minds to participate meaningfully in politics — not just as 
   </div>
 </section>
 
-  <!-- ✅ GALLERY -->
-  <section id="gallery" class="gallery-section reveal">
-    <div class="container">
-      <h2>Gallery</h2>
-      <p class="muted">Photos — add your images to <code>assets/gallery/</code>. Filenames used below are placeholders.</p>
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="assets/gallery/photo1.jpg" alt="Gallery photo 1"></div>
-        <div class="gallery-item"><img src="assets/gallery/photo2.jpg" alt="Gallery photo 2"></div>
-        <div class="gallery-item"><img src="assets/gallery/photo3.jpg" alt="Gallery photo 3"></div>
-        <div class="gallery-item"><img src="assets/gallery/photo4.jpg" alt="Gallery photo 4"></div>
-        <div class="gallery-item"><img src="assets/gallery/photo5.jpg" alt="Gallery photo 5"></div>
-        <div class="gallery-item"><img src="assets/gallery/photo6.jpg" alt="Gallery photo 6"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- ✅ FOOTER -->
   <footer id="contact">
     <div class="container">
@@ -204,6 +190,21 @@ We mobilize young minds to participate meaningfully in politics — not just as 
       contents.forEach((c, i) => c.classList.toggle('active', i === index));
       buttons.forEach((b, i) => b.classList.toggle('active', i === index));
     }
+
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.add(currentTheme);
+      themeToggle.textContent = currentTheme === 'light-theme' ? '☀️' : '🌙';
+    }
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      const theme = body.classList.contains('light-theme') ? 'light-theme' : '';
+      localStorage.setItem('theme', theme);
+      themeToggle.textContent = theme === 'light-theme' ? '☀️' : '🌙';
+    });
 
     // Simple reveal-on-scroll using IntersectionObserver
     document.addEventListener('DOMContentLoaded', function(){
