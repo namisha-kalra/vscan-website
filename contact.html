@@ -10,17 +10,25 @@
 
   <header>
     <div class="logo">
-      <img src="logo.png.png" alt="V SCAN Logo" />
+      <a href="index.html" class="logo-text">
+        V SCAN
+      </a>
     </div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cofounders.html">Our Team</a></li>
+        <li><a href="contact.html">Join Us</a></li>
+        
       </ul>
     </nav>
+    <button id="theme-toggle" title="Toggle Theme">🌙</button>
   </header>
 
-  <section class="contact">
+  <section class="contact reveal">
     <h2>Contact Us</h2>
 
     <div class="contact-info">
@@ -34,6 +42,7 @@
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
+      <div id="contact-msg" role="status" style="display:none; margin-top:10px; color:green; font-weight:600;">Message sent — thank you!</div>
     </form>
 
     <div class="map-container">
@@ -53,5 +62,44 @@
     <p>© 2025 V SCAN. All rights reserved.</p>
   </footer>
 
+  <script>
+    // Simple client-side feedback to avoid page refresh
+    (function(){
+      const form = document.querySelector('.contact-form');
+      const msg = document.getElementById('contact-msg');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        // basic validation already handled by HTML5; simulate send
+        msg.style.display = 'block';
+        setTimeout(()=>{ msg.style.display = 'none'; form.reset(); }, 3000);
+      });
+    })();
+  </script>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.add(currentTheme);
+      themeToggle.textContent = currentTheme === 'light-theme' ? '☀️' : '🌙';
+    }
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      const theme = body.classList.contains('light-theme') ? 'light-theme' : '';
+      localStorage.setItem('theme', theme);
+      themeToggle.textContent = theme === 'light-theme' ? '☀️' : '🌙';
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const obs = new IntersectionObserver((entries, o) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); o.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    });
+  </script>
+
 </body>
 </html>
+
