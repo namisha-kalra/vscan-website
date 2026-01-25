@@ -8,9 +8,25 @@
 </head>
 <body>
 
-  <!-- copy your real header (logo + nav) here if you want -->
+  <!-- ✅ HEADER -->
   <header>
-    <!-- (optional) paste the same header markup you use in about.html -->
+    <div class="logo">
+      <a href="index.html" class="logo-text">
+        V SCAN
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cofounders.html">Our Team</a></li>
+        <li><a href="contact.html">Join Us</a></li>
+        
+      </ul>
+    </nav>
+    <button id="theme-toggle" title="Toggle Theme">🌙</button>
   </header>
 
   <main class="advisory-page">
@@ -96,6 +112,24 @@
   <footer>
     <!-- your footer here -->
   </footer>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.add(currentTheme);
+      themeToggle.textContent = currentTheme === 'light-theme' ? '☀️' : '🌙';
+    }
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      const theme = body.classList.contains('light-theme') ? 'light-theme' : '';
+      localStorage.setItem('theme', theme);
+      themeToggle.textContent = theme === 'light-theme' ? '☀️' : '🌙';
+    });
+  </script>
 </body>
 </html>
+
 
