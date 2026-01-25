@@ -9,7 +9,8 @@
       font-family: sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: var(--bg-0);
+      color: var(--surface);
     }
 
     /* TOP NAVBAR */
@@ -120,19 +121,29 @@
 </head>
 <body>
 
-  <!-- 🔷 NAVIGATION BAR -->
-  <div class="navbar">
-    <div class="navbar-logo">
-      <img src="logo.png.png" alt="V SCAN Logo">
-      <span></span>
+  <!-- ✅ HEADER -->
+  <header>
+    <div class="logo">
+      <a href="index.html" class="logo-text">
+        V SCAN
+      </a>
     </div>
-    <div>
-      <a href="index.html">Home</a>
-    </div>
-  </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cofounders.html">Our Team</a></li>
+        <li><a href="contact.html">Join Us</a></li>
+        
+      </ul>
+    </nav>
+    <button id="theme-toggle" title="Toggle Theme">🌙</button>
+  </header>
 
   <!-- ✅ FOUNDERS SECTION -->
-  <section class="founders">
+  <section class="founders reveal">
     <h2>Our Team</h2>
 
     <!-- Vikas -->
@@ -213,7 +224,32 @@ narrative where inclusion meets strategy.</p>
 
   </section>
 
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.add(currentTheme);
+      themeToggle.textContent = currentTheme === 'light-theme' ? '☀️' : '🌙';
+    }
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      const theme = body.classList.contains('light-theme') ? 'light-theme' : '';
+      localStorage.setItem('theme', theme);
+      themeToggle.textContent = theme === 'light-theme' ? '☀️' : '🌙';
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      const obs = new IntersectionObserver((entries, o) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); o.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    });
+  </script>
+
 </body>
 </html>
+
 
 
