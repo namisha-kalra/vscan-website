@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – V SCAN</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ✅ HEADER -->
+  <header>
+    <div class="logo">
+      <a href="index.html" class="logo-text">
+        V SCAN
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cofounders.html">Our Team</a></li>
+        <li><a href="contact.html">Join Us</a></li>
+        
+      </ul>
+    </nav>
+    <button id="theme-toggle" title="Toggle Theme">🌙</button>
+  </header>
+
+  <!-- ✅ HERO SECTION -->
+  <section class="hero-about reveal">
+    <h2>Gallery</h2>
+    <p>Photos and images from our work and events.</p>
+  </section>
+
+  <!-- ✅ GALLERY -->
+  <section class="gallery-section reveal">
+    <div class="container">
+      <h2>Gallery</h2>
+      <p class="muted">Photos — add your images to <code>assets/gallery/</code>. Filenames used below are placeholders.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="assets/gallery/photo1.jpg" alt="Gallery photo 1"></div>
+        <div class="gallery-item"><img src="assets/gallery/photo2.jpg" alt="Gallery photo 2"></div>
+        <div class="gallery-item"><img src="assets/gallery/photo3.jpg" alt="Gallery photo 3"></div>
+        <div class="gallery-item"><img src="assets/gallery/photo4.jpg" alt="Gallery photo 4"></div>
+        <div class="gallery-item"><img src="assets/gallery/photo5.jpg" alt="Gallery photo 5"></div>
+        <div class="gallery-item"><img src="assets/gallery/photo6.jpg" alt="Gallery photo 6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <p>Location: 1/5153 T/F G-5  
+  Balbir Nagar Extension  
+  Shahdara, Delhi (110032)|
+   ✉ Vscanalliance@gmail.com 
+   | ☎ +91-8368087258, +91-8126487892, +91-8860573457</p>
+
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61576049937047" target="_blank">
+          <img src="facebook-icon.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/vscanalliance/" target="_blank">
+          <img src="instagram-icon.png" alt="Instagram">
+        </a>
+        <a href="https://www.linkedin.com/company/106768933/admin/dashboard/" target="_blank">
+          <img src="linkedin-icon.png" alt="LinkedIn">
+        </a>
+      </div>
+
+      <p>&copy; 2025 V SCAN. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.add(currentTheme);
+      themeToggle.textContent = currentTheme === 'light-theme' ? '☀️' : '🌙';
+    }
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      const theme = body.classList.contains('light-theme') ? 'light-theme' : '';
+      localStorage.setItem('theme', theme);
+      themeToggle.textContent = theme === 'light-theme' ? '☀️' : '🌙';
+    });
+
+    // Simple reveal-on-scroll using IntersectionObserver
+    document.addEventListener('DOMContentLoaded', function(){
+      const obs = new IntersectionObserver((entries, o) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('active'); o.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    });
+  </script>
+</body>
+</html>
