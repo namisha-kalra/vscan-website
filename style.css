@@ -144,6 +144,10 @@ header .logo img {
   filter: brightness(0.2);
 }
 
+.light-theme header {
+  background: var(--bg-0);
+}
+
 .logo-text {
   text-decoration: none;
   color: var(--brand);
@@ -166,7 +170,7 @@ nav a {
 #theme-toggle {
   background: none;
   border: none;
-  color: var(--surface);
+  color: var(--brand);
   font-size: 1.5em;
   cursor: pointer;
   margin-left: 20px;
@@ -220,7 +224,7 @@ nav a {
 .hero-content h2 {
   font-size: 2.6rem;
   margin-bottom: 12px;
-  color: #fff;
+  color: var(--surface);
   letter-spacing: -0.5px;
   text-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
@@ -228,7 +232,7 @@ nav a {
 .hero-content p {
   font-size: 1.1rem;
   margin-bottom: 18px;
-  color: #f0f7ff;
+  color: var(--muted);
 }
 
 .hero .btn {
@@ -245,18 +249,18 @@ nav a {
   text-align: center;
   padding: 80px 20px;
   background-image: linear-gradient(135deg, rgba(0, 51, 102, 0.06), rgba(0, 128, 255, 0.03));
-  color: #e6f2ff;
+  color: var(--surface);
 }
 
 .hero-about h2 {
   font-size: 2.4rem;
-  color: #e9f4ff;
+  color: var(--surface);
   text-shadow: 0 6px 20px rgba(0, 12, 30, 0.45);
 }
 
 .hero-about p {
   max-width: 900px;
-  color: #dbefff;
+  color: var(--muted);
 }
 
 /* content sections */
@@ -282,18 +286,18 @@ nav a {
 
 .section-content {
   direction: ltr;
-  color: #e6f2ff;
+  color: var(--surface);
 }
 
 .section-content h3 {
   font-size: 1.8rem;
   margin-bottom: 12px;
-  color: #f8fbff;
+  color: var(--surface);
 }
 
 .section-content p {
   line-height: 1.7;
-  color: #d7e9ff;
+  color: var(--muted);
   font-size: 1.03rem;
   max-width: 720px;
   margin-bottom: 12px;
@@ -354,7 +358,7 @@ nav a {
 
 .tab-buttons button {
   background: transparent;
-  color: #e6f2ff;
+  color: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 10px 20px;
   border-radius: 999px;
@@ -375,7 +379,7 @@ nav a {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-  color: #e6f2ff;
+  color: var(--surface);
 }
 
 .tab-content.active {
@@ -385,13 +389,13 @@ nav a {
 .founders {
   padding: 50px 20px;
   background: transparent;
-  color: #e6f2ff;
+  color: var(--surface);
 }
 
 .founders h2 {
   text-align: center;
   font-size: 2rem;
-  color: #f8fbff;
+  color: var(--surface);
   margin-bottom: 40px;
 }
 
@@ -1134,6 +1138,8 @@ footer p {
     gap: 12px;
   }
 }
+
+
 
 
 
