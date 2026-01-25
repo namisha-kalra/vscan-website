@@ -9,6 +9,21 @@
   --header-h: 72px;
 }
 
+.light-theme {
+  --bg-0: #ffffff;
+  --bg-1: #f8f9fa;
+  --surface: #0f1724;
+  --muted: #64748b;
+  --brand: #003366;
+  --accent: #ffcc00;
+  --glass: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background: var(--bg-0);
+  color: var(--surface);
+}
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -23,8 +38,8 @@
 }
 
 .member {
-  background: #fff;
-  color: #12303f;
+  background: var(--bg-1);
+  color: var(--surface);
   padding: 26px 20px;
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(2, 6, 23, 0.2);
@@ -103,12 +118,37 @@
 
 /* ===== HEADER ===== */
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: var(--surface);
-  padding: 20px 0;
+  padding: 20px;
+}
+
+header .logo {
+  flex-shrink: 0;
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 header .logo img {
   height: 50px;
+  filter: brightness(0.8);
+}
+
+.light-theme header .logo img {
+  filter: brightness(0.2);
+}
+
+.logo-text {
+  text-decoration: none;
+  color: var(--brand);
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 nav ul {
@@ -121,6 +161,20 @@ nav a {
   text-decoration: none;
   color: var(--brand);
   font-weight: bold;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  color: var(--surface);
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: color 0.3s;
+}
+
+#theme-toggle:hover {
+  color: var(--accent);
 }
 
 .hero {
@@ -269,7 +323,7 @@ nav a {
 }
 
 .card h4 {
-  color: #fff;
+  color: var(--surface);
   margin: 8px 0;
 }
 
@@ -1080,4 +1134,5 @@ footer p {
     gap: 12px;
   }
 }
+
 
