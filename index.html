@@ -59,26 +59,29 @@
     <h2>Our Team</h2>
     <div class="team-grid">
       <div class="member">
-        <a href="cofounders.html">
-          <img src="vikas.jpg" alt="Vikas Chaudhry">
-          <h3>Vikas Kumar Choudhary</h3>
-          <p>Founder</p>
-        </a>
-      </div>
-      <div class="member">
-        <a href="cofounders.html">
-          <img src="aditya_new.jpg" alt="Aditya Singh">
-          <h3>Aditya Singh</h3>
-          <p>Co‑Founder</p>
-        </a>
-      </div>
-      <div class="member">
-        <a href="cofounders.html">
-          <img src="runny.jpg" alt="Runny Tomar">
-          <h3>Runny Tomar</h3>
-          <p>Co‑Founder</p>
-        </a>
-      </div>
+  <a href="vikas.html">
+    <img src="vikas.jpg" alt="Founder">
+    <p>Founder</p>
+    <a href="vikas.html" class="know-more">Know More →</a>
+  </a>
+</div>
+
+<div class="member">
+  <a href="aditya.html">
+    <img src="aditya_new.jpg" alt="Co-Founder">
+    <p>Co-Founder</p>
+    <a href="aditya.html" class="know-more">Know More →</a>
+
+  </a>
+</div>
+
+<div class="member">
+  <a href="runny.html">
+    <img src="runny.jpg" alt="Co-Founder">
+    <p>Co-Founder</p>
+    <a href="runny.html" class="know-more">Know More →</a>
+  </a>
+</div>
     </div>
   </section>
   <!-- Advisory Committee (Homepage: small cards like Our Team) -->
@@ -218,6 +221,22 @@ We mobilize young minds to participate meaningfully in politics — not just as 
   </script>
 </body>
 </html>
+<script>
+  document.querySelectorAll(".member").forEach(member => {
+    member.addEventListener("click", () => {
+      const data = {
+        name: member.dataset.name,
+        image: member.dataset.image,
+        about: member.dataset.about,
+        linkedin: member.dataset.linkedin,
+        instagram: member.dataset.instagram,
+        twitter: member.dataset.twitter
+      };
+      localStorage.setItem("selectedMember", JSON.stringify(data));
+    });
+  });
+</script>
+
 
 
 
