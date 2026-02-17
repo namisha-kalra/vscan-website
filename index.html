@@ -28,7 +28,7 @@
         
       </ul>
     </nav>
-    <button id="theme-toggle" title="Toggle Theme">🌙</button>
+    
   </header>
 
   <!-- ✅ HERO with video -->
@@ -194,20 +194,7 @@ We mobilize young minds to participate meaningfully in politics — not just as 
       buttons.forEach((b, i) => b.classList.toggle('active', i === index));
     }
 
-    // Theme toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-      body.classList.add(currentTheme);
-      themeToggle.textContent = currentTheme === 'light-theme' ? '☀️' : '🌙';
-    }
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('light-theme');
-      const theme = body.classList.contains('light-theme') ? 'light-theme' : '';
-      localStorage.setItem('theme', theme);
-      themeToggle.textContent = theme === 'light-theme' ? '☀️' : '🌙';
-    });
+    // Theme switch removed — site uses only dark theme by default
 
     // Simple reveal-on-scroll using IntersectionObserver
     document.addEventListener('DOMContentLoaded', function(){
@@ -236,6 +223,9 @@ We mobilize young minds to participate meaningfully in politics — not just as 
     });
   });
 </script>
+
+
+
 
 
 
