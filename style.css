@@ -15,16 +15,6 @@ img {
   --header-h: 72px;
 }
 
-.light-theme {
-  --bg-0: #ffffff;
-  --bg-1: #f8f9fa;
-  --surface: #0f1724;
-  --muted: #64748b;
-  --brand: #003366;
-  --accent: #ffcc00;
-  --glass: rgba(0, 0, 0, 0.1);
-}
-
 body {
   background: var(--bg-0);
   color: var(--surface);
@@ -143,14 +133,6 @@ header .logo img {
   filter: brightness(0.8);
 }
 
-.light-theme header .logo img {
-  filter: brightness(0.2);
-}
-
-.light-theme header {
-  background: var(--bg-0);
-}
-
 .logo-text {
   text-decoration: none;
   color: var(--brand);
@@ -170,19 +152,7 @@ nav a {
   font-weight: bold;
 }
 
-#theme-toggle {
-  background: none;
-  border: none;
-  color: var(--brand);
-  font-size: 1.5em;
-  cursor: pointer;
-  margin-left: 20px;
-  transition: color 0.3s;
-}
-
-#theme-toggle:hover {
-  color: var(--accent);
-}
+/* Theme toggle removed — no controls shown */
 
 .hero {
   background: linear-gradient(180deg, var(--bg-0), var(--bg-1));
@@ -743,10 +713,13 @@ footer {
 }
 
 .slider-section h2 {
-  font-size: 2rem;
-  color: #003366;
-  margin-bottom: 30px;
+  font-size: 2.6rem;
+  color: #e9f4ff;   /* same as Advisory Committee */
+  text-align: left;
+  padding-left: 40px;
+  margin-bottom: 28px;
 }
+
 
 .slider {
   display: flex;
@@ -792,6 +765,20 @@ footer {
 .slide-card p {
   font-size: 0.9rem;
   line-height: 1.45;
+}
+
+/* Ensure slider card titles and descriptions are visible on white cards */
+.slide-card h3,
+.slide-card p {
+  color: #12303f !important;
+}
+
+/* Ensure card and gallery captions are visible on white backgrounds */
+.card h4,
+.card p,
+.gallery-item h4,
+.gallery-item p {
+  color: #12303f !important;
 }
 
 .reveal {
@@ -1204,6 +1191,15 @@ footer p {
 .profile-right {
   max-width: 700px;
 }
+
+header .logo img {
+  height: 55px;
+  filter: brightness(1.3) contrast(1.2) saturate(1.2);
+}
+
+
+
+
 
 
 
