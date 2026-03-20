@@ -132,6 +132,9 @@ nav.scrolled{box-shadow:var(--smd)}
 .aimg-wrap{position:relative}
 .aimg{width:100%;display:block;border-radius:10px;filter:saturate(.88);box-shadow:var(--slg);border:1px solid var(--g200);transition:filter .4s}
 .aimg:hover{filter:saturate(1)}
+/* Decorative corner accents on image */
+.aimg-wrap::before{content:'';position:absolute;top:-10px;left:-10px;width:60px;height:60px;border-top:3px solid var(--b5);border-left:3px solid var(--b5);border-radius:2px;pointer-events:none}
+.aimg-wrap::after{content:'';position:absolute;bottom:-10px;right:-10px;width:60px;height:60px;border-bottom:3px solid var(--goldl);border-right:3px solid var(--goldl);border-radius:2px;pointer-events:none}
 .apoints{margin-top:2rem;display:flex;flex-direction:column;gap:.8rem}
 .ap{display:flex;align-items:flex-start;gap:14px;padding:1rem 1.2rem;border:1px solid var(--g200);border-radius:8px;transition:border-color .25s,box-shadow .25s,transform .2s}
 .ap:hover{border-color:var(--b1);box-shadow:var(--smd);transform:translateX(5px)}
@@ -140,6 +143,9 @@ nav.scrolled{box-shadow:var(--smd)}
 .ap-txt p{font-size:.78rem;color:var(--g400);line-height:1.5;text-align:justify}
 .about-body p{font-size:.97rem;line-height:1.85;color:var(--g600);margin-bottom:1rem;text-align:justify}
 .about-body p strong{color:var(--g800);font-weight:700}
+/* Pull quote */
+.about-quote{margin:1.5rem 0;padding:1rem 1.5rem;border-left:3px solid var(--b5);background:var(--b0);border-radius:0 8px 8px 0}
+.about-quote p{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:var(--b7);line-height:1.7;margin:0}
 
 /* ── SERVICES — with political background images ── */
 #services{background:var(--g50);border-bottom:1px solid var(--g200);position:relative;overflow:hidden}
@@ -271,6 +277,15 @@ nav.scrolled{box-shadow:var(--smd)}
 .rv.vis{opacity:1;transform:translateY(0)}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
 
+/* Hero inline stats row */
+.h-stats-row{display:flex;align-items:center;gap:0;margin-top:2.4rem;animation:fu .7s .17s ease both}
+.h-stat-item{display:flex;flex-direction:column;gap:4px;padding:0 2.2rem}
+.h-stat-item:first-child{padding-left:0}
+.h-stat-n{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-1px}
+.h-stat-n em{color:var(--goldl);font-style:normal}
+.h-stat-l{font-size:.58rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.h-stat-sep{width:1px;height:40px;background:rgba(255,255,255,.15);flex-shrink:0}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .nlinks{display:none}.burger{display:flex}
@@ -284,6 +299,9 @@ nav.scrolled{box-shadow:var(--smd)}
   .h-btns{flex-direction:column}
   .fgrow{display:flex;flex-direction:column}
   .ngrid{grid-template-columns:1fr 1fr}
+  .h-stats-row{flex-wrap:wrap;gap:1.5rem}
+  .h-stat-sep{display:none}
+  .h-stat-item{padding:0}
 }
 </style>
 </head>
@@ -293,7 +311,7 @@ nav.scrolled{box-shadow:var(--smd)}
 <div class="topbar">
   <div class="topbar-l">
     <span>📍 Shahdara, Delhi – 110032</span>
-    <span>🇮🇳 Established 2019</span>
+    <span>Established 2019</span>
   </div>
   <div class="topbar-r">
     <a href="mailto:Vscanalliance@gmail.com">Vscanalliance@gmail.com</a>
@@ -305,10 +323,6 @@ nav.scrolled{box-shadow:var(--smd)}
 <nav id="nav">
   <a href="#" class="nlogo">
     <img src="logo.png.png" alt="V SCAN" onerror="this.style.display='none'"/>
-    <div class="nlogo-txt">
-      <span class="nlogo-main">V SCAN</span>
-      <span class="nlogo-sub">Political Consultancy · Delhi</span>
-    </div>
   </a>
   <ul class="nlinks">
     <li><a href="#about">About</a></li>
@@ -344,34 +358,27 @@ nav.scrolled{box-shadow:var(--smd)}
   <div class="hero-glow1"></div>
   <div class="hero-glow2"></div>
 
-  <div class="hero-wrap">
+  <div class="hero-wrap" style="grid-template-columns:1fr;max-width:900px">
     <div>
       <div class="h-flag">
         <div class="h-flag-bar"><div class="fb1"></div><div class="fb2"></div><div class="fb3"></div></div>
-        <span>India's Premier Political Consultancy</span>
+        <span>India's Premier Political Consultancy · Est. 2019</span>
       </div>
-      <h1 class="h-title">
-        Strategizing
-        <span class="tbl">Governance.</span>
-        Empowering <span class="tgo">Democracy.</span>
-      </h1>
-      <p class="h-desc">India's most trusted political consulting force — combining on-ground intelligence, data science, and strategic communication to shape leaders who govern with purpose.</p>
-      <div class="h-btns">
-        <a href="#services" class="btn-wh">Our Services <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="#about" class="btn-ol">Know More</a>
-      </div>
-    </div>
 
-    <div class="h-card">
-      <div class="h-card-head">
-        <h3>Our Impact</h3>
-        <span class="live">Live</span>
-      </div>
-      <div class="h-sgrid">
-        <div class="h-si"><div class="h-sn">100<span>+</span></div><div class="h-sl">Campaigns Managed</div></div>
-        <div class="h-si"><div class="h-sn">28</div><div class="h-sl">States Covered</div></div>
-        <div class="h-si"><div class="h-sn">6<span>+</span></div><div class="h-sl">Years of Excellence</div></div>
-        <div class="h-si"><div class="h-sn">500<span>+</span></div><div class="h-sl">Leaders Trained</div></div>
+      <h1 class="h-title" style="font-size:clamp(3.2rem,6.5vw,6rem)">
+        Where Strategy
+        <span class="tbl">Meets Democracy.</span>
+        Where Data
+        <span class="tgo">Shapes India.</span>
+      </h1>
+
+      <p class="h-desc" style="font-size:1.08rem;max-width:640px;margin-top:1.5rem">
+        V SCAN is not just a political consultancy — we are the engine behind governance that works. We partner with India's boldest leaders to design winning campaigns, build citizen-first governments, and create political movements that outlast elections.
+      </p>
+
+      <div class="h-btns">
+        <a href="#services" class="btn-wh">Explore Our Work <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#contact" class="btn-ol">Get In Touch</a>
       </div>
     </div>
   </div>
@@ -415,7 +422,10 @@ nav.scrolled{box-shadow:var(--smd)}
         <h2 class="sh rv">India's Political <em>Consulting Force</em></h2>
         <div class="about-body rv">
           <p><strong>V SCAN — Vikas Strategic Citizens Accountable Network</strong> — is a new-age political consulting organization built by professionals who believe governance must be earned through strategy, honesty, and relentless public service.</p>
-          <p>We partner with <strong>visionary leaders</strong> to set citizen-centric agendas, design data-backed campaigns, and conceptualize the most effective methods of mass outreach — from booth level to prime time. Our work doesn't end on election day. We help leaders <strong>deliver on every promise</strong> made to the voter.</p>
+          <div class="about-quote">
+            <p>"We don't just shape victories — we shape governance. From booth level to prime time, from election day to delivery day."</p>
+          </div>
+          <p>We partner with <strong>visionary leaders</strong> to set citizen-centric agendas, design data-backed campaigns, and conceptualize the most effective methods of mass outreach. Our work doesn't end on election day. We help leaders <strong>deliver on every promise</strong> made to the voter.</p>
         </div>
         <div class="apoints">
           <div class="ap rv"><div class="ap-ico">🗳️</div><div class="ap-txt"><h4>Election Management</h4><p>End-to-end campaign architecture — from constituency mapping to victory night</p></div></div>
@@ -523,16 +533,6 @@ nav.scrolled{box-shadow:var(--smd)}
     </div>
   </div>
 </section>
-
-<!-- NUMBERS -->
-<div class="numbar">
-  <div class="ngrid">
-    <div class="ni rv"><div class="nin">100<span>+</span></div><div class="nil">Campaigns Won</div></div>
-    <div class="ni rv d1"><div class="nin">28</div><div class="nil">States Covered</div></div>
-    <div class="ni rv d2"><div class="nin">6<span>+</span></div><div class="nil">Years of Excellence</div></div>
-    <div class="ni rv d3"><div class="nin">500<span>+</span></div><div class="nil">Leaders Trained</div></div>
-  </div>
-</div>
 
 <!-- MAP — Full India, no city names list -->
 <section id="map-section" class="sec">
@@ -682,7 +682,7 @@ nav.scrolled{box-shadow:var(--smd)}
       <!-- KP Malik -->
       <div class="adv rv">
         <div class="adv-head">
-          <div class="adv-av"><img src="advisor1.jpg" alt="K.P. Malik" onerror="this.style.display='none';this.parentElement.innerHTML='KP'"/></div>
+          <div class="adv-av" style="background:linear-gradient(135deg,#1A4E9C,#0A2040);font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:1px">KP</div>
           <div><div class="adv-name">Mr. K.P. Malik</div><div class="adv-role">Senior Journalist &amp;<br>Political Editor</div></div>
         </div>
         <div class="adv-line"></div>
@@ -697,7 +697,7 @@ nav.scrolled{box-shadow:var(--smd)}
       <!-- Dr. Gyanendra -->
       <div class="adv rv d1">
         <div class="adv-head">
-          <div class="adv-av"><img src="advisor2.jpg" alt="Dr. Gyanendra Kumar Attri" onerror="this.style.display='none';this.parentElement.innerHTML='GKA'"/></div>
+          <div class="adv-av" style="background:linear-gradient(135deg,#1A4E9C,#0A2040);font-size:.95rem;font-weight:800;color:#fff;letter-spacing:1px">GKA</div>
           <div><div class="adv-name">Dr. Gyanendra Kumar Attri</div><div class="adv-role">Environmental Sustainability<br>Expert</div></div>
         </div>
         <div class="adv-line"></div>
@@ -708,12 +708,10 @@ nav.scrolled{box-shadow:var(--smd)}
         </div>
       </div>
 
-      <!-- Prof. Santosh Kumar Karn — NO "New Member" badge -->
+      <!-- Prof. Santosh Kumar Karn -->
       <div class="adv rv d2">
         <div class="adv-head">
-          <div class="adv-av" style="background:linear-gradient(135deg,var(--gold),var(--b7));border-color:rgba(200,144,16,.3)">
-            <img src="advisor3.jpeg" alt="Prof. Santosh Kumar Karn" onerror="this.style.display='none';this.parentElement.innerHTML='SK'"/>
-          </div>
+          <div class="adv-av" style="background:linear-gradient(135deg,var(--gold),var(--b7));font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:1px">SK</div>
           <div><div class="adv-name">Prof. (Dr.) Santosh Kumar Karn</div><div class="adv-role">Academician &amp;<br>Global Science Advisor</div></div>
         </div>
         <div class="adv-line" style="background:var(--gold)"></div>
@@ -738,7 +736,7 @@ nav.scrolled{box-shadow:var(--smd)}
         <h2 class="sh rv">Let's Start a <em>Conversation</em></h2>
         <p class="sdesc rv" style="margin-bottom:2rem">Ready to shape your political campaign? Our team is here to strategize with you.</p>
         <div class="cblock rv"><div class="clbl">Address</div><div class="cval">1/5153 T/F G-5, Balbir Nagar Extension,<br>Shahdara, Delhi – 110032</div></div>
-        <div class="cblock rv"><div class="clbl">Email</div><div class="cval"><a href="mailto:Vscanalliance@gmail.com">Vscanalliance@gmail.com</a></div></div>
+        <div class="cblock rv"><div class="clbl">Email</div><div class="cval"><a href="/cdn-cgi/l/email-protection#d086a3b3b1beb1bcbcb9b1beb3b590b7bdb1b9bcfeb3bfbd"><span class="__cf_email__" data-cfemail="c492b7a7a5aaa5a8a8ada5aaa7a184a3a9a5ada8eaa7aba9">[email&#160;protected]</span></a></div></div>
         <div class="cblock rv"><div class="clbl">Phone</div><div class="cval"><a href="tel:+918368087258">+91-8368087258</a><br><a href="tel:+918126487892">+91-8126487892</a></div></div>
         <div class="socrow rv">
           <a class="socbtn" href="https://www.facebook.com/profile.php?id=61576049937047" target="_blank">📘 Facebook</a>
@@ -774,7 +772,6 @@ nav.scrolled{box-shadow:var(--smd)}
     <div>
       <div class="fbrand-logo">
         <img src="logo.png.png" alt="V SCAN" onerror="this.style.display='none'"/>
-        <span class="fbrand-name">V SCAN</span>
       </div>
       <p class="fbrand-tag">Vikas Strategic Citizens Accountable Network — shaping India's political future through strategy, data and accountability.</p>
     </div>
@@ -811,6 +808,7 @@ nav.scrolled{box-shadow:var(--smd)}
     <p>Vikas Strategic Citizens Accountable Network</p>
   </div>
 </div>
+
 
 <script>
 window.addEventListener('scroll',function(){
