@@ -6,484 +6,785 @@
 <title>V SCAN – Strategizing Governance, Empowering Democracy</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
-/* ═══════════════════════════════════════════
-   V SCAN — WHITE BLUE POLITICAL EDITION
-   Clean · Presidential · Professional
-═══════════════════════════════════════════ */
-:root{
-  --b900:#0A1F44;
-  --b800:#0D2B5E;
-  --b700:#103A80;
-  --b600:#1448A0;
-  --b500:#1A5CC8;
-  --b400:#2E72E0;
-  --b300:#5A94EC;
-  --b100:#D6E6FF;
-  --b50: #EEF4FF;
-  --white:#FFFFFF;
-  --g50: #F8FAFF;
-  --g100:#F0F4FA;
-  --g200:#DDE4EF;
-  --g400:#8A96AA;
-  --g600:#4A5568;
-  --g800:#1A202C;
-  --gold:#C8940A;
-  --gold2:#E8B020;
-  --sh-sm:0 1px 4px rgba(14,40,100,.07);
-  --sh-md:0 4px 20px rgba(14,40,100,.10);
-  --sh-lg:0 12px 48px rgba(14,40,100,.14);
-  --sh-b: 0 8px 32px rgba(26,92,200,.22);
+:root {
+  --blue-900: #0A1F44;
+  --blue-800: #0D2B5E;
+  --blue-700: #103A80;
+  --blue-600: #1448A0;
+  --blue-500: #1A5CC8;
+  --blue-400: #2E72E0;
+  --blue-300: #5A94EC;
+  --blue-100: #D6E6FF;
+  --blue-50:  #EEF4FF;
+  --white:    #FFFFFF;
+  --gray-50:  #F8FAFF;
+  --gray-100: #F0F4FA;
+  --gray-200: #DDE4EF;
+  --gray-400: #8A96AA;
+  --gray-600: #4A5568;
+  --gray-800: #1A202C;
+  --gold:     #C8940A;
+  --gold-l:   #E8B020;
+  --shadow-sm: 0 1px 4px rgba(14,40,100,.07);
+  --shadow-md: 0 4px 20px rgba(14,40,100,.10);
+  --shadow-lg: 0 12px 48px rgba(14,40,100,.14);
+  --shadow-blue: 0 8px 32px rgba(26,92,200,.22);
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   background:var(--white);
-  color:var(--g800);
+  color:var(--gray-800);
   font-family:'Source Sans 3',sans-serif;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
-  cursor:auto; /* DEFAULT CURSOR — no custom cursor */
 }
 
 /* ── TOPBAR ── */
 .topbar{
-  background:var(--b900);
+  background:var(--blue-900);
   padding:7px 5vw;
   display:flex;align-items:center;justify-content:space-between;
   border-bottom:2px solid var(--gold);
 }
-.tb-left{font-size:.7rem;letter-spacing:.5px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:1.5rem}
-.tb-right a{color:rgba(255,255,255,.7);font-size:.7rem;text-decoration:none;margin-left:1.2rem;transition:color .2s}
-.tb-right a:hover{color:var(--gold2)}
+.topbar-left{
+  font-size:.7rem;letter-spacing:.5px;
+  color:rgba(255,255,255,.65);
+  display:flex;align-items:center;gap:1.5rem;
+}
+.topbar-left span{display:flex;align-items:center;gap:5px}
+.topbar-right a{
+  color:rgba(255,255,255,.75);font-size:.7rem;
+  text-decoration:none;margin-left:1.2rem;
+  transition:color .2s;
+}
+.topbar-right a:hover{color:var(--gold-l)}
 
 /* ── NAV ── */
 nav{
   position:sticky;top:0;z-index:500;
   background:var(--white);
-  border-bottom:1px solid var(--g200);
+  border-bottom:1px solid var(--gray-200);
   padding:0 5vw;height:70px;
   display:flex;align-items:center;justify-content:space-between;
-  box-shadow:var(--sh-sm);
+  box-shadow:var(--shadow-sm);
   transition:box-shadow .3s;
 }
-nav.scrolled{box-shadow:var(--sh-md)}
-
-.n-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.n-logo-img{
-  height:50px;width:auto;
+nav.scrolled{box-shadow:var(--shadow-md)}
+.n-logo{
+  display:flex;align-items:center;gap:13px;
+  text-decoration:none;
+}
+.logo-box{
+  width:44px;height:44px;
+  background:linear-gradient(135deg,var(--blue-700),var(--blue-500));
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  box-shadow:var(--shadow-blue);
+}
+.logo-box img{
+  height:36px;width:auto;
   object-fit:contain;
+}
+.logo-box .fallback{
+  font-family:'Playfair Display',serif;
+  font-size:.9rem;font-weight:800;
+  color:#fff;letter-spacing:1px;
+}
+.logo-words{line-height:1.15}
+.logo-main{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:800;
+  color:var(--blue-900);letter-spacing:.5px;
   display:block;
 }
-.n-logo-fallback{
-  background:linear-gradient(135deg,var(--b700),var(--b500));
-  width:44px;height:44px;
-  display:none;align-items:center;justify-content:center;
-  font-family:'Playfair Display',serif;
-  font-size:.9rem;font-weight:800;color:#fff;letter-spacing:1px;
+.logo-sub{
+  font-size:.5rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gray-400);display:block;
 }
-.n-logo-text{line-height:1.15}
-.n-logo-main{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:800;color:var(--b900);letter-spacing:.5px;display:block}
-.n-logo-sub{font-size:.5rem;letter-spacing:2px;text-transform:uppercase;color:var(--g400);display:block}
-
-.n-links{list-style:none;display:flex;align-items:center;gap:.3rem}
-.n-links a{
+.nm{list-style:none;display:flex;align-items:center;gap:.3rem}
+.nm a{
   font-size:.78rem;font-weight:600;letter-spacing:.3px;
-  color:var(--g600);text-decoration:none;
+  color:var(--gray-600);text-decoration:none;
   padding:7px 13px;border-radius:5px;
   transition:color .2s,background .2s;
 }
-.n-links a:hover{color:var(--b500);background:var(--b50)}
-.n-links .cta{
-  background:var(--b600)!important;color:#fff!important;
+.nm a:hover{color:var(--blue-500);background:var(--blue-50)}
+.nm .ncta{
+  background:var(--blue-600)!important;
+  color:#fff!important;
   border-radius:5px;padding:8px 18px!important;
-  font-weight:700!important;box-shadow:var(--sh-b);
+  font-weight:700!important;
+  box-shadow:var(--shadow-blue);
   transition:background .25s,transform .2s!important;
 }
-.n-links .cta:hover{background:var(--b700)!important;transform:translateY(-1px)!important}
-
-/* Mobile burger */
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.burger span{width:23px;height:2px;background:var(--g800);border-radius:2px;display:block}
-.mob-menu{
-  display:none;position:fixed;top:70px;left:0;right:0;
-  background:var(--white);border-bottom:2px solid var(--b100);
-  padding:1.5rem 5vw;z-index:499;box-shadow:var(--sh-md);
+.nm .ncta:hover{background:var(--blue-700)!important;transform:translateY(-1px)!important}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:23px;height:2px;background:var(--gray-800);border-radius:2px}
+.mob{
+  display:none;
+  position:fixed;top:70px;left:0;right:0;
+  background:var(--white);
+  border-bottom:2px solid var(--blue-100);
+  padding:1.5rem 5vw;z-index:499;
+  box-shadow:var(--shadow-md);
 }
-.mob-menu.open{display:block}
-.mob-menu a{
+.mob.open{display:block}
+.mob a{
   display:block;padding:.75rem 0;font-size:.88rem;font-weight:600;
-  color:var(--g700,#2D3748);text-decoration:none;
-  border-bottom:1px solid var(--g100);transition:color .2s;
+  color:var(--gray-700);text-decoration:none;
+  border-bottom:1px solid var(--gray-100);
+  transition:color .2s;
 }
-.mob-menu a:hover{color:var(--b500)}
+.mob a:hover{color:var(--blue-500)}
 
 /* ── HERO ── */
 #hero{
-  background:var(--b900);
-  min-height:88vh;
+  background:var(--blue-900);
+  min-height:90vh;
   display:flex;align-items:center;
   position:relative;overflow:hidden;
-  padding:0 5vw;
+  padding:70px 5vw 0;
 }
 
-/* Video bg */
-.h-video{position:absolute;inset:0;overflow:hidden;z-index:0}
-.h-video video{width:100%;height:100%;object-fit:cover;filter:brightness(.25)saturate(.7)}
-.h-video::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(10,31,68,.85) 50%,rgba(10,31,68,.4))}
-
-/* Geometric overlay */
-.h-geo{
-  position:absolute;inset:0;z-index:1;
+/* Geometric background pattern */
+.hero-geo{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 65% 30%, rgba(20,72,160,.6) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 5% 90%, rgba(6,15,38,.9) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 45% at 95% 60%, rgba(200,148,10,.08) 0%, transparent 45%),
+    linear-gradient(160deg, #04091A 0%, #071228 45%, #040810 100%);
+}
+.hero-pattern{
+  position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:52px 52px;
+    linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size:50px 50px;
 }
-/* Gold top stripe */
-.h-stripe{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--b400),var(--gold));z-index:3}
-/* Diagonal panel */
-.h-panel{
-  position:absolute;right:0;top:0;bottom:0;width:40%;z-index:1;
-  clip-path:polygon(18% 0,100% 0,100% 100%,0% 100%);
-  background:linear-gradient(135deg,transparent,rgba(26,72,160,.12));
-  border-left:1px solid rgba(255,255,255,.05);
+/* Animated diagonal sweep - DesignBoxed style */
+.hero-sweep{
+  position:absolute;inset:0;overflow:hidden;
 }
-/* Glow orb */
-.h-orb{
-  position:absolute;right:-50px;top:50%;transform:translateY(-50%);
-  width:500px;height:500px;border-radius:50%;z-index:1;
-  background:radial-gradient(circle,rgba(26,92,200,.2) 0%,transparent 70%);
+.hero-sweep::before{
+  content:'';
+  position:absolute;
+  width:2px;height:200%;
+  background:linear-gradient(to bottom,transparent,rgba(26,92,200,.3),transparent);
+  left:25%;top:-50%;
+  animation:sweep 8s ease infinite;
+}
+.hero-sweep::after{
+  content:'';
+  position:absolute;
+  width:1px;height:200%;
+  background:linear-gradient(to bottom,transparent,rgba(200,148,10,.15),transparent);
+  left:65%;top:-50%;
+  animation:sweep 12s ease infinite reverse;
+}
+@keyframes sweep{
+  0%,100%{transform:translateY(0) skewX(-8deg);opacity:.4}
+  50%{transform:translateY(-15%) skewX(-8deg);opacity:1}
+}
+/* Diagonal accent */
+.hero-diagonal{
+  position:absolute;right:0;top:0;bottom:0;width:42%;
+  background:linear-gradient(135deg,transparent 0%,rgba(26,72,160,.15) 100%);
+  clip-path:polygon(15% 0,100% 0,100% 100%,0% 100%);
+  border-left:1px solid rgba(255,255,255,.06);
+}
+/* Top accent bar */
+.hero-topbar{
+  position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--blue-400),var(--gold));
 }
 
-.h-wrap{
+.hero-wrap{
   position:relative;z-index:2;
-  display:grid;grid-template-columns:1.15fr 1fr;
-  gap:4rem;align-items:center;
+  display:grid;grid-template-columns:1.1fr 1fr;
+  gap:5rem;align-items:center;
   max-width:1240px;margin:0 auto;width:100%;
-  padding:8vh 0 10vh;
+  padding:7vh 0 10vh;
+}
+.hero-left{}
+
+/* Ashoka Chakra watermark */
+.chakra-bg{
+  position:absolute;right:3vw;top:50%;transform:translateY(-50%);
+  width:420px;height:420px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.04);
+  display:flex;align-items:center;justify-content:center;z-index:1;
+}
+.chakra-bg::before{
+  content:'';position:absolute;
+  width:320px;height:320px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.03);
+}
+.chakra-bg::after{
+  content:'';position:absolute;
+  width:220px;height:220px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.05);
 }
 
-/* Indian flag accent */
-.h-flag{display:flex;align-items:center;gap:10px;margin-bottom:1.8rem;animation:fadeUp .7s ease both}
-.h-flag-bar{display:flex;flex-direction:column;width:4px;height:40px;border-radius:2px;overflow:hidden}
-.fb1{flex:1;background:#FF9933}.fb2{flex:1;background:#fff}.fb3{flex:1;background:#138808}
-.h-flag-txt{font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.h-flag{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:1.8rem;
+  animation:up .7s ease both;
+}
+.h-flag-bar{
+  display:flex;flex-direction:column;
+  width:4px;height:42px;overflow:hidden;border-radius:2px;
+}
+.fb1{flex:1;background:#FF9933}
+.fb2{flex:1;background:#FFFFFF}
+.fb3{flex:1;background:#138808}
+.h-flag-txt{
+  font-size:.65rem;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(255,255,255,.5);font-weight:500;
+}
 
 .h-title{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.6rem,4.8vw,4.5rem);
+  font-size:clamp(2.8rem,5vw,4.8rem);
   font-weight:800;line-height:1.1;
-  color:var(--white);margin-bottom:1.2rem;
-  animation:fadeUp .7s .07s ease both;
+  color:var(--white);
+  margin-bottom:1.2rem;
+  animation:up .7s .07s ease both;
 }
-.h-title .t-blue{color:#7BB3F8;display:block}
-.h-title .t-gold{color:var(--gold2);font-style:italic}
+.h-title .blue-line{
+  color:var(--blue-300);display:block;
+}
+.h-title .gold-word{
+  color:var(--gold-l);
+  font-style:italic;
+}
 
-.h-hindi{
-  font-family:'Noto Sans Devanagari',sans-serif;
-  font-size:.92rem;color:rgba(255,255,255,.38);
-  margin-bottom:1.4rem;
-  animation:fadeUp .7s .12s ease both;
-}
 .h-desc{
   font-size:1rem;line-height:1.8;
-  color:rgba(255,255,255,.58);font-weight:300;
+  color:rgba(255,255,255,.6);font-weight:300;
   max-width:490px;
-  animation:fadeUp .7s .17s ease both;
+  animation:up .7s .17s ease both;
 }
-.h-btns{display:flex;gap:.9rem;margin-top:2.2rem;flex-wrap:wrap;animation:fadeUp .7s .22s ease both}
 
-.btn-w{
+.h-btns{
+  display:flex;gap:.9rem;margin-top:2.2rem;flex-wrap:wrap;
+  animation:up .7s .22s ease both;
+}
+.btn-white{
   display:inline-flex;align-items:center;gap:8px;
-  background:var(--white);color:var(--b700);
+  background:var(--white);color:var(--blue-700);
   padding:13px 28px;border-radius:6px;
   font-size:.8rem;font-weight:700;letter-spacing:.5px;
   text-decoration:none;
   box-shadow:0 4px 20px rgba(0,0,0,.15);
   transition:transform .2s,box-shadow .2s;
 }
-.btn-w:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
-.btn-ow{
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.btn-outline-w{
   display:inline-flex;align-items:center;gap:8px;
-  background:transparent;color:rgba(255,255,255,.8);
+  background:transparent;color:rgba(255,255,255,.85);
   padding:13px 28px;border-radius:6px;
-  border:1.5px solid rgba(255,255,255,.22);
+  border:1.5px solid rgba(255,255,255,.25);
   font-size:.8rem;font-weight:600;letter-spacing:.5px;
   text-decoration:none;
   transition:border-color .25s,color .25s,background .25s,transform .2s;
 }
-.btn-ow:hover{border-color:rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.06);transform:translateY(-2px)}
+.btn-outline-w:hover{border-color:rgba(255,255,255,.6);color:#fff;background:rgba(255,255,255,.06);transform:translateY(-2px)}
 
-/* Stats card — right side */
-.h-card{
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  backdrop-filter:blur(18px);
-  border-radius:12px;overflow:hidden;
-  animation:fadeUp .7s .3s ease both;
+/* Right card */
+.hero-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  backdrop-filter:blur(20px);
+  border-radius:12px;
+  overflow:hidden;
+  animation:up .7s .3s ease both;
 }
-.h-card-head{
+.hero-card-head{
   background:rgba(255,255,255,.08);
   padding:1.2rem 1.6rem;
   border-bottom:1px solid rgba(255,255,255,.08);
   display:flex;align-items:center;justify-content:space-between;
 }
-.h-card-head h3{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.live{display:flex;align-items:center;gap:6px;font-size:.62rem;color:rgba(255,255,255,.45)}
-.live::before{content:'';width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 8px rgba(74,222,128,.6);animation:blink 1.5s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.stat-grid{display:grid;grid-template-columns:1fr 1fr}
-.sg{
+.hero-card-head h3{
+  font-size:.72rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,.7);
+}
+.live-badge{
+  display:flex;align-items:center;gap:6px;
+  font-size:.62rem;letter-spacing:1px;color:rgba(255,255,255,.5);
+}
+.live-badge::before{
+  content:'';width:7px;height:7px;border-radius:50%;
+  background:#4ADE80;
+  box-shadow:0 0 8px rgba(74,222,128,.6);
+  animation:blink 1.5s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.stats-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;
+}
+.sg-item{
   padding:1.6rem 1.4rem;
   border-right:1px solid rgba(255,255,255,.07);
   border-bottom:1px solid rgba(255,255,255,.07);
   transition:background .25s;
 }
-.sg:hover{background:rgba(255,255,255,.05)}
-.sg:nth-child(2n){border-right:none}
-.sg:nth-child(3),.sg:nth-child(4){border-bottom:none}
-.sg-n{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-1px}
-.sg-n span{color:var(--gold2)}
-.sg-l{font-size:.62rem;font-weight:500;color:rgba(255,255,255,.42);margin-top:.3rem}
+.sg-item:hover{background:rgba(255,255,255,.05)}
+.sg-item:nth-child(2n){border-right:none}
+.sg-item:nth-child(3),.sg-item:nth-child(4){border-bottom:none}
+.sg-n{
+  font-family:'Playfair Display',serif;
+  font-size:2.4rem;font-weight:800;color:#fff;
+  line-height:1;letter-spacing:-1px;
+}
+.sg-n span{color:var(--gold-l)}
+.sg-l{font-size:.65rem;font-weight:500;letter-spacing:.5px;color:rgba(255,255,255,.45);margin-top:.3rem}
 
 /* Scroll hint */
-.h-scroll{position:absolute;bottom:3vh;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px;animation:fadeUp 1s .7s ease both}
-.h-scroll-bar{width:1px;height:42px;background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent);animation:scb 1.8s ease infinite}
-@keyframes scb{0%,100%{opacity:.4}50%{opacity:1}}
-.h-scroll-txt{font-size:.48rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.28)}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-
-/* ── STATES TICKER ── */
-.ticker{
-  background:var(--white);border-bottom:1px solid var(--g200);
-  padding:1.4rem 5vw;display:flex;align-items:center;gap:2.5rem;overflow:hidden;
+.h-scroll{
+  position:absolute;bottom:3.5vh;left:50%;
+  transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  z-index:2;animation:up 1s .7s ease both;
 }
-.ticker-lbl{font-size:.6rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--g400);white-space:nowrap;flex-shrink:0;padding-right:2rem;border-right:1px solid var(--g200)}
-.ticker-track{display:flex;align-items:center;gap:2.5rem;animation:tickMove 18s linear infinite;flex-shrink:0;white-space:nowrap}
-.ti{font-size:.73rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g400);transition:color .25s}
-.ti:hover{color:var(--b500)}
-@keyframes tickMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.h-scroll-bar{
+  width:1px;height:44px;
+  background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent);
+  animation:scroll 1.8s ease infinite;
+}
+@keyframes scroll{0%,100%{opacity:.4}50%{opacity:1}}
+.h-scroll-txt{font-size:.5rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── TRUST BAR ── */
+.trust{
+  background:var(--white);
+  border-bottom:1px solid var(--gray-200);
+  padding:1.6rem 5vw;
+  display:flex;align-items:center;gap:3rem;
+  overflow:hidden;
+}
+.trust-lbl{
+  font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gray-400);white-space:nowrap;flex-shrink:0;
+  padding-right:2rem;border-right:1px solid var(--gray-200);
+}
+.trust-track{
+  display:flex;align-items:center;gap:3rem;
+  animation:trustScroll 18s linear infinite;
+  flex-shrink:0;
+}
+.trust-item{
+  font-size:.75rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gray-400);
+  white-space:nowrap;transition:color .25s;
+}
+.trust-item:hover{color:var(--blue-500)}
+@keyframes trustScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── SECTION BASE ── */
-.sec{padding:7rem 5vw}
-.sec-in{max-width:1240px;margin:0 auto}
+.sec{padding:7.5rem 5vw}
+.sec-inner{max-width:1240px;margin:0 auto}
 .stag{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
-.pill{background:var(--b50);color:var(--b600);font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:100px;border:1px solid var(--b100)}
-.sh{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.6vw,3rem);font-weight:800;line-height:1.15;color:var(--g800);margin-bottom:.6rem}
-.sh span{color:var(--b500)}
-.sh em{font-style:italic;color:var(--b400)}
-.sdesc{font-size:.97rem;line-height:1.78;color:var(--g600);max-width:540px;margin-bottom:3rem}
+.stag-pill{
+  background:var(--blue-50);color:var(--blue-600);
+  font-size:.62rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:5px 14px;border-radius:100px;
+  border:1px solid var(--blue-100);
+}
+.sh{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.8vw,3.2rem);
+  font-weight:800;line-height:1.15;
+  color:var(--gray-800);margin-bottom:.6rem;
+}
+.sh span{color:var(--blue-500)}
+.sh em{font-style:italic;color:var(--blue-400)}
+.sdesc{
+  font-size:1rem;line-height:1.78;color:var(--gray-600);
+  font-weight:400;max-width:540px;margin-bottom:3rem;
+}
 
 /* ── ABOUT ── */
-#about{background:var(--white);border-bottom:1px solid var(--g200)}
-.about-layout{display:grid;grid-template-columns:1fr 1.05fr;gap:6rem;align-items:center}
+#about{background:var(--white);border-bottom:1px solid var(--gray-200)}
+.about-layout{
+  display:grid;grid-template-columns:1fr 1.05fr;
+  gap:6rem;align-items:center;
+}
 .about-img-wrap{position:relative}
-.about-img{width:100%;display:block;border-radius:8px;filter:saturate(.85);box-shadow:var(--sh-lg);border:1px solid var(--g200);transition:filter .4s}
+.about-img{
+  width:100%;display:block;border-radius:8px;
+  filter:saturate(.85);
+  box-shadow:var(--shadow-lg);
+  border:1px solid var(--gray-200);
+  transition:filter .4s;
+}
 .about-img:hover{filter:saturate(1)}
 .about-badge{
   position:absolute;bottom:-1.5rem;right:-1.5rem;
-  background:var(--b700);border-radius:10px;
-  padding:1.1rem 1.5rem;box-shadow:var(--sh-b);text-align:center;
+  background:var(--blue-700);
+  border-radius:10px;padding:1.2rem 1.6rem;
+  box-shadow:var(--shadow-blue);
+  text-align:center;
 }
-.about-badge .big{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:#fff;line-height:1}
-.about-badge .sm{font-size:.58rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:3px}
+.about-badge .big{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:#fff;line-height:1}
+.about-badge .sm{font-size:.6rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:3px}
 
-.about-body p{font-size:.96rem;line-height:1.85;color:var(--g600);margin-bottom:1rem}
-.about-body p strong{color:var(--g800);font-weight:700}
-.about-pts{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem}
-.apt{
-  display:flex;align-items:flex-start;gap:13px;
-  padding:.9rem 1.1rem;
-  border:1px solid var(--g200);border-radius:8px;
+.about-body p{
+  font-size:.97rem;line-height:1.85;color:var(--gray-600);margin-bottom:1rem;
+}
+.about-body p strong{color:var(--gray-800);font-weight:700}
+.about-points{margin-top:2rem;display:flex;flex-direction:column;gap:.8rem}
+.apoint{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:1rem 1.2rem;
+  border:1px solid var(--gray-200);border-radius:8px;
   transition:border-color .25s,box-shadow .25s,transform .2s;
 }
-.apt:hover{border-color:var(--b100);box-shadow:var(--sh-md);transform:translateX(4px)}
-.apt-ico{width:34px;height:34px;border-radius:7px;background:var(--b50);border:1px solid var(--b100);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.apt-txt h4{font-size:.86rem;font-weight:700;color:var(--g800);margin-bottom:.12rem}
-.apt-txt p{font-size:.76rem;color:var(--g400);line-height:1.5}
-
-/* ── KEY FOCUS (SLIDER) ── */
-#focus{background:var(--g50);border-bottom:1px solid var(--g200)}
-.slider-wrap{overflow:hidden;margin-top:2.5rem;position:relative}
-.slider-wrap::after{content:'';position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(to left,var(--g50),transparent);pointer-events:none;z-index:1}
-.slider{
-  display:flex;gap:1.5rem;
-  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;scrollbar-width:none;
-  padding-bottom:1rem;
+.apoint:hover{border-color:var(--blue-200);box-shadow:var(--shadow-md);transform:translateX(4px)}
+.apoint-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--blue-50);border:1px solid var(--blue-100);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
 }
-.slider::-webkit-scrollbar{display:none}
+.apoint-text h4{font-size:.88rem;font-weight:700;color:var(--gray-800);margin-bottom:.15rem}
+.apoint-text p{font-size:.78rem;color:var(--gray-400);line-height:1.5}
+
+/* ── SERVICES ── */
+#services{background:var(--gray-50);border-bottom:1px solid var(--gray-200)}
+.svc-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+}
 .scard{
-  flex:0 0 320px;scroll-snap-align:start;
-  background:var(--white);border:1px solid var(--g200);border-radius:10px;
-  overflow:hidden;
+  background:var(--white);
+  border:1px solid var(--gray-200);border-radius:10px;
+  padding:2rem 1.8rem;
+  position:relative;overflow:hidden;
   transition:transform .28s,border-color .28s,box-shadow .28s;
 }
-.scard:hover{transform:translateY(-5px);border-color:var(--b100);box-shadow:var(--sh-lg)}
-.scard img{width:100%;height:170px;object-fit:cover;filter:saturate(.8);transition:filter .4s,transform .4s;display:block}
-.scard:hover img{filter:saturate(1);transform:scale(1.04)}
-.scard-body{padding:1.4rem}
-.scard-body h3{font-size:.97rem;font-weight:700;color:var(--g800);margin-bottom:.6rem}
-.scard-body p{font-size:.82rem;line-height:1.65;color:var(--g600)}
-.scard::before{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--b600),var(--b400));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.scard::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue-600),var(--blue-400));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s ease;
+}
+.scard:hover{transform:translateY(-5px);border-color:rgba(26,92,200,.2);box-shadow:var(--shadow-lg)}
 .scard:hover::before{transform:scaleX(1)}
-
-/* ── TEAM ── */
-#team{background:var(--white);border-bottom:1px solid var(--g200)}
-.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.tcard{
-  background:var(--white);border:1px solid var(--g200);border-radius:10px;
-  overflow:hidden;text-decoration:none;display:block;
-  transition:transform .3s,box-shadow .3s,border-color .3s;
+.s-num{
+  font-size:.62rem;font-weight:700;letter-spacing:2px;
+  color:var(--gray-400);text-transform:uppercase;margin-bottom:.7rem;
 }
-.tcard:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:var(--b100)}
-.timg-wrap{position:relative;overflow:hidden}
-.timg{width:100%;aspect-ratio:1/1.05;object-fit:cover;filter:saturate(.75);display:block;transition:filter .4s,transform .5s}
-.tcard:hover .timg{filter:saturate(.95);transform:scale(1.04)}
-.t-ribbon{
-  position:absolute;top:1rem;left:0;
-  background:var(--b700);padding:4px 14px 4px 10px;
-  font-size:.56rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;
-  clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,0 100%);
+.s-icon{
+  width:46px;height:46px;border-radius:10px;
+  background:var(--blue-50);border:1px solid var(--blue-100);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:1.2rem;
 }
-.t-body{padding:1.3rem 1.4rem;border-top:3px solid var(--b500)}
-.t-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;color:var(--g800);margin-bottom:.2rem}
-.t-role{font-size:.67rem;font-weight:600;letter-spacing:1px;color:var(--g400);text-transform:uppercase}
-
-/* ── ADVISORY ── */
-#advisory{background:var(--g50);border-bottom:1px solid var(--g200)}
-.adv-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:840px}
-.adv-card{
-  background:var(--white);border:1px solid var(--g200);border-radius:10px;
-  overflow:hidden;text-decoration:none;display:block;
-  transition:transform .3s,box-shadow .3s,border-color .3s;
+.scard h3{font-size:1rem;font-weight:700;color:var(--gray-800);margin-bottom:.6rem}
+.scard p{font-size:.84rem;line-height:1.7;color:var(--gray-600)}
+.s-link{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:1.2rem;font-size:.72rem;font-weight:700;letter-spacing:.3px;
+  color:var(--blue-500);text-decoration:none;
+  transition:gap .2s;
 }
-.adv-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);border-color:var(--b100)}
-.adv-card img{width:100%;height:200px;object-fit:cover;filter:saturate(.75);display:block;transition:filter .4s}
-.adv-card:hover img{filter:saturate(.9)}
-.adv-body{padding:1.3rem;border-top:3px solid var(--b400)}
-.adv-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:800;color:var(--g800);margin-bottom:.2rem}
-.adv-role{font-size:.65rem;font-weight:600;letter-spacing:1px;color:var(--g400);text-transform:uppercase}
-
-/* ── MAP SECTION ── */
-#map-section{background:var(--white);border-bottom:1px solid var(--g200)}
-.map-layout{display:grid;grid-template-columns:1fr 1.35fr;gap:6rem;align-items:center}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 2rem}
-.chip{
-  background:var(--b50);border:1px solid var(--b100);color:var(--b700);
-  padding:5px 13px;border-radius:100px;
-  font-size:.67rem;font-weight:600;letter-spacing:.5px;
-  transition:background .2s,color .2s;
-}
-.chip:hover{background:var(--b600);color:#fff;border-color:var(--b600)}
-.map-box{background:var(--b50);border:1px solid var(--g200);border-radius:12px;padding:2rem;box-shadow:var(--sh-sm)}
-#india-svg{width:100%;height:auto;display:block}
+.scard:hover .s-link{gap:9px}
 
 /* ── NUMBERS ── */
 .numbers{
-  background:linear-gradient(135deg,var(--b900),var(--b700));
-  padding:5rem 5vw;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--blue-900) 0%,var(--blue-700) 100%);
+  padding:5.5rem 5vw;position:relative;overflow:hidden;
 }
-.numbers::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px}
-.n-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:1}
-.ni{text-align:center;padding:1.8rem 1.5rem;border-right:1px solid rgba(255,255,255,.1);transition:background .25s}
-.ni:last-child{border-right:none}
-.ni:hover{background:rgba(255,255,255,.04)}
-.ni-n{font-family:'Playfair Display',serif;font-size:3.3rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-1px}
-.ni-n span{color:var(--gold2)}
-.ni-l{font-size:.62rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:.4rem}
+.numbers::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:45px 45px;
+}
+.numbers::after{
+  content:'';position:absolute;
+  top:-100px;right:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 70%);
+}
+.n-grid{
+  max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  position:relative;z-index:1;
+}
+.n-item{
+  text-align:center;padding:2rem 1.5rem;
+  border-right:1px solid rgba(255,255,255,.1);
+  transition:background .25s;
+}
+.n-item:last-child{border-right:none}
+.n-item:hover{background:rgba(255,255,255,.04)}
+.n-num{
+  font-family:'Playfair Display',serif;
+  font-size:3.5rem;font-weight:800;color:#fff;
+  line-height:1;letter-spacing:-1px;
+}
+.n-num span{color:var(--gold-l)}
+.n-lbl{
+  font-size:.65rem;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,.5);
+  margin-top:.5rem;
+}
+
+/* ── MAP ── */
+#map-section{background:var(--white);border-bottom:1px solid var(--gray-200)}
+.map-layout{
+  display:grid;grid-template-columns:1fr 1.35fr;
+  gap:6rem;align-items:center;
+}
+.state-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 2rem}
+.chip{
+  background:var(--blue-50);border:1px solid var(--blue-100);
+  color:var(--blue-700);
+  padding:5px 13px;border-radius:100px;
+  font-size:.68rem;font-weight:600;letter-spacing:.5px;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.chip:hover{background:var(--blue-600);border-color:var(--blue-600);color:#fff}
+
+.map-box{
+  background:var(--blue-50);
+  border:1px solid var(--gray-200);
+  border-radius:12px;padding:2rem;
+  box-shadow:var(--shadow-sm);
+  position:relative;
+}
+.map-box::before{
+  content:'OUR REACH';
+  position:absolute;top:1.2rem;right:1.5rem;
+  font-size:.55rem;letter-spacing:3px;font-weight:700;
+  color:var(--blue-300);text-transform:uppercase;
+}
+#india-svg{width:100%;height:auto;display:block}
 
 /* ── MISSION ── */
-#mission{background:var(--b900);padding:7rem 5vw;position:relative;overflow:hidden}
-#mission::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 85% 50%,rgba(26,92,200,.25) 0%,transparent 60%)}
-#mission::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:50px 50px}
-.miss-in{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
-.miss-q{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;line-height:1.35;color:#fff;font-style:italic}
-.miss-q strong{font-style:normal;color:#89B8FA;font-weight:800}
-.miss-q .mh{display:block;margin-top:.9rem;font-family:'Noto Sans Devanagari',sans-serif;font-size:.88rem;font-weight:400;font-style:normal;color:rgba(255,255,255,.32)}
+#mission{
+  background:var(--blue-900);
+  padding:7rem 5vw;position:relative;overflow:hidden;
+}
+#mission::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 80% at 85% 50%,rgba(26,92,200,.3) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 50% at 5% 50%,rgba(200,148,10,.06) 0%,transparent 50%);
+}
+#mission::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:50px 50px;
+}
+.miss-in{
+  max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:1.4fr 1fr;
+  gap:5rem;align-items:center;
+  position:relative;z-index:1;
+}
+.miss-q{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.7rem,3vw,2.6rem);
+  font-weight:700;line-height:1.35;
+  color:#fff;font-style:italic;
+}
+.miss-q strong{font-style:normal;color:var(--blue-300);font-weight:800}
+.miss-q .mh{
+  display:block;margin-top:.9rem;
+  font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:.9rem;font-weight:400;font-style:normal;
+  color:rgba(255,255,255,.35);
+}
 .miss-r{display:flex;flex-direction:column;gap:1rem}
-.mstat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:8px;padding:1.3rem 1.5rem;transition:background .25s,border-color .25s}
+.mstat{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:8px;padding:1.4rem 1.6rem;
+  transition:background .25s,border-color .25s;
+}
 .mstat:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
-.mstat-n{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:800;color:#fff}
-.mstat-l{font-size:.6rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:.2rem}
+.mstat-n{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;font-weight:800;color:#fff;
+}
+.mstat-l{font-size:.62rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.2rem}
+
+/* ── TEAM ── */
+#team{background:var(--gray-50);border-bottom:1px solid var(--gray-200)}
+.t-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2rem;
+}
+.tcard{
+  background:var(--white);
+  border:1px solid var(--gray-200);border-radius:10px;
+  overflow:hidden;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.tcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--blue-100)}
+.timg-wrap{position:relative;overflow:hidden}
+.timg{
+  width:100%;aspect-ratio:1/1.05;object-fit:cover;
+  filter:saturate(.75);display:block;
+  transition:filter .4s,transform .5s;
+}
+.tcard:hover .timg{filter:saturate(.95);transform:scale(1.04)}
+.t-ribbon{
+  position:absolute;top:1rem;left:0;
+  background:var(--blue-700);
+  padding:4px 14px 4px 10px;
+  font-size:.58rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:#fff;
+  clip-path:polygon(0 0,100% 0,calc(100% - 8px) 100%,0 100%);
+}
+.t-body{padding:1.4rem 1.5rem;border-top:3px solid var(--blue-500)}
+.t-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:800;color:var(--gray-800);margin-bottom:.2rem}
+.t-role{font-size:.7rem;font-weight:600;letter-spacing:1px;color:var(--gray-400);text-transform:uppercase}
 
 /* ── CONTACT ── */
-#contact{background:var(--g50);border-bottom:1px solid var(--g200)}
-.c-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:6rem;align-items:start}
-.cb{margin-bottom:1.8rem}
-.clbl{font-size:.58rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--b500);margin-bottom:.4rem}
-.cval{font-size:.9rem;color:var(--g700,#2D3748);line-height:1.7}
-.cval a{color:var(--g700,#2D3748);text-decoration:none;transition:color .2s}
-.cval a:hover{color:var(--b500)}
+#contact{background:var(--white);border-bottom:1px solid var(--gray-200)}
+.c-layout{
+  display:grid;grid-template-columns:1fr 1.3fr;
+  gap:6rem;align-items:start;
+}
+.c-block{margin-bottom:1.8rem}
+.c-lbl{
+  font-size:.6rem;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--blue-500);margin-bottom:.4rem;
+}
+.c-val{font-size:.92rem;color:var(--gray-700);line-height:1.7}
+.c-val a{color:var(--gray-700);text-decoration:none;transition:color .2s}
+.c-val a:hover{color:var(--blue-500)}
 .soc-row{display:flex;gap:.6rem;margin-top:2rem}
 .soc{
   display:inline-flex;align-items:center;gap:6px;
-  padding:8px 15px;border-radius:6px;border:1.5px solid var(--g200);
+  padding:8px 16px;border-radius:6px;
+  border:1.5px solid var(--gray-200);
   font-size:.7rem;font-weight:700;letter-spacing:.5px;
-  color:var(--g600);text-decoration:none;
+  color:var(--gray-600);text-decoration:none;
   transition:border-color .2s,color .2s,background .2s;
 }
-.soc:hover{border-color:var(--b500);color:var(--b500);background:var(--b50)}
+.soc:hover{border-color:var(--blue-500);color:var(--blue-500);background:var(--blue-50)}
 
-.cform{background:var(--white);border:1px solid var(--g200);border-radius:12px;overflow:hidden;box-shadow:var(--sh-md)}
-.cform-head{background:var(--b900);padding:1.3rem 2rem}
-.cform-head h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#fff}
-.cform-head p{font-size:.75rem;color:rgba(255,255,255,.45);margin-top:.2rem}
+/* Form */
+.cform{
+  background:var(--white);
+  border:1px solid var(--gray-200);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:var(--shadow-md);
+}
+.cform-head{
+  background:var(--blue-900);
+  padding:1.4rem 2rem;
+}
+.cform-head h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:700;color:#fff;
+}
+.cform-head p{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:.2rem}
 .cform-body{padding:1.8rem 2rem;display:flex;flex-direction:column;gap:1rem}
 .fg{display:flex;flex-direction:column;gap:.4rem}
-.fg label{font-size:.66rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--g600)}
-.fg input,.fg textarea{
-  padding:11px 14px;border:1.5px solid var(--g200);border-radius:6px;
+.fg label{
+  font-size:.68rem;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;color:var(--gray-600);
+}
+.fg input,.fg textarea,.fg select{
+  padding:11px 14px;
+  border:1.5px solid var(--gray-200);border-radius:6px;
   font-family:'Source Sans 3',sans-serif;font-size:.9rem;
-  color:var(--g800);background:var(--white);outline:none;
+  color:var(--gray-800);background:var(--white);outline:none;
   transition:border-color .2s,box-shadow .2s;
 }
-.fg input:focus,.fg textarea:focus{border-color:var(--b500);box-shadow:0 0 0 3px rgba(26,92,200,.08)}
+.fg input:focus,.fg textarea:focus{
+  border-color:var(--blue-500);
+  box-shadow:0 0 0 3px rgba(26,92,200,.08);
+}
 .fg textarea{min-height:110px;resize:vertical}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .csub{
   width:100%;padding:13px;
-  background:var(--b700);color:#fff;border:none;border-radius:6px;cursor:pointer;
-  font-family:'Source Sans 3',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:1px;
-  box-shadow:var(--sh-b);transition:background .25s,transform .2s;
+  background:var(--blue-700);color:#fff;
+  border:none;border-radius:6px;cursor:pointer;
+  font-family:'Source Sans 3',sans-serif;
+  font-size:.82rem;font-weight:700;letter-spacing:1px;
+  box-shadow:var(--shadow-blue);
+  transition:background .25s,transform .2s;
 }
-.csub:hover{background:var(--b800);transform:translateY(-1px)}
+.csub:hover{background:var(--blue-800);transform:translateY(-1px)}
 
 /* ── FOOTER ── */
-.footer-main{background:var(--b900);padding:3.5rem 5vw 2rem;border-top:3px solid var(--gold)}
-.footer-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
-.f-brand .f-logo{display:flex;align-items:center;gap:10px;margin-bottom:.8rem}
-.f-logo img{height:40px;width:auto;object-fit:contain}
-.f-logo-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:800;color:#fff;letter-spacing:1px}
-.f-tagline{font-size:.8rem;color:rgba(255,255,255,.32);line-height:1.7;max-width:230px;margin-bottom:1.2rem}
-.f-col h4{font-size:.6rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.1rem}
-.f-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-.f-col ul a{font-size:.8rem;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+.footer-main{
+  background:var(--blue-900);
+  padding:4rem 5vw 2rem;
+  border-top:3px solid var(--gold);
+}
+.footer-grid{
+  max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;
+  gap:3.5rem;padding-bottom:3rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.f-brand .f-logo{
+  display:flex;align-items:center;gap:10px;margin-bottom:1rem;
+}
+.f-logo-box{
+  width:38px;height:38px;background:var(--blue-600);
+  display:flex;align-items:center;justify-content:center;
+}
+.f-logo-box img{height:30px;width:auto;object-fit:contain}
+.f-logo-box .flt{font-family:'Playfair Display',serif;font-size:.85rem;font-weight:800;color:#fff}
+.f-logo-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:800;letter-spacing:1px;color:#fff}
+.f-tagline{font-size:.82rem;color:rgba(255,255,255,.35);line-height:1.7;max-width:240px;margin-bottom:1.5rem}
+.f-col h4{
+  font-size:.62rem;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.2rem;
+}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.f-col ul a{
+  font-size:.82rem;color:rgba(255,255,255,.45);
+  text-decoration:none;transition:color .2s;
+}
 .f-col ul a:hover{color:#fff}
-.footer-btm{max-width:1240px;margin:0 auto;padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
-.footer-btm p{font-size:.67rem;color:rgba(255,255,255,.18)}
+.footer-btm{
+  max-width:1240px;margin:0 auto;
+  padding-top:1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:.8rem;
+}
+.footer-btm p{font-size:.68rem;color:rgba(255,255,255,.2);letter-spacing:.5px}
 
 /* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
 .rv.vis{opacity:1;transform:translateY(0)}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .n-links{display:none}.burger{display:flex}
-  .h-wrap,.about-layout,.miss-in,.c-layout,.map-layout{grid-template-columns:1fr;gap:3rem}
-  .h-panel,.h-orb{display:none}
-  .t-grid,.n-grid{grid-template-columns:1fr 1fr}
-  .adv-grid{grid-template-columns:1fr 1fr}
+  .nm{display:none}.burger{display:flex}
+  .hero-wrap,.about-layout,.map-layout,.miss-in,.c-layout{grid-template-columns:1fr;gap:3rem}
+  .svc-grid,.t-grid{grid-template-columns:1fr 1fr}
+  .n-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
+  .chakra-bg,.hero-diagonal{display:none}
   .about-badge{right:1rem;bottom:-1rem}
 }
 @media(max-width:600px){
-  .t-grid,.adv-grid{grid-template-columns:1fr}
-  .h-btns,.fg-row{flex-direction:column;grid-template-columns:1fr}
-  .n-grid{grid-template-columns:1fr 1fr}
+  .svc-grid,.t-grid{grid-template-columns:1fr}
+  .h-btns{flex-direction:column}
+  .fg-row{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -491,90 +792,102 @@ nav.scrolled{box-shadow:var(--sh-md)}
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="tb-left">
+  <div class="topbar-left">
     <span>📍 Shahdara, Delhi – 110032</span>
-    <span>🇮🇳 Est. 2019</span>
+    <span>🇮🇳 Since 2019</span>
   </div>
-  <div class="tb-right">
-    <a href="mailto:Vscanalliance@gmail.com">Vscanalliance@gmail.com</a>
+  <div class="topbar-right">
+    <a href="/cdn-cgi/l/email-protection#663015050708070a0a0f0708050326010b070f0a4805090b"><span class="__cf_email__" data-cfemail="13456070727d727f7f7a727d707653747e727a7f3d707c7e">[email&#160;protected]</span></a>
     <a href="tel:+918368087258">+91-8368087258</a>
   </div>
 </div>
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="n-logo">
-    <img class="n-logo-img" src="logo.png.png" alt="V SCAN Logo"
-      onerror="this.style.display='none';document.querySelector('.n-logo-fallback').style.display='flex'"/>
-    <div class="n-logo-fallback">VS</div>
-    <div class="n-logo-text">
-      <span class="n-logo-main">V SCAN</span>
-      <span class="n-logo-sub">Political Consultancy · Delhi</span>
+  <a href="#" class="n-logo">
+    <div class="logo-box">
+      <img src="logo.png.png" alt="V SCAN Logo"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="fallback" style="display:none">VS</div>
+    </div>
+    <div class="logo-words">
+      <span class="logo-main">V SCAN</span>
+      <span class="logo-sub">Political Consultancy · Delhi</span>
     </div>
   </a>
-  <ul class="n-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="cofounders.html">Our Team</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="contact.html" class="cta">Contact Us</a></li>
+  <ul class="nm">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#map-section">Our Reach</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#advisory">Advisory</a></li>
+    <li><a href="#contact" class="ncta">Contact Us</a></li>
   </ul>
   <div class="burger" id="burger" onclick="document.getElementById('mob').classList.toggle('open')">
     <span></span><span></span><span></span>
   </div>
 </nav>
-<div class="mob-menu" id="mob">
-  <a href="index.html" onclick="this.closest('.mob-menu').classList.remove('open')">Home</a>
-  <a href="about.html" onclick="this.closest('.mob-menu').classList.remove('open')">About Us</a>
-  <a href="cofounders.html" onclick="this.closest('.mob-menu').classList.remove('open')">Our Team</a>
-  <a href="gallery.html" onclick="this.closest('.mob-menu').classList.remove('open')">Gallery</a>
-  <a href="contact.html" onclick="this.closest('.mob-menu').classList.remove('open')">Contact Us</a>
+<div class="mob" id="mob">
+  <a href="#about" onclick="this.closest('.mob').classList.remove('open')">About Us</a>
+  <a href="#services" onclick="this.closest('.mob').classList.remove('open')">Services</a>
+  <a href="#map-section" onclick="this.closest('.mob').classList.remove('open')">Our Reach</a>
+  <a href="#team" onclick="this.closest('.mob').classList.remove('open')">Our Team</a>
+  <a href="#advisory" onclick="this.closest('.mob').classList.remove('open')">Advisory Committee</a>
+  <a href="#contact" onclick="this.closest('.mob').classList.remove('open')">Contact Us</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="h-video">
-    <video autoplay muted loop playsinline>
-      <source src="political-ai.mp4.mp4" type="video/mp4"/>
-    </video>
-  </div>
-  <div class="h-geo"></div>
-  <div class="h-stripe"></div>
-  <div class="h-panel"></div>
-  <div class="h-orb"></div>
+  <div class="hero-geo"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-sweep"></div>
+  <div class="hero-diagonal"></div>
+  <div class="hero-topbar"></div>
+  <div class="chakra-bg"></div>
 
-  <div class="h-wrap">
-    <div>
+  <div class="hero-wrap">
+    <div class="hero-left">
       <div class="h-flag">
         <div class="h-flag-bar"><div class="fb1"></div><div class="fb2"></div><div class="fb3"></div></div>
         <span class="h-flag-txt">India's Premier Political Consultancy</span>
       </div>
       <h1 class="h-title">
         Strategizing
-        <span class="t-blue">Governance.</span>
-        Empowering <span class="t-gold">Democracy.</span>
+        <span class="blue-line">Governance.</span>
+        Empowering <span class="gold-word">Democracy.</span>
       </h1>
-      <p class="h-hindi">विकास स्ट्रैटेजिक सिटिज़न्स अकाउंटेबल नेटवर्क</p>
-      <p class="h-desc">Where data-driven strategy meets democratic accountability. V SCAN shapes not just victories — but the future of Indian governance.</p>
+      <p class="h-desc">India's most trusted political consultancy — combining on-ground intelligence, data science, and strategic communication to shape leaders who govern with purpose.</p>
       <div class="h-btns">
-        <a href="#focus" class="btn-w">
-          Explore Services
+        <a href="#services" class="btn-white">
+          Our Services
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="about.html" class="btn-ow">Our Story</a>
+        <a href="#about" class="btn-outline-w">Learn More</a>
       </div>
     </div>
 
-    <div class="h-card">
-      <div class="h-card-head">
-        <h3>Our Impact</h3>
-        <span class="live">Live</span>
+    <div class="hero-card">
+      <div class="hero-card-head" style="background:rgba(26,92,200,.25);border-bottom:1px solid rgba(255,255,255,.1)">
+        <h3 style="font-size:.65rem;letter-spacing:3px;color:rgba(255,255,255,.55)">V SCAN — NATIONAL FOOTPRINT</h3>
+        <span style="font-size:.6rem;color:var(--gold-l);font-weight:600;letter-spacing:1px">EST. 2019</span>
       </div>
-      <div class="stat-grid">
-        <div class="sg"><div class="sg-n">100<span>+</span></div><div class="sg-l">Campaigns Managed</div></div>
-        <div class="sg"><div class="sg-n">28</div><div class="sg-l">States Covered</div></div>
-        <div class="sg"><div class="sg-n">6<span>+</span></div><div class="sg-l">Years of Excellence</div></div>
-        <div class="sg"><div class="sg-n">500<span>+</span></div><div class="sg-l">Leaders Trained</div></div>
+      <div class="stats-grid">
+        <div class="sg-item">
+          <div class="sg-n">100<span>+</span></div>
+          <div class="sg-l">Campaigns Delivered</div>
+        </div>
+        <div class="sg-item">
+          <div class="sg-n">28</div>
+          <div class="sg-l">States Covered</div>
+        </div>
+        <div class="sg-item">
+          <div class="sg-n">6<span>+</span></div>
+          <div class="sg-l">Years of Excellence</div>
+        </div>
+        <div class="sg-item">
+          <div class="sg-n">500<span>+</span></div>
+          <div class="sg-l">Leaders Trained</div>
+        </div>
       </div>
     </div>
   </div>
@@ -582,91 +895,80 @@ nav.scrolled{box-shadow:var(--sh-md)}
   <div class="h-scroll"><div class="h-scroll-bar"></div><span class="h-scroll-txt">Scroll</span></div>
 </section>
 
-<!-- STATES TICKER -->
-<div class="ticker">
-  <span class="ticker-lbl">Active In</span>
-  <div class="ticker-track">
-    <span class="ti">Delhi</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Uttar Pradesh</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Bihar</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Maharashtra</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Rajasthan</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Punjab</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Gujarat</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Haryana</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">West Bengal</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Madhya Pradesh</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <!-- repeat -->
-    <span class="ti">Delhi</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Uttar Pradesh</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Bihar</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Maharashtra</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Rajasthan</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Punjab</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">Gujarat</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
-    <span class="ti">West Bengal</span><span style="color:var(--g300,#CBD5E0);margin:0 .4rem">·</span>
+<!-- POLITICAL SERVICES TICKER -->
+<div class="trust" style="background:var(--blue-900);border-bottom:2px solid rgba(26,92,200,.3)">
+  <span class="trust-lbl" style="color:rgba(255,255,255,.35);border-right-color:rgba(255,255,255,.1)">Our Expertise</span>
+  <div class="trust-track">
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Electoral Strategy</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Voter Analytics</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Digital Campaigns</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Governance Advisory</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Political Intelligence</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Leadership Development</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Policy Research</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Crisis Communication</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Electoral Strategy</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Voter Analytics</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Digital Campaigns</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Governance Advisory</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Political Intelligence</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Leadership Development</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Policy Research</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
+    <span class="trust-item" style="color:rgba(255,255,255,.5)">Crisis Communication</span><span style="color:rgba(26,92,200,.6);margin:0 .5rem">◆</span>
   </div>
 </div>
 
 <!-- ABOUT -->
 <section id="about" class="sec">
-  <div class="sec-in">
+  <div class="sec-inner">
     <div class="about-layout">
       <div class="about-img-wrap rv">
         <img class="about-img" src="teamwork.jpg.jpeg" alt="V SCAN Team"
           onerror="this.src='https://via.placeholder.com/580x480/EEF4FF/1448A0?text=V+SCAN+Team'"/>
-        <div class="about-badge"><div class="big">2019</div><div class="sm">Founded in Delhi</div></div>
       </div>
       <div>
-        <div class="stag rv"><span class="pill">About Us</span></div>
-        <h2 class="sh rv">Shaping India's <em>Political Future</em></h2>
+        <div class="stag rv"><span class="stag-pill">Who We Are</span></div>
+        <h2 class="sh rv">India's Political <em>Consulting Force</em></h2>
         <div class="about-body rv">
-          <p><strong>V SCAN — Vikas Strategic Citizens Accountable Network</strong> — is an alliance of young, highly educated professionals united to create a positive, accountable, and people-centric political ecosystem in India.</p>
-          <p>We don't just shape <strong>victories</strong> — we shape <strong>governance</strong>. Combining political science, data analytics and public policy — we redefine what political consultancy means.</p>
+          <p><strong>V SCAN — Vikas Strategic Citizens Accountable Network</strong> — is a new-age political consulting organization built by professionals who believe governance must be earned through strategy, honesty, and relentless public service.</p>
+          <p>We partner with <strong>visionary leaders</strong> to set citizen-centric agendas, design data-backed campaigns, and conceptualize the most effective methods of mass outreach — from booth level to prime time. Our work doesn't end on election day. We help leaders <strong>deliver on every promise</strong> made to the voter.</p>
         </div>
-        <div class="about-pts">
-          <div class="apt rv"><div class="apt-ico">⚖️</div><div class="apt-txt"><h4>Accountability First</h4><p>Transparent democratic systems at every level</p></div></div>
-          <div class="apt rv d1"><div class="apt-ico">📊</div><div class="apt-txt"><h4>Data-Driven Strategy</h4><p>Every decision backed by real analysis</p></div></div>
-          <div class="apt rv d2"><div class="apt-ico">🗺️</div><div class="apt-txt"><h4>Pan-India Network</h4><p>Deep presence across all 28 states</p></div></div>
-          <div class="apt rv d3"><div class="apt-ico">🏛️</div><div class="apt-txt"><h4>Governance Focus</h4><p>We build governance, not just electoral wins</p></div></div>
+        <div class="about-points">
+          <div class="apoint rv">
+            <div class="apoint-icon">🗳️</div>
+            <div class="apoint-text"><h4>Election Management</h4><p>End-to-end campaign architecture — from constituency mapping to victory night</p></div>
+          </div>
+          <div class="apoint rv d1">
+            <div class="apoint-icon">📡</div>
+            <div class="apoint-text"><h4>Ground Intelligence Network</h4><p>Real-time booth-level data, voter sentiment and opposition monitoring</p></div>
+          </div>
+          <div class="apoint rv d2">
+            <div class="apoint-icon">🏛️</div>
+            <div class="apoint-text"><h4>Post-Election Governance</h4><p>Policy delivery, public audit systems and citizen feedback loops</p></div>
+          </div>
+          <div class="apoint rv d3">
+            <div class="apoint-icon">🌐</div>
+            <div class="apoint-text"><h4>Digital Political Presence</h4><p>Dominating narratives across social media, OTT and regional platforms</p></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- KEY FOCUS AREAS (SLIDER) -->
-<section id="focus" class="sec">
-  <div class="sec-in">
-    <div class="stag rv"><span class="pill">What We Do</span></div>
-    <h2 class="sh rv">Key Focus <span>Areas</span></h2>
-    <div class="slider-wrap rv">
-      <div class="slider">
-        <div class="scard">
-          <img src="mission.jpg.jpeg" alt="Elections" onerror="this.src='https://via.placeholder.com/320x170/EEF4FF/1448A0?text=Elections'"/>
-          <div class="scard-body"><h3>Elections</h3><p>Strategic wins, real impact. Data-backed frameworks ensure victories that reflect people's voices.</p></div>
-        </div>
-        <div class="scard">
-          <img src="leadership.png.jpeg" alt="Governance" onerror="this.src='https://via.placeholder.com/320x170/EEF4FF/1448A0?text=Governance'"/>
-          <div class="scard-body"><h3>Governance</h3><p>Delivering beyond the ballot. Actionable governance plans and continuous policy audits.</p></div>
-        </div>
-        <div class="scard">
-          <img src="team.png.jpeg" alt="Public Connect" onerror="this.src='https://via.placeholder.com/320x170/EEF4FF/1448A0?text=Public+Connect'"/>
-          <div class="scard-body"><h3>Public Connect</h3><p>Bridging political power and public need through grassroots engagement and feedback loops.</p></div>
-        </div>
-        <div class="scard">
-          <img src="post.png.jpeg" alt="Research" onerror="this.src='https://via.placeholder.com/320x170/EEF4FF/1448A0?text=Research'"/>
-          <div class="scard-body"><h3>Research & Insights</h3><p>Real-time research, constituency profiling and public sentiment tracking.</p></div>
-        </div>
-        <div class="scard">
-          <img src="vision.jpg.jpeg" alt="Policy" onerror="this.src='https://via.placeholder.com/320x170/EEF4FF/1448A0?text=Policy'"/>
-          <div class="scard-body"><h3>Policy Innovation</h3><p>Innovative, actionable policy solutions rooted in feasibility and long-term impact.</p></div>
-        </div>
-        <div class="scard">
-          <img src="strategy.png.jpeg" alt="Youth" onerror="this.src='https://via.placeholder.com/320x170/EEF4FF/1448A0?text=Youth'"/>
-          <div class="scard-body"><h3>Youth & Civic Engagement</h3><p>Mobilizing young minds as changemakers through workshops, dialogues and digital campaigns.</p></div>
-        </div>
-      </div>
+<!-- SERVICES -->
+<section id="services" class="sec">
+  <div class="sec-inner">
+    <div class="stag rv"><span class="stag-pill">Services</span></div>
+    <h2 class="sh rv">What We <span>Offer</span></h2>
+    <p class="sdesc rv">Comprehensive political consultancy — from campaign strategy to governance advisory.</p>
+    <div class="svc-grid">
+      <div class="scard rv"><div class="s-num">01</div><div class="s-icon">🗳️</div><h3>Electoral Strategy & Management</h3><p>Full-spectrum campaign operations — from constituency research and candidate positioning to voter outreach, schedule management and war room coordination on election day.</p><a href="#contact" class="s-link">Know More →</a></div>
+      <div class="scard rv d1"><div class="s-num">02</div><div class="s-icon">📊</div><h3>Voter Research & Data Analytics</h3><p>Scientific booth-level profiling, real-time voter sentiment tracking, demographic segmentation and predictive modeling to eliminate guesswork from every decision.</p><a href="#contact" class="s-link">Know More →</a></div>
+      <div class="scard rv d2"><div class="s-num">03</div><div class="s-icon">📱</div><h3>Digital & Media Strategy</h3><p>Narrative control across social media, OTT, regional news and YouTube. Precision-targeted content, rapid response units and influencer ecosystem management.</p><a href="#contact" class="s-link">Know More →</a></div>
+      <div class="scard rv"><div class="s-num">04</div><div class="s-icon">🏛️</div><h3>Governance & Policy Advisory</h3><p>Post-election governance planning, policy implementation tracking, citizen feedback systems and public administration consulting for elected representatives.</p><a href="#contact" class="s-link">Know More →</a></div>
+      <div class="scard rv d1"><div class="s-num">05</div><div class="s-icon">🎯</div><h3>Political Intelligence Unit</h3><p>Ground-level opposition monitoring, issue vulnerability mapping, crisis communication playbooks and real-time intelligence from every district in your constituency.</p><a href="#contact" class="s-link">Know More →</a></div>
+      <div class="scard rv d2"><div class="s-num">06</div><div class="s-icon">🎓</div><h3>Leadership & Capacity Building</h3><p>Structured programs for political leaders, youth workers and party cadre — covering public communication, policy understanding, and democratic values.</p><a href="#contact" class="s-link">Know More →</a></div>
     </div>
   </div>
 </section>
@@ -674,71 +976,22 @@ nav.scrolled{box-shadow:var(--sh-md)}
 <!-- NUMBERS -->
 <div class="numbers">
   <div class="n-grid">
-    <div class="ni rv"><div class="ni-n">100<span>+</span></div><div class="ni-l">Campaigns Managed</div></div>
-    <div class="ni rv d1"><div class="ni-n">28</div><div class="ni-l">States Covered</div></div>
-    <div class="ni rv d2"><div class="ni-n">6<span>+</span></div><div class="ni-l">Years of Excellence</div></div>
-    <div class="ni rv d3"><div class="ni-n">500<span>+</span></div><div class="ni-l">Leaders Trained</div></div>
+    <div class="n-item rv"><div class="n-num">100<span>+</span></div><div class="n-lbl">Campaigns Managed</div></div>
+    <div class="n-item rv d1"><div class="n-num">28</div><div class="n-lbl">States Covered</div></div>
+    <div class="n-item rv d2"><div class="n-num">6<span>+</span></div><div class="n-lbl">Years of Excellence</div></div>
+    <div class="n-item rv d3"><div class="n-num">500<span>+</span></div><div class="n-lbl">Leaders Trained</div></div>
   </div>
 </div>
 
-<!-- TEAM -->
-<section id="team" class="sec">
-  <div class="sec-in">
-    <div class="stag rv"><span class="pill">Our People</span></div>
-    <h2 class="sh rv">The <span>Team</span> Behind V SCAN</h2>
-    <div class="t-grid">
-      <a href="cofounders.html" class="tcard rv">
-        <div class="timg-wrap">
-          <img class="timg" src="vikas.jpg" alt="Vikas Chaudhry" onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Vikas+Chaudhry'"/>
-          <div class="t-ribbon">Founder</div>
-        </div>
-        <div class="t-body"><div class="t-name">Vikas Chaudhry</div><div class="t-role">Founder · Chief Strategist</div></div>
-      </a>
-      <a href="cofounders.html" class="tcard rv d1">
-        <div class="timg-wrap">
-          <img class="timg" src="aditya_final.jpg" alt="Aditya Singh" onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Aditya+Singh'"/>
-          <div class="t-ribbon">Co-Founder</div>
-        </div>
-        <div class="t-body"><div class="t-name">Aditya Singh</div><div class="t-role">Co-Founder · Operations Head</div></div>
-      </a>
-      <a href="cofounders.html" class="tcard rv d2">
-        <div class="timg-wrap">
-          <img class="timg" src="runny.jpg" alt="Runny Tomar" onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Runny+Tomar'"/>
-          <div class="t-ribbon">Co-Founder</div>
-        </div>
-        <div class="t-body"><div class="t-name">Runny Tomar</div><div class="t-role">Co-Founder · Network Director</div></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ADVISORY -->
-<section id="advisory" class="sec">
-  <div class="sec-in">
-    <div class="stag rv"><span class="pill">Advisory Board</span></div>
-    <h2 class="sh rv">Expert <span>Advisors</span></h2>
-    <div class="adv-grid">
-      <a href="advisory.html#malik" class="adv-card rv">
-        <img src="advisor1.jpg" alt="Mr. K.P. Malik" onerror="this.src='https://via.placeholder.com/400x200/EEF4FF/1448A0?text=K.P.+Malik'"/>
-        <div class="adv-body"><div class="adv-name">Mr. K.P. Malik</div><div class="adv-role">Senior Journalist & Political Editor</div></div>
-      </a>
-      <a href="advisory.html#attri" class="adv-card rv d1">
-        <img src="advisor2.jpg" alt="Dr. G.K. Attri" onerror="this.src='https://via.placeholder.com/400x200/EEF4FF/1448A0?text=Dr.+G.K.+Attri'"/>
-        <div class="adv-body"><div class="adv-name">Dr. G.K. Attri</div><div class="adv-role">Environmental Sustainability Expert</div></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- MAP SECTION -->
+<!-- MAP -->
 <section id="map-section" class="sec">
-  <div class="sec-in">
+  <div class="sec-inner">
     <div class="map-layout">
       <div>
-        <div class="stag rv"><span class="pill">Our Reach</span></div>
+        <div class="stag rv"><span class="stag-pill">Our Reach</span></div>
         <h2 class="sh rv">Where We <span>Operate</span></h2>
-        <p class="sdesc rv">From Delhi to Bihar, UP to Maharashtra — V SCAN's presence spans India's most contested political battlegrounds.</p>
-        <div class="chips rv">
+        <p class="sdesc rv" style="margin-bottom:1.5rem">From Delhi to Bihar, UP to Maharashtra — V SCAN's presence spans India's most contested political battlegrounds.</p>
+        <div class="state-chips rv">
           <span class="chip">Delhi</span><span class="chip">Uttar Pradesh</span>
           <span class="chip">Bihar</span><span class="chip">Maharashtra</span>
           <span class="chip">Rajasthan</span><span class="chip">Punjab</span>
@@ -746,54 +999,132 @@ nav.scrolled{box-shadow:var(--sh-md)}
           <span class="chip">Gujarat</span><span class="chip">West Bengal</span>
           <span class="chip">Jharkhand</span><span class="chip">Uttarakhand</span>
         </div>
-        <a href="contact.html" class="btn-w rv" style="display:inline-flex;align-items:center;gap:8px;background:var(--b700);color:#fff;box-shadow:var(--sh-b);border-radius:6px;padding:13px 28px;font-size:.8rem;font-weight:700;letter-spacing:.5px;text-decoration:none;transition:background .25s,transform .2s">
+        <a href="#contact" class="btn-white rv" style="background:var(--blue-700);color:#fff;box-shadow:var(--shadow-blue);width:fit-content">
           Partner With Us →
         </a>
       </div>
       <div class="map-box rv">
-        <p style="font-size:.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--g400);font-weight:700;text-align:center;margin-bottom:1rem">V SCAN ACTIVE STATES</p>
         <svg id="india-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <radialGradient id="mg" cx="50%" cy="50%" r="50%">
+            <radialGradient id="mapGrad" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="#DBEAFE"/>
               <stop offset="100%" stop-color="#BFDBFE"/>
             </radialGradient>
-            <filter id="pg"><feGaussianBlur stdDeviation="2.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="pin-glow">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
           </defs>
-          <g fill="url(#mg)" stroke="#93C5FD" stroke-width="1.2">
+
+          <!-- India map shape - simplified but recognizable -->
+          <g fill="url(#mapGrad)" stroke="#93C5FD" stroke-width="1.2">
             <path d="M182,22 L192,18 L204,20 L218,18 L230,24 L245,22 L258,28 L265,24 L276,30 L284,40 L286,52 L292,62 L298,74 L300,88 L296,100 L300,112 L305,125 L308,138 L312,152 L308,165 L312,178 L316,192 L318,206 L315,220 L309,234 L302,248 L293,260 L283,272 L272,282 L260,294 L248,308 L236,322 L225,337 L215,352 L208,367 L204,382 L206,396 L210,410 L214,424 L216,438 L212,450 L207,460 L202,470 L198,462 L194,450 L190,436 L188,422 L186,408 L188,394 L186,380 L180,366 L172,352 L162,338 L151,325 L141,313 L130,302 L120,291 L110,280 L100,268 L93,255 L88,241 L85,227 L82,213 L85,200 L88,187 L92,175 L96,163 L93,151 L88,139 L84,127 L82,115 L86,103 L90,91 L95,80 L101,69 L108,59 L116,50 L124,42 L133,35 L143,29 L154,24 L165,20 L175,18 Z"/>
+            <!-- Jammu & Kashmir -->
             <path d="M178,22 L183,14 L190,11 L198,13 L206,11 L214,15 L220,18 L212,22 L204,20 L192,18 L182,22 Z" opacity=".85"/>
+            <!-- Northeast -->
             <path d="M300,88 L310,83 L322,87 L330,94 L330,104 L320,110 L310,108 L302,100 Z" opacity=".85"/>
+            <!-- Andaman -->
             <ellipse cx="342" cy="368" rx="7" ry="22" opacity=".55"/>
           </g>
+
+          <!-- Subtle state lines -->
           <g stroke="#93C5FD" stroke-width=".6" fill="none" opacity=".5">
-            <line x1="188" y1="88" x2="290" y2="88"/><line x1="174" y1="148" x2="302" y2="148"/>
-            <line x1="163" y1="208" x2="312" y2="208"/><line x1="155" y1="268" x2="295" y2="268"/>
-            <line x1="172" y1="148" x2="172" y2="268"/><line x1="236" y1="88" x2="236" y2="208"/>
+            <line x1="188" y1="88" x2="290" y2="88"/>
+            <line x1="174" y1="148" x2="302" y2="148"/>
+            <line x1="163" y1="208" x2="312" y2="208"/>
+            <line x1="155" y1="268" x2="295" y2="268"/>
+            <line x1="172" y1="148" x2="172" y2="268"/>
+            <line x1="236" y1="88" x2="236" y2="208"/>
             <line x1="260" y1="148" x2="260" y2="268"/>
           </g>
+
+          <!-- PINS with pulse animation -->
           <!-- Delhi -->
-          <g filter="url(#pg)"><circle cx="203" cy="128" r="6" fill="#1A5CC8" stroke="#fff" stroke-width="2"/><circle cx="203" cy="128" r="6" fill="none" stroke="rgba(26,92,200,0.4)"><animate attributeName="r" from="7" to="18" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" from=".8" to="0" dur="2s" repeatCount="indefinite"/></circle><text x="211" y="132" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1E3A8A">DELHI</text></g>
+          <g filter="url(#pin-glow)">
+            <circle cx="203" cy="128" r="6" fill="#1A5CC8" stroke="#fff" stroke-width="2"/>
+            <circle cx="203" cy="128" r="6" fill="none" stroke="rgba(26,92,200,0.4)">
+              <animate attributeName="r" from="7" to="18" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.8" to="0" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <text x="210" y="132" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1E3A8A">DELHI</text>
+          </g>
           <!-- UP -->
-          <g filter="url(#pg)"><circle cx="228" cy="155" r="5.5" fill="#1A5CC8" stroke="#fff" stroke-width="2"/><circle cx="228" cy="155" r="5.5" fill="none" stroke="rgba(26,92,200,0.4)"><animate attributeName="r" from="6" to="16" dur="2.3s" repeatCount="indefinite"/><animate attributeName="opacity" from=".8" to="0" dur="2.3s" repeatCount="indefinite"/></circle><text x="236" y="159" font-family="sans-serif" font-size="7.5" font-weight="bold" fill="#1E3A8A">UP</text></g>
+          <g filter="url(#pin-glow)">
+            <circle cx="228" cy="155" r="5.5" fill="#1A5CC8" stroke="#fff" stroke-width="2"/>
+            <circle cx="228" cy="155" r="5.5" fill="none" stroke="rgba(26,92,200,0.4)">
+              <animate attributeName="r" from="6" to="16" dur="2.3s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.8" to="0" dur="2.3s" repeatCount="indefinite"/>
+            </circle>
+            <text x="236" y="159" font-family="sans-serif" font-size="7.5" font-weight="bold" fill="#1E3A8A">UP</text>
+          </g>
           <!-- Bihar -->
-          <g filter="url(#pg)"><circle cx="264" cy="160" r="5.5" fill="#1A5CC8" stroke="#fff" stroke-width="2"/><circle cx="264" cy="160" r="5.5" fill="none" stroke="rgba(26,92,200,0.4)"><animate attributeName="r" from="6" to="16" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" from=".8" to="0" dur="1.8s" repeatCount="indefinite"/></circle><text x="272" y="164" font-family="sans-serif" font-size="7.5" font-weight="bold" fill="#1E3A8A">BIHAR</text></g>
+          <g filter="url(#pin-glow)">
+            <circle cx="264" cy="160" r="5.5" fill="#1A5CC8" stroke="#fff" stroke-width="2"/>
+            <circle cx="264" cy="160" r="5.5" fill="none" stroke="rgba(26,92,200,0.4)">
+              <animate attributeName="r" from="6" to="16" dur="1.8s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.8" to="0" dur="1.8s" repeatCount="indefinite"/>
+            </circle>
+            <text x="272" y="164" font-family="sans-serif" font-size="7.5" font-weight="bold" fill="#1E3A8A">BIHAR</text>
+          </g>
           <!-- Rajasthan -->
-          <g filter="url(#pg)"><circle cx="164" cy="152" r="5" fill="#2E72E0" stroke="#fff" stroke-width="1.5"/><circle cx="164" cy="152" r="5" fill="none" stroke="rgba(46,114,224,0.4)"><animate attributeName="r" from="6" to="15" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" from=".8" to="0" dur="2.5s" repeatCount="indefinite"/></circle><text x="100" y="148" font-family="sans-serif" font-size="6.5" font-weight="bold" fill="#1E3A8A">RAJASTHAN</text></g>
+          <g filter="url(#pin-glow)">
+            <circle cx="164" cy="152" r="5" fill="#2E72E0" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="164" cy="152" r="5" fill="none" stroke="rgba(46,114,224,0.4)">
+              <animate attributeName="r" from="6" to="15" dur="2.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.8" to="0" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <text x="100" y="148" font-family="sans-serif" font-size="6.5" font-weight="bold" fill="#1E3A8A">RAJASTHAN</text>
+          </g>
           <!-- Maharashtra -->
-          <g filter="url(#pg)"><circle cx="178" cy="244" r="5.5" fill="#1A5CC8" stroke="#fff" stroke-width="2"/><circle cx="178" cy="244" r="5.5" fill="none" stroke="rgba(26,92,200,0.4)"><animate attributeName="r" from="6" to="16" dur="2.1s" repeatCount="indefinite"/><animate attributeName="opacity" from=".8" to="0" dur="2.1s" repeatCount="indefinite"/></circle><text x="182" y="258" font-family="sans-serif" font-size="6.5" font-weight="bold" fill="#1E3A8A">MAHA...</text></g>
+          <g filter="url(#pin-glow)">
+            <circle cx="178" cy="244" r="5.5" fill="#1A5CC8" stroke="#fff" stroke-width="2"/>
+            <circle cx="178" cy="244" r="5.5" fill="none" stroke="rgba(26,92,200,0.4)">
+              <animate attributeName="r" from="6" to="16" dur="2.1s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.8" to="0" dur="2.1s" repeatCount="indefinite"/>
+            </circle>
+            <text x="186" y="248" font-family="sans-serif" font-size="7" font-weight="bold" fill="#1E3A8A">MAHARASHTRA</text>
+          </g>
           <!-- West Bengal -->
-          <g filter="url(#pg)"><circle cx="278" cy="196" r="5" fill="#2E72E0" stroke="#fff" stroke-width="1.5"/><circle cx="278" cy="196" r="5" fill="none" stroke="rgba(46,114,224,0.4)"><animate attributeName="r" from="6" to="15" dur="2.7s" repeatCount="indefinite"/><animate attributeName="opacity" from=".8" to="0" dur="2.7s" repeatCount="indefinite"/></circle><text x="283" y="200" font-family="sans-serif" font-size="6" font-weight="bold" fill="#1E3A8A">W.BENGAL</text></g>
+          <g filter="url(#pin-glow)">
+            <circle cx="278" cy="196" r="5" fill="#2E72E0" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="278" cy="196" r="5" fill="none" stroke="rgba(46,114,224,0.4)">
+              <animate attributeName="r" from="6" to="15" dur="2.7s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.8" to="0" dur="2.7s" repeatCount="indefinite"/>
+            </circle>
+            <text x="285" y="200" font-family="sans-serif" font-size="6" font-weight="bold" fill="#1E3A8A">W.BENGAL</text>
+          </g>
           <!-- Punjab -->
-          <g filter="url(#pg)"><circle cx="181" cy="106" r="4.5" fill="#2E72E0" stroke="#fff" stroke-width="1.5"/><circle cx="181" cy="106" r="4.5" fill="none" stroke="rgba(46,114,224,0.4)"><animate attributeName="r" from="5" to="14" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" from=".8" to="0" dur="2s" repeatCount="indefinite"/></circle><text x="136" y="102" font-family="sans-serif" font-size="6" font-weight="bold" fill="#1E3A8A">PUNJAB</text></g>
+          <g filter="url(#pin-glow)">
+            <circle cx="181" cy="106" r="4.5" fill="#2E72E0" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="181" cy="106" r="4.5" fill="none" stroke="rgba(46,114,224,0.4)">
+              <animate attributeName="r" from="5" to="14" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.8" to="0" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <text x="138" y="102" font-family="sans-serif" font-size="6" font-weight="bold" fill="#1E3A8A">PUNJAB</text>
+          </g>
           <!-- MP -->
-          <g filter="url(#pg)"><circle cx="214" cy="200" r="4.5" fill="#2E72E0" stroke="#fff" stroke-width="1.5"/><circle cx="214" cy="200" r="4.5" fill="none" stroke="rgba(46,114,224,0.4)"><animate attributeName="r" from="5" to="14" dur="1.9s" repeatCount="indefinite"/><animate attributeName="opacity" from=".8" to="0" dur="1.9s" repeatCount="indefinite"/></circle><text x="220" y="204" font-family="sans-serif" font-size="6.5" font-weight="bold" fill="#1E3A8A">MP</text></g>
+          <g filter="url(#pin-glow)">
+            <circle cx="214" cy="200" r="4.5" fill="#2E72E0" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="214" cy="200" r="4.5" fill="none" stroke="rgba(46,114,224,0.4)">
+              <animate attributeName="r" from="5" to="14" dur="1.9s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.8" to="0" dur="1.9s" repeatCount="indefinite"/>
+            </circle>
+            <text x="220" y="204" font-family="sans-serif" font-size="6.5" font-weight="bold" fill="#1E3A8A">MP</text>
+          </g>
           <!-- Gujarat -->
-          <g filter="url(#pg)"><circle cx="150" cy="206" r="4.5" fill="#2E72E0" stroke="#fff" stroke-width="1.5"/><circle cx="150" cy="206" r="4.5" fill="none" stroke="rgba(46,114,224,0.4)"><animate attributeName="r" from="5" to="14" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" from=".8" to="0" dur="2.4s" repeatCount="indefinite"/></circle><text x="100" y="202" font-family="sans-serif" font-size="6.5" font-weight="bold" fill="#1E3A8A">GUJARAT</text></g>
+          <g filter="url(#pin-glow)">
+            <circle cx="150" cy="206" r="4.5" fill="#2E72E0" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="150" cy="206" r="4.5" fill="none" stroke="rgba(46,114,224,0.4)">
+              <animate attributeName="r" from="5" to="14" dur="2.4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.8" to="0" dur="2.4s" repeatCount="indefinite"/>
+            </circle>
+            <text x="102" y="202" font-family="sans-serif" font-size="6.5" font-weight="bold" fill="#1E3A8A">GUJARAT</text>
+          </g>
         </svg>
-        <div style="display:flex;align-items:center;gap:8px;margin-top:.8rem">
+        <!-- Map legend -->
+        <div style="display:flex;align-items:center;gap:8px;padding:.5rem 0 0">
           <div style="width:10px;height:10px;border-radius:50%;background:#1A5CC8;border:2px solid #fff;box-shadow:0 0 8px rgba(26,92,200,.5)"></div>
-          <span style="font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--g400);font-weight:600">V SCAN Active States</span>
+          <span style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray-400);font-weight:600">V SCAN Active States</span>
         </div>
       </div>
     </div>
@@ -804,32 +1135,165 @@ nav.scrolled{box-shadow:var(--sh-md)}
 <section id="mission">
   <div class="miss-in">
     <div class="rv">
-      <div class="stag" style="margin-bottom:1.5rem"><span class="pill" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.1)">Our Mission</span></div>
+      <div class="stag" style="margin-bottom:1.5rem"><span class="stag-pill" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.1)">Our Mission</span></div>
       <blockquote class="miss-q">
-        "We believe <strong>accountable governance</strong> is not a privilege — it is the right of every Indian citizen."
-        <span class="mh">जवाबदेह शासन हर भारतीय का अधिकार है</span>
+        "We exist to make <strong>Indian democracy stronger</strong> — by equipping the right leaders with the right strategy, the right data, and an unshakeable commitment to public accountability."
       </blockquote>
-      <div style="margin-top:2.5rem"><a href="contact.html" class="btn-w">Join Our Mission</a></div>
+      <p style="font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.45);margin-top:1.5rem;font-weight:300;max-width:540px">
+        V SCAN partners with leaders who believe that winning an election is only the beginning. We help them govern better, connect deeper, and leave behind a legacy worth remembering.
+      </p>
+      <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="#contact" class="btn-white">Work With Us</a>
+        <a href="#about" class="btn-outline-w" style="padding:13px 28px">Our Approach</a>
+      </div>
     </div>
     <div class="miss-r rv">
       <div class="mstat"><div class="mstat-n">₹ 0</div><div class="mstat-l">Compromise on Values</div></div>
-      <div class="mstat"><div class="mstat-n">100%</div><div class="mstat-l">Commitment to Democracy</div></div>
+      <div class="mstat"><div class="mstat-n">100%</div><div class="mstat-l">Citizen-First Approach</div></div>
       <div class="mstat"><div class="mstat-n">1.4B</div><div class="mstat-l">Indians We Work For</div></div>
     </div>
   </div>
 </section>
 
+<!-- TEAM -->
+<section id="team" class="sec">
+  <div class="sec-inner">
+    <div class="stag rv"><span class="stag-pill">Our Team</span></div>
+    <h2 class="sh rv">The <span>People</span> Behind V SCAN</h2>
+    <div class="t-grid">
+      <div class="tcard rv">
+        <div class="timg-wrap">
+          <img class="timg" src="vikas.jpg" alt="Vikas Kumar Choudhary"
+            onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Vikas+Kumar+Choudhary'"/>
+          <div class="t-ribbon">Founder</div>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Vikas Kumar Choudhary</div>
+          <div class="t-role">Founder · Chief Strategist</div>
+        </div>
+      </div>
+      <div class="tcard rv d1">
+        <div class="timg-wrap">
+          <img class="timg" src="aditya_final.jpg" alt="Aditya Singh"
+            onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Aditya+Singh'"/>
+          <div class="t-ribbon">Co-Founder</div>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Aditya Singh</div>
+          <div class="t-role">Co-Founder · Operations Head</div>
+        </div>
+      </div>
+      <div class="tcard rv d2">
+        <div class="timg-wrap">
+          <img class="timg" src="runny.jpg" alt="Runny Tomar"
+            onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Runny+Tomar'"/>
+          <div class="t-ribbon">Co-Founder</div>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Runny Tomar</div>
+          <div class="t-role">Co-Founder · Network Director</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVISORY COMMITTEE -->
+<section id="advisory" style="background:var(--blue-900);padding:7.5rem 5vw;position:relative;overflow:hidden;">
+  <!-- Background grid pattern -->
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:50px 50px;pointer-events:none"></div>
+  <!-- Top accent -->
+  <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue-400),var(--gold))"></div>
+
+  <div class="sec-inner" style="position:relative;z-index:1">
+    <div class="stag rv"><span class="stag-pill" style="background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.1)">Advisory Committee</span></div>
+    <h2 class="sh rv" style="color:#fff">Guided by <span style="color:var(--gold-l)">India's Best Minds</span></h2>
+    <p class="sdesc rv" style="color:rgba(255,255,255,.45)">Our advisory board brings decades of academic, scientific and governance expertise — ensuring every strategy V SCAN builds is evidence-based and future-ready.</p>
+
+    <!-- Advisory Cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem;margin-top:1rem">
+
+      <!-- KP Malik -->
+      <div class="rv adv-card" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:2rem;transition:background .3s,border-color .3s,transform .3s;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue-500),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s" class="adv-top"></div>
+        <div style="display:flex;align-items:center;gap:1.2rem;margin-bottom:1.4rem">
+          <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--blue-600),var(--blue-800));border:2px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;color:#fff;flex-shrink:0">
+            <img src="advisor1.jpg" alt="K.P. Malik" style="width:100%;height:100%;border-radius:50%;object-fit:cover" onerror="this.style.display='none';this.parentElement.textContent='KP'"/>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:.2rem">Mr. K.P. Malik</div>
+            <div style="font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-l)">Senior Journalist & Political Editor</div>
+          </div>
+        </div>
+        <div style="width:28px;height:2px;background:var(--blue-400);margin-bottom:1rem"></div>
+        <p style="font-size:.85rem;line-height:1.75;color:rgba(255,255,255,.5)">A veteran political journalist and editor with decades of experience covering India's democratic institutions. Brings sharp media and narrative expertise to V SCAN's communication strategy.</p>
+        <div style="margin-top:1.2rem;display:flex;gap:.5rem;flex-wrap:wrap">
+          <span style="background:rgba(26,92,200,.2);border:1px solid rgba(26,92,200,.3);color:var(--blue-300);font-size:.58rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px">Political Media</span>
+          <span style="background:rgba(26,92,200,.2);border:1px solid rgba(26,92,200,.3);color:var(--blue-300);font-size:.58rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px">Editorial Strategy</span>
+        </div>
+      </div>
+
+      <!-- Dr. Gyanendra -->
+      <div class="rv adv-card d1" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:2rem;transition:background .3s,border-color .3s,transform .3s;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue-500),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s" class="adv-top"></div>
+        <div style="display:flex;align-items:center;gap:1.2rem;margin-bottom:1.4rem">
+          <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--blue-600),var(--blue-800));border:2px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:800;color:#fff;flex-shrink:0">
+            <img src="advisor2.jpg" alt="Dr. Gyanendra Kumar Attri" style="width:100%;height:100%;border-radius:50%;object-fit:cover" onerror="this.style.display='none';this.parentElement.textContent='GKA'"/>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:.2rem">Dr. Gyanendra Kumar Attri</div>
+            <div style="font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-l)">Environmental Sustainability Expert</div>
+          </div>
+        </div>
+        <div style="width:28px;height:2px;background:var(--blue-400);margin-bottom:1rem"></div>
+        <p style="font-size:.85rem;line-height:1.75;color:rgba(255,255,255,.5)">A leading expert in environmental policy and sustainable development. Guides V SCAN in building governance frameworks that integrate climate accountability and long-term public welfare.</p>
+        <div style="margin-top:1.2rem;display:flex;gap:.5rem;flex-wrap:wrap">
+          <span style="background:rgba(26,92,200,.2);border:1px solid rgba(26,92,200,.3);color:var(--blue-300);font-size:.58rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px">Sustainability Policy</span>
+          <span style="background:rgba(26,92,200,.2);border:1px solid rgba(26,92,200,.3);color:var(--blue-300);font-size:.58rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px">Environmental Governance</span>
+        </div>
+      </div>
+
+      <!-- Prof. Santosh Kumar Karn -->
+      <div class="rv adv-card d2" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:2rem;transition:background .3s,border-color .3s,transform .3s;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--blue-400));transform:scaleX(0);transform-origin:left;transition:transform .4s" class="adv-top"></div>
+        <!-- Gold badge for newest member -->
+        <div style="position:absolute;top:1rem;right:1rem;background:linear-gradient(135deg,var(--gold),var(--gold-l));color:var(--blue-900);font-size:.5rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:3px 9px;border-radius:100px">New</div>
+        <div style="display:flex;align-items:center;gap:1.2rem;margin-bottom:1.4rem">
+          <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--blue-700));border:2px solid rgba(200,148,10,.3);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.9rem;font-weight:800;color:#fff;flex-shrink:0">SK</div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:.2rem">Prof. (Dr.) Santosh Kumar Karn</div>
+            <div style="font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-l)">Academician & Global Science Advisor</div>
+          </div>
+        </div>
+        <div style="width:28px;height:2px;background:var(--gold);margin-bottom:1rem"></div>
+        <p style="font-size:.85rem;line-height:1.75;color:rgba(255,255,255,.5)">Director & Professor at CCARD (Rohini, Delhi) and Academic Advisor to the Chancellor at International University, Dimapur. Former faculty at Sharda University and IGTMS University, with international appointments in USA, Italy and Spain. Recipient of research grants from DST, CSIR, AICTE, INSA and AKTU. Member of Science Advisory Board (USA) and Board of Associates of ECT, Trento, Italy. Contributes strategic guidance on evidence-based public policy, governance evaluation and knowledge-led decision-making.</p>
+        <div style="margin-top:1.2rem;display:flex;gap:.5rem;flex-wrap:wrap">
+          <span style="background:rgba(200,148,10,.15);border:1px solid rgba(200,148,10,.25);color:var(--gold-l);font-size:.58rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px">Policy Research</span>
+          <span style="background:rgba(200,148,10,.15);border:1px solid rgba(200,148,10,.25);color:var(--gold-l);font-size:.58rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px">Academic Governance</span>
+          <span style="background:rgba(200,148,10,.15);border:1px solid rgba(200,148,10,.25);color:var(--gold-l);font-size:.58rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px">Global Science</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.adv-card:hover{background:rgba(255,255,255,.07)!important;border-color:rgba(255,255,255,.15)!important;transform:translateY(-5px)!important}
+.adv-card:hover .adv-top{transform:scaleX(1)!important}
+</style>
+
 <!-- CONTACT -->
 <section id="contact" class="sec">
-  <div class="sec-in">
+  <div class="sec-inner">
     <div class="c-layout">
       <div>
-        <div class="stag rv"><span class="pill">Contact</span></div>
+        <div class="stag rv"><span class="stag-pill">Contact</span></div>
         <h2 class="sh rv">Let's Start a <em>Conversation</em></h2>
-        <p class="sdesc rv">Ready to transform your political campaign? Our team is here to strategize with you.</p>
-        <div class="cb rv"><div class="clbl">Address</div><div class="cval">1/5153 T/F G-5, Balbir Nagar Extension,<br>Shahdara, Delhi – 110032</div></div>
-        <div class="cb rv"><div class="clbl">Email</div><div class="cval"><a href="mailto:Vscanalliance@gmail.com">Vscanalliance@gmail.com</a></div></div>
-        <div class="cb rv"><div class="clbl">Phone</div><div class="cval"><a href="tel:+918368087258">+91-8368087258</a> · <a href="tel:+918126487892">+91-8126487892</a> · <a href="tel:+918860573457">+91-8860573457</a></div></div>
+        <p class="sdesc rv">Ready to shape your political campaign? Our team is here to strategize with you.</p>
+        <div class="c-block rv"><div class="c-lbl">Address</div><div class="c-val">1/5153 T/F G-5, Balbir Nagar Extension,<br>Shahdara, Delhi – 110032</div></div>
+        <div class="c-block rv"><div class="c-lbl">Email</div><div class="c-val"><a href="/cdn-cgi/l/email-protection#376144545659565b5b5e5659545277505a565e5b1954585a"><span class="__cf_email__" data-cfemail="d284a1b1b3bcb3bebebbb3bcb1b792b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></a></div></div>
+        <div class="c-block rv"><div class="c-lbl">Phone</div><div class="c-val"><a href="tel:+918368087258">+91-8368087258</a><br><a href="tel:+918126487892">+91-8126487892</a></div></div>
         <div class="soc-row rv">
           <a class="soc" href="https://www.facebook.com/profile.php?id=61576049937047" target="_blank">📘 Facebook</a>
           <a class="soc" href="https://www.instagram.com/vscanalliance/" target="_blank">📷 Instagram</a>
@@ -838,7 +1302,10 @@ nav.scrolled{box-shadow:var(--sh-md)}
       </div>
       <div class="rv">
         <div class="cform">
-          <div class="cform-head"><h3>Send Us a Message</h3><p>We respond within 24 hours</p></div>
+          <div class="cform-head">
+            <h3>Send Us a Message</h3>
+            <p>We respond within 24 hours</p>
+          </div>
           <div class="cform-body">
             <div class="fg-row">
               <div class="fg"><label>Full Name</label><input type="text" placeholder="Your name"/></div>
@@ -847,7 +1314,9 @@ nav.scrolled{box-shadow:var(--sh-md)}
             <div class="fg"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
             <div class="fg"><label>Subject</label><input type="text" placeholder="Electoral strategy, advisory, etc."/></div>
             <div class="fg"><label>Message</label><textarea placeholder="Tell us about your requirements..."></textarea></div>
-            <button class="csub" onclick="this.textContent='✓ Message Sent Successfully!';this.style.background='#166534'">Send Message →</button>
+            <button class="csub" onclick="this.textContent='✓ Message Sent Successfully!';this.style.background='#166534'">
+              Send Message →
+            </button>
           </div>
         </div>
       </div>
@@ -860,14 +1329,43 @@ nav.scrolled{box-shadow:var(--sh-md)}
   <div class="footer-grid">
     <div class="f-brand">
       <div class="f-logo">
-        <img src="logo.png.png" alt="V SCAN" onerror="this.style.display='none'"/>
+        <div class="f-logo-box">
+          <img src="logo.png.png" alt="V SCAN"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="flt" style="display:none">VS</div>
+        </div>
         <span class="f-logo-name">V SCAN</span>
       </div>
       <p class="f-tagline">Vikas Strategic Citizens Accountable Network — Shaping India's political future through strategy, data and accountability.</p>
     </div>
-    <div class="f-col"><h4>Services</h4><ul><li><a href="#focus">Electoral Strategy</a></li><li><a href="#focus">Data Analytics</a></li><li><a href="#focus">Digital Campaigns</a></li><li><a href="#focus">Governance Advisory</a></li></ul></div>
-    <div class="f-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="cofounders.html">Our Team</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="advisory.html">Advisory Board</a></li></ul></div>
-    <div class="f-col"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/profile.php?id=61576049937047">Facebook</a></li><li><a href="https://www.instagram.com/vscanalliance/">Instagram</a></li><li><a href="https://www.linkedin.com/company/106768933/">LinkedIn</a></li><li><a href="mailto:Vscanalliance@gmail.com">Email Us</a></li></ul></div>
+    <div class="f-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Electoral Strategy</a></li>
+        <li><a href="#services">Data Analytics</a></li>
+        <li><a href="#services">Digital Campaigns</a></li>
+        <li><a href="#services">Governance Advisory</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#advisory">Advisory Committee</a></li>
+        <li><a href="#map-section">Our Reach</a></li>
+        <li><a href="#contact">Careers</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/profile.php?id=61576049937047">Facebook</a></li>
+        <li><a href="https://www.instagram.com/vscanalliance/">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/company/106768933/">LinkedIn</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#93c5e0f0f2fdf2fffffaf2fdf0f6d3f4fef2faffbdf0fcfe">Email Us</a></li>
+      </ul>
+    </div>
   </div>
   <div class="footer-btm">
     <p>© 2025 V SCAN. All Rights Reserved. Delhi, India.</p>
@@ -875,14 +1373,4 @@ nav.scrolled{box-shadow:var(--sh-md)}
   </div>
 </div>
 
-<script>
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20);
-});
-const io=new IntersectionObserver(e=>{
-  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')});
-},{threshold:.1});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-</script>
-</body>
-</html>
+<script data-cfa
