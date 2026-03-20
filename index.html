@@ -28,24 +28,24 @@ body{background:#020810;color:#C0D8F0;font-family:'Source Sans 3',sans-serif;ove
 .topbar-r a:hover{color:var(--goldl)}
 
 /* ── NAV ── */
-nav{position:sticky;top:0;z-index:600;background:rgba(2,8,16,.92);border-bottom:1px solid rgba(26,74,154,.3);padding:0 5vw;height:72px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 20px rgba(0,0,0,.4);transition:box-shadow .3s;backdrop-filter:blur(16px)}
-nav.scrolled{box-shadow:0 6px 30px rgba(0,0,0,.5)}
+nav{position:sticky;top:0;z-index:600;background:#ffffff;border-bottom:1px solid #e0e8f0;padding:0 5vw;height:72px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.12);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .nlogo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nlogo img{height:52px;width:auto;object-fit:contain}
 .nlogo-txt{line-height:1.15}
 .nlogo-main{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;color:var(--b9);letter-spacing:.5px;display:block}
 .nlogo-sub{font-size:.48rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--g400);display:block}
 .nlinks{list-style:none;display:flex;align-items:center;gap:.2rem}
-.nlinks a{font-size:.76rem;font-weight:600;color:rgba(192,216,240,.7);text-decoration:none;padding:7px 13px;border-radius:5px;transition:color .2s,background .2s;letter-spacing:.2px}
-.nlinks a:hover{color:#fff;background:rgba(26,74,154,.3)}
+.nlinks a{font-size:.76rem;font-weight:600;color:#2A4A6A;text-decoration:none;padding:7px 13px;border-radius:5px;transition:color .2s,background .2s;letter-spacing:.2px}
+.nlinks a:hover{color:#133272;background:#EBF3FF}
 .nlinks .ncta{background:var(--b4)!important;color:#fff!important;font-weight:700!important;box-shadow:var(--sbl);padding:9px 20px!important;border-radius:6px!important}
 .nlinks .ncta:hover{background:var(--b5)!important}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
 .burger span{width:24px;height:2px;background:var(--b9);border-radius:2px}
-.mob{display:none;position:fixed;top:72px;left:0;right:0;background:#040E1E;border-bottom:2px solid rgba(26,74,154,.3);padding:1.5rem 5vw;z-index:599;box-shadow:var(--smd)}
+.mob{display:none;position:fixed;top:72px;left:0;right:0;background:#ffffff;border-bottom:2px solid #e0e8f0;padding:1.5rem 5vw;z-index:599;box-shadow:0 6px 20px rgba(0,0,0,.1)}
 .mob.open{display:block}
-.mob a{display:block;padding:.8rem 0;font-size:.9rem;font-weight:600;color:rgba(192,216,240,.7);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06);transition:color .2s}
-.mob a:hover{color:#fff}
+.mob a{display:block;padding:.8rem 0;font-size:.9rem;font-weight:600;color:#2A4A6A;text-decoration:none;border-bottom:1px solid #f0f4f8;transition:color .2s}
+.mob a:hover{color:#133272}
 
 /* ── HERO with VIDEO ── */
 #hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:72px 5vw 0;overflow:hidden}
@@ -303,18 +303,6 @@ nav.scrolled{box-shadow:0 6px 30px rgba(0,0,0,.5)}
 </style>
 </head>
 <body>
-
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="topbar-l">
-    <span>📍 Shahdara, Delhi – 110032</span>
-    <span>Established 2019</span>
-  </div>
-  <div class="topbar-r">
-    <a href="/cdn-cgi/l/email-protection#b8eecbdbd9d6d9d4d4d1d9d6dbddf8dfd5d9d1d496dbd7d5"><span class="__cf_email__" data-cfemail="4d1b3e2e2c232c2121242c232e280d2a202c2421632e2220">[email&#160;protected]</span></a>
-    <a href="tel:+918368087258">+91-8368087258</a>
-  </div>
-</div>
 
 <!-- NAV -->
 <nav id="nav">
