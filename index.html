@@ -525,24 +525,8 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
     <div class="maplayout">
       <div>
         <div class="stag rv"><span class="spill">Our Reach</span></div>
-        <h2 class="sh rv">Our <span>10 Active States</span></h2>
-        <p class="sdesc rv" style="margin-bottom:2rem">V SCAN is actively operating across 10 key states — from the political heartland of Delhi and UP to the diverse grounds of Maharashtra, Odisha and West Bengal. Our boots-on-ground presence covers urban, semi-urban and rural belts where every vote matters.</p>
-
-        <!-- State chips -->
-        <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem" class="rv">
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Delhi</span>
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Haryana</span>
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Punjab</span>
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Uttarakhand</span>
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Uttar Pradesh</span>
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Rajasthan</span>
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Madhya Pradesh</span>
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Bihar</span>
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">West Bengal</span>
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Odisha</span>
-          <span style="background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.35);color:#E0A820;font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px">Maharashtra</span>
-        </div>
-
+        <h2 class="sh rv">Our <span>Active States</span></h2>
+        <p class="sdesc rv" style="margin-bottom:2.5rem">V SCAN is actively operating across 11 key states — from the political heartland of Delhi and UP to the diverse grounds of Maharashtra, Odisha and West Bengal. Our boots-on-ground presence covers urban, semi-urban and rural belts where every vote matters.</p>
         <a href="#contact" class="btn-wh rv" style="background:var(--b4);box-shadow:var(--sbl);width:fit-content;color:#fff">Partner With Us →</a>
       </div>
 
@@ -607,57 +591,17 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 
           // V SCAN active states with multiple city pins
           var pins = [
-            // DELHI
-            {lat:28.6139, lng:77.2090, name:'Delhi', city:'New Delhi', desc:'National Capital — Political Nerve Centre of India', size:16, color:'#FFD700'},
-
-            // HARYANA
-            {lat:29.0588, lng:76.0856, name:'Haryana', city:'Chandigarh', desc:'Key swing state with strong booth-level presence', size:13, color:'#E0A820'},
-            {lat:28.4595, lng:77.0266, name:'Haryana', city:'Gurugram', desc:'Urban constituency operations active', size:11, color:'#E0A820'},
-
-            // PUNJAB
-            {lat:31.1471, lng:75.3412, name:'Punjab', city:'Ludhiana', desc:'Industrial and rural campaign operations', size:13, color:'#E0A820'},
-            {lat:30.7333, lng:76.7794, name:'Punjab', city:'Chandigarh (PB)', desc:'State capital — ground intelligence active', size:11, color:'#E0A820'},
-
-            // UTTARAKHAND
-            {lat:30.0668, lng:79.0193, name:'Uttarakhand', city:'Dehradun', desc:'Hill state — active campaign monitoring', size:12, color:'#E0A820'},
-
-            // UTTAR PRADESH — multiple pins
-            {lat:26.8467, lng:80.9462, name:'Uttar Pradesh', city:'Lucknow', desc:'State Capital — Central Command Hub', size:15, color:'#E0A820'},
-            {lat:25.3176, lng:82.9739, name:'Uttar Pradesh', city:'Varanasi', desc:'High-priority constituency operations', size:12, color:'#E0A820'},
-            {lat:28.2096, lng:78.9618, name:'Uttar Pradesh', city:'Bareilly', desc:'Western UP operations active', size:11, color:'#E0A820'},
-            {lat:27.1767, lng:78.0081, name:'Uttar Pradesh', city:'Agra', desc:'Agra division campaign strategy active', size:11, color:'#E0A820'},
-            {lat:26.4499, lng:80.3319, name:'Uttar Pradesh', city:'Kanpur', desc:'Industrial belt voter outreach', size:11, color:'#E0A820'},
-            {lat:28.6242, lng:77.4116, name:'Uttar Pradesh', city:'Ghaziabad', desc:'NCR-UP border operations', size:11, color:'#E0A820'},
-
-            // RAJASTHAN
-            {lat:26.9124, lng:75.7873, name:'Rajasthan', city:'Jaipur', desc:'State Capital — Rajasthan HQ', size:14, color:'#E0A820'},
-            {lat:24.5854, lng:73.7125, name:'Rajasthan', city:'Udaipur', desc:'Southern Rajasthan operations', size:11, color:'#E0A820'},
-            {lat:27.0238, lng:74.2179, name:'Rajasthan', city:'Ajmer', desc:'Central Rajasthan ground intelligence', size:11, color:'#E0A820'},
-
-            // MADHYA PRADESH
-            {lat:23.2599, lng:77.4126, name:'Madhya Pradesh', city:'Bhopal', desc:'State Capital — MP Strategy Centre', size:14, color:'#E0A820'},
-            {lat:22.7196, lng:75.8577, name:'Madhya Pradesh', city:'Indore', desc:'Commercial capital — urban campaign ops', size:12, color:'#E0A820'},
-            {lat:25.4358, lng:78.5973, name:'Madhya Pradesh', city:'Jhansi/MP', desc:'Bundelkhand region operations', size:11, color:'#E0A820'},
-
-            // BIHAR
-            {lat:25.5941, lng:85.1376, name:'Bihar', city:'Patna', desc:'State Capital — Bihar Command Centre', size:14, color:'#E0A820'},
-            {lat:25.2425, lng:86.9842, name:'Bihar', city:'Bhagalpur', desc:'Eastern Bihar operations', size:11, color:'#E0A820'},
-            {lat:26.1197, lng:85.3910, name:'Bihar', city:'Muzaffarpur', desc:'North Bihar ground intelligence', size:11, color:'#E0A820'},
-            {lat:25.3407, lng:87.4777, name:'Bihar', city:'Purnea', desc:'Seemanchal region operations', size:11, color:'#E0A820'},
-
-            // WEST BENGAL
-            {lat:22.5726, lng:88.3639, name:'West Bengal', city:'Kolkata', desc:'State Capital — Bengal Operations HQ', size:14, color:'#E0A820'},
-            {lat:23.5204, lng:87.3119, name:'West Bengal', city:'Durgapur', desc:'Industrial belt political monitoring', size:11, color:'#E0A820'},
-
-            // ODISHA
-            {lat:20.2961, lng:85.8245, name:'Odisha', city:'Bhubaneswar', desc:'State Capital — Odisha Campaign Centre', size:13, color:'#E0A820'},
-            {lat:20.9239, lng:85.0985, name:'Odisha', city:'Sambalpur', desc:'Western Odisha ground operations', size:11, color:'#E0A820'},
-
-            // MAHARASHTRA
-            {lat:19.0760, lng:72.8777, name:'Maharashtra', city:'Mumbai', desc:'Financial Capital — Maharashtra HQ', size:15, color:'#E0A820'},
-            {lat:18.5204, lng:73.8567, name:'Maharashtra', city:'Pune', desc:'Pune division strategy operations', size:12, color:'#E0A820'},
-            {lat:21.1458, lng:79.0882, name:'Maharashtra', city:'Nagpur', desc:'Central India — Vidarbha operations', size:12, color:'#E0A820'},
-            {lat:19.9975, lng:73.7898, name:'Maharashtra', city:'Nashik', desc:'North Maharashtra campaign base', size:11, color:'#E0A820'},
+            {lat:28.6139, lng:77.2090, name:'Delhi', city:'New Delhi', desc:'National Capital — Political Nerve Centre', size:15, color:'#FFD700'},
+            {lat:29.0588, lng:76.0856, name:'Haryana', city:'Chandigarh', desc:'Key swing state — active ground operations', size:13, color:'#E0A820'},
+            {lat:31.1471, lng:75.3412, name:'Punjab', city:'Ludhiana', desc:'Active campaign and voter analytics', size:13, color:'#E0A820'},
+            {lat:30.3165, lng:78.0322, name:'Uttarakhand', city:'Dehradun', desc:'Hill state — active campaign monitoring', size:12, color:'#E0A820'},
+            {lat:26.8467, lng:80.9462, name:'Uttar Pradesh', city:'Lucknow', desc:'Largest state — 80 Lok Sabha seats', size:16, color:'#E0A820'},
+            {lat:26.9124, lng:75.7873, name:'Rajasthan', city:'Jaipur', desc:'Largest state by area — active strategy zone', size:14, color:'#E0A820'},
+            {lat:23.2599, lng:77.4126, name:'Madhya Pradesh', city:'Bhopal', desc:'Heart of India — active operations', size:14, color:'#E0A820'},
+            {lat:25.5941, lng:85.1376, name:'Bihar', city:'Patna', desc:'High-stakes state — active ground ops', size:14, color:'#E0A820'},
+            {lat:22.5726, lng:88.3639, name:'West Bengal', city:'Kolkata', desc:'Eastern powerhouse — active operations', size:14, color:'#E0A820'},
+            {lat:20.2961, lng:85.8245, name:'Odisha', city:'Bhubaneswar', desc:'Fast growing state — active campaign base', size:13, color:'#E0A820'},
+            {lat:19.0760, lng:72.8777, name:'Maharashtra', city:'Mumbai', desc:'Financial capital state — active HQ', size:15, color:'#E0A820'},
           ];
 
           pins.forEach(function(p){
@@ -680,7 +624,7 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
         <div style="display:flex;align-items:center;gap:1.5rem;margin-top:.8rem;flex-wrap:wrap">
           <div style="display:flex;align-items:center;gap:7px">
             <div style="width:13px;height:13px;border-radius:50%;background:#E0A820;border:2px solid #fff;box-shadow:0 0 10px rgba(224,168,32,.8)"></div>
-            <span style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#E0A820;font-weight:700">V SCAN Active Locations (30+)</span>
+            <span style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#E0A820;font-weight:700">V SCAN Active States (11)</span>
           </div>
           <span style="font-size:.58rem;color:rgba(192,216,240,.3)">Click on pin for details</span>
         </div>
