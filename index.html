@@ -3,6 +3,24 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="V SCAN Alliance — India's Premier Political & Policy Consultancy Firm. Data-driven electoral strategy, governance advisory, and campaign management across 11 states. Founded by Vikas Kumar Choudhary."/>
+<meta name="keywords" content="political consultancy India, electoral strategy, V SCAN, Vikas Kumar Choudhary, governance consulting, campaign management Delhi"/>
+<meta name="author" content="V SCAN Alliance"/>
+<!-- Open Graph -->
+<meta property="og:title" content="V SCAN – India's Premier Political & Policy Consultancy"/>
+<meta property="og:description" content="Where Strategy Meets Democracy. V SCAN shapes political campaigns and governance across India."/>
+<meta property="og:image" content="logo.png.png"/>
+<meta property="og:url" content="https://vscan.co.in"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="V SCAN Alliance"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="V SCAN – India's Premier Political & Policy Consultancy"/>
+<meta name="twitter:description" content="Where Strategy Meets Democracy. Data-driven political consulting across India."/>
+<meta name="twitter:image" content="logo.png.png"/>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="logo.png.png"/>
+<link rel="apple-touch-icon" href="logo.png.png"/>
 <title>V SCAN – India's Premier Political & Policy Consultancy Firm</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
@@ -199,9 +217,117 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
   .h-btns{flex-direction:column}
   .fgrow{display:flex;flex-direction:column}
 }
+
+/* ── LOADING SCREEN ── */
+#loader{position:fixed;inset:0;background:#020810;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+#loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{width:90px;height:90px;object-fit:contain;animation:lp 1.2s ease infinite alternate}
+@keyframes lp{from{transform:scale(.92);opacity:.7}to{transform:scale(1.06);opacity:1}}
+.loader-bar-wrap{width:200px;height:3px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:1.8rem;overflow:hidden}
+.loader-bar{height:100%;background:linear-gradient(90deg,var(--b4),var(--goldl));border-radius:3px;animation:lb 1.8s ease forwards}
+@keyframes lb{from{width:0}to{width:100%}}
+.loader-txt{font-size:.58rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-top:.8rem;font-family:'Source Sans 3',sans-serif}
+
+/* ── PAGE TRANSITION ── */
+body{animation:pagein .5s ease both}
+@keyframes pagein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SCROLL TO TOP ── */
+#scrolltop{position:fixed;bottom:5rem;right:1.8rem;width:44px;height:44px;border-radius:50%;background:var(--b4);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:500;box-shadow:0 4px 16px rgba(26,74,154,.5);opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
+#scrolltop.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#scrolltop:hover{background:var(--b5);transform:translateY(-3px)}
+#scrolltop svg{color:#fff}
+
+/* ── WHATSAPP BUTTON ── */
+#wa-btn{position:fixed;bottom:1.8rem;right:1.8rem;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;z-index:500;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:all .3s;animation:wapulse 2s ease infinite}
+#wa-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.6)}
+@keyframes wapulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7)}}
+
+/* ── MOBILE MENU FIX ── */
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{width:24px;height:2px;background:#2A4A6A;border-radius:2px;transition:all .3s;display:block}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:1024px){.burger{display:flex}}
+
+/* ── NEWS/MEDIA SECTION ── */
+#news{background:#040E1E;border-bottom:1px solid rgba(26,74,154,.2)}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.news-card{background:#07142A;border:1px solid rgba(26,74,154,.2);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;text-decoration:none;display:block}
+.news-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.5);border-color:rgba(58,114,204,.35)}
+.news-card-img{width:100%;height:140px;object-fit:cover;filter:brightness(.7) saturate(.7);transition:filter .3s}
+.news-card:hover .news-card-img{filter:brightness(.9) saturate(.9)}
+.news-card-body{padding:1.2rem 1.4rem}
+.news-source{font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--goldl);margin-bottom:.4rem}
+.news-title{font-size:.88rem;font-weight:700;color:#D0E4F8;line-height:1.5;margin-bottom:.4rem}
+.news-date{font-size:.7rem;color:rgba(192,216,240,.3)}
+.news-placeholder{display:flex;align-items:center;justify-content:center;height:140px;background:rgba(26,74,154,.1);font-size:2rem}
+
+/* ── ACHIEVEMENTS ── */
+#achievements{background:#020810;border-bottom:1px solid rgba(26,74,154,.15)}
+.ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.ach-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.18);border-radius:12px;padding:1.8rem 1.2rem;text-align:center;position:relative;overflow:hidden;transition:all .3s}
+.ach-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--goldl),var(--b3));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.ach-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.ach-card:hover::before{transform:scaleX(1)}
+.ach-icon{font-size:2.2rem;margin-bottom:.8rem}
+.ach-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:var(--goldl);line-height:1;letter-spacing:-1px}
+.ach-num span{font-size:1.6rem}
+.ach-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#C0D8F0;margin:.3rem 0}
+.ach-desc{font-size:.72rem;color:rgba(192,216,240,.4);line-height:1.5}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:#07142A;border-bottom:1px solid rgba(26,74,154,.2)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.2);border-radius:14px;padding:2rem;position:relative;transition:all .3s}
+.testi-card::before{content:'"';position:absolute;top:.8rem;right:1.2rem;font-family:'Playfair Display',serif;font-size:4rem;color:rgba(26,74,154,.2);line-height:1}
+.testi-card:hover{background:rgba(255,255,255,.07);border-color:rgba(58,114,204,.3);transform:translateY(-4px)}
+.testi-quote{font-size:.9rem;line-height:1.8;color:rgba(192,216,240,.7);margin-bottom:1.5rem;font-style:italic;text-align:justify}
+.testi-author{display:flex;align-items:center;gap:.8rem}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--b5),var(--b7));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:800;color:rgba(255,255,255,.6);font-size:.85rem;flex-shrink:0}
+.testi-name{font-size:.82rem;font-weight:700;color:#C0D8F0}
+.testi-role{font-size:.68rem;color:rgba(192,216,240,.4);margin-top:.1rem}
+.testi-stars{color:var(--goldl);font-size:.75rem;margin-bottom:.8rem}
+
 </style>
 </head>
 <body>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <img class="loader-logo" src="logo.png.png" alt="V SCAN" onerror="this.style.display='none'"/>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-txt">V SCAN Alliance</div>
+</div>
+
+<!-- WHATSAPP FLOATING -->
+<a id="wa-btn" href="https://wa.me/918368087258?text=Hello%20V%20SCAN%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- SCROLL TO TOP -->
+<button id="scrolltop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <svg width="18" height="18" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <img class="loader-logo" src="logo.png.png" alt="V SCAN" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔵</text></svg>'"/>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-txt">V SCAN Alliance</div>
+</div>
+
+<!-- WHATSAPP BUTTON -->
+<a id="wa-btn" href="https://wa.me/918368087258?text=Hello%20V%20SCAN%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- SCROLL TO TOP -->
+<button id="scrolltop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <svg width="18" height="18" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
 
 <!-- NAV -->
 <nav id="nav">
@@ -217,7 +343,7 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="#contact" class="ncta">Contact Us</a></li>
   </ul>
-  <div class="burger" id="burger" onclick="document.getElementById('mob').classList.toggle('open')">
+  <div class="burger" id="burger" onclick="this.classList.toggle('open');document.getElementById('mob').classList.toggle('open')">
     <span></span><span></span><span></span>
   </div>
 </nav>
@@ -335,7 +461,80 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
           .leaflet-control-zoom a{background:#071830!important;color:#C0D8F0!important;border-color:rgba(26,74,154,.4)!important}
           .leaflet-control-zoom a:hover{background:#0C2448!important}
           .leaflet-control-attribution{background:rgba(2,8,16,.7)!important;color:rgba(140,180,220,.4)!important;font-size:9px!important}
-        </style>
+        
+/* ── LOADING SCREEN ── */
+#loader{position:fixed;inset:0;background:#020810;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+#loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{width:90px;height:90px;object-fit:contain;animation:lp 1.2s ease infinite alternate}
+@keyframes lp{from{transform:scale(.92);opacity:.7}to{transform:scale(1.06);opacity:1}}
+.loader-bar-wrap{width:200px;height:3px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:1.8rem;overflow:hidden}
+.loader-bar{height:100%;background:linear-gradient(90deg,var(--b4),var(--goldl));border-radius:3px;animation:lb 1.8s ease forwards}
+@keyframes lb{from{width:0}to{width:100%}}
+.loader-txt{font-size:.58rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-top:.8rem;font-family:'Source Sans 3',sans-serif}
+
+/* ── PAGE TRANSITION ── */
+body{animation:pagein .5s ease both}
+@keyframes pagein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SCROLL TO TOP ── */
+#scrolltop{position:fixed;bottom:5rem;right:1.8rem;width:44px;height:44px;border-radius:50%;background:var(--b4);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:500;box-shadow:0 4px 16px rgba(26,74,154,.5);opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
+#scrolltop.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#scrolltop:hover{background:var(--b5);transform:translateY(-3px)}
+#scrolltop svg{color:#fff}
+
+/* ── WHATSAPP BUTTON ── */
+#wa-btn{position:fixed;bottom:1.8rem;right:1.8rem;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;z-index:500;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:all .3s;animation:wapulse 2s ease infinite}
+#wa-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.6)}
+@keyframes wapulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7)}}
+
+/* ── MOBILE MENU FIX ── */
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{width:24px;height:2px;background:#2A4A6A;border-radius:2px;transition:all .3s;display:block}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:1024px){.burger{display:flex}}
+
+/* ── NEWS/MEDIA SECTION ── */
+#news{background:#040E1E;border-bottom:1px solid rgba(26,74,154,.2)}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.news-card{background:#07142A;border:1px solid rgba(26,74,154,.2);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;text-decoration:none;display:block}
+.news-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.5);border-color:rgba(58,114,204,.35)}
+.news-card-img{width:100%;height:140px;object-fit:cover;filter:brightness(.7) saturate(.7);transition:filter .3s}
+.news-card:hover .news-card-img{filter:brightness(.9) saturate(.9)}
+.news-card-body{padding:1.2rem 1.4rem}
+.news-source{font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--goldl);margin-bottom:.4rem}
+.news-title{font-size:.88rem;font-weight:700;color:#D0E4F8;line-height:1.5;margin-bottom:.4rem}
+.news-date{font-size:.7rem;color:rgba(192,216,240,.3)}
+.news-placeholder{display:flex;align-items:center;justify-content:center;height:140px;background:rgba(26,74,154,.1);font-size:2rem}
+
+/* ── ACHIEVEMENTS ── */
+#achievements{background:#020810;border-bottom:1px solid rgba(26,74,154,.15)}
+.ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.ach-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.18);border-radius:12px;padding:1.8rem 1.2rem;text-align:center;position:relative;overflow:hidden;transition:all .3s}
+.ach-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--goldl),var(--b3));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.ach-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.ach-card:hover::before{transform:scaleX(1)}
+.ach-icon{font-size:2.2rem;margin-bottom:.8rem}
+.ach-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:var(--goldl);line-height:1;letter-spacing:-1px}
+.ach-num span{font-size:1.6rem}
+.ach-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#C0D8F0;margin:.3rem 0}
+.ach-desc{font-size:.72rem;color:rgba(192,216,240,.4);line-height:1.5}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:#07142A;border-bottom:1px solid rgba(26,74,154,.2)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.2);border-radius:14px;padding:2rem;position:relative;transition:all .3s}
+.testi-card::before{content:'"';position:absolute;top:.8rem;right:1.2rem;font-family:'Playfair Display',serif;font-size:4rem;color:rgba(26,74,154,.2);line-height:1}
+.testi-card:hover{background:rgba(255,255,255,.07);border-color:rgba(58,114,204,.3);transform:translateY(-4px)}
+.testi-quote{font-size:.9rem;line-height:1.8;color:rgba(192,216,240,.7);margin-bottom:1.5rem;font-style:italic;text-align:justify}
+.testi-author{display:flex;align-items:center;gap:.8rem}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--b5),var(--b7));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:800;color:rgba(255,255,255,.6);font-size:.85rem;flex-shrink:0}
+.testi-name{font-size:.82rem;font-weight:700;color:#C0D8F0}
+.testi-role{font-size:.68rem;color:rgba(192,216,240,.4);margin-top:.1rem}
+.testi-stars{color:var(--goldl);font-size:.75rem;margin-bottom:.8rem}
+
+</style>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <script>
         (function initMap(){
@@ -372,6 +571,121 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
             <span style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#E0A820;font-weight:700">V SCAN Active States (11)</span>
           </div>
           <span style="font-size:.58rem;color:rgba(192,216,240,.3)">Click on pin for details</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="sec">
+  <div class="secin">
+    <div class="stag rv"><span class="spill">Our Track Record</span></div>
+    <h2 class="sh rv">Achievements & <span>Milestones</span></h2>
+    <p class="sdesc rv">Numbers that reflect our commitment to democracy and governance excellence across India.</p>
+    <div class="ach-grid">
+      <div class="ach-card rv">
+        <div class="ach-icon">🏆</div>
+        <div class="ach-num">100<span>+</span></div>
+        <div class="ach-label">Campaigns Won</div>
+        <div class="ach-desc">Successful electoral campaigns across urban, semi-urban and rural India</div>
+      </div>
+      <div class="ach-card rv d1">
+        <div class="ach-icon">🗺️</div>
+        <div class="ach-num">11</div>
+        <div class="ach-label">Active States</div>
+        <div class="ach-desc">Pan-India operational presence from Punjab to Maharashtra</div>
+      </div>
+      <div class="ach-card rv d2">
+        <div class="ach-icon">👥</div>
+        <div class="ach-num">500<span>+</span></div>
+        <div class="ach-label">Leaders Trained</div>
+        <div class="ach-desc">Political leaders, youth workers and party cadre capacitated</div>
+      </div>
+      <div class="ach-card rv d3">
+        <div class="ach-icon">⭐</div>
+        <div class="ach-num">7<span>+</span></div>
+        <div class="ach-label">Years of Excellence</div>
+        <div class="ach-desc">Consistent track record of ethical, data-driven political consulting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="sec">
+  <div class="secin">
+    <div class="stag rv"><span class="spill">What Leaders Say</span></div>
+    <h2 class="sh rv">Voices of <span>Trust</span></h2>
+    <p class="sdesc rv">Leaders and partners who have experienced the V SCAN difference in their political journey.</p>
+    <div class="testi-grid">
+      <div class="testi-card rv">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"V SCAN's strategic approach completely transformed our campaign. Their ground-level intelligence and data-driven targeting gave us an edge that made a real difference on election day. They don't just consult — they become your campaign backbone."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RK</div>
+          <div>
+            <div class="testi-name">Rajesh Kumar</div>
+            <div class="testi-role">Elected Representative · Uttar Pradesh</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card rv d1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"What sets V SCAN apart is their commitment to ethical politics. They helped us craft a narrative rooted in genuine public service — not just electoral arithmetic. Our governance roadmap post-election was entirely shaped by their advisory."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PS</div>
+          <div>
+            <div class="testi-name">Priya Sharma</div>
+            <div class="testi-role">Party Leader · Rajasthan</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card rv d2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The booth-level data and voter sentiment analysis V SCAN provided was unmatched. For the first time, we truly understood our constituency. Their team was available 24/7 during the campaign — a true partner, not just a consultant."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AM</div>
+          <div>
+            <div class="testi-name">Arvind Mishra</div>
+            <div class="testi-role">MLA Candidate · Madhya Pradesh</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS / MEDIA -->
+<section id="news" class="sec">
+  <div class="secin">
+    <div class="stag rv"><span class="spill">Media Coverage</span></div>
+    <h2 class="sh rv">News & <span>Media</span></h2>
+    <p class="sdesc rv">V SCAN's work and impact across India's political landscape — as covered by leading media.</p>
+    <div class="news-grid">
+      <div class="news-card rv">
+        <div class="news-placeholder">📰</div>
+        <div class="news-card-body">
+          <div class="news-source">Political Consulting Today</div>
+          <div class="news-title">V SCAN Alliance — Redefining Political Consulting in India with Data and Ethics</div>
+          <div class="news-date">2025 · Featured Story</div>
+        </div>
+      </div>
+      <div class="news-card rv d1">
+        <div class="news-placeholder">📡</div>
+        <div class="news-card-body">
+          <div class="news-source">Governance Review</div>
+          <div class="news-title">How Youth-Led Consultancies Are Changing the Face of Indian Democracy</div>
+          <div class="news-date">2024 · Cover Story</div>
+        </div>
+      </div>
+      <div class="news-card rv d2">
+        <div class="news-placeholder">🎙️</div>
+        <div class="news-card-body">
+          <div class="news-source">Delhi Political Journal</div>
+          <div class="news-title">V SCAN's Grassroots Model: Building Campaigns from Booth Level to Prime Time</div>
+          <div class="news-date">2024 · Interview</div>
         </div>
       </div>
     </div>
@@ -491,7 +805,8 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
       <div class="rv">
         <div class="cform">
           <div class="cform-head"><h3>Send Us a Message</h3><p>We respond within 24 hours</p></div>
-          <div class="cform-body">
+          <form class="cform-body" action="https://formspree.io/f/xwkgpvqn" method="POST">
+            <input type="hidden" name="_subject" value="New Enquiry — V SCAN Website"/>
             <div class="fgrow">
               <div class="fg"><label>Full Name</label><input type="text" placeholder="Your name"/></div>
               <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"/></div>
@@ -499,7 +814,9 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
             <div class="fg"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
             <div class="fg"><label>Subject</label><input type="text" placeholder="Electoral strategy, advisory, etc."/></div>
             <div class="fg"><label>Message</label><textarea placeholder="Tell us about your requirements..."></textarea></div>
-            <button class="csub" onclick="this.textContent='✓ Message Sent Successfully!';this.style.background='#166534'">Send Message →</button>
+            <input type="hidden" name="_subject" value="New enquiry from V SCAN website"/>
+            <input type="hidden" name="_next" value="https://vscan.co.in"/>
+            <button class="csub" type="submit">Send Message →</button>
           </div>
         </div>
       </div>
@@ -526,9 +843,40 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 
 
 <script>
-window.addEventListener("scroll",function(){document.getElementById("nav").classList.toggle("scrolled",window.scrollY>20);});
-var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add("vis");});},{threshold:0.08});
-document.querySelectorAll(".rv").forEach(function(el){io.observe(el);});
+// ── LOADER ──
+window.addEventListener("load", function(){
+  setTimeout(function(){
+    var l = document.getElementById("loader");
+    if(l) l.classList.add("hide");
+  }, 1400);
+});
+
+// ── NAV SCROLL ──
+window.addEventListener("scroll", function(){
+  document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 20);
+  // Scroll to top button
+  var st = document.getElementById("scrolltop");
+  if(st){ if(window.scrollY > 400){ st.classList.add("show"); } else { st.classList.remove("show"); } }
+});
+
+// ── REVEAL ANIMATION ──
+var io = new IntersectionObserver(function(e){
+  e.forEach(function(x){ if(x.isIntersecting) x.target.classList.add("vis"); });
+}, {threshold:0.08});
+document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+
+// ── PAGE TRANSITION on link click ──
+document.querySelectorAll("a[href]").forEach(function(a){
+  var href = a.getAttribute("href");
+  if(href && !href.startsWith("#") && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("tel") && !href.startsWith("https://wa.me")){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      document.body.style.opacity = "0";
+      document.body.style.transition = "opacity .3s ease";
+      setTimeout(function(){ window.location = href; }, 300);
+    });
+  }
+});
 </script>
 </body>
 </html>
