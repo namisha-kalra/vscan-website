@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Our Team – V SCAN Alliance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--b9:#020810;--b8:#040E1E;--b7:#07182E;--b6:#0C2448;--b5:#133272;--b4:#1A4A9A;--b3:#3A72CC;--gold:#C89010;--goldl:#E0A820;--sbl:0 8px 32px rgba(19,50,114,.5);}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#020810;color:#C0D8F0;font-family:'Source Sans 3',sans-serif;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:600;background:#fff;padding:0 5vw;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 16px rgba(0,0,0,.12)}
+.nlogo img{height:48px;object-fit:contain}
+.nlinks{list-style:none;display:flex;gap:.3rem;align-items:center}
+.nlinks a{font-size:.76rem;font-weight:600;color:#2A4A6A;text-decoration:none;padding:7px 13px;border-radius:5px;transition:all .2s}
+.nlinks a:hover{color:#133272;background:#EBF3FF}
+.nlinks .ncta{background:var(--b4)!important;color:#fff!important;border-radius:6px!important}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:24px;height:2px;background:#020810;border-radius:2px}
+.back-bar{background:rgba(255,255,255,.03);border-bottom:1px solid rgba(26,74,154,.15);padding:.75rem 5vw}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;color:rgba(192,216,240,.45);text-decoration:none;transition:color .2s}
+.back-btn:hover{color:var(--goldl)}
+
+/* PAGE HEADER */
+.page-header{background:linear-gradient(135deg,#020810 0%,#071830 50%,#040E1E 100%);padding:5rem 5vw 4rem;border-bottom:1px solid rgba(26,74,154,.3);position:relative;overflow:hidden;text-align:center}
+.page-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px}
+.page-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--goldl),var(--b4),var(--goldl))}
+.ph-tag{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--goldl);margin-bottom:.8rem;position:relative;z-index:1}
+.ph-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;position:relative;z-index:1;margin-bottom:.6rem}
+.ph-sub{font-size:.95rem;color:rgba(192,216,240,.5);position:relative;z-index:1}
+
+/* TEAM GRID */
+.team-wrap{max-width:1100px;margin:0 auto;padding:5rem 5vw}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.tcard{background:#07142A;border:1px solid rgba(26,74,154,.2);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;cursor:pointer}
+.tcard:hover{transform:translateY(-7px);box-shadow:0 20px 50px rgba(0,0,0,.5);border-color:rgba(58,114,204,.4)}
+.timg-wrap{position:relative;overflow:hidden}
+.timg{width:100%;aspect-ratio:1/1.05;object-fit:cover;object-position:center top;filter:saturate(.65)brightness(.7);display:block;transition:filter .4s,transform .5s}
+.tcard:hover .timg{filter:saturate(.88)brightness(.85);transform:scale(1.04)}
+.tribbon{position:absolute;top:1rem;left:0;background:var(--b4);padding:5px 16px 5px 12px;font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.tbody{padding:1.5rem 1.6rem;border-top:3px solid var(--b4)}
+.tname{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:800;color:#D0E4F8;margin-bottom:.25rem}
+.trole{font-size:.68rem;font-weight:600;letter-spacing:1.5px;color:rgba(192,216,240,.5);text-transform:uppercase;margin-bottom:.8rem}
+.tview{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:700;color:var(--b3);text-decoration:none;transition:gap .2s}
+.tcard:hover .tview{gap:10px}
+
+/* COMING SOON placeholder for empty slots */
+.tcard-empty{background:rgba(255,255,255,.02);border:1px dashed rgba(26,74,154,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;min-height:320px;flex-direction:column;gap:.8rem}
+.tcard-empty p{font-size:.8rem;color:rgba(192,216,240,.25);letter-spacing:1px}
+
+footer{background:var(--b9);border-top:3px solid var(--goldl);padding:2rem 5vw;text-align:center}
+footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
+
+@media(max-width:900px){.tgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.tgrid{grid-template-columns:1fr}.nlinks{display:none}.burger{display:flex}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html"><img src="logo.png.png" alt="V SCAN" style="height:48px"/></a>
+  <ul class="nlinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#map-section">Our Reach</a></li>
+    <li><a href="team.html" style="color:var(--b4);font-weight:700">Team</a></li>
+    <li><a href="advisory.html">Advisory</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="index.html#contact" class="ncta">Contact Us</a></li>
+  </ul>
+  <div class="burger"><span></span><span></span><span></span></div>
+</nav>
+<div class="back-bar"><a href="index.html" class="back-btn">← Back to Home</a></div>
+
+<div class="page-header">
+  <div class="ph-tag">V SCAN Alliance</div>
+  <h1 class="ph-title">The <span style="color:var(--goldl)">People</span> Behind V SCAN</h1>
+  <p class="ph-sub">Young, dedicated professionals driving democratic change across India</p>
+</div>
+
+<div class="team-wrap">
+  <div class="tgrid">
+
+    <!-- VIKAS -->
+    <div class="tcard" onclick="window.location='vikas.html'">
+      <div class="timg-wrap">
+        <img class="timg" src="vikas.jpeg" alt="Vikas Kumar Choudhary"
+          onerror="this.src='https://via.placeholder.com/400x420/071830/3A72CC?text=VKC'"/>
+        <div class="tribbon">Founder</div>
+      </div>
+      <div class="tbody">
+        <div class="tname">Vikas Kumar Choudhary</div>
+        <div class="trole">Founder · Chief Strategist & Policy Thinker</div>
+        <a href="vikas.html" class="tview">View Profile →</a>
+      </div>
+    </div>
+
+    <!-- ADITYA -->
+    <div class="tcard" onclick="window.location='aditya.html'">
+      <div class="timg-wrap">
+        <img class="timg" src="aditya_final.jpeg" alt="Aditya Singh"
+          onerror="this.src='https://via.placeholder.com/400x420/071830/3A72CC?text=AS'"/>
+        <div class="tribbon">Co-Founder</div>
+      </div>
+      <div class="tbody">
+        <div class="tname">Aditya Singh</div>
+        <div class="trole">Co-Founder · Operations Head & Media</div>
+        <a href="aditya.html" class="tview">View Profile →</a>
+      </div>
+    </div>
+
+    <!-- RUNNY -->
+    <div class="tcard" onclick="window.location='runny.html'">
+      <div class="timg-wrap">
+        <img class="timg" src="runny.jpeg" alt="Runny Tomar"
+          style="object-position:center 20%"
+          onerror="this.src='https://via.placeholder.com/400x420/071830/3A72CC?text=RT'"/>
+        <div class="tribbon">Co-Founder</div>
+      </div>
+      <div class="tbody">
+        <div class="tname">Runny Tomar</div>
+        <div class="trole">Co-Founder · Network Director & Ground Ops</div>
+        <a href="runny.html" class="tview">View Profile →</a>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER SLOTS - aap baad mein fill kar sakti ho -->
+    <div class="tcard-empty">
+      <span style="font-size:2rem">👤</span>
+      <p>Coming Soon</p>
+    </div>
+    <div class="tcard-empty">
+      <span style="font-size:2rem">👤</span>
+      <p>Coming Soon</p>
+    </div>
+    <div class="tcard-empty">
+      <span style="font-size:2rem">👤</span>
+      <p>Coming Soon</p>
+    </div>
+
+  </div>
+</div>
+
+<footer><p>© 2025 V SCAN Alliance · Vikas Strategic Citizens Accountable Network · Delhi, India</p></footer>
+</body>
+</html>
