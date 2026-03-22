@@ -1,116 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery – V SCAN</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Gallery – V SCAN</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--b9:#020810;--b8:#040E1E;--b7:#07182E;--b4:#1A4A9A;--b3:#3A72CC;--goldl:#E0A820;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#020810;color:#C0D8F0;font-family:'Source Sans 3',sans-serif;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:100;background:#ffffff;padding:0 5vw;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 20px rgba(0,0,0,.15)}
+.nlinks{list-style:none;display:flex;gap:.5rem;align-items:center}
+.nlinks a{font-size:.78rem;font-weight:600;color:#2A4A6A;text-decoration:none;padding:7px 14px;border-radius:5px;transition:all .2s}
+.nlinks a:hover{color:#133272;background:#EBF3FF}
+.nlinks .ncta{background:var(--b4)!important;color:#fff!important;border-radius:6px!important}
+.page-header{background:linear-gradient(135deg,var(--b9) 0%,var(--b7) 50%,var(--b8) 100%);padding:4rem 5vw 3rem;border-bottom:1px solid rgba(26,74,154,.3);position:relative;overflow:hidden;text-align:center}
+.page-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:50px 50px}
+.page-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--goldl),var(--b4),var(--goldl))}
+.ph-tag{font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--goldl);margin-bottom:.8rem;position:relative;z-index:1}
+.ph-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;position:relative;z-index:1;margin-bottom:.6rem}
+.ph-sub{font-size:.95rem;color:rgba(192,216,240,.5);position:relative;z-index:1}
+/* GALLERY */
+.gallery-wrap{max-width:1200px;margin:0 auto;padding:5rem 5vw}
+.gallery-grid{columns:3;column-gap:1.5rem}
+@media(max-width:900px){.gallery-grid{columns:2}}
+@media(max-width:500px){.gallery-grid{columns:1}}
+.gallery-item{break-inside:avoid;margin-bottom:1.5rem;position:relative;border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid rgba(26,74,154,.2);transition:transform .3s,border-color .3s,box-shadow .3s}
+.gallery-item:hover{transform:translateY(-4px);border-color:rgba(58,114,204,.4);box-shadow:0 16px 48px rgba(0,0,0,.5)}
+.gallery-item img{width:100%;display:block;filter:brightness(.85) saturate(.8);transition:filter .4s}
+.gallery-item:hover img{filter:brightness(1) saturate(1)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(2,8,16,.8) 0%,transparent 50%);opacity:0;transition:opacity .3s}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:1rem;font-size:.75rem;font-weight:600;color:#fff;transform:translateY(10px);opacity:0;transition:all .3s}
+.gallery-item:hover .gallery-caption{transform:translateY(0);opacity:1}
+/* CATEGORY FILTER */
+.filter-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:3rem}
+.filter-btn{padding:7px 18px;border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:1.5px solid rgba(26,74,154,.35);background:transparent;color:rgba(192,216,240,.5);transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:var(--b4);color:#fff;border-color:var(--b4)}
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(2,8,16,.95);z-index:999;align-items:center;justify-content:center;padding:2rem}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:8px;box-shadow:0 24px 80px rgba(0,0,0,.8)}
+.lb-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:rgba(255,255,255,.5);cursor:pointer;transition:color .2s;background:none;border:none;line-height:1}
+.lb-close:hover{color:#fff}
+.lb-caption{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);font-size:.8rem;color:rgba(192,216,240,.5);text-align:center}
+.empty-state{text-align:center;padding:5rem 2rem;color:rgba(192,216,240,.3)}
+.empty-state h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:.5rem;color:rgba(192,216,240,.4)}
+.upload-note{background:rgba(26,74,154,.1);border:1px dashed rgba(26,74,154,.35);border-radius:12px;padding:2.5rem;text-align:center;margin-bottom:3rem}
+.upload-note p{font-size:.85rem;color:rgba(192,216,240,.4);line-height:1.7}
+.upload-note strong{color:var(--goldl)}
+.back-bar{background:rgba(255,255,255,.03);border-bottom:1px solid rgba(26,74,154,.2);padding:.8rem 5vw}
+.back-btn{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;color:rgba(192,216,240,.5);text-decoration:none;transition:color .2s}
+.back-btn:hover{color:var(--goldl)}
+footer{background:var(--b9);border-top:2px solid var(--goldl);padding:2rem 5vw;text-align:center}
+footer p{font-size:.72rem;color:rgba(255,255,255,.2)}
+@media(max-width:600px){.nlinks{display:none}}
+</style>
 </head>
 <body>
+<nav>
+  <a href="index.html"><img src="logo.png.png" alt="V SCAN" style="height:48px"/></a>
+  <ul class="nlinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#team">Team</a></li>
+    <li><a href="advisory.html">Advisory</a></li>
+    <li><a href="gallery.html" style="color:var(--b4);font-weight:700">Gallery</a></li>
+    <li><a href="index.html#contact" class="ncta">Contact Us</a></li>
+  </ul>
+</nav>
+<div class="back-bar"><a href="index.html" class="back-btn">← Back to Home</a></div>
 
-  <!-- ✅ HEADER -->
-  <header>
-    <div class="logo">
-      <a href="index.html">
-        <img src="logo.png.png" alt="V SCAN Logo">
-      </a>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="cofounders.html">Our Team</a></li>
-        <li><a href="contact.html">Join Us</a></li>
-        
-      </ul>
-    </nav>
-    
-  </header>
-
-  <!-- ✅ HERO SECTION -->
-  <section class="hero-about reveal">
-    <h2>Gallery</h2>
-    <p>Photos and images from our work and events.</p>
-  </section>
-
-  <!-- ✅ GALLERY -->
-  <section class="gallery-section reveal">
-    <div class="container">
-      <h2>Gallery</h2>
-      <div class="gallery-grid">
-
-  <div class="gallery-item">
-    <img src="event1.jpeg" alt="V SCAN Event 1">
-  </div>
-
-  <div class="gallery-item">
-    <img src="event2.jpeg" alt="V SCAN Event 2">
-  </div>
-
-  <div class="gallery-item">
-    <img src="event4.jpeg" alt="V SCAN Event 4">
-  </div>
-
-  <div class="gallery-item">
-    <img src="event5.jpeg" alt="V SCAN Event 5">
-  </div>
-
-  <div class="gallery-item">
-    <img src="event6.jpeg" alt="V SCAN Event 6">
-  </div>
-
-  <div class="gallery-item">
-    <img src="event9.jpeg" alt="V SCAN Event 9">
-  </div>
-
-  <div class="gallery-item">
-    <img src="event10.jpeg" alt="V SCAN Event 10">
-  </div>
-
+<div class="page-header">
+  <div class="ph-tag">V SCAN Alliance</div>
+  <h1 class="ph-title">Gallery</h1>
+  <p class="ph-sub">Moments from the field — campaigns, events, and our journey across India</p>
 </div>
+
+<div class="gallery-wrap">
+  <div class="filter-row">
+    <button class="filter-btn active" onclick="filterGallery('all',this)">All</button>
+    <button class="filter-btn" onclick="filterGallery('campaign',this)">Campaigns</button>
+    <button class="filter-btn" onclick="filterGallery('team',this)">Team</button>
+    <button class="filter-btn" onclick="filterGallery('event',this)">Events</button>
+    <button class="filter-btn" onclick="filterGallery('ground',this)">Ground Work</button>
+  </div>
+
+  <div class="upload-note">
+    <p><strong>Note:</strong> Upload your gallery images to the GitHub repo with these filenames:<br>
+    <strong>gallery1.jpg, gallery2.jpg, gallery3.jpg...</strong> etc.<br>
+    They will automatically appear here. Click any image to view in fullscreen.</p>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- Event photos event1.jpeg to event10.jpeg -->
+    <div class="gallery-item" data-cat="event" onclick="openLightbox(this)">
+      <img src="event1.jpeg" alt="V SCAN Event" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">V SCAN Field Event</div>
     </div>
-  </section>
-
-  <!-- ✅ FOOTER -->
-  <footer id="contact">
-    <div class="container">
-      <p>Location: 1/5153 T/F G-5  
-  Balbir Nagar Extension  
-  Shahdara, Delhi (110032)|
-   ✉ Vscanalliance@gmail.com 
-   | ☎ +91-8368087258, +91-8126487892, +91-8860573457</p>
-
-      <div class="footer-social">
-        <a href="https://www.facebook.com/profile.php?id=61576049937047" target="_blank">
-          <img src="facebook-icon.png" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/vscanalliance/" target="_blank">
-          <img src="instagram-icon.png" alt="Instagram">
-        </a>
-        <a href="https://www.linkedin.com/company/106768933/admin/dashboard/" target="_blank">
-          <img src="linkedin-icon.png" alt="LinkedIn">
-        </a>
-      </div>
-
-      <p>&copy; 2025 V SCAN. All rights reserved.</p>
+    <div class="gallery-item" data-cat="campaign" onclick="openLightbox(this)">
+      <img src="event2.jpeg" alt="Campaign" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Campaign Operations</div>
     </div>
-  </footer>
+    <div class="gallery-item" data-cat="ground" onclick="openLightbox(this)">
+      <img src="event3.jpeg" alt="Ground Work" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Ground Intelligence</div>
+    </div>
+    <div class="gallery-item" data-cat="team" onclick="openLightbox(this)">
+      <img src="event4.jpeg" alt="Team" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Team V SCAN</div>
+    </div>
+    <div class="gallery-item" data-cat="event" onclick="openLightbox(this)">
+      <img src="event5.jpeg" alt="Event" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Political Event</div>
+    </div>
+    <div class="gallery-item" data-cat="campaign" onclick="openLightbox(this)">
+      <img src="event6.jpeg" alt="Campaign" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Voter Outreach</div>
+    </div>
+    <div class="gallery-item" data-cat="ground" onclick="openLightbox(this)">
+      <img src="event7.jpeg" alt="Ground" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Field Operations</div>
+    </div>
+    <div class="gallery-item" data-cat="event" onclick="openLightbox(this)">
+      <img src="event8.jpeg" alt="Event" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Community Engagement</div>
+    </div>
+    <div class="gallery-item" data-cat="team" onclick="openLightbox(this)">
+      <img src="event9.jpeg" alt="Team" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Strategy Session</div>
+    </div>
+    <div class="gallery-item" data-cat="campaign" onclick="openLightbox(this)">
+      <img src="event10.jpeg" alt="Campaign" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Campaign Victory</div>
+    </div>
+  </div>
+</div>
+    <div class="gallery-item" data-cat="campaign" onclick="openLightbox(this)">
+      <img src="post.png.jpeg" alt="Campaign" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Voter Analytics</div>
+    </div>
+    <div class="gallery-item" data-cat="team" onclick="openLightbox(this)">
+      <img src="teamwork.jpg.jpeg" alt="Team" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Team V SCAN</div>
+    </div>
+    <div class="gallery-item" data-cat="ground" onclick="openLightbox(this)">
+      <img src="leadership.png.jpeg" alt="Ground Work" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Ground Intelligence</div>
+    </div>
+    <div class="gallery-item" data-cat="event" onclick="openLightbox(this)">
+      <img src="strategy.png.jpeg" alt="Event" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Digital Strategy</div>
+    </div>
+    <div class="gallery-item" data-cat="campaign" onclick="openLightbox(this)">
+      <img src="vision.jpg.jpeg" alt="Campaign" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Governance Vision</div>
+    </div>
+    <div class="gallery-item" data-cat="team" onclick="openLightbox(this)">
+      <img src="team.png.jpeg" alt="Team" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Leadership Building</div>
+    </div>
+    <div class="gallery-item" data-cat="ground" onclick="openLightbox(this)">
+      <img src="office.jpg.jpeg" alt="Office" onerror="this.parentElement.style.display='none'"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">V SCAN Office</div>
+    </div>
+  </div>
+</div>
 
-  <script>
-    // Theme switch removed — site uses dark theme only
-    // Simple reveal-on-scroll using IntersectionObserver
-    document.addEventListener('DOMContentLoaded', function(){
-      const obs = new IntersectionObserver((entries, o) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('active'); o.unobserve(e.target); }
-        });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    });
-  </script>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lb-close" onclick="document.getElementById('lightbox').classList.remove('open')">✕</button>
+  <img id="lbImg" src="" alt=""/>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<footer><p>© 2025 V SCAN Alliance · Vikas Strategic Citizens Accountable Network · Delhi, India</p></footer>
+
+<script>
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+function openLightbox(el) {
+  var img = el.querySelector('img');
+  var cap = el.querySelector('.gallery-caption');
+  document.getElementById('lbImg').src = img.src;
+  document.getElementById('lbCaption').textContent = cap ? cap.textContent : '';
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(e) {
+  if (e.target === document.getElementById('lightbox')) {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+});
+</script>
 </body>
 </html>
