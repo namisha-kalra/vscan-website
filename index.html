@@ -278,9 +278,77 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .testi-role{font-size:.68rem;color:rgba(192,216,240,.4);margin-top:.1rem}
 .testi-stars{color:var(--goldl);font-size:.75rem;margin-bottom:.8rem}
 
+
+/* ── COOKIE BANNER ── */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:800;background:#07142A;border-top:2px solid rgba(26,74,154,.4);padding:1rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s ease;box-shadow:0 -8px 32px rgba(0,0,0,.4)}
+#cookie-banner.show{transform:translateY(0)}
+.cookie-text{font-size:.78rem;color:rgba(192,216,240,.6);line-height:1.5;flex:1;min-width:200px}
+.cookie-text a{color:var(--b3);text-decoration:none}
+.cookie-btns{display:flex;gap:.6rem;flex-shrink:0}
+.cookie-accept{background:var(--b4);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s}
+.cookie-accept:hover{background:var(--b5)}
+.cookie-decline{background:transparent;color:rgba(192,216,240,.4);border:1px solid rgba(26,74,154,.3);padding:8px 16px;border-radius:6px;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .2s}
+.cookie-decline:hover{border-color:rgba(58,114,204,.4);color:rgba(192,216,240,.6)}
+
+/* ── DARK/LIGHT TOGGLE ── */
+#theme-toggle{position:fixed;bottom:5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:rgba(26,74,154,.3);border:1px solid rgba(26,74,154,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:500;transition:all .3s;font-size:1.1rem}
+#theme-toggle:hover{background:rgba(26,74,154,.5);transform:scale(1.1)}
+
+/* Light mode overrides */
+body.light-mode{background:#F0F4FF;color:#111E2E}
+body.light-mode nav{background:#fff}
+body.light-mode #about{background:#fff}
+body.light-mode #services{background:#F5F8FF}
+body.light-mode #team{background:#F5F8FF}
+body.light-mode #contact{background:#F0F4FF}
+body.light-mode .scard{background:#fff;border-color:#D0DCF0}
+body.light-mode .scard h3{color:#111E2E}
+body.light-mode .scard p{color:#3C4F68}
+body.light-mode .tcard{background:#fff;border-color:#D0DCF0}
+body.light-mode .tname{color:#111E2E}
+body.light-mode .trole{color:#7A8EA8}
+body.light-mode .ap{background:#F8FAFF;border-color:#D0DCF0}
+body.light-mode .ap-txt h4{color:#111E2E}
+body.light-mode .about-body p{color:#3C4F68}
+body.light-mode .fg input,.light-mode .fg textarea{background:#fff;color:#111E2E;border-color:#D0DCF0}
+body.light-mode .fg label{color:#7A8EA8}
+body.light-mode .cform{background:#fff}
+body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
+
+/* ── COUNTER ANIMATION ── */
+.counter-num{display:inline-block}
+
+/* ── PRINT CSS ── */
+@media print{
+  nav,#wa-btn,#scrolltop,#theme-toggle,#cookie-banner,.ticker,.h-scroll{display:none!important}
+  body{background:#fff!important;color:#000!important}
+  .hero{background:#003366!important;color:#fff!important;-webkit-print-color-adjust:exact}
+  .sh,.tname,.adv-name{color:#003366!important}
+  section{page-break-inside:avoid}
+}
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZH4ZGWYDE5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZH4ZGWYDE5');
+</script>
 </head>
 <body>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner">
+  <p class="cookie-text">🍪 We use cookies to improve your experience. By continuing, you agree to our <a href="#">Privacy Policy</a>.</p>
+  <div class="cookie-btns">
+    <button class="cookie-decline" onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie','declined')">Decline</button>
+    <button class="cookie-accept" onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie','accepted')">Accept All</button>
+  </div>
+</div>
+
+<!-- DARK/LIGHT TOGGLE -->
+<button id="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
 
 <!-- WHATSAPP FLOATING -->
 <a id="wa-btn" href="https://wa.me/918368087258?text=Hello%20V%20SCAN%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" aria-label="WhatsApp">
@@ -496,6 +564,54 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .testi-role{font-size:.68rem;color:rgba(192,216,240,.4);margin-top:.1rem}
 .testi-stars{color:var(--goldl);font-size:.75rem;margin-bottom:.8rem}
 
+
+/* ── COOKIE BANNER ── */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:800;background:#07142A;border-top:2px solid rgba(26,74,154,.4);padding:1rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s ease;box-shadow:0 -8px 32px rgba(0,0,0,.4)}
+#cookie-banner.show{transform:translateY(0)}
+.cookie-text{font-size:.78rem;color:rgba(192,216,240,.6);line-height:1.5;flex:1;min-width:200px}
+.cookie-text a{color:var(--b3);text-decoration:none}
+.cookie-btns{display:flex;gap:.6rem;flex-shrink:0}
+.cookie-accept{background:var(--b4);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s}
+.cookie-accept:hover{background:var(--b5)}
+.cookie-decline{background:transparent;color:rgba(192,216,240,.4);border:1px solid rgba(26,74,154,.3);padding:8px 16px;border-radius:6px;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .2s}
+.cookie-decline:hover{border-color:rgba(58,114,204,.4);color:rgba(192,216,240,.6)}
+
+/* ── DARK/LIGHT TOGGLE ── */
+#theme-toggle{position:fixed;bottom:5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:rgba(26,74,154,.3);border:1px solid rgba(26,74,154,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:500;transition:all .3s;font-size:1.1rem}
+#theme-toggle:hover{background:rgba(26,74,154,.5);transform:scale(1.1)}
+
+/* Light mode overrides */
+body.light-mode{background:#F0F4FF;color:#111E2E}
+body.light-mode nav{background:#fff}
+body.light-mode #about{background:#fff}
+body.light-mode #services{background:#F5F8FF}
+body.light-mode #team{background:#F5F8FF}
+body.light-mode #contact{background:#F0F4FF}
+body.light-mode .scard{background:#fff;border-color:#D0DCF0}
+body.light-mode .scard h3{color:#111E2E}
+body.light-mode .scard p{color:#3C4F68}
+body.light-mode .tcard{background:#fff;border-color:#D0DCF0}
+body.light-mode .tname{color:#111E2E}
+body.light-mode .trole{color:#7A8EA8}
+body.light-mode .ap{background:#F8FAFF;border-color:#D0DCF0}
+body.light-mode .ap-txt h4{color:#111E2E}
+body.light-mode .about-body p{color:#3C4F68}
+body.light-mode .fg input,.light-mode .fg textarea{background:#fff;color:#111E2E;border-color:#D0DCF0}
+body.light-mode .fg label{color:#7A8EA8}
+body.light-mode .cform{background:#fff}
+body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
+
+/* ── COUNTER ANIMATION ── */
+.counter-num{display:inline-block}
+
+/* ── PRINT CSS ── */
+@media print{
+  nav,#wa-btn,#scrolltop,#theme-toggle,#cookie-banner,.ticker,.h-scroll{display:none!important}
+  body{background:#fff!important;color:#000!important}
+  .hero{background:#003366!important;color:#fff!important;-webkit-print-color-adjust:exact}
+  .sh,.tname,.adv-name{color:#003366!important}
+  section{page-break-inside:avoid}
+}
 </style>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <script>
@@ -842,5 +958,77 @@ setTimeout(function(){
   }
 });
 </script>
+
+<script>
+// ── COOKIE BANNER ──
+if(!localStorage.getItem('cookie')){
+  setTimeout(function(){ document.getElementById('cookie-banner').classList.add('show'); }, 1500);
+}
+
+// ── DARK/LIGHT TOGGLE ──
+function toggleTheme(){
+  document.body.classList.toggle('light-mode');
+  var btn = document.getElementById('theme-toggle');
+  var isLight = document.body.classList.contains('light-mode');
+  btn.textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+}
+// Restore saved theme
+if(localStorage.getItem('theme') === 'light'){
+  document.body.classList.add('light-mode');
+  document.getElementById('theme-toggle').textContent = '🌙';
+}
+
+// ── COUNTER ANIMATION ──
+function animateCounter(el, target, suffix){
+  var start = 0;
+  var duration = 1800;
+  var step = target / (duration / 16);
+  var timer = setInterval(function(){
+    start += step;
+    if(start >= target){
+      el.textContent = target + suffix;
+      clearInterval(timer);
+    } else {
+      el.textContent = Math.floor(start) + suffix;
+    }
+  }, 16);
+}
+// Observe achievement numbers
+var counterDone = false;
+var achObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting && !counterDone){
+      counterDone = true;
+      var counters = [
+        {el:null, target:100, suffix:'+'},
+        {el:null, target:11, suffix:''},
+        {el:null, target:500, suffix:'+'},
+        {el:null, target:7, suffix:'+'}
+      ];
+      document.querySelectorAll('.ach-num').forEach(function(el, i){
+        if(counters[i]){
+          el.textContent = '0';
+          setTimeout(function(){ animateCounter(el, counters[i].target, counters[i].suffix); }, i * 150);
+        }
+      });
+    }
+  });
+}, {threshold:0.3});
+var achSec = document.getElementById('achievements');
+if(achSec) achObs.observe(achSec);
+
+// ── SCROLL TO TOP ──
+window.addEventListener('scroll', function(){
+  var st = document.getElementById('scrolltop');
+  if(st){ st.classList.toggle('show', window.scrollY > 400); }
+});
+
+// ── NAV SCROLL ──
+window.addEventListener('scroll', function(){
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
 </body>
 </html>
