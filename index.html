@@ -219,8 +219,10 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 }
 
 /* ── LOADING SCREEN ── */
-#loader{position:fixed;inset:0;background:#020810;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+#loader{position:fixed;inset:0;background:#020810;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s ease}
 #loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+/* Safety — body always visible */
+body{min-height:100vh}
 .loader-logo{width:90px;height:90px;object-fit:contain;animation:lp 1.2s ease infinite alternate}
 @keyframes lp{from{transform:scale(.92);opacity:.7}to{transform:scale(1.06);opacity:1}}
 .loader-bar-wrap{width:200px;height:3px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:1.8rem;overflow:hidden}
@@ -463,8 +465,10 @@ body{animation:pagein .5s ease both}
           .leaflet-control-attribution{background:rgba(2,8,16,.7)!important;color:rgba(140,180,220,.4)!important;font-size:9px!important}
         
 /* ── LOADING SCREEN ── */
-#loader{position:fixed;inset:0;background:#020810;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+#loader{position:fixed;inset:0;background:#020810;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s ease}
 #loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+/* Safety — body always visible */
+body{min-height:100vh}
 .loader-logo{width:90px;height:90px;object-fit:contain;animation:lp 1.2s ease infinite alternate}
 @keyframes lp{from{transform:scale(.92);opacity:.7}to{transform:scale(1.06);opacity:1}}
 .loader-bar-wrap{width:200px;height:3px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:1.8rem;overflow:hidden}
@@ -844,12 +848,14 @@ body{animation:pagein .5s ease both}
 
 <script>
 // ── LOADER ──
-window.addEventListener("load", function(){
-  setTimeout(function(){
-    var l = document.getElementById("loader");
-    if(l) l.classList.add("hide");
-  }, 1400);
-});
+function hideLoader(){
+  var l = document.getElementById("loader");
+  if(l){ l.classList.add("hide"); }
+}
+// Hide on load
+window.addEventListener("load", function(){ setTimeout(hideLoader, 1200); });
+// Fallback — always hide after 2.5s no matter what
+setTimeout(hideLoader, 2500);
 
 // ── NAV SCROLL ──
 window.addEventListener("scroll", function(){
@@ -868,12 +874,12 @@ document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
 // ── PAGE TRANSITION on link click ──
 document.querySelectorAll("a[href]").forEach(function(a){
   var href = a.getAttribute("href");
-  if(href && !href.startsWith("#") && !href.startsWith("http") && !href.startsWith("mailto") && !href.startsWith("tel") && !href.startsWith("https://wa.me")){
+  if(href && href.endsWith(".html") && !href.startsWith("http")){
     a.addEventListener("click", function(e){
       e.preventDefault();
       document.body.style.opacity = "0";
-      document.body.style.transition = "opacity .3s ease";
-      setTimeout(function(){ window.location = href; }, 300);
+      document.body.style.transition = "opacity .25s ease";
+      setTimeout(function(){ window.location.href = href; }, 260);
     });
   }
 });
