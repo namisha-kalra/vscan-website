@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Careers – V SCAN Alliance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--b9:#020810;--b8:#040E1E;--b7:#07182E;--b4:#1A4A9A;--b3:#3A72CC;--goldl:#E0A820;--sbl:0 8px 32px rgba(19,50,114,.5);}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:#020810;color:#C0D8F0;font-family:'Source Sans 3',sans-serif;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:600;background:#fff;padding:0 5vw;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 16px rgba(0,0,0,.12)}
+.nlogo img{height:48px;object-fit:contain}
+.nlinks{list-style:none;display:flex;gap:.3rem;align-items:center}
+.nlinks a{font-size:.76rem;font-weight:600;color:#2A4A6A;text-decoration:none;padding:7px 13px;border-radius:5px;transition:all .2s}
+.nlinks a:hover{color:#133272;background:#EBF3FF}
+.nlinks .ncta{background:var(--b4)!important;color:#fff!important;border-radius:6px!important}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:24px;height:2px;background:#020810;border-radius:2px}
+.back-bar{background:rgba(255,255,255,.03);border-bottom:1px solid rgba(26,74,154,.15);padding:.75rem 5vw}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;color:rgba(192,216,240,.45);text-decoration:none;transition:color .2s}
+.back-btn:hover{color:var(--goldl)}
+.hero{position:relative;background:linear-gradient(135deg,#020810 0%,#071830 50%,#040E1E 100%);padding:5rem 5vw 4rem;overflow:hidden;border-bottom:1px solid rgba(26,74,154,.2);text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px}
+.hero-in{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:#fff;margin-bottom:.8rem}
+.hero-title span{color:var(--goldl);font-style:italic}
+.hero-sub{font-size:.95rem;color:rgba(192,216,240,.5);line-height:1.7}
+.wrap{max-width:1100px;margin:0 auto;padding:5rem 5vw}
+
+/* WHY JOIN */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-bottom:5rem}
+.why-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.18);border-radius:14px;padding:1.8rem;text-align:center;transition:all .3s}
+.why-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px)}
+.why-icon{font-size:2rem;margin-bottom:.8rem}
+.why-title{font-size:.9rem;font-weight:700;color:#D0E4F8;margin-bottom:.4rem}
+.why-text{font-size:.78rem;color:rgba(192,216,240,.5);line-height:1.6}
+
+/* JOB LISTINGS */
+.jobs-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:#E8F2FF;margin-bottom:2rem}
+.job-card{background:#07142A;border:1px solid rgba(26,74,154,.2);border-radius:14px;padding:1.8rem 2rem;margin-bottom:1.2rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:start;transition:all .3s}
+.job-card:hover{border-color:rgba(58,114,204,.35);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.job-tag-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.5rem}
+.job-badge{font-size:.56rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px}
+.jb-full{background:rgba(74,222,128,.1);color:#4ADE80;border:1px solid rgba(74,222,128,.2)}
+.jb-part{background:rgba(251,191,36,.1);color:#FBBf24;border:1px solid rgba(251,191,36,.2)}
+.jb-remote{background:rgba(58,114,204,.15);color:var(--b3);border:1px solid rgba(58,114,204,.3)}
+.jb-field{background:rgba(224,168,32,.12);color:var(--goldl);border:1px solid rgba(224,168,32,.25)}
+.job-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;color:#E8F2FF;margin-bottom:.4rem}
+.job-dept{font-size:.72rem;color:var(--goldl);font-weight:600;margin-bottom:.6rem}
+.job-desc{font-size:.82rem;line-height:1.65;color:rgba(192,216,240,.55)}
+.apply-btn{display:inline-flex;align-items:center;gap:6px;background:var(--b4);color:#fff;padding:9px 20px;border-radius:7px;font-size:.73rem;font-weight:700;text-decoration:none;transition:all .2s;white-space:nowrap;box-shadow:var(--sbl)}
+.apply-btn:hover{background:#133272;transform:translateY(-2px)}
+
+.open-app{background:linear-gradient(135deg,var(--b7),var(--b8));border:1px solid rgba(26,74,154,.3);border-radius:16px;padding:3rem;text-align:center;margin-top:4rem}
+.open-app h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:#E8F2FF;margin-bottom:.8rem}
+.open-app p{font-size:.9rem;color:rgba(192,216,240,.5);margin-bottom:1.5rem}
+.open-app a{display:inline-flex;align-items:center;gap:8px;background:var(--goldl);color:#020810;padding:12px 28px;border-radius:7px;font-size:.8rem;font-weight:800;text-decoration:none;transition:all .2s}
+.open-app a:hover{background:#F5CC60;transform:translateY(-2px)}
+
+footer{background:var(--b9);border-top:3px solid var(--goldl);padding:2rem 5vw;text-align:center}
+footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr}.job-card{grid-template-columns:1fr}}
+@media(max-width:600px){.why-grid{grid-template-columns:1fr}.nlinks{display:none}.burger{display:flex}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html"><img src="logo.png.png" alt="V SCAN" style="height:48px"/></a>
+  <ul class="nlinks">
+    <li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="reach.html">Our Reach</a></li><li><a href="team.html">Team</a></li>
+    <li><a href="advisory.html">Advisory</a></li><li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="ncta">Contact Us</a></li>
+  </ul>
+  <div class="burger"><span></span><span></span><span></span></div>
+</nav>
+<div class="back-bar"><a href="index.html" class="back-btn">← Back to Home</a></div>
+<section class="hero">
+  <div class="hero-in">
+    <h1 class="hero-title">Join <span>V SCAN</span></h1>
+    <p class="hero-sub">Be part of India's most exciting political consulting mission — where strategy meets democracy and data shapes governance.</p>
+  </div>
+</section>
+<div class="wrap">
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">🚀</div><div class="why-title">Mission-Driven Work</div><div class="why-text">Work on campaigns that genuinely shape India's democracy and governance landscape</div></div>
+    <div class="why-card"><div class="why-icon">🌍</div><div class="why-title">Pan-India Exposure</div><div class="why-text">Work across 11+ states with exposure to India's most complex political environments</div></div>
+    <div class="why-card"><div class="why-icon">📈</div><div class="why-title">Fast Growth</div><div class="why-text">Young, fast-growing firm — your contributions directly impact the organization's success</div></div>
+    <div class="why-card"><div class="why-icon">🧠</div><div class="why-title">Learn from the Best</div><div class="why-text">Work alongside experienced strategists, advisors, and political consultants</div></div>
+    <div class="why-card"><div class="why-icon">⚖️</div><div class="why-title">Ethics First Culture</div><div class="why-text">A workplace built on integrity, accountability, and genuine commitment to public good</div></div>
+    <div class="why-card"><div class="why-icon">💡</div><div class="why-title">Innovation Welcome</div><div class="why-text">Bring your ideas — we are always exploring new methods, tools, and approaches</div></div>
+  </div>
+
+  <div class="jobs-title">Current Openings</div>
+
+  <div class="job-card">
+    <div>
+      <div class="job-tag-row"><span class="job-badge jb-full">Full Time</span><span class="job-badge jb-field">Field Work</span></div>
+      <div class="job-title">Political Field Researcher</div>
+      <div class="job-dept">Research & Intelligence · Multiple States</div>
+      <div class="job-desc">Collect booth-level voter data, conduct community surveys, and build ground intelligence reports from assigned constituencies across UP, Bihar, Rajasthan, or Maharashtra.</div>
+    </div>
+    <a href="mailto:vscanalliance@gmail.com?subject=Application: Political Field Researcher" class="apply-btn">Apply Now →</a>
+  </div>
+
+  <div class="job-card">
+    <div>
+      <div class="job-tag-row"><span class="job-badge jb-full">Full Time</span><span class="job-badge jb-remote">Hybrid</span></div>
+      <div class="job-title">Digital Campaign Manager</div>
+      <div class="job-dept">Digital & Media Strategy · Delhi HQ</div>
+      <div class="job-desc">Manage social media campaigns, content calendars, and rapid response units for political clients. Experience in political communication or social media management preferred.</div>
+    </div>
+    <a href="mailto:vscanalliance@gmail.com?subject=Application: Digital Campaign Manager" class="apply-btn">Apply Now →</a>
+  </div>
+
+  <div class="job-card">
+    <div>
+      <div class="job-tag-row"><span class="job-badge jb-full">Full Time</span><span class="job-badge jb-remote">Delhi</span></div>
+      <div class="job-title">Data Analyst — Political Intelligence</div>
+      <div class="job-dept">Analytics · Delhi HQ</div>
+      <div class="job-desc">Process voter data, create constituency profiles, build predictive models, and generate actionable political intelligence reports. Skills in Excel, SQL, or Python preferred.</div>
+    </div>
+    <a href="mailto:vscanalliance@gmail.com?subject=Application: Data Analyst" class="apply-btn">Apply Now →</a>
+  </div>
+
+  <div class="job-card">
+    <div>
+      <div class="job-tag-row"><span class="job-badge jb-part">Internship</span><span class="job-badge jb-remote">Hybrid</span></div>
+      <div class="job-title">Political Strategy Intern</div>
+      <div class="job-dept">Strategy · Delhi HQ · 3-6 months</div>
+      <div class="job-desc">Learn hands-on political consulting — from research to strategy to execution. Ideal for students of Political Science, Public Policy, Journalism, or MBA. Stipend provided.</div>
+    </div>
+    <a href="mailto:vscanalliance@gmail.com?subject=Application: Strategy Intern" class="apply-btn">Apply Now →</a>
+  </div>
+
+  <div class="open-app">
+    <h2>Don't See Your Role?</h2>
+    <p>We are always looking for passionate people who want to make democracy better. Send us your CV and tell us how you can contribute.</p>
+    <a href="mailto:vscanalliance@gmail.com?subject=Open Application — V SCAN">Send Open Application →</a>
+  </div>
+</div>
+<footer><p>© 2025 V SCAN Alliance · Delhi, India</p></footer>
+</body>
+</html>
