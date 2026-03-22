@@ -79,27 +79,59 @@ footer p{font-size:.72rem;color:rgba(255,255,255,.2)}
 </div>
 
 <div class="gallery-wrap">
-  <div class="filter-row">
-    <button class="filter-btn active" onclick="filterGallery('all',this)">All</button>
-    <button class="filter-btn" onclick="filterGallery('campaign',this)">Campaigns</button>
-    <button class="filter-btn" onclick="filterGallery('team',this)">Team</button>
-    <button class="filter-btn" onclick="filterGallery('event',this)">Events</button>
-    <button class="filter-btn" onclick="filterGallery('ground',this)">Ground Work</button>
-  </div>
-
-  <div class="upload-note">
-    <p><strong>Note:</strong> Upload your gallery images to the GitHub repo with these filenames:<br>
-    <strong>gallery1.jpg, gallery2.jpg, gallery3.jpg...</strong> etc.<br>
-    They will automatically appear here. Click any image to view in fullscreen.</p>
-  </div>
-
-  <div class="gallery-grid" id="galleryGrid">
-    <!-- Event photos event1.jpeg to event10.jpeg -->
-    <div class="gallery-item" data-cat="event" onclick="openLightbox(this)">
-      <img src="event1.jpeg" alt="V SCAN Event" onerror="this.parentElement.style.display='none'"/>
+    <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-item" data-cat="all" onclick="openLightbox(this)">
+      <img src="event1.jpeg" alt="V SCAN Event 1"/>
       <div class="gallery-overlay"></div>
       <div class="gallery-caption">V SCAN Field Event</div>
     </div>
+    <div class="gallery-item" data-cat="all" onclick="openLightbox(this)">
+      <img src="event2.jpeg" alt="V SCAN Event 2"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Campaign Operations</div>
+    </div>
+    <div class="gallery-item" data-cat="all" onclick="openLightbox(this)">
+      <img src="event3.jpeg" alt="V SCAN Event 3"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Ground Intelligence</div>
+    </div>
+    <div class="gallery-item" data-cat="all" onclick="openLightbox(this)">
+      <img src="event4.jpeg" alt="V SCAN Event 4"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Team V SCAN</div>
+    </div>
+    <div class="gallery-item" data-cat="all" onclick="openLightbox(this)">
+      <img src="event5.jpeg" alt="V SCAN Event 5"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Political Event</div>
+    </div>
+    <div class="gallery-item" data-cat="all" onclick="openLightbox(this)">
+      <img src="event6.jpeg" alt="V SCAN Event 6"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Voter Outreach</div>
+    </div>
+    <div class="gallery-item" data-cat="all" onclick="openLightbox(this)">
+      <img src="event7.jpeg" alt="V SCAN Event 7"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Field Operations</div>
+    </div>
+    <div class="gallery-item" data-cat="all" onclick="openLightbox(this)">
+      <img src="event8.jpeg" alt="V SCAN Event 8"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Community Engagement</div>
+    </div>
+    <div class="gallery-item" data-cat="all" onclick="openLightbox(this)">
+      <img src="event9.jpeg" alt="V SCAN Event 9"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">Strategy Session</div>
+    </div>
+    <div class="gallery-item" data-cat="all" onclick="openLightbox(this)">
+      <img src="event10.jpeg" alt="V SCAN Event 10"/>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-caption">V SCAN Campaign</div>
+    </div>
+  </div>
+</div>
     <div class="gallery-item" data-cat="campaign" onclick="openLightbox(this)">
       <img src="event2.jpeg" alt="Campaign" onerror="this.parentElement.style.display='none'"/>
       <div class="gallery-overlay"></div>
@@ -147,41 +179,6 @@ footer p{font-size:.72rem;color:rgba(255,255,255,.2)}
     </div>
   </div>
 </div>
-    <div class="gallery-item" data-cat="campaign" onclick="openLightbox(this)">
-      <img src="post.png.jpeg" alt="Campaign" onerror="this.parentElement.style.display='none'"/>
-      <div class="gallery-overlay"></div>
-      <div class="gallery-caption">Voter Analytics</div>
-    </div>
-    <div class="gallery-item" data-cat="team" onclick="openLightbox(this)">
-      <img src="teamwork.jpg.jpeg" alt="Team" onerror="this.parentElement.style.display='none'"/>
-      <div class="gallery-overlay"></div>
-      <div class="gallery-caption">Team V SCAN</div>
-    </div>
-    <div class="gallery-item" data-cat="ground" onclick="openLightbox(this)">
-      <img src="leadership.png.jpeg" alt="Ground Work" onerror="this.parentElement.style.display='none'"/>
-      <div class="gallery-overlay"></div>
-      <div class="gallery-caption">Ground Intelligence</div>
-    </div>
-    <div class="gallery-item" data-cat="event" onclick="openLightbox(this)">
-      <img src="strategy.png.jpeg" alt="Event" onerror="this.parentElement.style.display='none'"/>
-      <div class="gallery-overlay"></div>
-      <div class="gallery-caption">Digital Strategy</div>
-    </div>
-    <div class="gallery-item" data-cat="campaign" onclick="openLightbox(this)">
-      <img src="vision.jpg.jpeg" alt="Campaign" onerror="this.parentElement.style.display='none'"/>
-      <div class="gallery-overlay"></div>
-      <div class="gallery-caption">Governance Vision</div>
-    </div>
-    <div class="gallery-item" data-cat="team" onclick="openLightbox(this)">
-      <img src="team.png.jpeg" alt="Team" onerror="this.parentElement.style.display='none'"/>
-      <div class="gallery-overlay"></div>
-      <div class="gallery-caption">Leadership Building</div>
-    </div>
-    <div class="gallery-item" data-cat="ground" onclick="openLightbox(this)">
-      <img src="office.jpg.jpeg" alt="Office" onerror="this.parentElement.style.display='none'"/>
-      <div class="gallery-overlay"></div>
-      <div class="gallery-caption">V SCAN Office</div>
-    </div>
   </div>
 </div>
 
