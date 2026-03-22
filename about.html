@@ -1,124 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us – V SCAN</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>About Us – V SCAN Alliance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--b9:#020810;--b8:#040E1E;--b7:#07182E;--b6:#0C2448;--b5:#133272;--b4:#1A4A9A;--b3:#3A72CC;--gold:#C89010;--goldl:#E0A820;--sbl:0 8px 32px rgba(19,50,114,.5);}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#020810;color:#C0D8F0;font-family:'Source Sans 3',sans-serif;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:600;background:#fff;padding:0 5vw;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 16px rgba(0,0,0,.12)}
+.nlogo img{height:48px;object-fit:contain}
+.nlinks{list-style:none;display:flex;gap:.3rem;align-items:center}
+.nlinks a{font-size:.76rem;font-weight:600;color:#2A4A6A;text-decoration:none;padding:7px 13px;border-radius:5px;transition:all .2s}
+.nlinks a:hover{color:#133272;background:#EBF3FF}
+.nlinks .active{color:var(--b4)!important;font-weight:700!important}
+.nlinks .ncta{background:var(--b4)!important;color:#fff!important;border-radius:6px!important}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:24px;height:2px;background:#020810;border-radius:2px}
+.back-bar{background:rgba(255,255,255,.03);border-bottom:1px solid rgba(26,74,154,.15);padding:.75rem 5vw}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;color:rgba(192,216,240,.45);text-decoration:none;transition:color .2s}
+.back-btn:hover{color:var(--goldl)}
+
+/* HERO */
+.about-hero{position:relative;background:linear-gradient(135deg,#020810 0%,#071830 50%,#040E1E 100%);padding:7rem 5vw 5rem;overflow:hidden;border-bottom:1px solid rgba(26,74,154,.2)}
+.about-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px}
+.hero-glow{position:absolute;top:-80px;right:-80px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(26,74,154,.2) 0%,transparent 65%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-60px;left:-40px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(200,144,16,.07) 0%,transparent 65%);pointer-events:none}
+.hero-in{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(26,74,154,.18);border:1px solid rgba(26,74,154,.3);color:var(--b3);font-size:.6rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:1.5rem}
+.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--goldl)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.2rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1.2rem}
+.hero-title span{color:var(--goldl);font-style:italic}
+.hero-sub{font-size:1.05rem;color:rgba(192,216,240,.5);line-height:1.7;max-width:600px;margin:0 auto 3rem}
+/* Stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(26,74,154,.2);border:1px solid rgba(26,74,154,.2);border-radius:12px;overflow:hidden;margin-top:2rem}
+.stat-item{background:#040E1E;padding:1.8rem 1rem;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-1px}
+.stat-num em{color:var(--goldl);font-style:normal;font-size:2rem}
+.stat-lbl{font-size:.58rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(192,216,240,.35);margin-top:.4rem}
+
+/* TRICOLOR BAR */
+.tricolor{height:3px;display:flex}
+.tc-s{flex:1;background:#FF9933}.tc-w{flex:1;background:#fff}.tc-g{flex:1;background:#138808}
+
+/* SECTION COMMON */
+.sec{padding:6rem 5vw}
+.sec-in{max-width:1200px;margin:0 auto}
+.sec-tag{font-size:.58rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--goldl);margin-bottom:.5rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:#E8F2FF;margin-bottom:.5rem}
+.sec-sub{font-size:.9rem;color:rgba(192,216,240,.4);margin-bottom:3rem;max-width:500px}
+
+/* WHO WE ARE */
+#who{background:#07142A;border-bottom:1px solid rgba(26,74,154,.2)}
+.who-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.who-img{width:100%;border-radius:14px;display:block;filter:brightness(.85) saturate(.8);box-shadow:0 20px 60px rgba(0,0,0,.5);border:1px solid rgba(26,74,154,.2);transition:filter .4s}
+.who-img:hover{filter:brightness(1) saturate(1)}
+.who-img-wrap{position:relative}
+.who-img-wrap::before{content:'';position:absolute;top:-10px;left:-10px;width:60px;height:60px;border-top:3px solid var(--b3);border-left:3px solid var(--b3);border-radius:2px;pointer-events:none}
+.who-img-wrap::after{content:'';position:absolute;bottom:-10px;right:-10px;width:60px;height:60px;border-bottom:3px solid var(--goldl);border-right:3px solid var(--goldl);border-radius:2px;pointer-events:none}
+.who-text p{font-size:.95rem;line-height:1.88;color:rgba(192,216,240,.62);margin-bottom:1.1rem;text-align:justify}
+.who-text p strong{color:#C0D8F0}
+.highlight-quote{margin:1.5rem 0;padding:1rem 1.4rem;border-left:3px solid var(--goldl);background:rgba(26,74,154,.1);border-radius:0 8px 8px 0;font-family:'Playfair Display',serif;font-size:.98rem;font-style:italic;color:var(--b3);line-height:1.65}
+
+/* VISION MISSION */
+#vision{background:#040E1E;border-bottom:1px solid rgba(26,74,154,.2)}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.vm-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.2);border-radius:14px;padding:2.5rem;position:relative;overflow:hidden;transition:all .3s}
+.vm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--b4),var(--goldl));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.vm-card:hover{background:rgba(255,255,255,.07);border-color:rgba(58,114,204,.3);transform:translateY(-4px)}
+.vm-card:hover::before{transform:scaleX(1)}
+.vm-icon{font-size:2.2rem;margin-bottom:1rem}
+.vm-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;color:#E8F2FF;margin-bottom:1rem}
+.vm-text{font-size:.88rem;line-height:1.8;color:rgba(192,216,240,.58);text-align:justify}
+
+/* WHY VSCAN */
+#why{background:#020810;border-bottom:1px solid rgba(26,74,154,.15)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.why-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.18);border-radius:12px;padding:2rem;text-align:center;transition:all .3s;position:relative;overflow:hidden}
+.why-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--b4),var(--goldl));transform:scaleX(0);transition:transform .3s}
+.why-card:hover{background:rgba(255,255,255,.07);transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.why-card:hover::after{transform:scaleX(1)}
+.why-icon{font-size:2rem;margin-bottom:1rem}
+.why-title{font-size:.92rem;font-weight:700;color:#D0E4F8;margin-bottom:.6rem}
+.why-text{font-size:.8rem;line-height:1.65;color:rgba(192,216,240,.48)}
+
+/* SERVICES */
+#services{background:#07142A;border-bottom:1px solid rgba(26,74,154,.2)}
+.srv-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.srv-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.2);border-radius:14px;overflow:hidden;transition:all .3s}
+.srv-card:hover{border-color:rgba(58,114,204,.35);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.srv-img{width:100%;height:180px;object-fit:cover;filter:brightness(.75) saturate(.7);transition:filter .4s}
+.srv-card:hover .srv-img{filter:brightness(.92) saturate(.9)}
+.srv-body{padding:1.6rem}
+.srv-tag{font-size:.56rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--goldl);margin-bottom:.5rem}
+.srv-title{font-size:1rem;font-weight:700;color:#D0E4F8;margin-bottom:.6rem}
+.srv-text{font-size:.82rem;line-height:1.68;color:rgba(192,216,240,.52)}
+
+/* VALUES */
+#values{background:#040E1E}
+.val-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.val-item{text-align:center;padding:2rem 1rem;border:1px solid rgba(26,74,154,.15);border-radius:12px;background:rgba(255,255,255,.03);transition:all .3s}
+.val-item:hover{background:rgba(255,255,255,.06);border-color:rgba(58,114,204,.3)}
+.val-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:var(--goldl);line-height:1;margin-bottom:.4rem}
+.val-label{font-size:.72rem;font-weight:700;color:#C0D8F0;margin-bottom:.4rem}
+.val-desc{font-size:.72rem;color:rgba(192,216,240,.4);line-height:1.5}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--b7) 0%,var(--b8) 100%);padding:5rem 5vw;text-align:center;border-top:1px solid rgba(26,74,154,.2)}
+.cta-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:1rem}
+.cta-sub{font-size:.95rem;color:rgba(192,216,240,.5);margin-bottom:2rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--goldl);color:#020810;padding:13px 28px;border-radius:7px;font-size:.8rem;font-weight:800;text-decoration:none;transition:all .2s;box-shadow:0 6px 20px rgba(224,168,32,.35)}
+.btn-gold:hover{background:var(--gold3);transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,.75);padding:13px 28px;border-radius:7px;border:1.5px solid rgba(255,255,255,.2);font-size:.8rem;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-outline:hover{border-color:rgba(255,255,255,.6);color:#fff;background:rgba(255,255,255,.07)}
+
+footer{background:var(--b9);border-top:3px solid var(--goldl);padding:2rem 5vw;text-align:center}
+footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
+
+@media(max-width:1024px){
+  .who-layout,.vm-grid,.srv-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .val-grid{grid-template-columns:1fr 1fr}
+  .stats-bar{grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:700px){
+  .why-grid,.val-grid{grid-template-columns:1fr}
+  .nlinks{display:none}.burger{display:flex}
+}
+</style>
 </head>
 <body>
 
-  <!-- ✅ HEADER -->
-  <header>
-    <div class="logo">
-      <a href="index.html">
-        <img src="logo.png.png" alt="V SCAN Logo">
-      </a>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="cofounders.html">Our Team</a></li>
-        <li><a href="contact.html">Join Us</a></li>
-        
-      </ul>
-    </nav>
-    
-  </header>
+<nav>
+  <a href="index.html" class="nlogo"><img src="logo.png.png" alt="V SCAN"/></a>
+  <ul class="nlinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="index.html#team">Team</a></li>
+    <li><a href="advisory.html">Advisory</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="index.html#contact" class="ncta">Contact Us</a></li>
+  </ul>
+  <div class="burger"><span></span><span></span><span></span></div>
+</nav>
+<div class="back-bar"><a href="index.html" class="back-btn">← Back to Home</a></div>
+<div class="tricolor"><div class="tc-s"></div><div class="tc-w"></div><div class="tc-g"></div></div>
 
-  <!-- ✅ HERO SECTION -->
-  <section class="hero-about reveal">
-    <h2>About V SCAN</h2>
-    <p>Strategizing Governance. Empowering Democracy. Learn more about who we are and what drives us.</p>
-  </section>
-
-  <!-- WHO WE ARE -->
-  <div class="section reveal">
-    <div class="section-content">
-      <h3>Who We Are</h3>
-      <p>V SCAN is an alliance of young, highly educated professionals, thinkers, and changemakers from diverse fields — united by the shared purpose of creating a positive, accountable, and people‑centric political ecosystem in India.</p>
-      <p>We don’t just shape political victories — we shape governance. At V SCAN, ‘Vikas’ is not just a name; it is the definition and core of our mission: sustainable, inclusive, and transparent development rooted in democratic values.</p>
-    </div>
-    <img src="teamwork.jpg.jpeg" alt="Who We Are">
-  </div>
-
-  <!-- OUR VISION -->
-  <div class="section reveal">
-    <div class="section-content">
-      <h3>Our Vision</h3>
-      <p>To become the driving force behind a truly citizen‑centric democratic system by bridging the gap between visionary political leadership and the lived realities of the people. We aim to empower politics with strategic intelligence, grounded insights, and continuous public policy evaluation — ensuring that democracy doesn't just end at the ballot box, but thrives through transparent, accountable, and responsive governance.</p>
-    </div>
-    <img src="vision.jpg.jpeg" alt="Vision">
-  </div>
-
-  <!-- MISSION -->
-  <div class="section reveal">
-    <div class="section-content">
-      <h3>Our Mission</h3>
-      <p>We drive meaningful transformation in Indian politics by integrating accountability, strategy, and citizen engagement at every step. We scan the political landscape, strategize with leaders, and support democratic processes before and after elections to ensure leaders lead with integrity, impact, and inclusiveness.</p>
-    </div>
-    <img src="mission.jpg.jpeg" alt="Mission">
-  </div>
-
-  <!-- WHY V SCAN -->
-  <h2 style="text-align:center; margin-top:40px; color:#003366;">Why V SCAN?</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="leadership.png.jpeg" alt="">
-      <h4>Beyond Elections</h4>
-      <p>We help leaders not only win but govern responsibly with long‑term strategies.</p>
-    </div>
-    <div class="card">
-      <img src="strategy.png.jpeg" alt="">
-      <h4>Expert Insights</h4>
-      <p>Backed by advisory panels with real‑world political and administrative experience.</p>
-    </div>
-    <div class="card">
-      <img src="team.png.jpeg" alt="">
-      <h4>Grounded Approach</h4>
-      <p>Our strategies come from real grassroots understanding, not just theory.</p>
+<!-- HERO -->
+<section class="about-hero">
+  <div class="hero-glow"></div><div class="hero-glow2"></div>
+  <div class="hero-in">
+    <div class="hero-tag"><div class="hero-tag-dot"></div>India's Premier Political & Policy Consultancy Firm</div>
+    <h1 class="hero-title">About <span>V SCAN</span> Alliance</h1>
+    <p class="hero-sub">Strategizing Governance. Empowering Democracy. Building an India where politics serves people, not the other way around.</p>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-num">10<em>+</em></div>
+        <div class="stat-lbl">Indian States</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">7<em>+</em></div>
+        <div class="stat-lbl">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100<em>+</em></div>
+        <div class="stat-lbl">Campaigns Shaped</div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- CORE SERVICES -->
-  <h2 style="text-align:center; margin-top:40px; color:#003366;">Core Services</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="election.png.jpeg" alt="">
-      <h4>Pre‑Election</h4>
-      <p>Research, strategy, branding, cadre training, and social media management.</p>
-    </div>
-    <div class="card">
-      <img src="post.png.jpeg" alt="">
-      <h4>Post‑Election</h4>
-      <p>Leader's office management, public feedback analysis, and continuous evaluation.</p>
+<!-- WHO WE ARE -->
+<section id="who" class="sec">
+  <div class="sec-in">
+    <div class="who-layout">
+      <div class="who-img-wrap">
+        <img class="who-img" src="teamwork.jpg.jpeg" alt="V SCAN Team" onerror="this.src='https://via.placeholder.com/560x420/071830/3A72CC?text=V+SCAN'"/>
+      </div>
+      <div class="who-text">
+        <div class="sec-tag">Who We Are</div>
+        <h2 class="sec-title">An Alliance Built for <em style="color:var(--goldl)">Democracy</em></h2>
+        <p>V SCAN is an alliance of young, highly educated professionals, thinkers, and changemakers from diverse fields — united by the shared purpose of creating a positive, accountable, and people-centric political ecosystem in India.</p>
+        <div class="highlight-quote">"We don't just shape political victories — we shape governance. At V SCAN, 'Vikas' is not just a name; it is the definition and core of our mission."</div>
+        <p>We are a <strong>next-generation political consulting and policy firm</strong> committed to making democracy more accountable, campaigns more honest, and governance more citizen-centric. Our team combines ground-level intelligence with high-level strategic thinking to deliver results that last beyond election day.</p>
+        <p>From booth-level data analytics to post-election governance advisory — V SCAN covers the full political lifecycle with integrity and precision.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- ✅ FOOTER -->
-  <footer>
-    <p>&copy; 2025 V SCAN. All rights reserved.</p>
-  </footer>
+<!-- VISION & MISSION -->
+<section id="vision" class="sec">
+  <div class="sec-in">
+    <div class="sec-tag">Our Direction</div>
+    <h2 class="sec-title">Vision & Mission</h2>
+    <p class="sec-sub">Two pillars that guide everything we do at V SCAN</p>
+    <div class="vm-grid">
+      <div class="vm-card">
+        <div class="vm-icon">🔭</div>
+        <div class="vm-title">Our Vision</div>
+        <p class="vm-text">To become the driving force behind a truly citizen-centric democratic system by bridging the gap between visionary political leadership and the lived realities of the people. We aim to empower politics with strategic intelligence, grounded insights, and continuous public policy evaluation — ensuring that democracy doesn't just end at the ballot box, but thrives through transparent, accountable, and responsive governance.</p>
+      </div>
+      <div class="vm-card">
+        <div class="vm-icon">🎯</div>
+        <div class="vm-title">Our Mission</div>
+        <p class="vm-text">We drive meaningful transformation in Indian politics by integrating accountability, strategy, and citizen engagement at every step. We scan the political landscape, strategize with leaders, and support democratic processes before and after elections to ensure leaders lead with integrity, impact, and inclusiveness. Our mission is not just to win elections — it is to build leaders who govern with purpose and serve with honesty.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Theme switch removed — site uses dark theme only
-    document.addEventListener('DOMContentLoaded', function(){
-      const obs = new IntersectionObserver((entries, o) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); o.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    });
-  </script>
+<!-- WHY VSCAN -->
+<section id="why" class="sec">
+  <div class="sec-in">
+    <div class="sec-tag">Why Choose Us</div>
+    <h2 class="sec-title">Why V SCAN?</h2>
+    <p class="sec-sub">What makes us different from conventional political consulting firms</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <div class="why-title">Beyond Elections</div>
+        <div class="why-text">We help leaders not only win but govern responsibly with long-term strategies that keep promises and deliver results after election day.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🧠</div>
+        <div class="why-title">Expert Advisory</div>
+        <div class="why-text">Backed by advisory panels with real-world political, journalistic, environmental, and academic experience spanning decades.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌾</div>
+        <div class="why-title">Grounded Approach</div>
+        <div class="why-text">Our strategies come from real grassroots understanding — booth-level data, community connect, and on-ground intelligence across 10+ states.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📊</div>
+        <div class="why-title">Data-Driven</div>
+        <div class="why-text">We use political data analytics, voter sentiment tracking, and precision segmentation to eliminate guesswork from every decision.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚖️</div>
+        <div class="why-title">Ethical Standards</div>
+        <div class="why-text">We choose to work only with leaders committed to genuine public service — prioritizing accountability over electoral arithmetic.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🇮🇳</div>
+        <div class="why-title">Pan-India Presence</div>
+        <div class="why-text">Active operations across 11 states — from the political heartland of Delhi and UP to Maharashtra, Odisha and West Bengal.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- CORE SERVICES -->
+<section id="services" class="sec">
+  <div class="sec-in">
+    <div class="sec-tag">What We Do</div>
+    <h2 class="sec-title">Core Services</h2>
+    <p class="sec-sub">Full-spectrum political & policy consulting — from the first campaign meeting to governance delivery on the ground</p>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <img class="srv-img" src="mission.jpg.jpeg" alt="Pre-Election" onerror="this.style.display='none'"/>
+        <div class="srv-body">
+          <div class="srv-tag">01 — Pre-Election</div>
+          <div class="srv-title">Campaign Strategy & Management</div>
+          <div class="srv-text">Research, constituency mapping, candidate positioning, branding, cadre training, voter analytics, and social media campaign management — crafting the complete electoral architecture.</div>
+        </div>
+      </div>
+      <div class="srv-card">
+        <img class="srv-img" src="post.png.jpeg" alt="Post-Election" onerror="this.style.display='none'"/>
+        <div class="srv-body">
+          <div class="srv-tag">02 — Post-Election</div>
+          <div class="srv-title">Governance & Policy Advisory</div>
+          <div class="srv-text">Leader's office management, public feedback analysis, policy delivery frameworks, citizen audit systems, and continuous governance evaluation — ensuring every promise made gets delivered.</div>
+        </div>
+      </div>
+      <div class="srv-card">
+        <img class="srv-img" src="strategy.png.jpeg" alt="Digital" onerror="this.style.display='none'"/>
+        <div class="srv-body">
+          <div class="srv-tag">03 — Digital</div>
+          <div class="srv-title">Digital & Media Strategy</div>
+          <div class="srv-text">Narrative control across social media, OTT, and regional news. Precision content creation, rapid response units, and influencer ecosystem management for complete digital dominance.</div>
+        </div>
+      </div>
+      <div class="srv-card">
+        <img class="srv-img" src="leadership.png.jpeg" alt="Intelligence" onerror="this.style.display='none'"/>
+        <div class="srv-body">
+          <div class="srv-tag">04 — Intelligence</div>
+          <div class="srv-title">Political Intelligence Unit</div>
+          <div class="srv-text">Ground-level opposition monitoring, issue vulnerability mapping, crisis communication playbooks, and real-time intelligence from every district in your constituency.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES / IMPACT -->
+<section id="values" class="sec">
+  <div class="sec-in">
+    <div class="sec-tag">Our Impact</div>
+    <h2 class="sec-title">V SCAN by the Numbers</h2>
+    <p class="sec-sub" style="margin-bottom:2.5rem">Our track record of making democracy stronger, one campaign at a time</p>
+    <div class="val-grid">
+      <div class="val-item">
+        <div class="val-num">100+</div>
+        <div class="val-label">Campaigns Managed</div>
+        <div class="val-desc">End-to-end political campaigns across India</div>
+      </div>
+      <div class="val-item">
+        <div class="val-num">11</div>
+        <div class="val-label">Active States</div>
+        <div class="val-desc">Pan-India operational footprint</div>
+      </div>
+      <div class="val-item">
+        <div class="val-num">7+</div>
+        <div class="val-label">Years Experience</div>
+        <div class="val-desc">Consistent excellence in political consulting</div>
+      </div>
+      <div class="val-item">
+        <div class="val-num">500+</div>
+        <div class="val-label">Leaders Trained</div>
+        <div class="val-desc">Political leaders capacitated across India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title">Ready to Shape India's Political Future?</h2>
+  <p class="cta-sub">Partner with V SCAN — where strategy meets democracy, and data shapes governance.</p>
+  <div class="cta-btns">
+    <a href="index.html#contact" class="btn-gold">Partner With Us →</a>
+    <a href="index.html#team" class="btn-outline">Meet Our Team</a>
+  </div>
+</section>
+
+<footer><p>© 2025 V SCAN Alliance · Vikas Strategic Citizens Accountable Network · Delhi, India</p></footer>
 </body>
 </html>
-
-
-
-
-
-
