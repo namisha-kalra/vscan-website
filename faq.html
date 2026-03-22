@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FAQ – V SCAN Alliance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--b9:#020810;--b8:#040E1E;--b7:#07182E;--b4:#1A4A9A;--b3:#3A72CC;--goldl:#E0A820;--sbl:0 8px 32px rgba(19,50,114,.5);}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:#020810;color:#C0D8F0;font-family:'Source Sans 3',sans-serif;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:600;background:#fff;padding:0 5vw;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 16px rgba(0,0,0,.12)}
+.nlogo img{height:48px;object-fit:contain}
+.nlinks{list-style:none;display:flex;gap:.3rem;align-items:center}
+.nlinks a{font-size:.76rem;font-weight:600;color:#2A4A6A;text-decoration:none;padding:7px 13px;border-radius:5px;transition:all .2s}
+.nlinks a:hover{color:#133272;background:#EBF3FF}
+.nlinks .ncta{background:var(--b4)!important;color:#fff!important;border-radius:6px!important}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:24px;height:2px;background:#020810;border-radius:2px}
+.back-bar{background:rgba(255,255,255,.03);border-bottom:1px solid rgba(26,74,154,.15);padding:.75rem 5vw}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;color:rgba(192,216,240,.45);text-decoration:none;transition:color .2s}
+.back-btn:hover{color:var(--goldl)}
+.hero{position:relative;background:linear-gradient(135deg,#020810 0%,#071830 50%,#040E1E 100%);padding:5rem 5vw 4rem;overflow:hidden;border-bottom:1px solid rgba(26,74,154,.2);text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px}
+.hero-in{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;margin-bottom:.8rem}
+.hero-title span{color:var(--goldl);font-style:italic}
+.hero-sub{font-size:.95rem;color:rgba(192,216,240,.5);line-height:1.7}
+.faq-wrap{max-width:900px;margin:0 auto;padding:5rem 5vw}
+.faq-cat{margin-bottom:3.5rem}
+.faq-cat-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;color:#E8F2FF;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:1px solid rgba(26,74,154,.25);display:flex;align-items:center;gap:.8rem}
+.faq-item{border:1px solid rgba(26,74,154,.18);border-radius:12px;overflow:hidden;margin-bottom:.8rem;transition:border-color .3s}
+.faq-item.open{border-color:rgba(58,114,204,.35)}
+.faq-q{padding:1.2rem 1.6rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(255,255,255,.04);transition:background .2s}
+.faq-q:hover{background:rgba(255,255,255,.07)}
+.faq-item.open .faq-q{background:rgba(26,74,154,.12)}
+.faq-q-text{font-size:.9rem;font-weight:600;color:#D0E4F8;line-height:1.4}
+.faq-icon{width:24px;height:24px;border-radius:50%;background:rgba(26,74,154,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:.7rem;color:var(--b3)}
+.faq-item.open .faq-icon{background:var(--b4);color:#fff;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.faq-item.open .faq-a{max-height:500px;padding:1.2rem 1.6rem;border-top:1px solid rgba(26,74,154,.15)}
+.faq-a p{font-size:.88rem;line-height:1.85;color:rgba(192,216,240,.62)}
+.faq-a a{color:var(--b3);text-decoration:none}
+.faq-a a:hover{color:var(--goldl)}
+.cta-sec{background:linear-gradient(135deg,var(--b7),var(--b8));padding:4rem 5vw;text-align:center;border-top:1px solid rgba(26,74,154,.2);margin-top:2rem}
+.cta-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:.8rem}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--goldl);color:#020810;padding:12px 28px;border-radius:7px;font-size:.8rem;font-weight:800;text-decoration:none;margin-top:1rem}
+footer{background:var(--b9);border-top:3px solid var(--goldl);padding:2rem 5vw;text-align:center}
+footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
+@media(max-width:600px){.nlinks{display:none}.burger{display:flex}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html"><img src="logo.png.png" alt="V SCAN" style="height:48px"/></a>
+  <ul class="nlinks">
+    <li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="reach.html">Our Reach</a></li><li><a href="team.html">Team</a></li>
+    <li><a href="advisory.html">Advisory</a></li><li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="ncta">Contact Us</a></li>
+  </ul>
+  <div class="burger"><span></span><span></span><span></span></div>
+</nav>
+<div class="back-bar"><a href="index.html" class="back-btn">← Back to Home</a></div>
+<section class="hero">
+  <div class="hero-in">
+    <h1 class="hero-title">Frequently Asked <span>Questions</span></h1>
+    <p class="hero-sub">Everything you need to know about V SCAN Alliance and our services</p>
+  </div>
+</section>
+<div class="faq-wrap">
+  <div class="faq-cat">
+    <div class="faq-cat-title">🏢 About V SCAN</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is V SCAN Alliance?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>V SCAN Alliance (Vikas Strategic Citizens Accountability Network) is India's premier political & policy consultancy firm, founded by Vikas Kumar Choudhary. We specialize in ethical, data-driven political consulting — helping leaders win elections and govern effectively across India.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Where is V SCAN based and where do you operate?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>V SCAN is headquartered in Shahdara, Delhi (National Capital). We currently operate across 11 states — Delhi, Uttar Pradesh, Haryana, Punjab, Uttarakhand, Rajasthan, Madhya Pradesh, Bihar, West Bengal, Odisha, and Maharashtra — with plans to expand further.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long has V SCAN been operating?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>V SCAN has been operating for 7+ years with consistent excellence in political consulting. Since establishment, we have managed 100+ campaigns, trained 500+ leaders, and maintained an active presence across 11 states.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What makes V SCAN different from other political consultancies?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>V SCAN is built on three pillars: Ethics, Data, and Governance. We only work with leaders genuinely committed to public service. We use real booth-level data — not assumptions. And we work beyond election day into governance delivery, ensuring promises are kept.</p></div></div>
+  </div>
+  <div class="faq-cat">
+    <div class="faq-cat-title">🛠️ Services & Process</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What services does V SCAN provide?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>We offer 6 core services: (1) Electoral Strategy & Management, (2) Voter Research & Data Analytics, (3) Digital & Media Strategy, (4) Governance & Policy Advisory, (5) Political Intelligence Unit, and (6) Leadership & Capacity Building. We also create custom packages. <a href="services.html">See full details →</a></p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How does the engagement process work?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Our process: 1) Discovery call to understand your requirements, 2) Constituency research & voter data analysis, 3) Custom strategy blueprint, 4) Campaign execution with real-time war room, 5) Post-election governance advisory. We work as your dedicated campaign partner throughout.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you work only before elections or also after?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Both! V SCAN works across the full political lifecycle — from pre-election strategy to post-election governance. We help leaders not just win elections but govern responsibly and deliver on their promises to voters.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you work with all political parties?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>V SCAN is a non-partisan consultancy. We work with individuals and parties who are genuinely committed to accountable, citizen-first governance — regardless of political affiliation. Our only criterion is ethical commitment to public service.</p></div></div>
+  </div>
+  <div class="faq-cat">
+    <div class="faq-cat-title">💰 Partnership & Pricing</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I partner with V SCAN?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Simply <a href="contact.html">contact us</a> with your requirements, constituency details, and timeline. Our team will schedule a discovery call, assess your needs, and propose a customized engagement plan tailored to your political goals.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is the typical timeline for engagement?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>For elections, we recommend engaging at least 6-12 months before polling. However, we can onboard clients at any stage of the campaign cycle with rapid deployment capabilities. For governance advisory, engagement can begin immediately post-election.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you handle individual candidates or only parties?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>We work with both individual candidates (MLA, MP, local body) and political parties at state and national level. We also work with independent candidates who demonstrate strong public service commitment.</p></div></div>
+  </div>
+  <div class="faq-cat">
+    <div class="faq-cat-title">📞 Contact & Support</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How quickly does V SCAN respond to enquiries?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>We respond to all enquiries within 24 hours. For urgent matters, you can reach us directly on WhatsApp at <a href="https://wa.me/918368087258">+91-8368087258</a> for a faster response.</p></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How can I reach V SCAN?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>You can reach us via: Email — <a href="mailto:vscanalliance@gmail.com">vscanalliance@gmail.com</a>, Phone — +91-8368087258 / +91-8126487892, WhatsApp — +91-8368087258, or through the <a href="contact.html">contact form</a> on our website. Office: Shahdara, Delhi – 110032.</p></div></div>
+  </div>
+</div>
+<div class="cta-sec">
+  <h2 class="cta-title">Still Have Questions?</h2>
+  <p style="color:rgba(192,216,240,.5)">Our team is happy to answer any specific questions about your requirements.</p>
+  <a href="contact.html" class="cta-btn">Contact Us →</a>
+</div>
+<footer><p>© 2025 V SCAN Alliance · Delhi, India</p></footer>
+<script>
+function toggleFaq(el){
+  var item = el.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
+  if(!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
