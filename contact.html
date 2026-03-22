@@ -1,95 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us – V SCAN</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="with-bg">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Contact Us – V SCAN Alliance</title>
+<meta name="description" content="Get in touch with V SCAN Alliance — India's Premier Political & Policy Consultancy. Partner with us for electoral strategy, governance advisory and campaign management."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--b9:#020810;--b8:#040E1E;--b7:#07182E;--b6:#0C2448;--b5:#133272;--b4:#1A4A9A;--b3:#3A72CC;--gold:#C89010;--goldl:#E0A820;--sbl:0 8px 32px rgba(19,50,114,.5);}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#020810;color:#C0D8F0;font-family:'Source Sans 3',sans-serif;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:600;background:#fff;padding:0 5vw;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 16px rgba(0,0,0,.12)}
+.nlogo img{height:48px;object-fit:contain}
+.nlinks{list-style:none;display:flex;gap:.3rem;align-items:center}
+.nlinks a{font-size:.76rem;font-weight:600;color:#2A4A6A;text-decoration:none;padding:7px 13px;border-radius:5px;transition:all .2s}
+.nlinks a:hover{color:#133272;background:#EBF3FF}
+.nlinks .ncta{background:var(--b4)!important;color:#fff!important;border-radius:6px!important}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:24px;height:2px;background:#020810;border-radius:2px}
+.back-bar{background:rgba(255,255,255,.03);border-bottom:1px solid rgba(26,74,154,.15);padding:.75rem 5vw}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;color:rgba(192,216,240,.45);text-decoration:none;transition:color .2s}
+.back-btn:hover{color:var(--goldl)}
 
-  <header>
-    <div class="logo">
-      <a href="index.html">
-        <img src="logo.png.png" alt="V SCAN Logo">
+/* HERO */
+.hero{position:relative;background:linear-gradient(135deg,#020810 0%,#071830 50%,#040E1E 100%);padding:5rem 5vw 4rem;overflow:hidden;border-bottom:1px solid rgba(26,74,154,.2);text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px}
+.hero-glow{position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(26,74,154,.2) 0%,transparent 65%);pointer-events:none}
+.hero-in{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(26,74,154,.18);border:1px solid rgba(26,74,154,.3);color:var(--b3);font-size:.6rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:1.2rem}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:.8rem}
+.hero-title span{color:var(--goldl);font-style:italic}
+.hero-sub{font-size:.95rem;color:rgba(192,216,240,.5);line-height:1.7}
+
+/* MAIN CONTACT LAYOUT */
+.contact-wrap{max-width:1200px;margin:0 auto;padding:5rem 5vw;display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
+
+/* INFO SIDE */
+.info-side h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:#E8F2FF;margin-bottom:.5rem}
+.info-side p{font-size:.9rem;color:rgba(192,216,240,.5);line-height:1.7;margin-bottom:2rem}
+.contact-blocks{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2.5rem}
+.cblock{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem 1.4rem;background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.2);border-radius:12px;transition:all .3s}
+.cblock:hover{background:rgba(255,255,255,.07);border-color:rgba(58,114,204,.3)}
+.cblock-icon{width:42px;height:42px;border-radius:10px;background:rgba(26,74,154,.2);border:1px solid rgba(26,74,154,.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.cblock-label{font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--goldl);margin-bottom:.3rem}
+.cblock-val{font-size:.88rem;color:rgba(192,216,240,.7);line-height:1.6}
+.cblock-val a{color:rgba(192,216,240,.7);text-decoration:none;transition:color .2s}
+.cblock-val a:hover{color:var(--goldl)}
+
+/* SOCIAL */
+.social-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem}
+.soc-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:7px;font-size:.72rem;font-weight:700;text-decoration:none;transition:all .2s;border:1.5px solid}
+.soc-fb{background:rgba(24,119,242,.12);color:#7BAFF0;border-color:rgba(24,119,242,.25)}.soc-fb:hover{background:rgba(24,119,242,.3);color:#fff;transform:translateY(-2px)}
+.soc-ig{background:rgba(193,53,132,.12);color:#E1A0C8;border-color:rgba(193,53,132,.25)}.soc-ig:hover{background:rgba(193,53,132,.3);color:#fff;transform:translateY(-2px)}
+.soc-li{background:rgba(10,102,194,.12);color:#7FB3D3;border-color:rgba(10,102,194,.25)}.soc-li:hover{background:rgba(10,102,194,.3);color:#fff;transform:translateY(-2px)}
+.soc-wa{background:rgba(37,211,102,.12);color:#7FDBA0;border-color:rgba(37,211,102,.25)}.soc-wa:hover{background:rgba(37,211,102,.3);color:#fff;transform:translateY(-2px)}
+
+/* FORM SIDE */
+.form-card{background:#07142A;border:1px solid rgba(26,74,154,.25);border-radius:16px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,.4)}
+.form-header{background:linear-gradient(135deg,var(--b7),var(--b8));padding:2rem 2.2rem;border-bottom:1px solid rgba(26,74,154,.2);position:relative;overflow:hidden}
+.form-header::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--goldl),var(--b4),var(--goldl))}
+.form-header h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#E8F2FF;margin-bottom:.3rem}
+.form-header p{font-size:.78rem;color:rgba(192,216,240,.35)}
+.form-body{padding:2rem 2.2rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+.fg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem}
+.fg:last-child{margin-bottom:0}
+.fg label{font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(192,216,240,.45)}
+.fg input,.fg textarea,.fg select{padding:11px 14px;border:1.5px solid rgba(26,74,154,.25);border-radius:8px;font-family:'Source Sans 3',sans-serif;font-size:.9rem;color:#C0D8F0;background:rgba(4,14,30,.7);outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(192,216,240,.22)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--b3);box-shadow:0 0 0 3px rgba(58,114,204,.1)}
+.fg select option{background:#071830;color:#C0D8F0}
+.fg textarea{min-height:120px;resize:vertical}
+.submit-btn{width:100%;padding:14px;background:var(--b4);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.5px;box-shadow:var(--sbl);transition:all .25s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.submit-btn:hover{background:var(--b5);transform:translateY(-2px);box-shadow:0 12px 36px rgba(19,50,114,.6)}
+.submit-btn.sent{background:#166534;cursor:default;transform:none}
+
+/* OFFICE HOURS */
+.hours-card{background:rgba(255,255,255,.03);border:1px solid rgba(26,74,154,.15);border-radius:12px;padding:1.4rem;margin-top:1.5rem}
+.hours-title{font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--goldl);margin-bottom:.8rem}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;border-bottom:1px solid rgba(26,74,154,.1);font-size:.78rem}
+.hours-row:last-child{border-bottom:none}
+.hours-day{color:rgba(192,216,240,.5)}
+.hours-time{color:#C0D8F0;font-weight:600}
+.hours-status{font-size:.6rem;padding:2px 8px;border-radius:100px;font-weight:700}
+.open{background:rgba(74,222,128,.1);color:#4ADE80;border:1px solid rgba(74,222,128,.2)}
+.closed{background:rgba(239,68,68,.08);color:#F87171;border:1px solid rgba(239,68,68,.15)}
+
+footer{background:var(--b9);border-top:3px solid var(--goldl);padding:2rem 5vw;text-align:center}
+footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
+
+/* WA FLOAT */
+#wa-btn{position:fixed;bottom:1.8rem;right:1.8rem;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;z-index:500;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:all .3s}
+#wa-btn:hover{transform:scale(1.1)}
+
+@media(max-width:1024px){.contact-wrap{grid-template-columns:1fr;gap:3rem}}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.nlinks{display:none}.burger{display:flex}}
+</style>
+</head>
+<body>
+<a id="wa-btn" href="https://wa.me/918368087258?text=Hello%20V%20SCAN!" target="_blank">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<nav>
+  <a href="index.html"><img src="logo.png.png" alt="V SCAN" style="height:48px"/></a>
+  <ul class="nlinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="reach.html">Our Reach</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="advisory.html">Advisory</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" style="color:var(--b4);font-weight:700">Contact Us</a></li>
+  </ul>
+  <div class="burger"><span></span><span></span><span></span></div>
+</nav>
+<div class="back-bar"><a href="index.html" class="back-btn">← Back to Home</a></div>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-in">
+    <div class="hero-tag">Get In Touch</div>
+    <h1 class="hero-title">Let's Start a <span>Conversation</span></h1>
+    <p class="hero-sub">Ready to shape your political campaign or governance strategy? Our team is here to partner with you.</p>
+  </div>
+</section>
+<div class="contact-wrap">
+  <div class="info-side">
+    <h2>Contact V SCAN</h2>
+    <p>Reach out to us for campaign strategy, governance advisory, data analytics, or any political consulting need. We respond within 24 hours.</p>
+    <div class="contact-blocks">
+      <div class="cblock">
+        <div class="cblock-icon">📍</div>
+        <div><div class="cblock-label">Address</div><div class="cblock-val">1/5153 T/F G-5, Balbir Nagar Extension,<br>Shahdara, Delhi – 110032</div></div>
+      </div>
+      <div class="cblock">
+        <div class="cblock-icon">📧</div>
+        <div><div class="cblock-label">Email</div><div class="cblock-val"><a href="mailto:vscanalliance@gmail.com">vscanalliance@gmail.com</a></div></div>
+      </div>
+      <div class="cblock">
+        <div class="cblock-icon">📞</div>
+        <div><div class="cblock-label">Phone</div><div class="cblock-val"><a href="tel:+918368087258">+91-8368087258</a><br><a href="tel:+918126487892">+91-8126487892</a></div></div>
+      </div>
+      <div class="cblock">
+        <div class="cblock-icon">💬</div>
+        <div><div class="cblock-label">WhatsApp</div><div class="cblock-val"><a href="https://wa.me/918368087258" target="_blank">+91-8368087258 (Quick Response)</a></div></div>
+      </div>
+    </div>
+    <div class="social-row">
+      <a href="https://www.facebook.com/profile.php?id=61576049937047" target="_blank" class="soc-btn soc-fb">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> Facebook
+      </a>
+      <a href="https://www.instagram.com/vscanalliance/" target="_blank" class="soc-btn soc-ig">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Instagram
+      </a>
+      <a href="https://www.linkedin.com/company/106768933/" target="_blank" class="soc-btn soc-li">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn
+      </a>
+      <a href="https://wa.me/918368087258" target="_blank" class="soc-btn soc-wa">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp
       </a>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="cofounders.html">Our Team</a></li>
-        <li><a href="contact.html">Join Us</a></li>
-        
-      </ul>
-    </nav>
-    
-  </header>
-
-  <section class="contact reveal">
-    <h2>Contact Us</h2>
-
-    <div class="contact-info">
-      <p><strong>📍 Address:</strong> 1/5153 T/F G-5 Balbir Nagar Extension Shahdara, Delhi (110032)</p>
-      <p><strong>📞 Phone:</strong> +91-8368087258, +91-8126487892, +91-8860573457</p>
-      <p><strong>✉️ Email:</strong> Vscanalliance@gmail.com</p>
+    <div class="hours-card">
+      <div class="hours-title">Office Hours</div>
+      <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">9:00 AM – 7:00 PM</span><span class="hours-status open">Open</span></div>
+      <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 AM – 5:00 PM</span><span class="hours-status open">Open</span></div>
+      <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">By Appointment</span><span class="hours-status closed">Limited</span></div>
     </div>
-
-    <form class="contact-form" action="#" method="post">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-      <div id="contact-msg" role="status" style="display:none; margin-top:10px; color:green; font-weight:600;">Message sent — thank you!</div>
+  </div>
+  <div class="form-card">
+    <div class="form-header">
+      <h3>Send Us a Message</h3>
+      <p>We respond within 24 hours — usually much faster</p>
+    </div>
+    <form class="form-body" action="https://formspree.io/f/xwkgpvqn" method="POST">
+      <input type="hidden" name="_subject" value="New Enquiry — V SCAN Website"/>
+      <div class="form-grid">
+        <div class="fg"><label>Full Name *</label><input type="text" name="name" placeholder="Your full name" required/></div>
+        <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="your@email.com" required/></div>
+      </div>
+      <div class="form-grid">
+        <div class="fg"><label>Phone *</label><input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required/></div>
+        <div class="fg"><label>State</label><input type="text" name="state" placeholder="Your state"/></div>
+      </div>
+      <div class="fg"><label>Service Needed</label>
+        <select name="service">
+          <option value="">Select a service...</option>
+          <option>Electoral Strategy & Management</option>
+          <option>Voter Research & Data Analytics</option>
+          <option>Digital & Media Strategy</option>
+          <option>Governance & Policy Advisory</option>
+          <option>Political Intelligence Unit</option>
+          <option>Leadership & Capacity Building</option>
+          <option>Custom / Multiple Services</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="fg"><label>Subject</label><input type="text" name="subject" placeholder="Brief subject of your enquiry"/></div>
+      <div class="fg"><label>Message *</label><textarea name="message" placeholder="Tell us about your requirements, constituency, timeline, and any specific goals..." required></textarea></div>
+      <button type="submit" class="submit-btn" id="submitBtn" onclick="setTimeout(()=>{this.textContent='✓ Message Sent! We will respond within 24 hours.';this.classList.add('sent')},100)">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+        Send Message
+      </button>
     </form>
-
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.505271258083!2d77.2856874!3d28.6829469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd48d8c2b457%3A0x3b9c2f4f3bff7ee!2sBalbir%20Nagar%20Ext%2C%20Shahdara%2C%20Delhi%2C%20110032!5e0!3m2!1sen!2sin!4v1722329480500!5m2!1sen!2sin"
-        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-social">
-      <a href="#"><img src="facebook-icon.png" alt="Facebook" /></a>
-      <a href="#"><img src="instagram-icon.png" alt="Instagram" /></a>
-      <a href="#"><img src="linkedin-icon.png" alt="LinkedIn" /></a>
-    </div>
-    <p>© 2025 V SCAN. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Simple client-side feedback to avoid page refresh
-    (function(){
-      const form = document.querySelector('.contact-form');
-      const msg = document.getElementById('contact-msg');
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        // basic validation already handled by HTML5; simulate send
-        msg.style.display = 'block';
-        setTimeout(()=>{ msg.style.display = 'none'; form.reset(); }, 3000);
-      });
-    })();
-  </script>
-
-  <script>
-    // Theme switch removed — site uses dark theme only
-
-    document.addEventListener('DOMContentLoaded', function(){
-      const obs = new IntersectionObserver((entries, o) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); o.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    });
-  </script>
-
+  </div>
+</div>
+<footer><p>© 2025 V SCAN Alliance · Vikas Strategic Citizens Accountable Network · Delhi, India</p></footer>
 </body>
 </html>
-
-
-
-
