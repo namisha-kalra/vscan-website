@@ -47,9 +47,9 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .nlinks .ncta:hover{background:var(--b5)!important}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
 .burger span{width:24px;height:2px;background:var(--b9);border-radius:2px}
-.mob{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:rgba(2,8,16,.97);z-index:550;flex-direction:column;padding:2rem;gap:0;overflow-y:auto;border-top:1px solid rgba(26,74,154,.2)}.mob.open{display:flex}
+.mob{display:none;position:fixed;top:72px;left:0;right:0;background:#ffffff;border-bottom:2px solid #e0e8f0;padding:1.5rem 5vw;z-index:599;box-shadow:0 6px 20px rgba(0,0,0,.1)}
 .mob.open{display:block}
-.mob a{display:block;padding:1rem 1.2rem;font-size:1rem;font-weight:600;color:rgba(192,216,240,.75);text-decoration:none;border-bottom:1px solid rgba(26,74,154,.12);border-radius:8px;transition:all .2s}.mob a:hover{color:#fff;background:rgba(26,74,154,.2);border-bottom-color:rgba(26,74,154,.2)}.mob .mcta{background:var(--b4);color:#fff!important;border-radius:8px;text-align:center;margin-top:1rem;border-bottom:none!important}.mob .mcta:hover{background:var(--b5)!important}
+.mob a{display:block;padding:.8rem 0;font-size:.9rem;font-weight:600;color:#2A4A6A;text-decoration:none;border-bottom:1px solid #f0f4f8;transition:color .2s}
 .mob a:hover{color:#133272}
 #hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:72px 5vw 0;overflow:hidden}
 .hero-video{position:absolute;inset:0;z-index:0}
@@ -206,12 +206,14 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .rv{opacity:1;transform:none}
 .rv.vis{opacity:1;transform:none}
 
-.burger{display:flex}
+@media(max-width:1024px){
+  .nlinks{display:none}.burger{display:flex}
   .hero-wrap,.about-layout,.maplayout,.miss-in,.clayout{grid-template-columns:1fr;gap:3.5rem}
   .svcgrid,.tgrid,.advcards{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
-
+@media(max-width:600px){
+  .svcgrid,.tgrid,.advcards{grid-template-columns:1fr}
   .h-btns{flex-direction:column}
   .fgrow{display:flex;flex-direction:column}
 }
@@ -235,7 +237,7 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-
+@media(max-width:1024px){.burger{display:flex}}
 
 /* ── NEWS/MEDIA SECTION ── */
 #news{background:#040E1E;border-bottom:1px solid rgba(26,74,154,.2)}
@@ -317,11 +319,6 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
 .counter-num{display:inline-block}
 
 /* ── PRINT CSS ── */
-
-
-  #state-panel{margin-top:1.5rem}
-}
-
 @media print{
   nav,#wa-btn,#scrolltop,#theme-toggle,#cookie-banner,.ticker,.h-scroll{display:none!important}
   body{background:#fff!important;color:#000!important}
@@ -329,570 +326,6 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
   .sh,.tname,.adv-name{color:#003366!important}
   section{page-break-inside:avoid}
 }
-
-.stt-chip{padding:4px 11px;background:rgba(26,74,154,.12);border:1px solid rgba(26,74,154,.25);color:rgba(192,216,240,.6);font-size:.6rem;font-weight:600;border-radius:100px;cursor:pointer;transition:all .2s;display:inline-block}
-.stt-chip:hover{background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.35);color:#EF4444}
-
-/* ── MAP LAYOUT ── */
-.map-main-layout{display:grid;grid-template-columns:1fr 300px;gap:2.5rem;align-items:start}
-.map-card{background:rgba(2,8,16,.7);border:1px solid rgba(26,74,154,.25);border-radius:16px;overflow:hidden;padding:1.5rem;position:relative}
-.map-tricolor-bar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FF9933 33%,#fff 33%,#fff 66%,#138808 66%)}
-.map-legend-row{display:flex;align-items:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
-.ml-i{display:flex;align-items:center;gap:6px;font-size:.6rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(192,216,240,.4)}
-.ml-flag{display:flex;align-items:center;gap:4px}
-.flag-strip{height:8px;width:14px;border-radius:1px}
-.f1{background:#FF9933}.f2{background:#fff;border:1px solid rgba(0,0,0,.1)}.f3{background:#138808}
-
-/* INFO PANEL */
-.map-info-panel{display:flex;flex-direction:column;gap:1.2rem}
-#mip-default{background:rgba(255,255,255,.03);border:1px dashed rgba(26,74,154,.2);border-radius:14px;padding:2rem}
-.mip-default-inner{text-align:center;color:rgba(192,216,240,.35)}
-.mip-default-inner p{font-size:.82rem;line-height:1.7;margin-top:.8rem}
-.mip-card{background:rgba(255,255,255,.04);border:1px solid rgba(220,38,38,.2);border-radius:14px;overflow:hidden}
-.mip-header{background:linear-gradient(135deg,#07182E,#040E1E);padding:1.2rem 1.4rem;border-bottom:1px solid rgba(26,74,154,.15);position:relative}
-.mip-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#DC2626,#E0A820)}
-.mip-tag{font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#EF4444;margin-bottom:.3rem}
-.mip-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;color:#fff}
-.mip-city{font-size:.72rem;color:rgba(192,216,240,.4);margin-top:.2rem}
-.mip-body{padding:1.2rem 1.4rem}
-.mip-desc{font-size:.83rem;line-height:1.72;color:rgba(192,216,240,.65);margin-bottom:1rem}
-.mip-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
-.mbadge{font-size:.55rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:100px}
-.mbadge.red{background:rgba(220,38,38,.1);color:#EF4444;border:1px solid rgba(220,38,38,.3)}
-.mbadge.gold{background:rgba(224,168,32,.1);color:#E0A820;border:1px solid rgba(224,168,32,.25)}
-.mip-link{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;color:#3A72CC;text-decoration:none}
-
-/* CHIPS */
-.state-chips-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(26,74,154,.15);border-radius:12px;padding:1.2rem}
-.chips-label{font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(192,216,240,.25);margin-bottom:.7rem}
-.chips-grid{display:flex;flex-wrap:wrap;gap:.4rem}
-.schip{padding:5px 12px;background:rgba(26,74,154,.12);border:1px solid rgba(26,74,154,.22);color:rgba(192,216,240,.55);font-size:.62rem;font-weight:600;border-radius:100px;cursor:pointer;transition:all .2s;user-select:none}
-.schip:hover,.schip.active{background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.35);color:#EF4444}
-.schip-hq{background:rgba(220,38,38,.1);border-color:rgba(220,38,38,.25);color:#EF4444}
-
-/* MOBILE MAP */
-
-  .map-info-panel{order:-1}
-  .map-card{padding:1rem}
-}
-
-  .ml-i{font-size:.55rem}
-}
-
-
-/* ════════════════════════════════════════
-   MOBILE HORIZONTAL SCROLL CARDS
-════════════════════════════════════════ */
-
-/* ACHIEVEMENTS — horizontal scroll on mobile */
-
-  .ach-grid::-webkit-scrollbar{height:4px}
-  .ach-grid::-webkit-scrollbar-track{background:rgba(26,74,154,.1);border-radius:2px}
-  .ach-grid::-webkit-scrollbar-thumb{background:rgba(26,74,154,.4);border-radius:2px}
-  .ach-card{
-    min-width:200px!important;
-    max-width:200px!important;
-    flex-shrink:0!important;
-    scroll-snap-align:start!important;
-  }
-
-  /* TESTIMONIALS — horizontal scroll */
-  .testi-grid{
-    display:flex!important;
-    flex-direction:row!important;
-    overflow-x:auto!important;
-    -webkit-overflow-scrolling:touch!important;
-    scroll-snap-type:x mandatory!important;
-    gap:1rem!important;
-    padding-bottom:1rem!important;
-    grid-template-columns:unset!important;
-  }
-  .testi-grid::-webkit-scrollbar{height:4px}
-  .testi-grid::-webkit-scrollbar-thumb{background:rgba(26,74,154,.4);border-radius:2px}
-  .testi-card{
-    min-width:82vw!important;
-    max-width:82vw!important;
-    flex-shrink:0!important;
-    scroll-snap-align:start!important;
-  }
-
-  /* NEWS — horizontal scroll */
-  .news-grid{
-    display:flex!important;
-    flex-direction:row!important;
-    overflow-x:auto!important;
-    -webkit-overflow-scrolling:touch!important;
-    scroll-snap-type:x mandatory!important;
-    gap:1rem!important;
-    padding-bottom:1rem!important;
-    grid-template-columns:unset!important;
-  }
-  .news-grid::-webkit-scrollbar{height:4px}
-  .news-grid::-webkit-scrollbar-thumb{background:rgba(26,74,154,.4);border-radius:2px}
-  .news-card{
-    min-width:78vw!important;
-    max-width:78vw!important;
-    flex-shrink:0!important;
-    scroll-snap-align:start!important;
-  }
-
-  /* SERVICE CARDS — horizontal scroll */
-  .svcgrid{
-    display:flex!important;
-    flex-direction:row!important;
-    overflow-x:auto!important;
-    -webkit-overflow-scrolling:touch!important;
-    scroll-snap-type:x mandatory!important;
-    gap:1rem!important;
-    padding-bottom:1rem!important;
-    grid-template-columns:unset!important;
-  }
-  .svcgrid::-webkit-scrollbar{height:4px}
-  .svcgrid::-webkit-scrollbar-thumb{background:rgba(26,74,154,.4);border-radius:2px}
-  .scard{
-    min-width:78vw!important;
-    max-width:78vw!important;
-    flex-shrink:0!important;
-    scroll-snap-align:start!important;
-  }
-
-  /* ADVISORY CARDS — horizontal scroll */
-  .advcards{
-    display:flex!important;
-    flex-direction:row!important;
-    overflow-x:auto!important;
-    -webkit-overflow-scrolling:touch!important;
-    scroll-snap-type:x mandatory!important;
-    gap:1rem!important;
-    padding-bottom:1rem!important;
-    grid-template-columns:unset!important;
-  }
-  .advcards::-webkit-scrollbar{height:4px}
-  .advcards::-webkit-scrollbar-thumb{background:rgba(26,74,154,.4);border-radius:2px}
-  .adv{
-    min-width:78vw!important;
-    max-width:78vw!important;
-    flex-shrink:0!important;
-    scroll-snap-align:start!important;
-  }
-
-  /* TEAM GRID — vertical stack */
-  .tgrid{
-    display:flex!important;
-    flex-direction:column!important;
-    gap:1.2rem!important;
-    grid-template-columns:unset!important;
-    max-width:380px!important;
-    margin:0 auto!important;
-  }
-
-  /* SWIPE HINT */
-  .swipe-hint{display:flex!important;align-items:center;gap:.4rem;font-size:.6rem;color:rgba(192,216,240,.3);margin-bottom:.6rem;letter-spacing:1px;text-transform:uppercase}
-}
-
-/* ════════════════════════════════════════
-   GENERAL MOBILE LAYOUT FIXES
-════════════════════════════════════════ */
-
-  .burger{display:flex!important}
-  nav{padding:0 4vw!important;height:60px!important}
-  .nlogo img{height:42px!important}
-
-  /* MOBILE MENU */
-  .mob{top:60px!important}
-  .mob a{font-size:.95rem!important;padding:1rem 1rem!important;color:rgba(192,216,240,.8)!important;border-bottom:1px solid rgba(26,74,154,.12)!important}
-
-  /* HERO */
-  .hero-wrap{grid-template-columns:1fr!important;padding:5vh 0 6vh!important;text-align:center!important;gap:1rem!important}
-  .hero-wrap>div:last-child{display:none!important}
-  .h-flag{justify-content:center!important}
-  .h-btns{justify-content:center!important;flex-direction:column!important;align-items:center!important}
-  .h-btns a{width:100%!important;max-width:260px!important;justify-content:center!important}
-  .h-supertitle{font-size:.55rem!important}
-
-  /* SECTION PADDING */
-  .sec{padding:3.5rem 4vw!important}
-  .secin{padding-left:0!important;padding-right:0!important}
-  section[style*="padding:5rem 5vw"]{padding:3rem 4vw!important}
-  section[style*="padding:6rem 5vw"]{padding:3rem 4vw!important}
-  section[style*="padding:7.5rem 5vw"]{padding:3rem 4vw!important}
-
-  /* HEADINGS */
-  .sh{font-size:clamp(1.6rem,6vw,2.2rem)!important;line-height:1.2!important}
-  .sdesc{font-size:.85rem!important}
-
-  /* ABOUT */
-  .about-layout{grid-template-columns:1fr!important;gap:2rem!important}
-  .about-img{max-height:220px!important;object-fit:cover!important}
-
-  /* MAP */
-  .map-main-layout{grid-template-columns:1fr!important;gap:1.5rem!important}
-  #vscan-map{height:280px!important}
-  .map-info-panel{order:-1!important}
-
-  /* MISSION */
-  .miss-in{grid-template-columns:1fr!important;gap:1rem!important}
-
-  /* CONTACT */
-  .clayout{grid-template-columns:1fr!important;gap:2rem!important}
-  .fgrow{display:flex!important;flex-direction:column!important}
-  .cform{padding:1.2rem!important}
-
-  /* FOOTER */
-  .footer-grid{grid-template-columns:1fr!important;gap:1.5rem!important;text-align:center!important}
-  .f-social{justify-content:center!important}
-  .footer-grid>div:first-child{text-align:center!important}
-
-  /* FIXED BUTTONS */
-  #wa-btn{bottom:1.2rem!important;right:1.2rem!important;width:48px!important;height:48px!important}
-  #scrolltop{bottom:4.5rem!important;right:1.2rem!important;width:40px!important;height:40px!important}
-  #theme-toggle{bottom:4.5rem!important;left:1.2rem!important;width:38px!important;height:38px!important}
-
-  /* TICKER */
-  .ticker{animation-duration:15s!important}
-}
-
-
-  .ach-num{font-size:2rem!important}
-  .testi-card,.news-card,.scard,.adv{min-width:88vw!important;max-width:88vw!important}
-}
-
-/* ── MAP CSS ── */
-.map-main-layout{display:grid;grid-template-columns:1fr 300px;gap:2.5rem;align-items:start}
-.map-card{background:rgba(2,8,16,.7);border:1px solid rgba(26,74,154,.25);border-radius:16px;overflow:hidden;padding:1.5rem;position:relative}
-.map-tricolor-bar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FF9933 33%,#fff 33%,#fff 66%,#138808 66%)}
-.map-legend-row{display:flex;align-items:center;gap:1.5rem;margin-top:.8rem;flex-wrap:wrap}
-.ml-i{display:flex;align-items:center;gap:6px;font-size:.58rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(192,216,240,.4)}
-.ml-flag{gap:4px!important}
-.flag-strip{height:7px;width:14px;border-radius:1px}
-.f1{background:#FF9933}.f2{background:#fff;border:1px solid rgba(0,0,0,.1)}.f3{background:#138808}
-.map-info-panel{display:flex;flex-direction:column;gap:1rem}
-#mip-default{background:rgba(255,255,255,.03);border:1px dashed rgba(26,74,154,.2);border-radius:14px;padding:2rem}
-.mip-default-inner{text-align:center;color:rgba(192,216,240,.35)}
-.mip-default-inner p{font-size:.82rem;line-height:1.7;margin-top:.8rem}
-.mip-card{background:rgba(255,255,255,.04);border:1px solid rgba(220,38,38,.2);border-radius:14px;overflow:hidden}
-.mip-header{background:linear-gradient(135deg,#07182E,#040E1E);padding:1.2rem 1.4rem;border-bottom:1px solid rgba(26,74,154,.15);position:relative}
-.mip-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#DC2626,#E0A820)}
-.mip-tag{font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#EF4444;margin-bottom:.3rem}
-.mip-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;color:#fff}
-.mip-city{font-size:.72rem;color:rgba(192,216,240,.4);margin-top:.2rem}
-.mip-body{padding:1.2rem 1.4rem}
-.mip-desc{font-size:.83rem;line-height:1.72;color:rgba(192,216,240,.65);margin-bottom:1rem}
-.mip-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
-.mbadge{font-size:.55rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:100px}
-.mbadge.red{background:rgba(220,38,38,.1);color:#EF4444;border:1px solid rgba(220,38,38,.3)}
-.mbadge.gold{background:rgba(224,168,32,.1);color:#E0A820;border:1px solid rgba(224,168,32,.25)}
-.mip-link{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;color:#3A72CC;text-decoration:none}
-.state-chips-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(26,74,154,.15);border-radius:12px;padding:1.2rem}
-.chips-label{font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(192,216,240,.25);margin-bottom:.7rem}
-.chips-grid{display:flex;flex-wrap:wrap;gap:.4rem}
-.schip{padding:5px 12px;background:rgba(26,74,154,.12);border:1px solid rgba(26,74,154,.22);color:rgba(192,216,240,.55);font-size:.62rem;font-weight:600;border-radius:100px;cursor:pointer;transition:all .2s;user-select:none}
-.schip:hover{background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.35);color:#EF4444}
-.schip-hq{background:rgba(220,38,38,.1);border-color:rgba(220,38,38,.25);color:#EF4444}
-.swipe-hint{display:none}
-
-
-/* ══════════════════════════════════
-   MOBILE RESPONSIVE — COMPLETE FIX
-══════════════════════════════════ */
-
-/* HORIZONTAL SCROLL CARDS — swipe right */
-.scroll-row{
-  display:flex;
-  overflow-x:auto;
-  gap:1rem;
-  padding-bottom:1rem;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-}
-.scroll-row::-webkit-scrollbar{display:none}
-.scroll-row > *{
-  flex:0 0 80vw;
-  max-width:300px;
-  scroll-snap-align:start;
-}
-
-/* TABLET ≤1024px */
-@media(max-width:1024px){
-  .nlinks{display:none}
-  .burger{display:flex}
-  .hero-wrap{grid-template-columns:1fr!important;text-align:center}
-  .hero-wrap>div:last-child{display:none}
-  .h-btns{justify-content:center}
-  .h-flag{justify-content:center}
-  .about-layout,.maplayout,.miss-in,.clayout{grid-template-columns:1fr!important;gap:2.5rem}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .svcgrid{grid-template-columns:1fr 1fr}
-  .tgrid{grid-template-columns:1fr 1fr}
-  .advcards{grid-template-columns:1fr 1fr}
-  .ach-grid{grid-template-columns:1fr 1fr}
-  .testi-grid{grid-template-columns:1fr 1fr}
-  .news-grid{grid-template-columns:1fr 1fr}
-  .map-main-layout{grid-template-columns:1fr!important}
-}
-
-/* MOBILE ≤768px */
-@media(max-width:768px){
-  /* NAV */
-  .nlinks{display:none}
-  .burger{display:flex}
-  nav{padding:0 4vw;height:60px}
-  .nlogo img{height:40px}
-
-  /* HERO */
-  .hero-wrap{grid-template-columns:1fr!important;padding:5vh 0 7vh;text-align:center}
-  .hero-wrap>div:last-child{display:none}
-  .h-flag{justify-content:center}
-  .h-btns{flex-direction:column;align-items:center;gap:.7rem}
-  .h-btns a{width:90%;max-width:280px;justify-content:center;text-align:center}
-
-  /* SECTIONS */
-  section.sec{padding:3.5rem 4vw!important}
-  .secin{padding:0!important}
-
-  /* SERVICES — horizontal scroll on mobile */
-  .svcgrid{
-    display:flex!important;
-    overflow-x:auto;
-    gap:1rem;
-    padding-bottom:1.2rem;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    margin:0 -4vw;
-    padding-left:4vw;
-    padding-right:4vw;
-  }
-  .svcgrid::-webkit-scrollbar{display:none}
-  .svcgrid .scard{
-    flex:0 0 78vw!important;
-    max-width:280px!important;
-    scroll-snap-align:start;
-  }
-
-  /* TEAM — horizontal scroll */
-  .tgrid{
-    display:flex!important;
-    overflow-x:auto;
-    gap:1rem;
-    padding-bottom:1.2rem;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    margin:0 -4vw;
-    padding-left:4vw;
-    padding-right:4vw;
-  }
-  .tgrid::-webkit-scrollbar{display:none}
-  .tgrid .tcard{
-    flex:0 0 72vw!important;
-    max-width:260px!important;
-    scroll-snap-align:start;
-  }
-
-  /* ADVISORY — horizontal scroll */
-  .advcards{
-    display:flex!important;
-    overflow-x:auto;
-    gap:1rem;
-    padding-bottom:1.2rem;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    margin:0 -4vw;
-    padding-left:4vw;
-    padding-right:4vw;
-  }
-  .advcards::-webkit-scrollbar{display:none}
-  .advcards .adv{
-    flex:0 0 78vw!important;
-    max-width:290px!important;
-    scroll-snap-align:start;
-  }
-
-  /* TESTIMONIALS — horizontal scroll */
-  .testi-grid{
-    display:flex!important;
-    overflow-x:auto;
-    gap:1rem;
-    padding-bottom:1.2rem;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    margin:0 -4vw;
-    padding-left:4vw;
-    padding-right:4vw;
-  }
-  .testi-grid::-webkit-scrollbar{display:none}
-  .testi-grid .testi-card{
-    flex:0 0 82vw!important;
-    max-width:310px!important;
-    scroll-snap-align:start;
-    min-width:0;
-  }
-
-  /* NEWS — horizontal scroll */
-  .news-grid{
-    display:flex!important;
-    overflow-x:auto;
-    gap:1rem;
-    padding-bottom:1.2rem;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    margin:0 -4vw;
-    padding-left:4vw;
-    padding-right:4vw;
-  }
-  .news-grid::-webkit-scrollbar{display:none}
-  .news-grid .news-card{
-    flex:0 0 78vw!important;
-    max-width:280px!important;
-    scroll-snap-align:start;
-  }
-
-  /* ACHIEVEMENTS — 2x2 grid (NOT scroll) */
-  .ach-grid{
-    display:grid!important;
-    grid-template-columns:1fr 1fr!important;
-    gap:1rem;
-  }
-  .ach-card{padding:1.4rem 1rem}
-  .ach-num{font-size:2.2rem}
-  .ach-icon{font-size:1.8rem}
-
-  /* MAP */
-  .map-main-layout{grid-template-columns:1fr!important}
-  #vscan-map{height:320px!important}
-  .map-info-panel{order:-1}
-
-  /* MISSION */
-  .miss-in{grid-template-columns:1fr!important;gap:1rem}
-
-  /* CONTACT */
-  .clayout{grid-template-columns:1fr!important}
-  .fgrow{display:flex!important;flex-direction:column}
-  .cform{padding:1.4rem}
-
-  /* ABOUT */
-  .about-layout{grid-template-columns:1fr!important;gap:2rem}
-
-  /* FOOTER */
-  .footer-grid{grid-template-columns:1fr!important;text-align:center;gap:1.5rem}
-  .f-social{justify-content:center!important}
-
-  /* SCROLL HINT ARROW for scrollable sections */
-  .svcgrid::after,.tgrid::after,.advcards::after,.testi-grid::after,.news-grid::after{
-    content:'';
-    flex:0 0 4vw;
-    display:block;
-  }
-}
-
-/* SMALL MOBILE ≤480px */
-@media(max-width:480px){
-  nav{height:56px}
-  .nlogo img{height:36px}
-  section.sec{padding:3rem 4vw!important}
-  .sh{font-size:clamp(1.6rem,7vw,2.2rem)!important}
-  .hero-wrap{padding:4vh 0 6vh}
-  .svcgrid .scard,.tgrid .tcard,.advcards .adv,.testi-grid .testi-card,.news-grid .news-card{
-    flex:0 0 85vw!important;
-  }
-  .ach-grid{gap:.8rem}
-  .ach-card{padding:1.2rem .8rem}
-  .ach-num{font-size:1.8rem}
-  #cookie-banner{flex-direction:column;padding:.8rem 4vw;gap:.6rem}
-  .cookie-btns{width:100%;justify-content:center}
-  #wa-btn{bottom:1rem;right:1rem;width:46px;height:46px}
-  #scrolltop{bottom:4rem;right:1rem;width:38px;height:38px}
-  #theme-toggle{bottom:4rem;left:1rem;width:36px;height:36px}
-}
-
-/* MOBILE MENU */
-.mob{
-  display:none;
-  position:fixed;
-  top:60px;left:0;right:0;bottom:0;
-  background:rgba(2,8,16,.97);
-  z-index:550;
-  flex-direction:column;
-  padding:1.5rem 5vw;
-  overflow-y:auto;
-  border-top:1px solid rgba(26,74,154,.2);
-  backdrop-filter:blur(10px);
-}
-.mob.open{display:flex}
-.mob a{
-  display:block;
-  padding:.9rem 1rem;
-  font-size:1rem;
-  font-weight:600;
-  color:rgba(192,216,240,.7);
-  text-decoration:none;
-  border-bottom:1px solid rgba(26,74,154,.1);
-  border-radius:8px;
-  transition:all .2s;
-}
-.mob a:hover{color:#fff;background:rgba(26,74,154,.18);border-bottom-color:rgba(26,74,154,.2)}
-.mob .mcta{
-  background:var(--b4)!important;
-  color:#fff!important;
-  border-radius:8px!important;
-  text-align:center;
-  margin-top:1rem;
-  border-bottom:none!important;
-}
-
-/* SCROLL HINT INDICATOR */
-.scroll-hint{
-  display:none;
-  align-items:center;
-  gap:.4rem;
-  margin-bottom:.6rem;
-  font-size:.6rem;
-  color:rgba(192,216,240,.3);
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
-.scroll-hint span{animation:hint 1.5s ease infinite}
-@keyframes hint{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
-@media(max-width:768px){.scroll-hint{display:flex}}
-
-/* MAP CSS */
-.map-main-layout{display:grid;grid-template-columns:1fr 300px;gap:2.5rem;align-items:start}
-.map-card{background:rgba(2,8,16,.7);border:1px solid rgba(26,74,154,.25);border-radius:16px;overflow:hidden;padding:1.5rem;position:relative}
-.map-tricolor-bar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FF9933 33%,#fff 33%,#fff 66%,#138808 66%)}
-.map-legend-row{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
-.ml-i{display:flex;align-items:center;gap:6px;font-size:.6rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(192,216,240,.4)}
-.ml-flag{display:flex;align-items:center;gap:4px}
-.flag-strip{height:8px;width:14px;border-radius:1px}
-.f1{background:#FF9933}.f2{background:#fff;border:1px solid rgba(0,0,0,.1)}.f3{background:#138808}
-.map-info-panel{display:flex;flex-direction:column;gap:1.2rem}
-#mip-default{background:rgba(255,255,255,.03);border:1px dashed rgba(26,74,154,.2);border-radius:14px;padding:2rem}
-.mip-default-inner{text-align:center;color:rgba(192,216,240,.35)}
-.mip-default-inner p{font-size:.82rem;line-height:1.7;margin-top:.8rem}
-.mip-card{background:rgba(255,255,255,.04);border:1px solid rgba(220,38,38,.2);border-radius:14px;overflow:hidden}
-.mip-header{background:linear-gradient(135deg,#07182E,#040E1E);padding:1.2rem 1.4rem;border-bottom:1px solid rgba(26,74,154,.15);position:relative}
-.mip-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#DC2626,#E0A820)}
-.mip-tag{font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#EF4444;margin-bottom:.3rem}
-.mip-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;color:#fff}
-.mip-city{font-size:.72rem;color:rgba(192,216,240,.4);margin-top:.2rem}
-.mip-body{padding:1.2rem 1.4rem}
-.mip-desc{font-size:.83rem;line-height:1.72;color:rgba(192,216,240,.65);margin-bottom:1rem}
-.mip-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
-.mbadge{font-size:.55rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:100px}
-.mbadge.red{background:rgba(220,38,38,.1);color:#EF4444;border:1px solid rgba(220,38,38,.3)}
-.mbadge.gold{background:rgba(224,168,32,.1);color:#E0A820;border:1px solid rgba(224,168,32,.25)}
-.mip-link{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;color:#3A72CC;text-decoration:none}
-.state-chips-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(26,74,154,.15);border-radius:12px;padding:1.2rem}
-.chips-label{font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(192,216,240,.25);margin-bottom:.7rem}
-.chips-grid{display:flex;flex-wrap:wrap;gap:.4rem}
-.schip{padding:5px 12px;background:rgba(26,74,154,.12);border:1px solid rgba(26,74,154,.22);color:rgba(192,216,240,.55);font-size:.62rem;font-weight:600;border-radius:100px;cursor:pointer;transition:all .2s;user-select:none}
-.schip:hover,.schip.active{background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.35);color:#EF4444}
-.schip-hq{background:rgba(220,38,38,.1);border-color:rgba(220,38,38,.25);color:#EF4444}
-
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZH4ZGWYDE5"></script>
@@ -1035,8 +468,7 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
     <div class="stag rv"><span class="spill">Services</span></div>
     <h2 class="sh rv">What We <span>Offer</span></h2>
     <p class="sdesc rv">Full-spectrum political &amp; policy consultancy firm — from the first campaign meeting to governance delivery on the ground.</p>
-    <div class="swipe-hint">← Swipe to explore →</div><div class="scroll-hint"><span>→</span> Swipe to see more</div>
-<div class="svcgrid">
+    <div class="svcgrid">
       <div class="scard rv"><div style="position:relative"><img class="scard-img" src="mission.jpg.jpeg" alt="Electoral Strategy" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Electoral+Strategy'"/><div class="scard-img-overlay"></div><div class="scard-num">01 — Electoral Strategy</div></div><div class="scard-body"><h3>Electoral Strategy &amp; Management</h3><p>Full-spectrum campaign operations — from constituency research and candidate positioning to voter outreach and war room coordination on election day.</p><a href="#contact" class="slink">Know More →</a></div></div>
       <div class="scard rv d1"><div style="position:relative"><img class="scard-img" src="post.png.jpeg" alt="Data Analytics" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Data+Analytics'"/><div class="scard-img-overlay"></div><div class="scard-num">02 — Voter Research</div></div><div class="scard-body"><h3>Voter Research &amp; Data Analytics</h3><p>Scientific booth-level profiling, real-time voter sentiment tracking, demographic segmentation and predictive modeling to eliminate guesswork from every decision.</p><a href="#contact" class="slink">Know More →</a></div></div>
       <div class="scard rv d2"><div style="position:relative"><img class="scard-img" src="strategy.png.jpeg" alt="Digital Strategy" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Digital+Strategy'"/><div class="scard-img-overlay"></div><div class="scard-num">03 — Digital Strategy</div></div><div class="scard-body"><h3>Digital &amp; Media Strategy</h3><p>Narrative control across social media, OTT, regional news and YouTube. Precision content, rapid response units and influencer ecosystem management.</p><a href="#contact" class="slink">Know More →</a></div></div>
@@ -1049,174 +481,159 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
 
 <!-- MAP SECTION -->
 <section id="map-section" class="sec" style="padding:5rem 5vw;background:#040E1E;border-bottom:1px solid rgba(26,74,154,.2)">
-  <div class="secin" style="max-width:1200px;margin:0 auto">
+  <div class="secin">
     <div class="stag rv"><span class="spill">Our Reach</span></div>
-    <h2 class="sh rv">Active Across <span>11 States</span></h2>
-    <p class="sdesc rv" style="margin-bottom:2.5rem">Click any pin to explore our presence across India</p>
-    <div class="map-main-layout">
-      <!-- MAP -->
-      <div class="map-card">
-        <div class="map-tricolor-bar"></div>
-        <div id="vscan-map" style="width:100%;height:420px;border-radius:10px;overflow:hidden"></div>
-        <div class="map-legend-row" style="margin-top:1rem">
-          <div class="ml-i"><div style="width:12px;height:12px;border-radius:50%;background:#DC2626;border:2px solid #fff;flex-shrink:0"></div><span>Active State</span></div>
-          <div class="ml-i"><div style="width:14px;height:14px;border-radius:50%;background:#FFD700;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:7px;color:#000;font-weight:bold;flex-shrink:0">★</div><span>Delhi HQ</span></div>
-          <div class="ml-i ml-flag"><div class="flag-strip f1"></div><div class="flag-strip f2"></div><div class="flag-strip f3"></div><span>India</span></div>
-        </div>
-      </div>
+    <h2 class="sh rv">Our <span>Active States</span></h2>
+    <p class="sdesc rv" style="margin-bottom:2.5rem">V SCAN operates across 11 states — click any tower pin to explore</p>
 
-      <!-- INFO PANEL -->
-      <div class="map-info-panel">
-        <div id="mip-default">
-          <div class="mip-default-inner">
-            <span style="font-size:2.5rem">🇮🇳</span>
-            <p>Click any <span style="color:#EF4444;font-weight:700">pin</span> on the map to see V SCAN's presence in that state</p>
-          </div>
+    <!-- IMAGE MAP WITH SVG PINS -->
+    <div style="position:relative;max-width:680px;margin:0 auto;display:block">
+      <img src="india-map-bg.png" alt="India Map — V SCAN Active States"
+           style="width:100%;height:auto;display:block;opacity:.85;filter:hue-rotate(200deg) brightness(.7) saturate(.5)"/>
+
+      <!-- SVG PINS OVERLAY -->
+      <svg viewBox="0 0 1000 1200" xmlns="http://www.w3.org/2000/svg"
+           style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible">
+        <defs>
+          <linearGradient id="tg2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8B6800"/>
+            <stop offset="40%" stop-color="#E0A820"/>
+            <stop offset="100%" stop-color="#8B6800"/>
+          </linearGradient>
+          <filter id="glow2">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- PUNJAB -->
+        <g class="mpin" data-s="Punjab" data-c="Ludhiana" data-d="Active campaign & voter analytics" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="275" cy="260" rx="16" ry="5" fill="rgba(224,168,32,.3)"/>
+          <polygon points="264,258 286,258 284,222 266,222" fill="url(#tg2)"/>
+          <polygon points="266,222 284,222 275,204" fill="#FFE066"/>
+          <ellipse cx="275" cy="258" rx="10" ry="3.5" fill="#E0A820" opacity=".9"/>
+          <text x="290" y="202" font-family="sans-serif" font-size="20" font-weight="bold" fill="#FFE066">PUNJAB</text>
+        </g>
+
+        <!-- HARYANA -->
+        <g class="mpin" data-s="Haryana" data-c="Chandigarh" data-d="Key swing state — active ground operations" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="318" cy="338" rx="14" ry="5" fill="rgba(224,168,32,.3)"/>
+          <polygon points="308,336 328,336 326,304 310,304" fill="url(#tg2)"/>
+          <polygon points="310,304 326,304 318,287" fill="#FFE066"/>
+          <ellipse cx="318" cy="336" rx="9" ry="3" fill="#E0A820" opacity=".9"/>
+          <text x="332" y="285" font-family="sans-serif" font-size="18" font-weight="bold" fill="#FFE066">HARYANA</text>
+        </g>
+
+        <!-- DELHI ★ special gold -->
+        <g class="mpin" data-s="Delhi ★ HQ" data-c="New Delhi" data-d="National Capital — V SCAN Headquarters" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="343" cy="373" rx="18" ry="6" fill="rgba(255,215,0,.4)"/>
+          <polygon points="331,370 355,370 353,328 333,328" fill="#C8A000"/>
+          <polygon points="333,328 353,328 343,307" fill="#FFD700"/>
+          <ellipse cx="343" cy="370" rx="12" ry="4.5" fill="#FFD700" opacity=".95"/>
+          <circle cx="343" cy="370" r="20" fill="none" stroke="rgba(255,215,0,.5)" stroke-width="2">
+            <animate attributeName="r" from="20" to="40" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" from=".6" to="0" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="358" y="306" font-family="sans-serif" font-size="22" font-weight="bold" fill="#FFD700">DELHI ★</text>
+        </g>
+
+        <!-- UTTARAKHAND -->
+        <g class="mpin" data-s="Uttarakhand" data-c="Dehradun" data-d="Hill state — active campaign monitoring" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="388" cy="293" rx="13" ry="4" fill="rgba(224,168,32,.3)"/>
+          <polygon points="379,291 397,291 395,263 381,263" fill="url(#tg2)"/>
+          <polygon points="381,263 395,263 388,247" fill="#FFE066"/>
+          <ellipse cx="388" cy="291" rx="9" ry="3" fill="#E0A820" opacity=".9"/>
+          <text x="400" y="245" font-family="sans-serif" font-size="16" font-weight="bold" fill="#FFE066">UTTARAKHAND</text>
+        </g>
+
+        <!-- UTTAR PRADESH -->
+        <g class="mpin" data-s="Uttar Pradesh" data-c="Lucknow" data-d="Largest state — 80 Lok Sabha seats" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="488" cy="428" rx="20" ry="7" fill="rgba(224,168,32,.35)"/>
+          <polygon points="476,425 500,425 498,380 478,380" fill="url(#tg2)"/>
+          <polygon points="478,380 498,380 488,360" fill="#FFE066"/>
+          <ellipse cx="488" cy="425" rx="13" ry="5" fill="#E0A820" opacity=".9"/>
+          <text x="504" y="358" font-family="sans-serif" font-size="19" font-weight="bold" fill="#FFE066">UTTAR PRADESH</text>
+        </g>
+
+        <!-- RAJASTHAN -->
+        <g class="mpin" data-s="Rajasthan" data-c="Jaipur" data-d="Largest by area — active strategy zone" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="248" cy="468" rx="18" ry="6" fill="rgba(224,168,32,.3)"/>
+          <polygon points="237,465 259,465 257,422 239,422" fill="url(#tg2)"/>
+          <polygon points="239,422 257,422 248,402" fill="#FFE066"/>
+          <ellipse cx="248" cy="465" rx="12" ry="4" fill="#E0A820" opacity=".9"/>
+          <text x="155" y="402" font-family="sans-serif" font-size="19" font-weight="bold" fill="#FFE066">RAJASTHAN</text>
+        </g>
+
+        <!-- MADHYA PRADESH -->
+        <g class="mpin" data-s="Madhya Pradesh" data-c="Bhopal" data-d="Heart of India — active operations" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="418" cy="568" rx="18" ry="6" fill="rgba(224,168,32,.3)"/>
+          <polygon points="407,565 429,565 427,522 409,522" fill="url(#tg2)"/>
+          <polygon points="409,522 427,522 418,502" fill="#FFE066"/>
+          <ellipse cx="418" cy="565" rx="12" ry="4" fill="#E0A820" opacity=".9"/>
+          <text x="434" y="500" font-family="sans-serif" font-size="19" font-weight="bold" fill="#FFE066">M.P.</text>
+        </g>
+
+        <!-- BIHAR -->
+        <g class="mpin" data-s="Bihar" data-c="Patna" data-d="High-stakes state — ground intelligence active" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="588" cy="428" rx="16" ry="5" fill="rgba(224,168,32,.3)"/>
+          <polygon points="578,425 598,425 596,390 580,390" fill="url(#tg2)"/>
+          <polygon points="580,390 596,390 588,372" fill="#FFE066"/>
+          <ellipse cx="588" cy="425" rx="11" ry="3.5" fill="#E0A820" opacity=".9"/>
+          <text x="603" y="370" font-family="sans-serif" font-size="19" font-weight="bold" fill="#FFE066">BIHAR</text>
+        </g>
+
+        <!-- WEST BENGAL -->
+        <g class="mpin" data-s="West Bengal" data-c="Kolkata" data-d="Eastern powerhouse — active operations" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="668" cy="508" rx="16" ry="5" fill="rgba(224,168,32,.3)"/>
+          <polygon points="658,505 678,505 676,466 660,466" fill="url(#tg2)"/>
+          <polygon points="660,466 676,466 668,448" fill="#FFE066"/>
+          <ellipse cx="668" cy="505" rx="11" ry="3.5" fill="#E0A820" opacity=".9"/>
+          <text x="682" y="446" font-family="sans-serif" font-size="17" font-weight="bold" fill="#FFE066">W. BENGAL</text>
+        </g>
+
+        <!-- ODISHA -->
+        <g class="mpin" data-s="Odisha" data-c="Bhubaneswar" data-d="Fast growing state — active campaign base" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="598" cy="598" rx="16" ry="5" fill="rgba(224,168,32,.3)"/>
+          <polygon points="588,595 608,595 606,557 590,557" fill="url(#tg2)"/>
+          <polygon points="590,557 606,557 598,538" fill="#FFE066"/>
+          <ellipse cx="598" cy="595" rx="11" ry="3.5" fill="#E0A820" opacity=".9"/>
+          <text x="613" y="537" font-family="sans-serif" font-size="17" font-weight="bold" fill="#FFE066">ODISHA</text>
+        </g>
+
+        <!-- MAHARASHTRA -->
+        <g class="mpin" data-s="Maharashtra" data-c="Mumbai" data-d="Financial capital — active HQ" filter="url(#glow2)" style="cursor:pointer" onclick="showMP(this)">
+          <ellipse cx="348" cy="658" rx="20" ry="7" fill="rgba(224,168,32,.35)"/>
+          <polygon points="336,655 360,655 358,608 338,608" fill="url(#tg2)"/>
+          <polygon points="338,608 358,608 348,587" fill="#FFE066"/>
+          <ellipse cx="348" cy="655" rx="13" ry="5" fill="#E0A820" opacity=".9"/>
+          <text x="365" y="586" font-family="sans-serif" font-size="18" font-weight="bold" fill="#FFE066">MAHARASHTRA</text>
+        </g>
+      </svg>
+
+      <!-- POPUP -->
+      <div id="mp-popup" style="display:none;position:absolute;top:10px;right:10px;background:#071830;border:1.5px solid #E0A820;border-radius:10px;padding:12px 16px;min-width:190px;z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.7);pointer-events:none">
+        <div id="mp-state" style="font-weight:700;font-size:.92rem;color:#E0A820;margin-bottom:3px"></div>
+        <div id="mp-city" style="font-size:.7rem;color:rgba(192,216,240,.45);margin-bottom:4px"></div>
+        <div id="mp-desc" style="font-size:.73rem;color:rgba(192,216,240,.65);line-height:1.5"></div>
+      </div>
+    </div>
+
+    <!-- LEGEND + LINK -->
+    <div style="display:flex;align-items:center;justify-content:space-between;max-width:680px;margin:.8rem auto 0;flex-wrap:wrap;gap:.8rem">
+      <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:7px">
+          <svg width="12" height="16" viewBox="0 0 12 16"><ellipse cx="6" cy="14" rx="5" ry="2" fill="rgba(255,215,0,.4)"/><polygon points="1,13 11,13 10,5 2,5" fill="#C8A000"/><polygon points="2,5 10,5 6,0" fill="#FFD700"/></svg>
+          <span style="font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:#FFD700;font-weight:600">Delhi HQ</span>
         </div>
-        <div id="mip-active" style="display:none">
-          <div class="mip-card">
-            <div class="mip-header">
-              <div id="mip-tag" class="mip-tag">Active State</div>
-              <div id="mip-name" class="mip-name"></div>
-              <div id="mip-city" class="mip-city"></div>
-            </div>
-            <div class="mip-body">
-              <p id="mip-desc" class="mip-desc"></p>
-              <div class="mip-badges">
-                <span class="mbadge red">● Active</span>
-                <span class="mbadge gold">V SCAN Present</span>
-              </div>
-              <a href="reach.html" class="mip-link">Explore All States →</a>
-            </div>
-          </div>
-        </div>
-        <div class="state-chips-wrap">
-          <div class="chips-label">11 Active States</div>
-          <div class="chips-grid">
-            <span class="schip schip-hq" onclick="mapShowState('Delhi — HQ','New Delhi','National Capital — V SCAN Headquarters')">Delhi ★</span>
-            <span class="schip" onclick="mapShowState('Uttar Pradesh','Lucknow','Largest state — 80 Lok Sabha seats')">UP</span>
-            <span class="schip" onclick="mapShowState('Haryana','Chandigarh','Key swing state — active operations')">Haryana</span>
-            <span class="schip" onclick="mapShowState('Punjab','Ludhiana','Active campaign base & analytics')">Punjab</span>
-            <span class="schip" onclick="mapShowState('Uttarakhand','Dehradun','Hill state — active monitoring')">Uttarakhand</span>
-            <span class="schip" onclick="mapShowState('Rajasthan','Jaipur','Largest by area — active strategy')">Rajasthan</span>
-            <span class="schip" onclick="mapShowState('Madhya Pradesh','Bhopal','Heart of India — active operations')">MP</span>
-            <span class="schip" onclick="mapShowState('Bihar','Patna','High-stakes — ground intelligence active')">Bihar</span>
-            <span class="schip" onclick="mapShowState('West Bengal','Kolkata','Eastern powerhouse — active')">W. Bengal</span>
-            <span class="schip" onclick="mapShowState('Odisha','Bhubaneswar','Fast growing — active campaign base')">Odisha</span>
-            <span class="schip" onclick="mapShowState('Maharashtra','Mumbai','Financial capital — active operations')">Maharashtra</span>
-          </div>
+        <div style="display:flex;align-items:center;gap:7px">
+          <svg width="12" height="16" viewBox="0 0 12 16"><ellipse cx="6" cy="14" rx="5" ry="2" fill="rgba(224,168,32,.4)"/><polygon points="1,13 11,13 10,5 2,5" fill="#8B6800"/><polygon points="2,5 10,5 6,0" fill="#FFE066"/></svg>
+          <span style="font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(192,216,240,.4);font-weight:600">10 Active States</span>
         </div>
       </div>
+      <a href="reach.html" style="font-size:.7rem;font-weight:700;color:var(--b3);text-decoration:none;display:flex;align-items:center;gap:5px">View Full Map →</a>
     </div>
   </div>
 </section>
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-function mapShowState(s,c,d){
-  document.getElementById('mip-default').style.display='none';
-  document.getElementById('mip-active').style.display='block';
-  document.getElementById('mip-name').textContent=s;
-  document.getElementById('mip-city').textContent='📍 '+c;
-  document.getElementById('mip-desc').textContent=d;
-  var isHQ=s.includes('HQ')||s.includes('Delhi');
-  document.getElementById('mip-tag').textContent=isHQ?'★ National Capital — HQ':'Active State';
-  document.getElementById('mip-name').style.color=isHQ?'#FFD700':'#fff';
-  document.querySelectorAll('.schip').forEach(function(ch){ch.classList.remove('active')});
-}
-(function initMap(){
-  if(typeof L==='undefined'){setTimeout(initMap,300);return;}
-  var map=L.map('vscan-map',{
-    center:[22.5,82],zoom:4.5,
-    scrollWheelZoom:false,
-    zoomControl:true,
-    attributionControl:false
-  });
-
-  // Dark tile layer — world dark, India will stand out
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',{
-    subdomains:'abcd',maxZoom:10,minZoom:4
-  }).addTo(map);
-
-  // India GeoJSON with tricolor fill
-  fetch('https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson')
-    .then(function(r){return r.json();})
-    .then(function(data){
-      L.geoJSON(data,{
-        style:function(){
-          return {
-            fillColor:'#FF9933',
-            fillOpacity:0.75,
-            color:'rgba(255,255,255,0.4)',
-            weight:1
-          };
-        }
-      }).addTo(map);
-    })
-    .catch(function(){
-      // Fallback: just show pins if GeoJSON fails
-    });
-
-  // Labels layer on top
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png',{
-    subdomains:'abcd',maxZoom:10,opacity:0.6
-  }).addTo(map);
-
-  // Pin data
-  var pins=[
-    {lat:28.61,lng:77.21,s:'Delhi — HQ',c:'New Delhi',d:'National Capital — V SCAN Headquarters',hq:true},
-    {lat:26.85,lng:80.95,s:'Uttar Pradesh',c:'Lucknow',d:'Largest state — 80 Lok Sabha seats'},
-    {lat:30.73,lng:76.78,s:'Punjab',c:'Ludhiana',d:'Active campaign base & voter analytics'},
-    {lat:30.73,lng:76.78,s:'Punjab',c:'Ludhiana',d:'Active campaign base & voter analytics'},
-    {lat:30.09,lng:76.09,s:'Haryana',c:'Chandigarh',d:'Key swing state — active ground operations'},
-    {lat:30.32,lng:78.03,s:'Uttarakhand',c:'Dehradun',d:'Hill state — active campaign monitoring'},
-    {lat:26.91,lng:75.79,s:'Rajasthan',c:'Jaipur',d:'Largest by area — active strategy zone'},
-    {lat:23.26,lng:77.41,s:'Madhya Pradesh',c:'Bhopal',d:'Heart of India — active operations'},
-    {lat:25.59,lng:85.14,s:'Bihar',c:'Patna',d:'High-stakes state — ground intelligence active'},
-    {lat:22.57,lng:88.36,s:'West Bengal',c:'Kolkata',d:'Eastern powerhouse — active operations'},
-    {lat:20.30,lng:85.82,s:'Odisha',c:'Bhubaneswar',d:'Fast growing state — active campaign base'},
-    {lat:19.08,lng:72.88,s:'Maharashtra',c:'Mumbai',d:'Financial capital — active operations'}
-  ];
-
-  function mkIcon(isHQ){
-    var color=isHQ?'#FFD700':'#DC2626';
-    var size=isHQ?18:13;
-    var inner=isHQ?'<text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" font-size="10" font-weight="bold" fill="#000">★</text>':'';
-    return L.divIcon({
-      className:'',
-      html:'<svg width="'+(size*2)+'" height="'+(size*3)+'" viewBox="0 0 '+(size*2)+' '+(size*3)+'" xmlns="http://www.w3.org/2000/svg">'+
-        '<defs><radialGradient id="rg"><stop offset="0%" stop-color="rgba(255,255,255,0.3)"/><stop offset="100%" stop-color="rgba(0,0,0,0.2)"/></radialGradient></defs>'+
-        '<ellipse cx="'+size+'" cy="'+(size*2.8)+'" rx="'+(size*.6)+'" ry="'+(size*.25)+'" fill="rgba(0,0,0,0.3)"/>'+
-        '<circle cx="'+size+'" cy="'+size+'" r="'+(size*.8)+'" fill="'+color+'" stroke="#fff" stroke-width="2"/>'+
-        '<circle cx="'+size+'" cy="'+size+'" r="'+(size*.8)+'" fill="url(#rg)"/>'+
-        inner+
-        '<line x1="'+size+'" y1="'+(size*1.8)+'" x2="'+size+'" y2="'+(size*2.75)+'" stroke="'+color+'" stroke-width="2"/>'+
-        '</svg>',
-      iconSize:[size*2,size*3],
-      iconAnchor:[size,size*3],
-      popupAnchor:[0,-size*2.5]
-    });
-  }
-
-  // Add pulse animation CSS
-  var style=document.createElement('style');
-  style.textContent='.leaflet-container{background:#0A1628!important}.custom-popup .leaflet-popup-content-wrapper{background:#071830;border:1.5px solid #DC2626;color:#C0D8F0;border-radius:10px;font-family:"Source Sans 3",sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.7)}.custom-popup .leaflet-popup-tip{background:#071830}.custom-popup .leaflet-popup-content{margin:10px 14px;font-size:.8rem}.leaflet-control-zoom a{background:#071830!important;color:#C0D8F0!important;border-color:rgba(26,74,154,.4)!important}';
-  document.head.appendChild(style);
-
-  pins.forEach(function(p){
-    L.marker([p.lat,p.lng],{icon:mkIcon(p.hq)}).addTo(map)
-    .bindPopup(
-      '<div style="font-weight:700;color:'+(p.hq?'#FFD700':'#EF4444')+'">📍 '+p.s+'</div>'+
-      '<div style="font-size:.7rem;color:rgba(192,216,240,.5);margin:.2rem 0">'+p.c+'</div>'+
-      '<div style="font-size:.75rem;color:rgba(192,216,240,.7)">'+p.d+'</div>',
-      {className:'custom-popup',maxWidth:220}
-    )
-    .on('click',function(){mapShowState(p.s,p.c,p.d);});
-  });
-  map.fitBounds([[8,68],[37,97]]);
-})();
-</script>
 
 <!-- ACHIEVEMENTS -->
 <section id="achievements" class="sec">
@@ -1224,7 +641,7 @@ function mapShowState(s,c,d){
     <div class="stag rv"><span class="spill">Our Track Record</span></div>
     <h2 class="sh rv">Achievements & <span>Milestones</span></h2>
     <p class="sdesc rv">Numbers that reflect our commitment to democracy and governance excellence across India.</p>
-    <div class="swipe-hint">← Swipe to see more →</div><div class="ach-grid">
+    <div class="ach-grid">
       <div class="ach-card rv">
         <div class="ach-icon">🏆</div>
         <div class="ach-num">100<span>+</span></div>
@@ -1259,8 +676,7 @@ function mapShowState(s,c,d){
     <div class="stag rv"><span class="spill">What Leaders Say</span></div>
     <h2 class="sh rv">Voices of <span>Trust</span></h2>
     <p class="sdesc rv">Leaders and partners who have experienced the V SCAN difference in their political journey.</p>
-    <div class="swipe-hint">← Swipe cards →</div><div class="scroll-hint"><span>→</span> Swipe to see more</div>
-<div class="testi-grid">
+    <div class="testi-grid">
       <div class="testi-card rv">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-quote">"V SCAN's strategic approach completely transformed our campaign. Their ground-level intelligence and data-driven targeting gave us an edge that made a real difference on election day. They don't just consult — they become your campaign backbone."</p>
@@ -1304,8 +720,7 @@ function mapShowState(s,c,d){
     <div class="stag rv"><span class="spill">Media Coverage</span></div>
     <h2 class="sh rv">News & <span>Media</span></h2>
     <p class="sdesc rv">V SCAN's work and impact across India's political landscape — as covered by leading media.</p>
-    <div class="swipe-hint">← Swipe →</div><div class="scroll-hint"><span>→</span> Swipe to see more</div>
-<div class="news-grid">
+    <div class="news-grid">
       <div class="news-card rv">
         <div class="news-placeholder">📰</div>
         <div class="news-card-body">
@@ -1361,8 +776,7 @@ function mapShowState(s,c,d){
   <div class="secin">
     <div class="stag rv"><span class="spill">Our Team</span></div>
     <h2 class="sh rv">The <span>People</span> Behind V SCAN</h2>
-    <div class="scroll-hint"><span>→</span> Swipe to see more</div>
-<div class="tgrid">
+    <div class="tgrid">
       <div class="tcard rv">
         <div class="timg-wrap">
           <a href="vikas.html" style="display:block"><img class="timg" src="vikas.jpeg" alt="Vikas Kumar Choudhary" onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Vikas'"/></a>
@@ -1394,8 +808,7 @@ function mapShowState(s,c,d){
     <div class="stag rv"><span class="spill" style="background:rgba(255,255,255,.07);color:rgba(255,255,255,.55);border-color:rgba(255,255,255,.1)">Advisory Committee</span></div>
     <h2 class="sh rv" style="color:#fff">Guided by <span style="color:var(--goldl)">India's Best Minds</span></h2>
     <p class="sdesc rv" style="color:rgba(255,255,255,.42);max-width:600px">Our advisory board brings decades of academic, journalistic, scientific and governance expertise — ensuring every strategy V SCAN builds is evidence-based, credible and future-ready.</p>
-    <div class="scroll-hint"><span>→</span> Swipe to see more</div>
-<div class="advcards">
+    <div class="advcards">
       <div class="adv rv" style="cursor:pointer" onclick="window.location='advisory.html#malik'">
         <div class="adv-head">
           <div class="adv-av" style="background:linear-gradient(135deg,#1A4E9C,#0A2040);padding:0;overflow:hidden"><img src="advisor1.jpg" alt="K.P. Malik" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='KP'"/></div>
@@ -1616,31 +1029,6 @@ document.addEventListener('click',function(e){
     if(p) p.style.display='none';
   }
 });
-</script>
-
-
-<script>
-function mapPinClick(el){
-  var s=el.getAttribute('data-s');
-  var c=el.getAttribute('data-c');
-  var d=el.getAttribute('data-d');
-  mapShowState(s,c,d);
-  // dim all pins, highlight clicked
-  document.querySelectorAll('.vspin').forEach(function(p){p.style.opacity='.45'});
-  el.style.opacity='1';
-}
-function mapShowState(s,c,d){
-  document.getElementById('mip-default').style.display='none';
-  document.getElementById('mip-active').style.display='block';
-  document.getElementById('mip-name').textContent=s;
-  document.getElementById('mip-city').textContent='📍 '+c;
-  document.getElementById('mip-desc').textContent=d;
-  var isHQ=s.includes('HQ')||s.includes('Delhi');
-  document.getElementById('mip-tag').textContent=isHQ?'★ National Capital — HQ':'Active State';
-  document.getElementById('mip-name').style.color=isHQ?'#FFD700':'#fff';
-  // chip active state
-  document.querySelectorAll('.schip').forEach(function(ch){ch.classList.remove('active')});
-}
 </script>
 
 </body>
