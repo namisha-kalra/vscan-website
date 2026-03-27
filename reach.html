@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Our Reach – V SCAN Alliance</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
 :root{--b9:#020810;--b8:#040E1E;--b7:#07182E;--b6:#0C2448;--b5:#133272;--b4:#1A4A9A;--b3:#3A72CC;--gold:#C89010;--goldl:#E0A820;--sbl:0 8px 32px rgba(19,50,114,.5);}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -143,179 +142,288 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
 <!-- MAP -->
 <section class="map-section">
   <div class="map-in">
-    <div class="sec-tag">Our Presence</div>
+    <div class="sec-tag">Interactive Map</div>
     <h2 class="sec-title">V SCAN Operational Footprint</h2>
-    <p class="sec-sub">Click on any pin to see state details</p>
+    <p class="sec-sub">India — tricolor map with active state pins. Click any red pin for details.</p>
+    <div style="background:rgba(2,8,16,.6);border:1px solid rgba(26,74,154,.2);border-radius:16px;padding:2rem;overflow:hidden;position:relative;max-width:700px;margin:0 auto">
+      <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FF9933,#fff,#138808)"></div>
+      <svg id="vscan-india-map" viewBox="60 40 500 560" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;filter:drop-shadow(0 20px 60px rgba(0,0,0,.8))">
+  <defs>
+    <!-- Tricolor gradient for India -->
+    <linearGradient id="tricolor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF9933" stop-opacity="0.9"/>
+      <stop offset="33%" stop-color="#FF9933" stop-opacity="0.9"/>
+      <stop offset="33%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="66%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="66%" stop-color="#138808" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#138808" stop-opacity="0.9"/>
+    </linearGradient>
+    <!-- Subtle overlay for depth -->
+    <linearGradient id="shading" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.12)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.18)"/>
+    </linearGradient>
+    <!-- Glow for active pins -->
+    <filter id="pin-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="map-shadow">
+      <feDropShadow dx="2" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,0.5)"/>
+    </filter>
+  </defs>
 
-    <!-- IMAGE MAP WITH SVG PINS OVERLAY -->
-    <div style="position:relative;display:inline-block;width:100%;max-width:700px;margin:0 auto;display:block">
+  <!-- ══════════════════════════════
+       INDIA OUTLINE — accurate path
+  ══════════════════════════════════ -->
+  <!-- Main India body -->
+  <path id="india-main"
+    d="
+    M 237,47 L 248,44 L 262,45 L 275,42 L 288,44 L 300,48 L 312,46 L 325,50
+    L 338,48 L 350,53 L 362,52 L 372,58 L 380,56 L 390,62 L 398,60 L 408,66
+    L 415,72 L 420,80 L 418,90 L 424,98 L 428,108 L 432,120 L 438,132
+    L 442,144 L 445,156 L 447,168 L 444,178 L 450,188 L 455,200 L 458,212
+    L 456,222 L 462,232 L 466,244 L 462,254 L 458,264 L 452,274 L 448,286
+    L 444,296 L 440,308 L 436,318 L 430,328 L 424,338 L 418,350 L 410,360
+    L 402,370 L 394,380 L 384,390 L 374,398 L 362,406 L 350,412 L 338,416
+    L 325,418 L 312,416 L 300,412 L 288,406 L 276,398 L 264,390 L 254,380
+    L 244,370 L 235,358 L 226,346 L 218,332 L 210,318 L 202,304 L 195,290
+    L 188,276 L 182,261 L 177,246 L 172,231 L 168,215 L 165,200 L 162,185
+    L 160,170 L 158,155 L 157,140 L 158,125 L 160,110 L 164,96 L 170,83
+    L 177,72 L 186,62 L 196,54 L 208,49 L 222,47 Z
+    "
+    fill="url(#tricolor)"
+    filter="url(#map-shadow)"
+    stroke="rgba(255,255,255,0.4)"
+    stroke-width="1.5"
+  />
+  <!-- Shading overlay for depth -->
+  <path
+    d="
+    M 237,47 L 248,44 L 262,45 L 275,42 L 288,44 L 300,48 L 312,46 L 325,50
+    L 338,48 L 350,53 L 362,52 L 372,58 L 380,56 L 390,62 L 398,60 L 408,66
+    L 415,72 L 420,80 L 418,90 L 424,98 L 428,108 L 432,120 L 438,132
+    L 442,144 L 445,156 L 447,168 L 444,178 L 450,188 L 455,200 L 458,212
+    L 456,222 L 462,232 L 466,244 L 462,254 L 458,264 L 452,274 L 448,286
+    L 444,296 L 440,308 L 436,318 L 430,328 L 424,338 L 418,350 L 410,360
+    L 402,370 L 394,380 L 384,390 L 374,398 L 362,406 L 350,412 L 338,416
+    L 325,418 L 312,416 L 300,412 L 288,406 L 276,398 L 264,390 L 254,380
+    L 244,370 L 235,358 L 226,346 L 218,332 L 210,318 L 202,304 L 195,290
+    L 188,276 L 182,261 L 177,246 L 172,231 L 168,215 L 165,200 L 162,185
+    L 160,170 L 158,155 L 157,140 L 158,125 L 160,110 L 164,96 L 170,83
+    L 177,72 L 186,62 L 196,54 L 208,49 L 222,47 Z
+    "
+    fill="url(#shading)"
+    stroke="none"
+  />
 
-      <!-- Base India Map Image -->
-      <img src="india-map-bg.png" alt="India Map" 
-           style="width:100%;height:auto;display:block;opacity:.85;filter:hue-rotate(200deg) brightness(.7) saturate(.5)"
-           id="india-map-img"/>
+  <!-- South India peninsula extension -->
+  <path
+    d="M 300,412 L 288,406 L 276,398 L 264,390 L 254,380 L 244,370 L 250,380 L 256,392 L 262,404 L 268,416 L 272,428 L 274,442 L 272,455 L 268,467 L 262,478 L 254,488 L 245,496 L 235,502 L 250,506 L 264,504 L 276,498 L 286,490 L 294,480 L 300,470 L 304,458 L 306,446 L 305,434 L 302,422 L 300,412 Z"
+    fill="url(#tricolor)" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"
+  />
+  <path d="M 300,412 L 288,406 L 276,398 L 264,390 L 254,380 L 244,370 L 250,380 L 256,392 L 262,404 L 268,416 L 272,428 L 274,442 L 272,455 L 268,467 L 262,478 L 254,488 L 245,496 L 235,502 L 250,506 L 264,504 L 276,498 L 286,490 L 294,480 L 300,470 L 304,458 L 306,446 L 305,434 L 302,422 L 300,412 Z" fill="url(#shading)" stroke="none"/>
 
-      <!-- SVG PINS OVERLAY - positioned as % of image size -->
-      <svg id="map-pins-svg" 
-           viewBox="0 0 1000 1200" 
-           xmlns="http://www.w3.org/2000/svg"
-           style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible">
+  <!-- Andaman Islands (small) -->
+  <ellipse cx="465" cy="380" rx="6" ry="14" fill="url(#tricolor)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <ellipse cx="462" cy="400" rx="4" ry="8" fill="url(#tricolor)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
 
-        <defs>
-          <filter id="pglow">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
+  <!-- Sri Lanka (grey, not India) -->
+  <ellipse cx="314" cy="524" rx="10" ry="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
 
-        <!-- 
-          India map typical layout (for india-map-bg.png):
-          Map spans roughly left:10% to right:90%, top:5% to bottom:95%
-          In 1000x1200 viewBox:
-          Northwest corner (J&K) ~= 200,80
-          Northeast (Arunachal) ~= 820,180
-          South tip (Kanyakumari) ~= 480,1100
-          West coast (Gujarat) ~= 150,550
-          
-          State approximate centers:
-        -->
+  <!-- State boundary lines (subtle internal) -->
+  <!-- North-South rough divisions -->
+  <line x1="300" y1="80" x2="298" y2="180" stroke="rgba(255,255,255,.12)" stroke-width=".8" stroke-dasharray="4,3"/>
+  <line x1="250" y1="120" x2="350" y2="130" stroke="rgba(255,255,255,.1)" stroke-width=".8" stroke-dasharray="4,3"/>
+  <line x1="220" y1="200" x2="380" y2="210" stroke="rgba(255,255,255,.1)" stroke-width=".8" stroke-dasharray="4,3"/>
+  <line x1="210" y1="280" x2="400" y2="290" stroke="rgba(255,255,255,.1)" stroke-width=".8" stroke-dasharray="4,3"/>
+  <line x1="240" y1="350" x2="420" y2="355" stroke="rgba(255,255,255,.1)" stroke-width=".8" stroke-dasharray="4,3"/>
+  <line x1="310" y1="80" x2="415" y2="180" stroke="rgba(255,255,255,.08)" stroke-width=".8" stroke-dasharray="4,3"/>
+  <line x1="175" y1="160" x2="290" y2="160" stroke="rgba(255,255,255,.08)" stroke-width=".8" stroke-dasharray="4,3"/>
 
-        <!-- PUNJAB ~31°N, 75°E -->
-        <g class="map-pin-group" data-state="Punjab" data-city="Ludhiana" data-desc="Active campaign and voter analytics" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="275" cy="260" rx="18" ry="6" fill="rgba(224,168,32,.3)"/>
-          <polygon points="263,258 287,258 285,220 265,220" fill="url(#tg-gold)"/>
-          <polygon points="265,220 285,220 275,200" fill="#FFE066"/>
-          <ellipse cx="275" cy="258" rx="12" ry="4" fill="#E0A820" opacity=".9"/>
-          <text x="292" y="215" font-family="sans-serif" font-size="22" font-weight="bold" fill="#FFE066">PUNJAB</text>
-        </g>
+  <!-- ══════════════════════
+       RED PIN COMPONENT
+       (reusable macro)
+  ══════════════════════ -->
 
-        <!-- HARYANA ~29°N, 76°E -->
-        <g class="map-pin-group" data-state="Haryana" data-city="Chandigarh" data-desc="Key swing state — active ground operations" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="320" cy="340" rx="16" ry="5" fill="rgba(224,168,32,.3)"/>
-          <polygon points="309,338 331,338 329,304 311,304" fill="url(#tg-gold)"/>
-          <polygon points="311,304 329,304 320,285" fill="#FFE066"/>
-          <ellipse cx="320" cy="338" rx="10" ry="3.5" fill="#E0A820" opacity=".9"/>
-          <text x="337" y="300" font-family="sans-serif" font-size="20" font-weight="bold" fill="#FFE066">HARYANA</text>
-        </g>
+  <!-- PUNJAB — 31°N 75°E -->
+  <g class="vscan-pin" data-state="Punjab" data-city="Ludhiana" data-desc="Active campaign base &amp; voter analytics" style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="214" cy="100" r="10" fill="rgba(220,38,38,.2)">
+      <animate attributeName="r" values="10;16;10" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="214" cy="100" r="5.5" fill="#DC2626" stroke="#fff" stroke-width="1.5"/>
+    <line x1="214" y1="105" x2="214" y2="114" stroke="#DC2626" stroke-width="2"/>
+    <circle cx="214" cy="116" r="2" fill="#DC2626" opacity=".5"/>
+  </g>
 
-        <!-- DELHI ~28.6°N, 77.2°E - GOLD special -->
-        <g class="map-pin-group" data-state="Delhi" data-city="New Delhi" data-desc="National Capital — V SCAN Headquarters" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="345" cy="375" rx="20" ry="7" fill="rgba(255,215,0,.4)"/>
-          <polygon points="332,372 358,372 356,328 334,328" fill="#C8A000"/>
-          <polygon points="334,328 356,328 345,305" fill="#FFD700"/>
-          <ellipse cx="345" cy="372" rx="13" ry="5" fill="#FFD700" opacity=".95"/>
-          <!-- Pulse ring for Delhi -->
-          <circle cx="345" cy="372" r="20" fill="none" stroke="rgba(255,215,0,.5)" stroke-width="2">
-            <animate attributeName="r" from="20" to="38" dur="2s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" from=".6" to="0" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <text x="363" y="304" font-family="sans-serif" font-size="24" font-weight="bold" fill="#FFD700">DELHI ★</text>
-        </g>
+  <!-- HARYANA — 29°N 76°E -->
+  <g class="vscan-pin" data-state="Haryana" data-city="Chandigarh" data-desc="Key swing state — active ground operations" style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="240" cy="140" r="9" fill="rgba(220,38,38,.2)">
+      <animate attributeName="r" values="9;15;9" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="240" cy="140" r="5" fill="#DC2626" stroke="#fff" stroke-width="1.5"/>
+    <line x1="240" y1="145" x2="240" y2="153" stroke="#DC2626" stroke-width="2"/>
+    <circle cx="240" cy="155" r="2" fill="#DC2626" opacity=".5"/>
+  </g>
 
-        <!-- UTTARAKHAND ~30.3°N, 78°E -->
-        <g class="map-pin-group" data-state="Uttarakhand" data-city="Dehradun" data-desc="Hill state — active campaign monitoring" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="390" cy="295" rx="15" ry="5" fill="rgba(224,168,32,.3)"/>
-          <polygon points="380,293 400,293 398,262 382,262" fill="url(#tg-gold)"/>
-          <polygon points="382,262 398,262 390,245" fill="#FFE066"/>
-          <ellipse cx="390" cy="293" rx="10" ry="3.5" fill="#E0A820" opacity=".9"/>
-          <text x="405" y="244" font-family="sans-serif" font-size="18" font-weight="bold" fill="#FFE066">UTTARAKHAND</text>
-        </g>
+  <!-- DELHI — 28.6°N 77.2°E — SPECIAL GOLD STAR -->
+  <g class="vscan-pin" data-state="Delhi — Headquarters" data-city="New Delhi" data-desc="National Capital — V SCAN Headquarters &amp; Operations Centre" style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="260" cy="160" r="16" fill="rgba(220,38,38,.15)">
+      <animate attributeName="r" values="16;26;16" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0;0.5" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="160" r="10" fill="rgba(220,38,38,.2)"/>
+    <circle cx="260" cy="160" r="7" fill="#EF4444" stroke="#fff" stroke-width="2"/>
+    <!-- Star symbol for HQ -->
+    <text x="260" y="164" text-anchor="middle" font-size="8" fill="#fff" font-weight="bold">★</text>
+    <line x1="260" y1="167" x2="260" y2="177" stroke="#EF4444" stroke-width="2.5"/>
+    <circle cx="260" cy="179" r="2.5" fill="#EF4444" opacity=".6"/>
+  </g>
 
-        <!-- UTTAR PRADESH ~26.8°N, 80.9°E -->
-        <g class="map-pin-group" data-state="Uttar Pradesh" data-city="Lucknow" data-desc="Largest state — 80 Lok Sabha seats" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="490" cy="430" rx="22" ry="8" fill="rgba(224,168,32,.35)"/>
-          <polygon points="477,427 503,427 501,380 480,380" fill="url(#tg-gold)"/>
-          <polygon points="480,380 501,380 490,358" fill="#FFE066"/>
-          <ellipse cx="490" cy="427" rx="15" ry="5.5" fill="#E0A820" opacity=".9"/>
-          <text x="508" y="357" font-family="sans-serif" font-size="22" font-weight="bold" fill="#FFE066">UTTAR PRADESH</text>
-        </g>
+  <!-- UTTARAKHAND — 30.3°N 78°E -->
+  <g class="vscan-pin" data-state="Uttarakhand" data-city="Dehradun" data-desc="Hill state — active campaign monitoring" style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="283" cy="122" r="9" fill="rgba(220,38,38,.2)">
+      <animate attributeName="r" values="9;14;9" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="283" cy="122" r="5" fill="#DC2626" stroke="#fff" stroke-width="1.5"/>
+    <line x1="283" y1="127" x2="283" y2="135" stroke="#DC2626" stroke-width="2"/>
+    <circle cx="283" cy="137" r="2" fill="#DC2626" opacity=".5"/>
+  </g>
 
-        <!-- RAJASTHAN ~27°N, 74°E -->
-        <g class="map-pin-group" data-state="Rajasthan" data-city="Jaipur" data-desc="Largest by area — active strategy zone" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="250" cy="470" rx="20" ry="7" fill="rgba(224,168,32,.3)"/>
-          <polygon points="238,467 262,467 260,422 242,422" fill="url(#tg-gold)"/>
-          <polygon points="242,422 260,422 250,400" fill="#FFE066"/>
-          <ellipse cx="250" cy="467" rx="13" ry="5" fill="#E0A820" opacity=".9"/>
-          <text x="158" y="400" font-family="sans-serif" font-size="22" font-weight="bold" fill="#FFE066">RAJASTHAN</text>
-        </g>
+  <!-- UTTAR PRADESH — 26.8°N 80.9°E -->
+  <g class="vscan-pin" data-state="Uttar Pradesh" data-city="Lucknow" data-desc="Largest state — 80 Lok Sabha seats. Priority zone." style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="315" cy="175" r="12" fill="rgba(220,38,38,.2)">
+      <animate attributeName="r" values="12;20;12" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="315" cy="175" r="6.5" fill="#DC2626" stroke="#fff" stroke-width="2"/>
+    <line x1="315" y1="181" x2="315" y2="191" stroke="#DC2626" stroke-width="2"/>
+    <circle cx="315" cy="193" r="2.5" fill="#DC2626" opacity=".5"/>
+  </g>
 
-        <!-- MADHYA PRADESH ~23.2°N, 77.4°E -->
-        <g class="map-pin-group" data-state="Madhya Pradesh" data-city="Bhopal" data-desc="Heart of India — active operations" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="420" cy="570" rx="20" ry="7" fill="rgba(224,168,32,.3)"/>
-          <polygon points="408,567 432,567 430,522 411,522" fill="url(#tg-gold)"/>
-          <polygon points="411,522 430,522 420,500" fill="#FFE066"/>
-          <ellipse cx="420" cy="567" rx="13" ry="5" fill="#E0A820" opacity=".9"/>
-          <text x="438" y="500" font-family="sans-serif" font-size="20" font-weight="bold" fill="#FFE066">M.P.</text>
-        </g>
+  <!-- RAJASTHAN — 26.9°N 75.8°E -->
+  <g class="vscan-pin" data-state="Rajasthan" data-city="Jaipur" data-desc="Largest state by area — active strategy zone" style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="198" cy="202" r="11" fill="rgba(220,38,38,.2)">
+      <animate attributeName="r" values="11;18;11" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="198" cy="202" r="6" fill="#DC2626" stroke="#fff" stroke-width="1.8"/>
+    <line x1="198" y1="208" x2="198" y2="217" stroke="#DC2626" stroke-width="2"/>
+    <circle cx="198" cy="219" r="2.5" fill="#DC2626" opacity=".5"/>
+  </g>
 
-        <!-- BIHAR ~25.6°N, 85.1°E -->
-        <g class="map-pin-group" data-state="Bihar" data-city="Patna" data-desc="High-stakes state — ground intelligence active" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="590" cy="430" rx="18" ry="6" fill="rgba(224,168,32,.3)"/>
-          <polygon points="579,427 601,427 599,388 581,388" fill="url(#tg-gold)"/>
-          <polygon points="581,388 599,388 590,368" fill="#FFE066"/>
-          <ellipse cx="590" cy="427" rx="12" ry="4.5" fill="#E0A820" opacity=".9"/>
-          <text x="608" y="367" font-family="sans-serif" font-size="22" font-weight="bold" fill="#FFE066">BIHAR</text>
-        </g>
+  <!-- MADHYA PRADESH — 23.2°N 77.4°E -->
+  <g class="vscan-pin" data-state="Madhya Pradesh" data-city="Bhopal" data-desc="Heart of India — active campaign operations" style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="278" cy="258" r="11" fill="rgba(220,38,38,.2)">
+      <animate attributeName="r" values="11;18;11" dur="2.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="2.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="278" cy="258" r="6" fill="#DC2626" stroke="#fff" stroke-width="1.8"/>
+    <line x1="278" y1="264" x2="278" y2="273" stroke="#DC2626" stroke-width="2"/>
+    <circle cx="278" cy="275" r="2.5" fill="#DC2626" opacity=".5"/>
+  </g>
 
-        <!-- WEST BENGAL ~22.6°N, 88.4°E -->
-        <g class="map-pin-group" data-state="West Bengal" data-city="Kolkata" data-desc="Eastern powerhouse — active operations" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="670" cy="510" rx="18" ry="6" fill="rgba(224,168,32,.3)"/>
-          <polygon points="659,507 681,507 679,465 661,465" fill="url(#tg-gold)"/>
-          <polygon points="661,465 679,465 670,445" fill="#FFE066"/>
-          <ellipse cx="670" cy="507" rx="12" ry="4.5" fill="#E0A820" opacity=".9"/>
-          <text x="685" y="444" font-family="sans-serif" font-size="20" font-weight="bold" fill="#FFE066">W. BENGAL</text>
-        </g>
+  <!-- BIHAR — 25.6°N 85.1°E -->
+  <g class="vscan-pin" data-state="Bihar" data-city="Patna" data-desc="High-stakes state — ground intelligence active" style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="366" cy="178" r="10" fill="rgba(220,38,38,.2)">
+      <animate attributeName="r" values="10;16;10" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="366" cy="178" r="5.5" fill="#DC2626" stroke="#fff" stroke-width="1.5"/>
+    <line x1="366" y1="183" x2="366" y2="192" stroke="#DC2626" stroke-width="2"/>
+    <circle cx="366" cy="194" r="2" fill="#DC2626" opacity=".5"/>
+  </g>
 
-        <!-- ODISHA ~20.3°N, 85.8°E -->
-        <g class="map-pin-group" data-state="Odisha" data-city="Bhubaneswar" data-desc="Fast growing state — active campaign base" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="600" cy="600" rx="18" ry="6" fill="rgba(224,168,32,.3)"/>
-          <polygon points="589,597 611,597 609,555 591,555" fill="url(#tg-gold)"/>
-          <polygon points="591,555 609,555 600,535" fill="#FFE066"/>
-          <ellipse cx="600" cy="597" rx="12" ry="4.5" fill="#E0A820" opacity=".9"/>
-          <text x="618" y="534" font-family="sans-serif" font-size="20" font-weight="bold" fill="#FFE066">ODISHA</text>
-        </g>
+  <!-- WEST BENGAL — 22.6°N 88.4°E -->
+  <g class="vscan-pin" data-state="West Bengal" data-city="Kolkata" data-desc="Eastern powerhouse — active operations" style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="405" cy="228" r="10" fill="rgba(220,38,38,.2)">
+      <animate attributeName="r" values="10;16;10" dur="2.9s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="2.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="405" cy="228" r="5.5" fill="#DC2626" stroke="#fff" stroke-width="1.5"/>
+    <line x1="405" y1="233" x2="405" y2="242" stroke="#DC2626" stroke-width="2"/>
+    <circle cx="405" cy="244" r="2" fill="#DC2626" opacity=".5"/>
+  </g>
 
-        <!-- MAHARASHTRA ~19.1°N, 72.9°E -->
-        <g class="map-pin-group" data-state="Maharashtra" data-city="Mumbai" data-desc="Financial capital — active HQ" filter="url(#pglow)" style="cursor:pointer" onclick="showPinInfo(this)">
-          <ellipse cx="350" cy="660" rx="22" ry="8" fill="rgba(224,168,32,.35)"/>
-          <polygon points="337,657 363,657 361,608 340,608" fill="url(#tg-gold)"/>
-          <polygon points="340,608 361,608 350,585" fill="#FFE066"/>
-          <ellipse cx="350" cy="657" rx="15" ry="5.5" fill="#E0A820" opacity=".9"/>
-          <text x="368" y="585" font-family="sans-serif" font-size="20" font-weight="bold" fill="#FFE066">MAHARASHTRA</text>
-        </g>
+  <!-- ODISHA — 20.3°N 85.8°E -->
+  <g class="vscan-pin" data-state="Odisha" data-city="Bhubaneswar" data-desc="Fast growing state — active campaign base" style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="390" cy="285" r="10" fill="rgba(220,38,38,.2)">
+      <animate attributeName="r" values="10;16;10" dur="3.1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="3.1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="390" cy="285" r="5.5" fill="#DC2626" stroke="#fff" stroke-width="1.5"/>
+    <line x1="390" y1="290" x2="390" y2="299" stroke="#DC2626" stroke-width="2"/>
+    <circle cx="390" cy="301" r="2" fill="#DC2626" opacity=".5"/>
+  </g>
 
-        <!-- Gradients for towers -->
-        <defs>
-          <linearGradient id="tg-gold" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#8B6800"/>
-            <stop offset="40%" stop-color="#E0A820"/>
-            <stop offset="100%" stop-color="#8B6800"/>
-          </linearGradient>
-        </defs>
-      </svg>
+  <!-- MAHARASHTRA — 19.1°N 72.9°E -->
+  <g class="vscan-pin" data-state="Maharashtra" data-city="Mumbai" data-desc="Financial capital state — active HQ" style="cursor:pointer" onclick="pinClick(this)" filter="url(#pin-glow)">
+    <circle cx="245" cy="335" r="11" fill="rgba(220,38,38,.2)">
+      <animate attributeName="r" values="11;18;11" dur="2.7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="2.7s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="245" cy="335" r="6" fill="#DC2626" stroke="#fff" stroke-width="1.8"/>
+    <line x1="245" y1="341" x2="245" y2="350" stroke="#DC2626" stroke-width="2"/>
+    <circle cx="245" cy="352" r="2.5" fill="#DC2626" opacity=".5"/>
+  </g>
 
-      <!-- INFO POPUP -->
-      <div id="pin-popup" style="display:none;position:absolute;background:#071830;border:1.5px solid #E0A820;border-radius:10px;padding:12px 16px;min-width:200px;z-index:10;box-shadow:0 8px 24px rgba(0,0,0,.7);pointer-events:none;font-family:'Source Sans 3',sans-serif">
-        <div id="pp-state" style="font-weight:700;font-size:.95rem;color:#E0A820;margin-bottom:3px"></div>
-        <div id="pp-city" style="font-size:.72rem;color:rgba(192,216,240,.5);margin-bottom:4px"></div>
-        <div id="pp-desc" style="font-size:.75rem;color:rgba(192,216,240,.7);line-height:1.5"></div>
+  <!-- Map Label -->
+  <text x="300" y="575" text-anchor="middle" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.25)" letter-spacing="3" font-weight="600">V SCAN ALLIANCE · 11 ACTIVE STATES</text>
+</svg>
+
+      <!-- TOOLTIP -->
+      <div id="map-tooltip" style="display:none;position:fixed;background:rgba(7,24,46,.97);border:1.5px solid #DC2626;border-radius:10px;padding:12px 16px;min-width:200px;max-width:260px;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.7);pointer-events:none;font-family:'Source Sans 3',sans-serif">
+        <div id="tt-state" style="font-weight:700;font-size:.92rem;color:#EF4444;margin-bottom:3px"></div>
+        <div id="tt-city" style="font-size:.7rem;color:rgba(192,216,240,.45);margin-bottom:5px"></div>
+        <div id="tt-desc" style="font-size:.75rem;color:rgba(192,216,240,.7);line-height:1.5"></div>
       </div>
     </div>
 
-    <!-- LEGEND -->
-    <div class="map-legend" style="max-width:700px;margin:.8rem auto 0">
-      <div class="ml-item">
-        <svg width="14" height="18" viewBox="0 0 14 18"><ellipse cx="7" cy="16" rx="5" ry="2" fill="rgba(255,215,0,.4)"/><polygon points="2,15 12,15 11,5 3,5" fill="#C8A000"/><polygon points="3,5 11,5 7,0" fill="#FFD700"/></svg>
-        <span class="ml-txt" style="color:#FFD700">Delhi (Capital)</span>
+    <!-- Legend -->
+    <div style="display:flex;align-items:center;gap:2rem;max-width:700px;margin:.8rem auto 0;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="width:12px;height:12px;border-radius:50%;background:#EF4444;border:2px solid #fff;box-shadow:0 0 8px rgba(220,38,38,.6)"></div>
+        <span style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(192,216,240,.45);font-weight:600">Active State</span>
       </div>
-      <div class="ml-item">
-        <svg width="14" height="18" viewBox="0 0 14 18"><ellipse cx="7" cy="16" rx="5" ry="2" fill="rgba(224,168,32,.4)"/><polygon points="2,15 12,15 11,5 3,5" fill="#8B6800"/><polygon points="3,5 11,5 7,0" fill="#FFE066"/></svg>
-        <span class="ml-txt">Active States (10)</span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="width:14px;height:14px;border-radius:50%;background:#EF4444;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;font-weight:bold">★</div>
+        <span style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(192,216,240,.45);font-weight:600">Delhi — HQ</span>
       </div>
-      <span style="font-size:.58rem;color:rgba(192,216,240,.25);margin-left:auto">Click towers for details</span>
+      <div style="display:flex;align-items:center;gap:6px;margin-left:auto">
+        <div style="display:flex;gap:2px"><div style="width:14px;height:6px;background:#FF9933;border-radius:1px"></div><div style="width:14px;height:6px;background:#fff;border-radius:1px;border:1px solid rgba(0,0,0,.1)"></div><div style="width:14px;height:6px;background:#138808;border-radius:1px"></div></div>
+        <span style="font-size:.6rem;color:rgba(192,216,240,.3)">India</span>
+      </div>
     </div>
+
+<script>
+function pinClick(el){
+  var s=el.getAttribute('data-state');
+  var c=el.getAttribute('data-city');
+  var d=el.getAttribute('data-desc');
+  var tt=document.getElementById('map-tooltip');
+  document.getElementById('tt-state').textContent='📍 '+s;
+  document.getElementById('tt-city').textContent=c;
+  document.getElementById('tt-desc').textContent=d;
+  // Position near pin
+  var rect=el.getBoundingClientRect();
+  tt.style.left=Math.min(rect.left+20,window.innerWidth-280)+'px';
+  tt.style.top=(rect.top-10+window.scrollY)+'px';
+  tt.style.display='block';
+  clearTimeout(tt._t);
+  tt._t=setTimeout(function(){tt.style.display='none';},3500);
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.vscan-pin')) document.getElementById('map-tooltip').style.display='none';
+});
+</script>
+
+
   </div>
 </section>
+
 
 <!-- STATES GRID -->
 <section class="states-section">
@@ -457,25 +565,6 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
   <a href="index.html#contact" class="cta-btn">Partner With V SCAN →</a>
 </section>
 
-<script>
-function showPinInfo(el){
-  var state = el.getAttribute('data-state');
-  var city = el.getAttribute('data-city');
-  var desc = el.getAttribute('data-desc');
-  document.getElementById('pp-state').textContent = '📍 ' + state;
-  document.getElementById('pp-city').textContent = city;
-  document.getElementById('pp-desc').textContent = desc;
-  var popup = document.getElementById('pin-popup');
-  popup.style.display = 'block';
-  // Position near click
-  var rect = el.closest('svg').getBoundingClientRect();
-  var mapRect = el.closest('div').getBoundingClientRect();
-  popup.style.top = '10px';
-  popup.style.right = '10px';
-  popup.style.left = 'auto';
-  // Hide after 3 seconds
-  clearTimeout(popup._timer);
-  popup._timer = setTimeout
-</script>
+
 </body>
 </html>
