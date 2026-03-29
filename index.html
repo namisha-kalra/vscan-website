@@ -6,19 +6,16 @@
 <meta name="description" content="V SCAN Alliance — India's Premier Political & Policy Consultancy Firm. Data-driven electoral strategy, governance advisory, and campaign management across 11 states. Founded by Vikas Kumar Choudhary."/>
 <meta name="keywords" content="political consultancy India, electoral strategy, V SCAN, Vikas Kumar Choudhary, governance consulting, campaign management Delhi"/>
 <meta name="author" content="V SCAN Alliance"/>
-<!-- Open Graph -->
 <meta property="og:title" content="V SCAN – India's Premier Political & Policy Consultancy"/>
 <meta property="og:description" content="Where Strategy Meets Democracy. V SCAN shapes political campaigns and governance across India."/>
 <meta property="og:image" content="logo.png.png"/>
 <meta property="og:url" content="https://vscan.co.in"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="V SCAN Alliance"/>
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="V SCAN – India's Premier Political & Policy Consultancy"/>
 <meta name="twitter:description" content="Where Strategy Meets Democracy. Data-driven political consulting across India."/>
 <meta name="twitter:image" content="logo.png.png"/>
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="logo.png.png"/>
 <link rel="apple-touch-icon" href="logo.png.png"/>
 <title>V SCAN – India's Premier Political & Policy Consultancy Firm</title>
@@ -45,8 +42,11 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .nlinks a:hover{color:#133272;background:#EBF3FF}
 .nlinks .ncta{background:var(--b4)!important;color:#fff!important;font-weight:700!important;box-shadow:var(--sbl);padding:9px 20px!important;border-radius:6px!important}
 .nlinks .ncta:hover{background:var(--b5)!important}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
-.burger span{width:24px;height:2px;background:var(--b9);border-radius:2px}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{width:24px;height:2px;background:#2A4A6A;border-radius:2px;transition:all .3s;display:block}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 .mob{display:none;position:fixed;top:72px;left:0;right:0;background:#ffffff;border-bottom:2px solid #e0e8f0;padding:1.5rem 5vw;z-index:599;box-shadow:0 6px 20px rgba(0,0,0,.1)}
 .mob.open{display:block}
 .mob a{display:block;padding:.8rem 0;font-size:.9rem;font-weight:600;color:#2A4A6A;text-decoration:none;border-bottom:1px solid #f0f4f8;transition:color .2s}
@@ -206,40 +206,13 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .rv{opacity:1;transform:none}
 .rv.vis{opacity:1;transform:none}
 
-@media(max-width:1024px){
-  .nlinks{display:none}.burger{display:flex}
-  .hero-wrap,.about-layout,.maplayout,.miss-in,.clayout{grid-template-columns:1fr;gap:3.5rem}
-  .svcgrid,.tgrid,.advcards{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:600px){
-  .svcgrid,.tgrid,.advcards{grid-template-columns:1fr}
-  .h-btns{flex-direction:column}
-  .fgrow{display:flex;flex-direction:column}
-}
-
-
-
-/* ── SCROLL TO TOP ── */
 #scrolltop{position:fixed;bottom:5rem;right:1.8rem;width:44px;height:44px;border-radius:50%;background:var(--b4);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:500;box-shadow:0 4px 16px rgba(26,74,154,.5);opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
 #scrolltop.show{opacity:1;transform:translateY(0);pointer-events:auto}
 #scrolltop:hover{background:var(--b5);transform:translateY(-3px)}
 #scrolltop svg{color:#fff}
-
-/* ── WHATSAPP BUTTON ── */
 #wa-btn{position:fixed;bottom:1.8rem;right:1.8rem;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;z-index:500;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:all .3s;animation:wapulse 2s ease infinite}
 #wa-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.6)}
 @keyframes wapulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7)}}
-
-/* ── MOBILE MENU FIX ── */
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.burger span{width:24px;height:2px;background:#2A4A6A;border-radius:2px;transition:all .3s;display:block}
-.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-@media(max-width:1024px){.burger{display:flex}}
-  
-/* ── ACHIEVEMENTS ── */
 #achievements{background:#020810;border-bottom:1px solid rgba(26,74,154,.15)}
 .ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
 .ach-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.18);border-radius:12px;padding:1.8rem 1.2rem;text-align:center;position:relative;overflow:hidden;transition:all .3s}
@@ -251,8 +224,6 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .ach-num span{font-size:1.6rem}
 .ach-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#C0D8F0;margin:.3rem 0}
 .ach-desc{font-size:.72rem;color:rgba(192,216,240,.4);line-height:1.5}
-
-/* ── TESTIMONIALS ── */
 #testimonials{background:#07142A;border-bottom:1px solid rgba(26,74,154,.2)}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
 .testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.2);border-radius:14px;padding:2rem;position:relative;transition:all .3s}
@@ -264,9 +235,6 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .testi-name{font-size:.82rem;font-weight:700;color:#C0D8F0}
 .testi-role{font-size:.68rem;color:rgba(192,216,240,.4);margin-top:.1rem}
 .testi-stars{color:var(--goldl);font-size:.75rem;margin-bottom:.8rem}
-
-
-/* ── COOKIE BANNER ── */
 #cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:800;background:#07142A;border-top:2px solid rgba(26,74,154,.4);padding:1rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s ease;box-shadow:0 -8px 32px rgba(0,0,0,.4)}
 #cookie-banner.show{transform:translateY(0)}
 .cookie-text{font-size:.78rem;color:rgba(192,216,240,.6);line-height:1.5;flex:1;min-width:200px}
@@ -276,12 +244,8 @@ nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .cookie-accept:hover{background:var(--b5)}
 .cookie-decline{background:transparent;color:rgba(192,216,240,.4);border:1px solid rgba(26,74,154,.3);padding:8px 16px;border-radius:6px;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .2s}
 .cookie-decline:hover{border-color:rgba(58,114,204,.4);color:rgba(192,216,240,.6)}
-
-/* ── DARK/LIGHT TOGGLE ── */
 #theme-toggle{position:fixed;bottom:5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:rgba(26,74,154,.3);border:1px solid rgba(26,74,154,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:500;transition:all .3s;font-size:1.1rem}
 #theme-toggle:hover{background:rgba(26,74,154,.5);transform:scale(1.1)}
-
-/* Light mode overrides */
 body.light-mode{background:#F0F4FF;color:#111E2E}
 body.light-mode nav{background:#fff}
 body.light-mode #about{background:#fff}
@@ -301,27 +265,37 @@ body.light-mode .fg input,.light-mode .fg textarea{background:#fff;color:#111E2E
 body.light-mode .fg label{color:#7A8EA8}
 body.light-mode .cform{background:#fff}
 body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
-
-/* ── COUNTER ANIMATION ── */
 .counter-num{display:inline-block}
 
-/* ── PRINT CSS ── */
-@media print{
-  nav,#wa-btn,#scrolltop,#theme-toggle,#cookie-banner,.ticker,.h-scroll{display:none!important}
-  body{background:#fff!important;color:#000!important}
-  .hero{background:#003366!important;color:#fff!important;-webkit-print-color-adjust:exact}
-  .sh,.tname,.adv-name{color:#003366!important}
-  section{page-break-inside:avoid}
-}
+/* MAP SECTION specific */
+.map-reach-left .reach-pill{display:flex;align-items:flex-start;gap:14px;padding:.9rem 1.1rem;border:1px solid rgba(26,74,154,.22);border-radius:8px;background:rgba(13,24,40,.5);transition:border-color .25s,transform .2s;margin-bottom:.85rem}
+.map-reach-left .reach-pill:hover{border-color:rgba(58,114,204,.5);transform:translateX(5px)}
+.map-reach-left .pill-ico{width:36px;height:36px;border-radius:8px;background:rgba(26,74,154,.25);border:1px solid rgba(26,74,154,.35);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.map-reach-left .pill-txt h4{font-size:.88rem;font-weight:700;color:#D0E4F8;margin-bottom:.1rem}
+.map-reach-left .pill-txt p{font-size:.75rem;color:rgba(192,216,240,.52);line-height:1.5}
+.reach-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:1.8rem 0 2.2rem}
+.reach-stat-box{text-align:center;padding:.9rem .5rem;background:rgba(26,74,154,.12);border:1px solid rgba(26,74,154,.25);border-radius:10px}
+.reach-stat-box .rsn{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:#E0A820;line-height:1}
+.reach-stat-box .rsl{font-size:.52rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(192,216,240,.42);margin-top:.25rem}
+
+/* Leaflet map overrides */
+.leaflet-container{background:#0A1628!important}
+.leaflet-tile-pane{filter:brightness(.9) saturate(.8) hue-rotate(195deg) contrast(1.1)}
+.vscan-popup .leaflet-popup-content-wrapper{background:#071830;border:1.5px solid #E0A820;color:#C0D8F0;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.6);font-family:'Source Sans 3',sans-serif}
+.vscan-popup .leaflet-popup-tip{background:#071830}
+.vscan-popup .leaflet-popup-content{margin:12px 16px}
+.vpop-title{font-weight:700;font-size:.95rem;color:#E0A820;margin-bottom:4px}
+.vpop-desc{font-size:.75rem;color:rgba(192,216,240,.7);line-height:1.5}
+.leaflet-control-zoom a{background:#071830!important;color:#C0D8F0!important;border-color:rgba(26,74,154,.4)!important}
+.leaflet-control-zoom a:hover{background:#0C2448!important}
+.leaflet-control-attribution{background:rgba(2,8,16,.7)!important;color:rgba(140,180,220,.4)!important;font-size:9px!important}
+
+@media print{nav,#wa-btn,#scrolltop,#theme-toggle,#cookie-banner,.ticker,.h-scroll{display:none!important}body{background:#fff!important;color:#000!important}.hero{background:#003366!important;color:#fff!important;-webkit-print-color-adjust:exact}.sh,.tname,.adv-name{color:#003366!important}section{page-break-inside:avoid}}
+@media(max-width:1024px){.nlinks{display:none}.burger{display:flex}.hero-wrap,.about-layout,.maplayout,.miss-in,.clayout{grid-template-columns:1fr;gap:3.5rem}.svcgrid,.tgrid,.advcards{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.svcgrid,.tgrid,.advcards{grid-template-columns:1fr}.h-btns{flex-direction:column}.fgrow{display:flex;flex-direction:column}.ach-grid{grid-template-columns:1fr 1fr}.testi-grid{grid-template-columns:1fr}.reach-stats{grid-template-columns:1fr 1fr}}
 </style>
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZH4ZGWYDE5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-ZH4ZGWYDE5');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZH4ZGWYDE5');</script>
 </head>
 <body>
 
@@ -339,17 +313,6 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
 
 <!-- WHATSAPP FLOATING -->
 <a id="wa-btn" href="https://wa.me/918860573457?text=Hello%20V%20SCAN%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" aria-label="WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<!-- SCROLL TO TOP -->
-<button id="scrolltop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
-  <svg width="18" height="18" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
-</div>
-
-<!-- WHATSAPP BUTTON -->
-<a id="wa-btn" href="https://wa.me/918860573457?text=Hello%20V%20SCAN%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" aria-label="Chat on WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -440,9 +403,9 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
         </div>
         <div class="apoints">
           <div class="ap rv"><div class="ap-ico">🗳️</div><div class="ap-txt"><h4>Election Management</h4><p>End-to-end campaign architecture — from constituency mapping to victory night</p></div></div>
-          <div class="ap rv d1"><div class="ap-ico">📡</div><div class="ap-txt"><h4>Ground Intelligence Network</h4><p>Real-time booth-level data, voter sentiment and opposition monitoring across every district</p></div></div>
-          <div class="ap rv d2"><div class="ap-ico">🏛️</div><div class="ap-txt"><h4>Post-Election Governance</h4><p>Policy delivery frameworks, public audit systems and citizen feedback loops</p></div></div>
-          <div class="ap rv d3"><div class="ap-ico">🌐</div><div class="ap-txt"><h4>Digital Political Presence</h4><p>Dominating narratives across social media, OTT, YouTube and regional platforms</p></div></div>
+          <div class="ap rv"><div class="ap-ico">📡</div><div class="ap-txt"><h4>Ground Intelligence Network</h4><p>Real-time booth-level data, voter sentiment and opposition monitoring across every district</p></div></div>
+          <div class="ap rv"><div class="ap-ico">🏛️</div><div class="ap-txt"><h4>Post-Election Governance</h4><p>Policy delivery frameworks, public audit systems and citizen feedback loops</p></div></div>
+          <div class="ap rv"><div class="ap-ico">🌐</div><div class="ap-txt"><h4>Digital Political Presence</h4><p>Dominating narratives across social media, OTT, YouTube and regional platforms</p></div></div>
         </div>
       </div>
     </div>
@@ -454,181 +417,160 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
   <div class="secin">
     <div class="stag rv"><span class="spill">Services</span></div>
     <h2 class="sh rv">What We <span>Offer</span></h2>
-    <p class="sdesc rv">Full-spectrum political &amp; policy consultancy firm — from the first campaign meeting to governance delivery on the ground.</p>
+    <p class="sdesc rv">Full-spectrum political &amp; policy consultancy — from the first campaign meeting to governance delivery on the ground.</p>
     <div class="svcgrid">
       <div class="scard rv"><div style="position:relative"><img class="scard-img" src="mission.jpg.jpeg" alt="Electoral Strategy" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Electoral+Strategy'"/><div class="scard-img-overlay"></div><div class="scard-num">01 — Electoral Strategy</div></div><div class="scard-body"><h3>Electoral Strategy &amp; Management</h3><p>Full-spectrum campaign operations — from constituency research and candidate positioning to voter outreach and war room coordination on election day.</p><a href="#contact" class="slink">Know More →</a></div></div>
-      <div class="scard rv d1"><div style="position:relative"><img class="scard-img" src="post.png.jpeg" alt="Data Analytics" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Data+Analytics'"/><div class="scard-img-overlay"></div><div class="scard-num">02 — Voter Research</div></div><div class="scard-body"><h3>Voter Research &amp; Data Analytics</h3><p>Scientific booth-level profiling, real-time voter sentiment tracking, demographic segmentation and predictive modeling to eliminate guesswork from every decision.</p><a href="#contact" class="slink">Know More →</a></div></div>
-      <div class="scard rv d2"><div style="position:relative"><img class="scard-img" src="strategy.png.jpeg" alt="Digital Strategy" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Digital+Strategy'"/><div class="scard-img-overlay"></div><div class="scard-num">03 — Digital Strategy</div></div><div class="scard-body"><h3>Digital &amp; Media Strategy</h3><p>Narrative control across social media, OTT, regional news and YouTube. Precision content, rapid response units and influencer ecosystem management.</p><a href="#contact" class="slink">Know More →</a></div></div>
+      <div class="scard rv"><div style="position:relative"><img class="scard-img" src="post.png.jpeg" alt="Data Analytics" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Data+Analytics'"/><div class="scard-img-overlay"></div><div class="scard-num">02 — Voter Research</div></div><div class="scard-body"><h3>Voter Research &amp; Data Analytics</h3><p>Scientific booth-level profiling, real-time voter sentiment tracking, demographic segmentation and predictive modeling to eliminate guesswork from every decision.</p><a href="#contact" class="slink">Know More →</a></div></div>
+      <div class="scard rv"><div style="position:relative"><img class="scard-img" src="strategy.png.jpeg" alt="Digital Strategy" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Digital+Strategy'"/><div class="scard-img-overlay"></div><div class="scard-num">03 — Digital Strategy</div></div><div class="scard-body"><h3>Digital &amp; Media Strategy</h3><p>Narrative control across social media, OTT, regional news and YouTube. Precision content, rapid response units and influencer ecosystem management.</p><a href="#contact" class="slink">Know More →</a></div></div>
       <div class="scard rv"><div style="position:relative"><img class="scard-img" src="vision.jpg.jpeg" alt="Governance" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Governance'"/><div class="scard-img-overlay"></div><div class="scard-num">04 — Governance</div></div><div class="scard-body"><h3>Governance &amp; Policy Advisory</h3><p>Post-election governance planning, policy implementation tracking, citizen feedback systems and public administration consulting for elected representatives.</p><a href="#contact" class="slink">Know More →</a></div></div>
-      <div class="scard rv d1"><div style="position:relative"><img class="scard-img" src="leadership.png.jpeg" alt="Intelligence" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Intelligence'"/><div class="scard-img-overlay"></div><div class="scard-num">05 — Intelligence</div></div><div class="scard-body"><h3>Political Intelligence Unit</h3><p>Ground-level opposition monitoring, issue vulnerability mapping, crisis communication playbooks and real-time intelligence from every district in your constituency.</p><a href="#contact" class="slink">Know More →</a></div></div>
-      <div class="scard rv d2"><div style="position:relative"><img class="scard-img" src="team.png.jpeg" alt="Leadership" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Leadership'"/><div class="scard-img-overlay"></div><div class="scard-num">06 — Leadership</div></div><div class="scard-body"><h3>Leadership &amp; Capacity Building</h3><p>Structured programs for political leaders, youth workers and party cadre — covering public communication, policy understanding and democratic values.</p><a href="#contact" class="slink">Know More →</a></div></div>
+      <div class="scard rv"><div style="position:relative"><img class="scard-img" src="leadership.png.jpeg" alt="Intelligence" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Intelligence'"/><div class="scard-img-overlay"></div><div class="scard-num">05 — Intelligence</div></div><div class="scard-body"><h3>Political Intelligence Unit</h3><p>Ground-level opposition monitoring, issue vulnerability mapping, crisis communication playbooks and real-time intelligence from every district in your constituency.</p><a href="#contact" class="slink">Know More →</a></div></div>
+      <div class="scard rv"><div style="position:relative"><img class="scard-img" src="team.png.jpeg" alt="Leadership" onerror="this.src='https://via.placeholder.com/400x160/0E2E5C/4A84E0?text=Leadership'"/><div class="scard-img-overlay"></div><div class="scard-num">06 — Leadership</div></div><div class="scard-body"><h3>Leadership &amp; Capacity Building</h3><p>Structured programs for political leaders, youth workers and party cadre — covering public communication, policy understanding and democratic values.</p><a href="#contact" class="slink">Know More →</a></div></div>
     </div>
   </div>
 </section>
 
-<!-- MAP SECTION -->
-<section id="map-section" class="sec" style="padding:7.5rem 5vw">
+<!-- ══════════════════════════════════════════════════════════
+     MAP SECTION — COMPLETELY REWRITTEN
+     ══════════════════════════════════════════════════════════ -->
+<section id="map-section" class="sec" style="padding:7.5rem 5vw;background:#07142A;border-bottom:1px solid rgba(26,74,154,.2)">
   <div class="secin">
-    <div class="maplayout">
-      <div>
+    <div class="maplayout" style="display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center">
+
+      <!-- LEFT SIDE — completely rewritten -->
+      <div class="map-reach-left">
         <div class="stag rv"><span class="spill">Our Reach</span></div>
-        <h2 class="sh rv">Our <span>Active States</span></h2>
-        <p class="sdesc rv" style="margin-bottom:2.5rem">From the snow-capped peaks of Punjab in the North to the coastal shores of Odisha and Maharashtra in the South — from the golden deserts of Rajasthan in the West to the vibrant plains of West Bengal in the East — V SCAN stands where democracy is shaped, where votes are earned, and where governance begins.</p>
-        <a href="#contact" class="btn-wh rv" style="background:var(--b4);box-shadow:var(--sbl);width:fit-content;color:#fff">Partner With Us →</a>
+        <h2 class="sh rv">Rooted in <span>Every Corner</span> of <em>Bharat</em></h2>
+        <p style="font-size:.95rem;line-height:1.82;color:rgba(192,216,240,.58);margin-bottom:1.8rem;text-align:justify" class="rv">
+          V SCAN doesn't operate from a distance — we are <strong style="color:#D0E4F8">embedded on the ground</strong> across 11 of India's most politically decisive states. From the wheat fields of Punjab to the mandis of UP, from Rajasthan's Tier-2 towns to the dense urban wards of Mumbai — our teams live the local political reality every single day.
+        </p>
+
+        <div class="reach-pill rv">
+          <div class="pill-ico">🗳️</div>
+          <div class="pill-txt">
+            <h4>11 States. Lakhs of Voters. One Strategy.</h4>
+            <p>Active political intelligence & campaign architecture deployed across Delhi, UP, Haryana, Punjab, Uttarakhand, Rajasthan, MP, Bihar, West Bengal, Odisha & Maharashtra.</p>
+          </div>
+        </div>
+
+        <div class="reach-pill rv">
+          <div class="pill-ico">📡</div>
+          <div class="pill-txt">
+            <h4>Booth-Level Data. Real-Time Intelligence.</h4>
+            <p>Our field network collects voter sentiment, booth data, and opposition intelligence — feeding our central analytics command so every campaign decision is evidence-based.</p>
+          </div>
+        </div>
+
+        <div class="reach-pill rv">
+          <div class="pill-ico">🏛️</div>
+          <div class="pill-txt">
+            <h4>Urban Wards to Remote Villages.</h4>
+            <p>We cover metros, Tier-2 cities, semi-urban towns, and deep rural constituencies with equal precision — because India's elections are won everywhere, not just in capitals.</p>
+          </div>
+        </div>
+
+        <div class="reach-stats rv">
+          <div class="reach-stat-box">
+            <div class="rsn">11</div>
+            <div class="rsl">Active States</div>
+          </div>
+          <div class="reach-stat-box">
+            <div class="rsn">100<span style="font-size:1.1rem">+</span></div>
+            <div class="rsl">Campaigns</div>
+          </div>
+          <div class="reach-stat-box">
+            <div class="rsn">100<span style="font-size:1.1rem">+</span></div>
+            <div class="rsl">Leaders Trained</div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn-wh rv" style="background:var(--b4);box-shadow:var(--sbl);color:#fff;display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:6px;font-size:.8rem;font-weight:700;text-decoration:none">
+          Partner With Us
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
+
+      <!-- RIGHT SIDE — Leaflet map, zoomed to India only, smaller height -->
       <div class="rv" style="position:relative">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-        <div id="vscan-map" style="width:100%;height:520px;border-radius:14px;border:1px solid rgba(26,74,154,.3);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.5)"></div>
-        <style>
-          .leaflet-container{background:#0A1628!important}
-          .leaflet-tile-pane{filter:brightness(.9) saturate(.8) hue-rotate(195deg) contrast(1.1)}
-          .vscan-popup .leaflet-popup-content-wrapper{background:#071830;border:1.5px solid #E0A820;color:#C0D8F0;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.6);font-family:'Source Sans 3',sans-serif}
-          .vscan-popup .leaflet-popup-tip{background:#071830}
-          .vscan-popup .leaflet-popup-content{margin:12px 16px}
-          .vpop-title{font-weight:700;font-size:.95rem;color:#E0A820;margin-bottom:4px}
-          .vpop-desc{font-size:.75rem;color:rgba(192,216,240,.7);line-height:1.5}
-          .leaflet-control-zoom a{background:#071830!important;color:#C0D8F0!important;border-color:rgba(26,74,154,.4)!important}
-          .leaflet-control-zoom a:hover{background:#0C2448!important}
-          .leaflet-control-attribution{background:rgba(2,8,16,.7)!important;color:rgba(140,180,220,.4)!important;font-size:9px!important}
-        
-
-
-/* ── SCROLL TO TOP ── */
-#scrolltop{position:fixed;bottom:5rem;right:1.8rem;width:44px;height:44px;border-radius:50%;background:var(--b4);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:500;box-shadow:0 4px 16px rgba(26,74,154,.5);opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
-#scrolltop.show{opacity:1;transform:translateY(0);pointer-events:auto}
-#scrolltop:hover{background:var(--b5);transform:translateY(-3px)}
-#scrolltop svg{color:#fff}
-
-/* ── WHATSAPP BUTTON ── */
-#wa-btn{position:fixed;bottom:1.8rem;right:1.8rem;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;z-index:500;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:all .3s;animation:wapulse 2s ease infinite}
-#wa-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.6)}
-@keyframes wapulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7)}}
-
-/* ── MOBILE MENU FIX ── */
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.burger span{width:24px;height:2px;background:#2A4A6A;border-radius:2px;transition:all .3s;display:block}
-.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-@media(max-width:1024px){.burger{display:flex}}
-
-/* ── ACHIEVEMENTS ── */
-#achievements{background:#020810;border-bottom:1px solid rgba(26,74,154,.15)}
-.ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
-.ach-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.18);border-radius:12px;padding:1.8rem 1.2rem;text-align:center;position:relative;overflow:hidden;transition:all .3s}
-.ach-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--goldl),var(--b3));transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.ach-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
-.ach-card:hover::before{transform:scaleX(1)}
-.ach-icon{font-size:2.2rem;margin-bottom:.8rem}
-.ach-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:var(--goldl);line-height:1;letter-spacing:-1px}
-.ach-num span{font-size:1.6rem}
-.ach-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#C0D8F0;margin:.3rem 0}
-.ach-desc{font-size:.72rem;color:rgba(192,216,240,.4);line-height:1.5}
-
-/* ── TESTIMONIALS ── */
-#testimonials{background:#07142A;border-bottom:1px solid rgba(26,74,154,.2)}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
-.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.2);border-radius:14px;padding:2rem;position:relative;transition:all .3s}
-.testi-card::before{content:'"';position:absolute;top:.8rem;right:1.2rem;font-family:'Playfair Display',serif;font-size:4rem;color:rgba(26,74,154,.2);line-height:1}
-.testi-card:hover{background:rgba(255,255,255,.07);border-color:rgba(58,114,204,.3);transform:translateY(-4px)}
-.testi-quote{font-size:.9rem;line-height:1.8;color:rgba(192,216,240,.7);margin-bottom:1.5rem;font-style:italic;text-align:justify}
-.testi-author{display:flex;align-items:center;gap:.8rem}
-.testi-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--b5),var(--b7));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:800;color:rgba(255,255,255,.6);font-size:.85rem;flex-shrink:0}
-.testi-name{font-size:.82rem;font-weight:700;color:#C0D8F0}
-.testi-role{font-size:.68rem;color:rgba(192,216,240,.4);margin-top:.1rem}
-.testi-stars{color:var(--goldl);font-size:.75rem;margin-bottom:.8rem}
-
-
-/* ── COOKIE BANNER ── */
-#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:800;background:#07142A;border-top:2px solid rgba(26,74,154,.4);padding:1rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s ease;box-shadow:0 -8px 32px rgba(0,0,0,.4)}
-#cookie-banner.show{transform:translateY(0)}
-.cookie-text{font-size:.78rem;color:rgba(192,216,240,.6);line-height:1.5;flex:1;min-width:200px}
-.cookie-text a{color:var(--b3);text-decoration:none}
-.cookie-btns{display:flex;gap:.6rem;flex-shrink:0}
-.cookie-accept{background:var(--b4);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .2s}
-.cookie-accept:hover{background:var(--b5)}
-.cookie-decline{background:transparent;color:rgba(192,216,240,.4);border:1px solid rgba(26,74,154,.3);padding:8px 16px;border-radius:6px;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .2s}
-.cookie-decline:hover{border-color:rgba(58,114,204,.4);color:rgba(192,216,240,.6)}
-
-/* ── DARK/LIGHT TOGGLE ── */
-#theme-toggle{position:fixed;bottom:5rem;left:1.5rem;width:42px;height:42px;border-radius:50%;background:rgba(26,74,154,.3);border:1px solid rgba(26,74,154,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:500;transition:all .3s;font-size:1.1rem}
-#theme-toggle:hover{background:rgba(26,74,154,.5);transform:scale(1.1)}
-
-/* Light mode overrides */
-body.light-mode{background:#F0F4FF;color:#111E2E}
-body.light-mode nav{background:#fff}
-body.light-mode #about{background:#fff}
-body.light-mode #services{background:#F5F8FF}
-body.light-mode #team{background:#F5F8FF}
-body.light-mode #contact{background:#F0F4FF}
-body.light-mode .scard{background:#fff;border-color:#D0DCF0}
-body.light-mode .scard h3{color:#111E2E}
-body.light-mode .scard p{color:#3C4F68}
-body.light-mode .tcard{background:#fff;border-color:#D0DCF0}
-body.light-mode .tname{color:#111E2E}
-body.light-mode .trole{color:#7A8EA8}
-body.light-mode .ap{background:#F8FAFF;border-color:#D0DCF0}
-body.light-mode .ap-txt h4{color:#111E2E}
-body.light-mode .about-body p{color:#3C4F68}
-body.light-mode .fg input,.light-mode .fg textarea{background:#fff;color:#111E2E;border-color:#D0DCF0}
-body.light-mode .fg label{color:#7A8EA8}
-body.light-mode .cform{background:#fff}
-body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
-
-/* ── COUNTER ANIMATION ── */
-.counter-num{display:inline-block}
-
-/* ── PRINT CSS ── */
-@media print{
-  nav,#wa-btn,#scrolltop,#theme-toggle,#cookie-banner,.ticker,.h-scroll{display:none!important}
-  body{background:#fff!important;color:#000!important}
-  .hero{background:#003366!important;color:#fff!important;-webkit-print-color-adjust:exact}
-  .sh,.tname,.adv-name{color:#003366!important}
-  section{page-break-inside:avoid}
-}
-</style>
+        <div id="vscan-map" style="width:100%;height:430px;border-radius:14px;border:1px solid rgba(26,74,154,.3);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.5)"></div>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
         <script>
         (function initMap(){
           if(typeof L==='undefined'){setTimeout(initMap,400);return;}
-          if(document.getElementById('vscan-map')._leaflet_id){return;}
-          var map=L.map('vscan-map',{center:[22.8,82],zoom:5,scrollWheelZoom:false,zoomControl:true,attributionControl:true});
-          L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:10,minZoom:4,subdomains:'abcd'}).addTo(map);
-          L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png',{maxZoom:10,minZoom:4,subdomains:'abcd',opacity:0.6}).addTo(map);
-          function makePin(size,color){return L.divIcon({className:'',html:'<div style="width:'+size+'px;height:'+size+'px;border-radius:50%;background:'+color+';border:2.5px solid #fff;box-shadow:0 0 16px '+color+',0 0 32px rgba(224,168,32,.4);"></div>',iconSize:[size,size],iconAnchor:[size/2,size/2],popupAnchor:[0,-size/2]});}
-          var pins=[
-            {lat:28.6139,lng:77.2090,name:'Delhi',city:'New Delhi',desc:'National Capital — Political Nerve Centre',size:15,color:'#FFD700'},
-            {lat:29.0588,lng:76.0856,name:'Haryana',city:'Chandigarh',desc:'Key swing state — active ground operations',size:13,color:'#E0A820'},
-            {lat:31.1471,lng:75.3412,name:'Punjab',city:'Ludhiana',desc:'Active campaign and voter analytics',size:13,color:'#E0A820'},
-            {lat:30.3165,lng:78.0322,name:'Uttarakhand',city:'Dehradun',desc:'Hill state — active campaign monitoring',size:12,color:'#E0A820'},
-            {lat:26.8467,lng:80.9462,name:'Uttar Pradesh',city:'Lucknow',desc:'Largest state — 80 Lok Sabha seats',size:16,color:'#E0A820'},
-            {lat:26.9124,lng:75.7873,name:'Rajasthan',city:'Jaipur',desc:'Largest state by area — active strategy zone',size:14,color:'#E0A820'},
-            {lat:23.2599,lng:77.4126,name:'Madhya Pradesh',city:'Bhopal',desc:'Heart of India — active operations',size:14,color:'#E0A820'},
-            {lat:25.5941,lng:85.1376,name:'Bihar',city:'Patna',desc:'High-stakes state — active ground ops',size:14,color:'#E0A820'},
-            {lat:22.5726,lng:88.3639,name:'West Bengal',city:'Kolkata',desc:'Eastern powerhouse — active operations',size:14,color:'#E0A820'},
-            {lat:20.2961,lng:85.8245,name:'Odisha',city:'Bhubaneswar',desc:'Fast growing state — active campaign base',size:13,color:'#E0A820'},
-            {lat:19.0760,lng:72.8777,name:'Maharashtra',city:'Mumbai',desc:'Financial capital state — active HQ',size:15,color:'#E0A820'}
-          ];
-          pins.forEach(function(p){
-            var marker=L.marker([p.lat,p.lng],{icon:makePin(p.size,p.color)});
-            marker.addTo(map);
-            marker.bindPopup('<div class="vpop-title">&#128205; '+p.city+'</div><div class="vpop-desc"><strong style="color:#C0D8F0">'+p.name+'</strong><br>'+p.desc+'</div>',{className:'vscan-popup',maxWidth:240,closeButton:true});
+          var mapEl=document.getElementById('vscan-map');
+          if(!mapEl||mapEl._leaflet_id){return;}
+          var map=L.map('vscan-map',{
+            scrollWheelZoom:false,
+            zoomControl:true,
+            attributionControl:true,
+            minZoom:4,
+            maxZoom:9
           });
-          map.fitBounds([[8.4,68.7],[35.5,97.4]]);
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',{
+            attribution:'&copy; OpenStreetMap &copy; CARTO',
+            maxZoom:10,minZoom:4,subdomains:'abcd'
+          }).addTo(map);
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png',{
+            maxZoom:10,minZoom:4,subdomains:'abcd',opacity:0.55
+          }).addTo(map);
+
+          function makePin(size,color,isHQ){
+            var inner=isHQ
+              ? '<span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);font-size:'+(size*.52)+'px;line-height:1;color:#020810;font-weight:900">★</span>'
+              : '';
+            return L.divIcon({
+              className:'',
+              html:'<div style="position:relative;width:'+size+'px;height:'+size+'px;border-radius:50%;background:'+color+';border:2.5px solid #fff;box-shadow:0 0 14px '+color+',0 0 28px rgba(224,168,32,.35);">'+inner+'</div>',
+              iconSize:[size,size],
+              iconAnchor:[size/2,size/2],
+              popupAnchor:[0,-size/2]
+            });
+          }
+
+          var pins=[
+            {lat:28.6139,lng:77.2090,name:'Delhi',city:'New Delhi',desc:'National Capital — V SCAN Headquarters & Command Centre',size:18,color:'#FFD700',hq:true},
+            {lat:30.9010,lng:75.8573,name:'Punjab',city:'Ludhiana',desc:'Active campaign base & voter analytics hub',size:13,color:'#E0A820',hq:false},
+            {lat:30.7333,lng:76.7794,name:'Haryana',city:'Chandigarh',desc:'Key swing state — active ground operations across all districts',size:13,color:'#E0A820',hq:false},
+            {lat:30.3165,lng:78.0322,name:'Uttarakhand',city:'Dehradun',desc:'Hill state — active campaign monitoring & outreach',size:12,color:'#E0A820',hq:false},
+            {lat:26.8467,lng:80.9462,name:'Uttar Pradesh',city:'Lucknow',desc:'India\'s largest state — 80 Lok Sabha seats. Priority zone.',size:17,color:'#E0A820',hq:false},
+            {lat:26.9124,lng:75.7873,name:'Rajasthan',city:'Jaipur',desc:'Largest state by area — full strategic operations active',size:14,color:'#E0A820',hq:false},
+            {lat:23.2599,lng:77.4126,name:'Madhya Pradesh',city:'Bhopal',desc:'Heart of India — data-driven campaign architecture deployed',size:14,color:'#E0A820',hq:false},
+            {lat:25.5941,lng:85.1376,name:'Bihar',city:'Patna',desc:'High-stakes state — full booth-level ground intelligence active',size:14,color:'#E0A820',hq:false},
+            {lat:22.5726,lng:88.3639,name:'West Bengal',city:'Kolkata',desc:'Eastern powerhouse — active operations urban & rural',size:14,color:'#E0A820',hq:false},
+            {lat:20.2961,lng:85.8245,name:'Odisha',city:'Bhubaneswar',desc:'Fast-growing state — active campaign & voter outreach base',size:13,color:'#E0A820',hq:false},
+            {lat:19.0760,lng:72.8777,name:'Maharashtra',city:'Mumbai',desc:'Financial capital state — full strategic & media operations',size:15,color:'#E0A820',hq:false}
+          ];
+
+          pins.forEach(function(p){
+            var marker=L.marker([p.lat,p.lng],{icon:makePin(p.size,p.color,p.hq)});
+            marker.addTo(map);
+            marker.bindPopup(
+              '<div class="vpop-title">📍 '+p.city+'</div><div class="vpop-desc"><strong style="color:#C0D8F0">'+p.name+'</strong><br>'+p.desc+'</div>',
+              {className:'vscan-popup',maxWidth:220,closeButton:true}
+            );
+          });
+
+          /* Zoom tightly to India — excludes Pakistan, China, SE Asia */
+          map.fitBounds([[6.5,68.0],[35.5,97.5]]);
         })();
         </script>
-        <div style="display:flex;align-items:center;gap:1.5rem;margin-top:.8rem;flex-wrap:wrap">
+
+        <div style="display:flex;align-items:center;gap:1.5rem;margin-top:.7rem;flex-wrap:wrap">
           <div style="display:flex;align-items:center;gap:7px">
-            <div style="width:13px;height:13px;border-radius:50%;background:#E0A820;border:2px solid #fff;box-shadow:0 0 10px rgba(224,168,32,.8)"></div>
-            <span style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:#E0A820;font-weight:700">V SCAN Active States (11)</span>
+            <div style="width:13px;height:13px;border-radius:50%;background:#FFD700;border:2px solid #fff;box-shadow:0 0 8px rgba(255,215,0,.8)"></div>
+            <span style="font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:#FFD700;font-weight:700">HQ — New Delhi</span>
           </div>
-          <span style="font-size:.58rem;color:rgba(192,216,240,.3)">Click on pin for details</span>
+          <div style="display:flex;align-items:center;gap:7px">
+            <div style="width:11px;height:11px;border-radius:50%;background:#E0A820;border:2px solid #fff;box-shadow:0 0 6px rgba(224,168,32,.7)"></div>
+            <span style="font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:#E0A820;font-weight:700">Active States (10)</span>
+          </div>
+          <span style="font-size:.55rem;color:rgba(192,216,240,.28)">Click pin for details</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
-
 
 <!-- ACHIEVEMENTS -->
 <section id="achievements" class="sec">
@@ -637,24 +579,10 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
     <h2 class="sh rv">Achievements & <span>Milestones</span></h2>
     <p class="sdesc rv">Numbers that reflect our commitment to democracy and governance excellence across India.</p>
     <div class="ach-grid">
-      <div class="ach-card rv">
-        <div class="ach-icon">🏆</div>
-        <div class="ach-num">100<span>+</span></div>
-        <div class="ach-label">Campaigns Managed</div>
-        <div class="ach-desc">Successful electoral campaigns across urban, semi-urban and rural India</div>
-      </div>
-      <div class="ach-card rv d1">
-        <div class="ach-icon">🗺️</div>
-        <div class="ach-num">11</div>
-        <div class="ach-label">Active States</div>
-        <div class="ach-desc">Pan-India operational presence from Punjab to Maharashtra</div>
-      </div>
-      <div class="ach-card rv d2">
-        <div class="ach-icon">👥</div>
-        <div class="ach-num">100<span>+</span></div>
-        <div class="ach-label">Leaders Trained</div>
-        <div class="ach-desc">Political leaders, youth workers and party cadre capacitated</div>
-      </div>
+      <div class="ach-card rv"><div class="ach-icon">🏆</div><div class="ach-num">100<span>+</span></div><div class="ach-label">Campaigns Managed</div><div class="ach-desc">Successful electoral campaigns across urban, semi-urban and rural India</div></div>
+      <div class="ach-card rv"><div class="ach-icon">🗺️</div><div class="ach-num">11</div><div class="ach-label">Active States</div><div class="ach-desc">Pan-India operational presence from Punjab to Maharashtra</div></div>
+      <div class="ach-card rv"><div class="ach-icon">👥</div><div class="ach-num">100<span>+</span></div><div class="ach-label">Leaders Trained</div><div class="ach-desc">Political leaders, youth workers and party cadre capacitated</div></div>
+    </div>
   </div>
 </section>
 
@@ -665,43 +593,12 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
     <h2 class="sh rv">Voices of <span>Trust</span></h2>
     <p class="sdesc rv">Leaders and partners who have experienced the V SCAN difference in their political journey.</p>
     <div class="testi-grid">
-      <div class="testi-card rv">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"V SCAN's strategic approach completely transformed our campaign. Their ground-level intelligence and data-driven targeting gave us an edge that made a real difference on election day. They don't just consult — they become your campaign backbone."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">RK</div>
-          <div>
-            <div class="testi-name">Rajesh Kumar</div>
-            <div class="testi-role">Elected Representative · Uttar Pradesh</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card rv d1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"What sets V SCAN apart is their commitment to ethical politics. They helped us craft a narrative rooted in genuine public service — not just electoral arithmetic. Our governance roadmap post-election was entirely shaped by their advisory."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">PS</div>
-          <div>
-            <div class="testi-name">Priya Sharma</div>
-            <div class="testi-role">Party Leader · Rajasthan</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card rv d2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">"The booth-level data and voter sentiment analysis V SCAN provided was unmatched. For the first time, we truly understood our constituency. Their team was available 24/7 during the campaign — a true partner, not just a consultant."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">AM</div>
-          <div>
-            <div class="testi-name">Arvind Mishra</div>
-            <div class="testi-role">MLA Candidate · Madhya Pradesh</div>
-          </div>
-        </div>
-      </div>
+      <div class="testi-card rv"><div class="testi-stars">★★★★★</div><p class="testi-quote">"V SCAN's strategic approach completely transformed our campaign. Their ground-level intelligence and data-driven targeting gave us an edge that made a real difference on election day. They don't just consult — they become your campaign backbone."</p><div class="testi-author"><div class="testi-avatar">RK</div><div><div class="testi-name">Rajesh Kumar</div><div class="testi-role">Elected Representative · Uttar Pradesh</div></div></div></div>
+      <div class="testi-card rv"><div class="testi-stars">★★★★★</div><p class="testi-quote">"What sets V SCAN apart is their commitment to ethical politics. They helped us craft a narrative rooted in genuine public service — not just electoral arithmetic. Our governance roadmap post-election was entirely shaped by their advisory."</p><div class="testi-author"><div class="testi-avatar">PS</div><div><div class="testi-name">Priya Sharma</div><div class="testi-role">Party Leader · Rajasthan</div></div></div></div>
+      <div class="testi-card rv"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The booth-level data and voter sentiment analysis V SCAN provided was unmatched. For the first time, we truly understood our constituency. Their team was available 24/7 during the campaign — a true partner, not just a consultant."</p><div class="testi-author"><div class="testi-avatar">AM</div><div><div class="testi-name">Arvind Mishra</div><div class="testi-role">MLA Candidate · Madhya Pradesh</div></div></div></div>
     </div>
   </div>
 </section>
-
 
 <!-- MISSION -->
 <section id="mission">
@@ -731,27 +628,9 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
     <div class="stag rv"><span class="spill">Our Team</span></div>
     <h2 class="sh rv">The <span>People</span> Behind V SCAN</h2>
     <div class="tgrid">
-      <div class="tcard rv">
-        <div class="timg-wrap">
-          <a href="vikas.html" style="display:block"><img class="timg" src="vikas.jpeg" alt="Vikas Kumar Choudhary" onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Vikas'"/></a>
-          <div class="tribbon">Founder</div>
-        </div>
-        <div class="tbody"><div class="tname">Vikas Kumar Choudhary</div><div class="trole">Founder · Chief Strategist &amp; Policy Thinker</div><a href="vikas.html" style="display:inline-flex;align-items:center;gap:5px;margin-top:.8rem;font-size:.68rem;font-weight:700;color:var(--b3);text-decoration:none">View Profile →</a></div>
-      </div>
-      <div class="tcard rv d1">
-        <div class="timg-wrap">
-          <a href="aditya.html" style="display:block"><img class="timg" src="aditya_final.jpeg" alt="Aditya Singh" onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Aditya'"/></a>
-          <div class="tribbon">Co-Founder</div>
-        </div>
-        <div class="tbody"><div class="tname">Aditya Singh</div><div class="trole">Co-Founder · Operations Head &amp; Media</div><a href="aditya.html" style="display:inline-flex;align-items:center;gap:5px;margin-top:.8rem;font-size:.68rem;font-weight:700;color:var(--b3);text-decoration:none">View Profile →</a></div>
-      </div>
-      <div class="tcard rv d2">
-        <div class="timg-wrap">
-          <a href="runny.html" style="display:block"><img class="timg" src="runny.jpeg" alt="Runny Tomar" style="object-position:center 20%;" onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Runny'"/></a>
-          <div class="tribbon">Co-Founder</div>
-        </div>
-        <div class="tbody"><div class="tname">Runny Tomar</div><div class="trole">Co-Founder · Network Director &amp; Ground Ops</div><a href="runny.html" style="display:inline-flex;align-items:center;gap:5px;margin-top:.8rem;font-size:.68rem;font-weight:700;color:var(--b3);text-decoration:none">View Profile →</a></div>
-      </div>
+      <div class="tcard rv"><div class="timg-wrap"><a href="vikas.html" style="display:block"><img class="timg" src="vikas.jpeg" alt="Vikas Kumar Choudhary" onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Vikas'"/></a><div class="tribbon">Founder</div></div><div class="tbody"><div class="tname">Vikas Kumar Choudhary</div><div class="trole">Founder · Chief Strategist &amp; Policy Thinker</div><a href="vikas.html" style="display:inline-flex;align-items:center;gap:5px;margin-top:.8rem;font-size:.68rem;font-weight:700;color:var(--b3);text-decoration:none">View Profile →</a></div></div>
+      <div class="tcard rv"><div class="timg-wrap"><a href="aditya.html" style="display:block"><img class="timg" src="aditya_final.jpeg" alt="Aditya Singh" onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Aditya'"/></a><div class="tribbon">Co-Founder</div></div><div class="tbody"><div class="tname">Aditya Singh</div><div class="trole">Co-Founder · Operations Head &amp; Media</div><a href="aditya.html" style="display:inline-flex;align-items:center;gap:5px;margin-top:.8rem;font-size:.68rem;font-weight:700;color:var(--b3);text-decoration:none">View Profile →</a></div></div>
+      <div class="tcard rv"><div class="timg-wrap"><a href="runny.html" style="display:block"><img class="timg" src="runny.jpeg" alt="Runny Tomar" style="object-position:center 20%;" onerror="this.src='https://via.placeholder.com/400x420/EEF4FF/1448A0?text=Runny'"/></a><div class="tribbon">Co-Founder</div></div><div class="tbody"><div class="tname">Runny Tomar</div><div class="trole">Co-Founder · Network Director &amp; Ground Ops</div><a href="runny.html" style="display:inline-flex;align-items:center;gap:5px;margin-top:.8rem;font-size:.68rem;font-weight:700;color:var(--b3);text-decoration:none">View Profile →</a></div></div>
     </div>
   </div>
 </section>
@@ -764,32 +643,21 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
     <p class="sdesc rv" style="color:rgba(255,255,255,.42);max-width:600px">Our advisory board brings decades of academic, journalistic, scientific and governance expertise — ensuring every strategy V SCAN builds is evidence-based, credible and future-ready.</p>
     <div class="advcards">
       <div class="adv rv" style="cursor:pointer" onclick="window.location='advisory.html#malik'">
-        <div class="adv-head">
-          <div class="adv-av" style="background:linear-gradient(135deg,#1A4E9C,#0A2040);padding:0;overflow:hidden"><img src="advisor1.jpg" alt="K.P. Malik" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='KP'"/></div>
-          <div><div class="adv-name">Mr. K.P. Malik</div><div class="adv-role">Senior Journalist &amp;<br>Political Editor</div></div>
-        </div>
+        <div class="adv-head"><div class="adv-av" style="background:linear-gradient(135deg,#1A4E9C,#0A2040);padding:0;overflow:hidden"><img src="advisor1.jpg" alt="K.P. Malik" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='KP'"/></div><div><div class="adv-name">Mr. K.P. Malik</div><div class="adv-role">Senior Journalist &amp;<br>Political Editor</div></div></div>
         <div class="adv-line"></div>
         <p>A veteran political journalist and editor with decades of experience covering India's democratic institutions. Brings sharp media insight and narrative expertise to V SCAN's communication strategy.</p>
         <div class="adv-tags"><span class="adv-tag">Political Media</span><span class="adv-tag">Editorial Strategy</span><span class="adv-tag">Narrative Building</span></div>
       </div>
-      <div class="adv rv d1" style="cursor:pointer" onclick="window.location='advisory.html#attri'">
-        <div class="adv-head">
-          <div class="adv-av" style="background:linear-gradient(135deg,#1A4E9C,#0A2040);padding:0;overflow:hidden"><img src="advisor2.jpg" alt="Dr. Gyanendra Kumar Attri" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='GKA'"/></div>
-          <div><div class="adv-name">Dr. Gyanendra Kumar Attri</div><div class="adv-role">Environmental Sustainability<br>Expert</div></div>
-        </div>
+      <div class="adv rv" style="cursor:pointer" onclick="window.location='advisory.html#attri'">
+        <div class="adv-head"><div class="adv-av" style="background:linear-gradient(135deg,#1A4E9C,#0A2040);padding:0;overflow:hidden"><img src="advisor2.jpg" alt="Dr. Gyanendra Kumar Attri" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.parentElement.innerHTML='GKA'"/></div><div><div class="adv-name">Dr. Gyanendra Kumar Attri</div><div class="adv-role">Environmental Sustainability<br>Expert</div></div></div>
         <div class="adv-line"></div>
         <p>A leading expert in environmental policy and sustainable development. Guides V SCAN in building governance frameworks that integrate climate accountability and long-term public welfare.</p>
         <div class="adv-tags"><span class="adv-tag">Sustainability Policy</span><span class="adv-tag">Environmental Governance</span></div>
       </div>
-      <div class="adv rv d2" style="cursor:pointer" onclick="window.location='advisory.html#karn'">
-        <div class="adv-head">
-          <div class="adv-av" style="background:linear-gradient(135deg,var(--gold),var(--b7));font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:1px;overflow:hidden;padding:0">
-            <img src="advisor 3.jpeg" alt="Prof. Santosh Kumar Karn" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.innerHTML='SK'"/>
-          </div>
-          <div><div class="adv-name">Prof. (Dr.) Santosh Kumar Karn</div><div class="adv-role">Academician &amp;<br>Global Science Advisor</div></div>
-        </div>
+      <div class="adv rv" style="cursor:pointer" onclick="window.location='advisory.html#karn'">
+        <div class="adv-head"><div class="adv-av" style="background:linear-gradient(135deg,var(--gold),var(--b7));font-size:1.1rem;font-weight:800;color:#fff;letter-spacing:1px;overflow:hidden;padding:0"><img src="advisor 3.jpeg" alt="Prof. Santosh Kumar Karn" style="width:100%;height:100%;object-fit:cover;border-radius:50%" onerror="this.style.display='none';this.parentElement.innerHTML='SK'"/></div><div><div class="adv-name">Prof. (Dr.) Santosh Kumar Karn</div><div class="adv-role">Academician &amp;<br>Global Science Advisor</div></div></div>
         <div class="adv-line" style="background:var(--gold)"></div>
-        <p>Director &amp; Professor at CCARD (Rohini, Delhi) and Academic Advisor to the Chancellor at International University, Dimapur. Former Professor at Sharda University and IGTMS University with international appointments in USA, Italy and Spain. Member of Science Advisory Board (USA) and ECT, Trento, Italy. Recipient of research grants from DST, CSIR, AICTE, INSA and AKTU. Contributes guidance on evidence-based public policy, governance evaluation and knowledge-led decision-making.</p>
+        <p>Director &amp; Professor at CCARD (Rohini, Delhi) and Academic Advisor to the Chancellor at International University, Dimapur. Former Professor at Sharda University and IGTMS University with international appointments in USA, Italy and Spain. Member of Science Advisory Board (USA) and ECT, Trento, Italy. Recipient of research grants from DST, CSIR, AICTE, INSA and AKTU.</p>
         <div class="adv-tags"><span class="adv-tag gold">Policy Research</span><span class="adv-tag gold">Academic Governance</span><span class="adv-tag gold">Global Science</span></div>
       </div>
     </div>
@@ -805,7 +673,7 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
         <h2 class="sh rv">Let's Start a <em>Conversation</em></h2>
         <p class="sdesc rv" style="margin-bottom:2rem">Ready to shape your political campaign? Our team is here to strategize with you.</p>
         <div class="cblock rv"><div class="clbl">Address</div><div class="cval">1/5153 T/F G-5, Balbir Nagar Extension,<br>Shahdara, Delhi – 110032</div></div>
-        <div class="cblock rv"><div class="clbl">Email</div><div class="cval"><a href="/cdn-cgi/l/email-protection#20565343414e414c4c49414e434560474d41494c0e434f4d"><span class="__cf_email__" data-cfemail="2b5d58484a454a4747424a45484e6b4c464a424705484446">[email&#160;protected]</span></a></div></div>
+        <div class="cblock rv"><div class="clbl">Email</div><div class="cval"><a href="mailto:info@vscan.co.in">info@vscan.co.in</a></div></div>
         <div class="cblock rv"><div class="clbl">Phone</div><div class="cval"><a href="tel:+918860573457">+91-8860573457</a><br><a href="tel:+918126487892">+91-8126487892</a></div></div>
         <div class="socrow rv">
           <a class="socbtn" href="https://www.facebook.com/profile.php?id=61576049937047" target="_blank">&#128216; Facebook</a>
@@ -819,16 +687,15 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
           <form class="cform-body" action="https://formspree.io/f/xwkgpvqn" method="POST">
             <input type="hidden" name="_subject" value="New Enquiry — V SCAN Website"/>
             <div class="fgrow">
-              <div class="fg"><label>Full Name</label><input type="text" placeholder="Your name"/></div>
-              <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"/></div>
+              <div class="fg"><label>Full Name</label><input type="text" name="name" placeholder="Your name"/></div>
+              <div class="fg"><label>Email</label><input type="email" name="email" placeholder="you@email.com"/></div>
             </div>
-            <div class="fg"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
-            <div class="fg"><label>Subject</label><input type="text" placeholder="Electoral strategy, advisory, etc."/></div>
-            <div class="fg"><label>Message</label><textarea placeholder="Tell us about your requirements..."></textarea></div>
-            <input type="hidden" name="_subject" value="New enquiry from V SCAN website"/>
+            <div class="fg"><label>Phone</label><input type="tel" name="phone" placeholder="+91 XXXXX XXXXX"/></div>
+            <div class="fg"><label>Subject</label><input type="text" name="subject" placeholder="Electoral strategy, advisory, etc."/></div>
+            <div class="fg"><label>Message</label><textarea name="message" placeholder="Tell us about your requirements..."></textarea></div>
             <input type="hidden" name="_next" value="https://vscan.co.in"/>
             <button class="csub" type="submit">Send Message →</button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -844,7 +711,7 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
     </div>
     <div class="fcol"><h4>Services</h4><ul><li><a href="#services">Electoral Strategy</a></li><li><a href="#services">Data Analytics</a></li><li><a href="#services">Digital Campaigns</a></li><li><a href="#services">Governance Advisory</a></li></ul></div>
     <div class="fcol"><h4>Company</h4><ul><li><a href="#about">About Us</a></li><li><a href="#team">Our Team</a></li><li><a href="#advisory">Advisory Committee</a></li><li><a href="reach.html">Our Reach</a></li></ul></div>
-    <div class="fcol"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/profile.php?id=61576049937047">Facebook</a></li><li><a href="https://www.instagram.com/vscanalliance/">Instagram</a></li><li><a href="https://www.linkedin.com/company/106768933/">LinkedIn</a></li><li><a href="/cdn-cgi/l/email-protection#bec8cddddfd0dfd2d2d7dfd0dddbfed9d3dfd7d290ddd1d3">Email Us</a></li></ul></div>
+    <div class="fcol"><h4>Connect</h4><ul><li><a href="https://www.facebook.com/profile.php?id=61576049937047">Facebook</a></li><li><a href="https://www.instagram.com/vscanalliance/">Instagram</a></li><li><a href="https://www.linkedin.com/company/106768933/">LinkedIn</a></li><li><a href="mailto:info@vscan.co.in">Email Us</a></li></ul></div>
   </div>
   <div class="footer-btm">
     <p>© 2025 V SCAN. All Rights Reserved. Delhi, India.</p>
@@ -852,116 +719,64 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
   </div>
 </div>
 
-
 <script>
-// ── NAV SCROLL ──
-window.addEventListener("scroll", function(){
-  document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 20);
-  // Scroll to top button
-  var st = document.getElementById("scrolltop");
-  if(st){ if(window.scrollY > 400){ st.classList.add("show"); } else { st.classList.remove("show"); } }
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20);
+  var st=document.getElementById('scrolltop');
+  if(st){st.classList.toggle('show',window.scrollY>400);}
 });
 
-// ── REVEAL ANIMATION ──
 function initReveal(){
-  var els = document.querySelectorAll(".rv");
-  if(!els.length) return;
-  // Make all visible immediately as fallback
-  els.forEach(function(el){ el.classList.add("vis"); });
-  // Then use IntersectionObserver for animation on future scrolls
-  if("IntersectionObserver" in window){
-    els.forEach(function(el){ el.classList.remove("vis"); });
-    var io = new IntersectionObserver(function(e){
-      e.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("vis"); } });
-    }, {threshold:0.05, rootMargin:"0px 0px -50px 0px"});
-    els.forEach(function(el){ io.observe(el); });
+  var els=document.querySelectorAll('.rv');
+  els.forEach(function(el){el.classList.add('vis');});
+  if('IntersectionObserver' in window){
+    els.forEach(function(el){el.classList.remove('vis');});
+    var io=new IntersectionObserver(function(e){
+      e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('vis');}});
+    },{threshold:0.05,rootMargin:'0px 0px -50px 0px'});
+    els.forEach(function(el){io.observe(el);});
   }
 }
-if(document.readyState === "loading"){
-  document.addEventListener("DOMContentLoaded", initReveal);
-} else {
-  initReveal();
-}
-// Ultimate fallback - make everything visible after 1 second
-setTimeout(function(){
-  document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("vis"); });
-}, 800);
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initReveal);}else{initReveal();}
+setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('vis');});},800);
 
-
-  }
-});
-</script>
-
-<script>
-// ── COOKIE BANNER ──
 if(!localStorage.getItem('cookie')){
-  setTimeout(function(){ document.getElementById('cookie-banner').classList.add('show'); }, 1500);
+  setTimeout(function(){document.getElementById('cookie-banner').classList.add('show');},1500);
 }
 
-// ── DARK/LIGHT TOGGLE ──
 function toggleTheme(){
   document.body.classList.toggle('light-mode');
-  var btn = document.getElementById('theme-toggle');
-  var isLight = document.body.classList.contains('light-mode');
-  btn.textContent = isLight ? '🌙' : '☀️';
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  var btn=document.getElementById('theme-toggle');
+  var isLight=document.body.classList.contains('light-mode');
+  btn.textContent=isLight?'🌙':'☀️';
+  localStorage.setItem('theme',isLight?'light':'dark');
 }
-// Restore saved theme
-if(localStorage.getItem('theme') === 'light'){
+if(localStorage.getItem('theme')==='light'){
   document.body.classList.add('light-mode');
-  document.getElementById('theme-toggle').textContent = '🌙';
+  document.getElementById('theme-toggle').textContent='🌙';
 }
 
-// ── COUNTER ANIMATION ──
-function animateCounter(el, target, suffix){
-  var start = 0;
-  var duration = 1800;
-  var step = target / (duration / 16);
-  var timer = setInterval(function(){
-    start += step;
-    if(start >= target){
-      el.textContent = target + suffix;
-      clearInterval(timer);
-    } else {
-      el.textContent = Math.floor(start) + suffix;
-    }
-  }, 16);
-}
-// Observe achievement numbers
-var counterDone = false;
-var achObs = new IntersectionObserver(function(entries){
+var counterDone=false;
+var achObs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){
-    if(e.isIntersecting && !counterDone){
-      counterDone = true;
-      var counters = [
-        {el:null, target:100, suffix:'+'},
-        {el:null, target:11, suffix:''},
-        {el:null, target:500, suffix:'+'},
-        {el:null, target:7, suffix:'+'}
-      ];
-      document.querySelectorAll('.ach-num').forEach(function(el, i){
-        if(counters[i]){
-          el.textContent = '0';
-          setTimeout(function(){ animateCounter(el, counters[i].target, counters[i].suffix); }, i * 150);
+    if(e.isIntersecting&&!counterDone){
+      counterDone=true;
+      var targets=[{t:100,s:'+'},{t:11,s:''},{t:100,s:'+'}];
+      document.querySelectorAll('.ach-num').forEach(function(el,i){
+        if(targets[i]){
+          var start=0,dur=1800,step=targets[i].t/(dur/16);
+          var timer=setInterval(function(){
+            start+=step;
+            if(start>=targets[i].t){el.innerHTML=targets[i].t+(targets[i].s?'<span>'+targets[i].s+'</span>':'');clearInterval(timer);}
+            else{el.textContent=Math.floor(start);}
+          },16);
         }
       });
     }
   });
-}, {threshold:0.3});
-var achSec = document.getElementById('achievements');
-if(achSec) achObs.observe(achSec);
-
-// ── SCROLL TO TOP ──
-window.addEventListener('scroll', function(){
-  var st = document.getElementById('scrolltop');
-  if(st){ st.classList.toggle('show', window.scrollY > 400); }
-});
-
-// ── NAV SCROLL ──
-window.addEventListener('scroll', function(){
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
-});
+},{threshold:0.3});
+var achSec=document.getElementById('achievements');
+if(achSec)achObs.observe(achSec);
 </script>
-
 </body>
 </html>
