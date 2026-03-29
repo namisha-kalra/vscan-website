@@ -268,37 +268,293 @@ body.light-mode .cval,.light-mode .cval a{color:#3C4F68}
 .counter-num{display:inline-block}
 
 /* MAP SECTION specific */
-.map-reach-left .reach-pill{display:flex;align-items:flex-start;gap:14px;padding:.9rem 1.1rem;border:1px solid rgba(26,74,154,.22);border-radius:8px;background:rgba(13,24,40,.5);transition:border-color .25s,transform .2s;margin-bottom:.85rem}
-.map-reach-left .reach-pill:hover{border-color:rgba(58,114,204,.5);transform:translateX(5px)}
-.map-reach-left .pill-ico{width:36px;height:36px;border-radius:8px;background:rgba(26,74,154,.25);border:1px solid rgba(26,74,154,.35);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-.map-reach-left .pill-txt h4{font-size:.88rem;font-weight:700;color:#D0E4F8;margin-bottom:.1rem}
-.map-reach-left .pill-txt p{font-size:.75rem;color:rgba(192,216,240,.52);line-height:1.5}
+<!-- 
+  ════════════════════════════════════════════════════════════
+  COPY THIS ENTIRE BLOCK into index.html
+  Replace the existing <section id="map-section"> block
+  ════════════════════════════════════════════════════════════
+-->
+
+<!-- ADD THESE STYLES inside your existing <style> tag -->
+<style>
+/* ── VSCAN MAP COMPONENT STYLES ── */
+.vsmap-section{padding:7.5rem 5vw;background:#07142A;border-bottom:1px solid rgba(26,74,154,.2)}
+.vsmap-secin{max-width:1260px;margin:0 auto}
+.vsmap-layout{display:grid;grid-template-columns:1.15fr 1fr;gap:5rem;align-items:center}
+.vsmap-left .reach-pill{display:flex;align-items:flex-start;gap:14px;padding:.9rem 1.1rem;border:1px solid rgba(26,74,154,.22);border-radius:8px;background:rgba(13,24,40,.5);transition:border-color .25s,transform .2s;margin-bottom:.85rem}
+.vsmap-left .reach-pill:hover{border-color:rgba(58,114,204,.5);transform:translateX(5px)}
+.vsmap-left .pill-ico{width:36px;height:36px;border-radius:8px;background:rgba(26,74,154,.25);border:1px solid rgba(26,74,154,.35);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.vsmap-left .pill-txt h4{font-size:.88rem;font-weight:700;color:#D0E4F8;margin-bottom:.1rem}
+.vsmap-left .pill-txt p{font-size:.75rem;color:rgba(192,216,240,.52);line-height:1.5}
 .reach-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:1.8rem 0 2.2rem}
 .reach-stat-box{text-align:center;padding:.9rem .5rem;background:rgba(26,74,154,.12);border:1px solid rgba(26,74,154,.25);border-radius:10px}
 .reach-stat-box .rsn{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:#E0A820;line-height:1}
 .reach-stat-box .rsl{font-size:.52rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(192,216,240,.42);margin-top:.25rem}
-
-/* Leaflet map overrides */
-.leaflet-container{background:#0A1628!important}
-.leaflet-tile-pane{filter:brightness(.9) saturate(.8) hue-rotate(195deg) contrast(1.1)}
-.vscan-popup .leaflet-popup-content-wrapper{background:#071830;border:1.5px solid #E0A820;color:#C0D8F0;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.6);font-family:'Source Sans 3',sans-serif}
-.vscan-popup .leaflet-popup-tip{background:#071830}
-.vscan-popup .leaflet-popup-content{margin:12px 16px}
-.vpop-title{font-weight:700;font-size:.95rem;color:#E0A820;margin-bottom:4px}
-.vpop-desc{font-size:.75rem;color:rgba(192,216,240,.7);line-height:1.5}
-.leaflet-control-zoom a{background:#071830!important;color:#C0D8F0!important;border-color:rgba(26,74,154,.4)!important}
-.leaflet-control-zoom a:hover{background:#0C2448!important}
-.leaflet-control-attribution{background:rgba(2,8,16,.7)!important;color:rgba(140,180,220,.4)!important;font-size:9px!important}
-
-@media print{nav,#wa-btn,#scrolltop,#theme-toggle,#cookie-banner,.ticker,.h-scroll{display:none!important}body{background:#fff!important;color:#000!important}.hero{background:#003366!important;color:#fff!important;-webkit-print-color-adjust:exact}.sh,.tname,.adv-name{color:#003366!important}section{page-break-inside:avoid}}
-@media(max-width:1024px){.nlinks{display:none}.burger{display:flex}.hero-wrap,.about-layout,.maplayout,.miss-in,.clayout{grid-template-columns:1fr;gap:3.5rem}.svcgrid,.tgrid,.advcards{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.svcgrid,.tgrid,.advcards{grid-template-columns:1fr}.h-btns{flex-direction:column}.fgrow{display:flex;flex-direction:column}.ach-grid{grid-template-columns:1fr 1fr}.testi-grid{grid-template-columns:1fr}.reach-stats{grid-template-columns:1fr 1fr}}
+.vsmap-right{position:relative}
+.vsmap-box{background:rgba(2,8,16,.75);border:1px solid rgba(26,74,154,.28);border-radius:16px;overflow:hidden;padding:1.4rem 1.2rem 1rem;position:relative}
+.vsmap-tribar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FF9933 33%,#fff 33%,#fff 66%,#138808 66%)}
+.vsmap-img-wrap{position:relative;display:block;margin-top:.5rem}
+.vsmap-img-wrap img{width:100%;height:auto;display:block;border-radius:6px;filter:saturate(.75) brightness(.88) hue-rotate(185deg) contrast(1.08);transition:filter .4s;cursor:crosshair}
+.vsmap-img-wrap:hover img{filter:saturate(.9) brightness(.95) hue-rotate(185deg) contrast(1.08)}
+.vsmap-pins{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+.vsmap-tooltip{display:none;position:absolute;background:rgba(7,24,46,.97);border:1.5px solid #E0A820;border-radius:10px;padding:12px 16px;min-width:210px;max-width:250px;z-index:20;box-shadow:0 8px 28px rgba(0,0,0,.75);pointer-events:none;font-family:'Source Sans 3',sans-serif}
+.vsmap-tooltip.show{display:block;animation:vstt-in .18s ease}
+@keyframes vstt-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.vstt-state{font-weight:700;font-size:.92rem;color:#E0A820;margin-bottom:2px}
+.vstt-city{font-size:.66rem;color:rgba(192,216,240,.4);margin-bottom:5px;font-weight:600;letter-spacing:.5px}
+.vstt-desc{font-size:.75rem;color:rgba(192,216,240,.75);line-height:1.55}
+.vstt-badge{display:inline-block;margin-top:6px;font-size:.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 9px;border-radius:100px}
+.vstt-badge.hq{background:rgba(255,215,0,.18);border:1px solid rgba(255,215,0,.4);color:#FFD700}
+.vstt-badge.active{background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.3);color:#E0A820}
+.vsmap-legend{display:flex;align-items:center;gap:1.5rem;margin-top:.8rem;flex-wrap:wrap}
+.vsl-item{display:flex;align-items:center;gap:7px}
+.vsl-dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff}
+.vsl-dot.hq{background:#FFD700;box-shadow:0 0 8px rgba(255,215,0,.7)}
+.vsl-dot.active{background:#E0A820;box-shadow:0 0 6px rgba(224,168,32,.6)}
+.vsl-txt{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.vsl-txt.hq{color:#FFD700}
+.vsl-txt.active{color:#E0A820}
+.vsl-hint{font-size:.55rem;color:rgba(192,216,240,.25)}
+.vsmap-panel{display:none;margin-top:1rem;background:rgba(7,24,46,.9);border:1.5px solid rgba(224,168,32,.35);border-radius:12px;overflow:hidden}
+.vsmap-panel.show{display:block;animation:vstt-in .2s ease}
+.vsmap-panel-head{background:rgba(4,14,30,.9);padding:1rem 1.4rem;border-bottom:1px solid rgba(26,74,154,.2);position:relative}
+.vsmap-panel-head::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#E0A820,#FFD700,#E0A820)}
+.vsmap-panel-body{padding:1rem 1.4rem}
+.vspp-tag{font-size:.52rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#E0A820;margin-bottom:.3rem}
+.vspp-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;color:#fff}
+.vspp-city{font-size:.72rem;color:rgba(192,216,240,.4);margin:.2rem 0 .6rem;font-weight:600}
+.vspp-desc{font-size:.82rem;line-height:1.7;color:rgba(192,216,240,.7)}
+@media(max-width:1024px){.vsmap-layout{grid-template-columns:1fr;gap:3.5rem}}
+@media(max-width:600px){.reach-stats{grid-template-columns:1fr 1fr}}
+/* END MAP STYLES */
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZH4ZGWYDE5"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZH4ZGWYDE5');</script>
-</head>
-<body>
 
+<!-- ════════════════════════════════════════════
+     REPLACE your existing #map-section with this
+     ════════════════════════════════════════════ -->
+<section class="vsmap-section" id="map-section">
+  <div class="vsmap-secin">
+    <div class="vsmap-layout">
+
+      <!-- LEFT -->
+      <div class="vsmap-left rv">
+        <div class="stag"><span class="spill">Our Reach</span></div>
+        <h2 class="sh">Rooted in <span>Every Corner</span> of <em>Bharat</em></h2>
+        <p style="font-size:.95rem;line-height:1.82;color:rgba(192,216,240,.58);margin-bottom:1.8rem;text-align:justify">
+          V SCAN doesn't operate from a distance — we are <strong style="color:#D0E4F8">embedded on the ground</strong> across 11 of India's most politically decisive states. Hover or click any state on the map to explore our presence.
+        </p>
+        <div class="reach-pill">
+          <div class="pill-ico">🗳️</div>
+          <div class="pill-txt">
+            <h4>11 States. Lakhs of Voters. One Strategy.</h4>
+            <p>Active political intelligence & campaign architecture across Delhi, UP, Haryana, Punjab, Uttarakhand, Rajasthan, MP, Bihar, West Bengal, Odisha & Maharashtra.</p>
+          </div>
+        </div>
+        <div class="reach-pill">
+          <div class="pill-ico">📡</div>
+          <div class="pill-txt">
+            <h4>Booth-Level Data. Real-Time Intelligence.</h4>
+            <p>Field network feeding voter sentiment and opposition intelligence into our central analytics command — every decision is evidence-based.</p>
+          </div>
+        </div>
+        <div class="reach-pill">
+          <div class="pill-ico">🏛️</div>
+          <div class="pill-txt">
+            <h4>Urban Wards to Remote Villages.</h4>
+            <p>Metros, Tier-2 cities, semi-urban towns, and deep rural constituencies — because India's elections are won everywhere.</p>
+          </div>
+        </div>
+        <div class="reach-stats">
+          <div class="reach-stat-box"><div class="rsn">11</div><div class="rsl">Active States</div></div>
+          <div class="reach-stat-box"><div class="rsn">100<span style="font-size:1.1rem">+</span></div><div class="rsl">Campaigns</div></div>
+          <div class="reach-stat-box"><div class="rsn">100<span style="font-size:1.1rem">+</span></div><div class="rsl">Leaders Trained</div></div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="reach.html" style="background:#1A4A9A;box-shadow:0 8px 32px rgba(19,50,114,.5);color:#fff;display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:6px;font-size:.8rem;font-weight:700;text-decoration:none">
+            View Full Reach Map
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-ol">Partner With Us</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: MAP -->
+      <div class="vsmap-right rv">
+        <div class="vsmap-box">
+          <div class="vsmap-tribar"></div>
+
+          <div class="vsmap-img-wrap" id="vsmap-wrap">
+            <img
+              src="india-map-bg.png"
+              alt="India Map — V SCAN Active States"
+              id="vsmap-img"
+              usemap="#vscan-india-idx"
+              draggable="false"
+            />
+
+            <!-- ANIMATED PULSE PINS -->
+            <svg class="vsmap-pins" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+              <!-- Delhi HQ -->
+              <circle cx="330" cy="230" r="18" fill="rgba(255,215,0,.15)"><animate attributeName="r" values="12;22;12" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;0;.6" dur="1.8s" repeatCount="indefinite"/></circle>
+              <circle cx="330" cy="230" r="9" fill="#FFD700" stroke="#fff" stroke-width="2"/>
+              <text x="330" y="234" text-anchor="middle" font-size="10" fill="#020810" font-weight="900" font-family="sans-serif">★</text>
+              <!-- Punjab -->
+              <circle cx="240" cy="175" r="14" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="7;14;7" dur="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.6s" repeatCount="indefinite"/></circle>
+              <circle cx="240" cy="175" r="6" fill="#E0A820" stroke="#fff" stroke-width="1.5"/>
+              <!-- Haryana -->
+              <circle cx="295" cy="230" r="12" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="7;13;7" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="3s" repeatCount="indefinite"/></circle>
+              <circle cx="295" cy="230" r="5.5" fill="#E0A820" stroke="#fff" stroke-width="1.5"/>
+              <!-- Uttarakhand -->
+              <circle cx="375" cy="190" r="12" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="7;12;7" dur="2.9s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.9s" repeatCount="indefinite"/></circle>
+              <circle cx="375" cy="190" r="5.5" fill="#E0A820" stroke="#fff" stroke-width="1.5"/>
+              <!-- UP -->
+              <circle cx="440" cy="255" r="18" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="11;20;11" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.2s" repeatCount="indefinite"/></circle>
+              <circle cx="440" cy="255" r="8" fill="#E0A820" stroke="#fff" stroke-width="2"/>
+              <!-- Rajasthan -->
+              <circle cx="215" cy="300" r="15" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="9;17;9" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="3.2s" repeatCount="indefinite"/></circle>
+              <circle cx="215" cy="300" r="7" fill="#E0A820" stroke="#fff" stroke-width="2"/>
+              <!-- MP -->
+              <circle cx="360" cy="345" r="15" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="9;16;9" dur="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.6s" repeatCount="indefinite"/></circle>
+              <circle cx="360" cy="345" r="7" fill="#E0A820" stroke="#fff" stroke-width="2"/>
+              <!-- Bihar -->
+              <circle cx="520" cy="268" r="13" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="8;15;8" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.4s" repeatCount="indefinite"/></circle>
+              <circle cx="520" cy="268" r="6.5" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
+              <!-- West Bengal -->
+              <circle cx="565" cy="335" r="13" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="8;14;8" dur="2.9s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.9s" repeatCount="indefinite"/></circle>
+              <circle cx="565" cy="335" r="6.5" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
+              <!-- Odisha -->
+              <circle cx="528" cy="390" r="12" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="7;13;7" dur="3.1s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="3.1s" repeatCount="indefinite"/></circle>
+              <circle cx="528" cy="390" r="6" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
+              <!-- Maharashtra -->
+              <circle cx="308" cy="418" r="16" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="9;18;9" dur="2.7s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.7s" repeatCount="indefinite"/></circle>
+              <circle cx="308" cy="418" r="7.5" fill="#E0A820" stroke="#fff" stroke-width="2"/>
+              <!-- Labels -->
+              <text x="330" y="252" text-anchor="middle" font-size="9" fill="rgba(255,215,0,.55)" font-family="sans-serif" font-weight="700">Delhi HQ</text>
+              <text x="440" y="278" text-anchor="middle" font-size="8.5" fill="rgba(224,168,32,.42)" font-family="sans-serif">UP</text>
+              <text x="215" y="322" text-anchor="middle" font-size="8" fill="rgba(224,168,32,.4)" font-family="sans-serif">Rajasthan</text>
+              <text x="360" y="367" text-anchor="middle" font-size="8" fill="rgba(224,168,32,.4)" font-family="sans-serif">M.P.</text>
+              <text x="308" y="440" text-anchor="middle" font-size="8" fill="rgba(224,168,32,.4)" font-family="sans-serif">Maharashtra</text>
+              <text x="520" y="285" text-anchor="middle" font-size="7.5" fill="rgba(224,168,32,.38)" font-family="sans-serif">Bihar</text>
+              <text x="565" y="352" text-anchor="middle" font-size="7" fill="rgba(224,168,32,.35)" font-family="sans-serif">W.Bengal</text>
+            </svg>
+
+            <!-- TOOLTIP -->
+            <div class="vsmap-tooltip" id="vsmap-tooltip">
+              <div class="vstt-state" id="vstt-state"></div>
+              <div class="vstt-city" id="vstt-city"></div>
+              <div class="vstt-desc" id="vstt-desc"></div>
+              <div id="vstt-badge"></div>
+            </div>
+
+            <!-- IMAGE MAP -->
+            <map name="vscan-india-idx">
+              <area shape="poly" coords="316,218,346,218,346,244,316,244" alt="Delhi" data-state="Delhi" data-city="New Delhi" data-desc="National Capital — V SCAN Headquarters &amp; Central Command" data-type="hq" onclick="return vsmapClick(event,this)"/>
+              <area shape="poly" coords="196,138,254,138,262,160,252,188,226,195,200,185,186,165,188,148" alt="Punjab" data-state="Punjab" data-city="Ludhiana / Chandigarh" data-desc="Active campaign base &amp; booth-level voter analytics hub" data-type="active" onclick="return vsmapClick(event,this)"/>
+              <area shape="poly" coords="254,190,316,190,330,215,315,245,290,255,265,248,250,230,248,210" alt="Haryana" data-state="Haryana" data-city="Chandigarh / Gurugram" data-desc="Key swing state — active ground operations across all 22 districts" data-type="active" onclick="return vsmapClick(event,this)"/>
+              <area shape="poly" coords="330,163,400,163,415,185,400,210,375,218,352,210,330,195" alt="Uttarakhand" data-state="Uttarakhand" data-city="Dehradun" data-desc="Hill state — active campaign monitoring &amp; grassroots outreach" data-type="active" onclick="return vsmapClick(event,this)"/>
+              <area shape="poly" coords="315,245,415,210,500,215,545,238,548,265,530,290,500,305,460,310,415,305,375,295,340,280,315,260" alt="Uttar Pradesh" data-state="Uttar Pradesh" data-city="Lucknow" data-desc="India's largest state — 80 Lok Sabha seats. Top priority zone." data-type="active" onclick="return vsmapClick(event,this)"/>
+              <area shape="poly" coords="142,200,252,200,290,258,290,320,270,360,230,375,185,365,150,338,130,300,128,258,140,222" alt="Rajasthan" data-state="Rajasthan" data-city="Jaipur" data-desc="India's largest state by area — full strategic operations across all 200 seats" data-type="active" onclick="return vsmapClick(event,this)"/>
+              <area shape="poly" coords="260,318,330,295,415,308,480,320,492,345,475,375,435,390,390,395,348,385,305,372,275,355,262,335" alt="Madhya Pradesh" data-state="Madhya Pradesh" data-city="Bhopal" data-desc="Heart of India — data-driven campaign architecture deployed across key constituencies" data-type="active" onclick="return vsmapClick(event,this)"/>
+              <area shape="poly" coords="480,238,545,238,565,255,568,280,550,298,520,305,490,298,468,280,468,258" alt="Bihar" data-state="Bihar" data-city="Patna" data-desc="High-stakes state — full booth-level ground intelligence active across all 38 districts" data-type="active" onclick="return vsmapClick(event,this)"/>
+              <area shape="poly" coords="548,265,590,258,608,278,608,318,592,350,568,368,548,358,532,338,530,308,540,285" alt="West Bengal" data-state="West Bengal" data-city="Kolkata" data-desc="Eastern powerhouse — active operations across urban &amp; rural belts" data-type="active" onclick="return vsmapClick(event,this)"/>
+              <area shape="poly" coords="490,348,550,330,580,358,582,395,560,422,528,435,498,428,475,408,472,382,478,358" alt="Odisha" data-state="Odisha" data-city="Bhubaneswar" data-desc="Fast-growing state — active campaign base &amp; voter outreach" data-type="active" onclick="return vsmapClick(event,this)"/>
+              <area shape="poly" coords="220,390,292,375,360,395,420,398,462,420,460,455,430,478,388,488,340,480,290,462,250,440,222,415,215,398" alt="Maharashtra" data-state="Maharashtra" data-city="Mumbai" data-desc="Financial capital state — full strategic operations &amp; media management" data-type="active" onclick="return vsmapClick(event,this)"/>
+            </map>
+          </div>
+
+          <!-- LEGEND -->
+          <div class="vsmap-legend">
+            <div class="vsl-item"><div class="vsl-dot hq" style="display:flex;align-items:center;justify-content:center;font-size:7px;color:#020810;font-weight:900">★</div><span class="vsl-txt hq">HQ — New Delhi</span></div>
+            <div class="vsl-item"><div class="vsl-dot active"></div><span class="vsl-txt active">Active States (10)</span></div>
+            <span class="vsl-hint">Hover or click a state</span>
+          </div>
+
+          <!-- CLICK PANEL -->
+          <div class="vsmap-panel" id="vsmap-panel">
+            <div class="vsmap-panel-head">
+              <div class="vspp-tag" id="vspp-tag">Active State</div>
+              <div class="vspp-name" id="vspp-name"></div>
+              <div class="vspp-city" id="vspp-city"></div>
+            </div>
+            <div class="vsmap-panel-body">
+              <div class="vspp-desc" id="vspp-desc"></div>
+              <a href="reach.html" style="display:inline-flex;align-items:center;gap:5px;margin-top:.8rem;font-size:.72rem;font-weight:700;color:#3A72CC;text-decoration:none">View Full Reach Page →</a>
+            </div>
+          </div>
+
+        </div><!-- vsmap-box -->
+      </div><!-- vsmap-right -->
+
+    </div><!-- vsmap-layout -->
+  </div><!-- vsmap-secin -->
+</section>
+
+<!-- ════════════════════════════════════════
+     ADD THIS SCRIPT just before </body>
+     ════════════════════════════════════════ -->
+<script>
+(function vscanMap(){
+  var tt=document.getElementById('vsmap-tooltip');
+  var wrap=document.getElementById('vsmap-wrap');
+  var panel=document.getElementById('vsmap-panel');
+  var img=document.getElementById('vsmap-img');
+  if(!tt||!wrap||!img) return;
+
+  var areas=document.querySelectorAll('map[name="vscan-india-idx"] area');
+
+  function show(area,e){
+    document.getElementById('vstt-state').textContent='📍 '+area.getAttribute('data-state');
+    document.getElementById('vstt-city').textContent=area.getAttribute('data-city');
+    document.getElementById('vstt-desc').textContent=area.getAttribute('data-desc');
+    var t=area.getAttribute('data-type');
+    document.getElementById('vstt-badge').innerHTML=t==='hq'?'<span class="vstt-badge hq">★ HQ</span>':'<span class="vstt-badge active">● V SCAN Active</span>';
+    var r=wrap.getBoundingClientRect();
+    var x=e.clientX-r.left+12, y=e.clientY-r.top-15;
+    if(x+240>r.width) x=x-255;
+    if(y<10) y=10;
+    tt.style.left=x+'px'; tt.style.top=y+'px';
+    tt.classList.add('show');
+  }
+
+  function hide(){ tt.classList.remove('show'); }
+
+  function openPanel(area){
+    var t=area.getAttribute('data-type');
+    var isHQ=t==='hq';
+    document.getElementById('vspp-tag').textContent=isHQ?'★ National Capital — HQ':'Active State';
+    document.getElementById('vspp-tag').style.color=isHQ?'#FFD700':'#E0A820';
+    document.getElementById('vspp-name').textContent=area.getAttribute('data-state');
+    document.getElementById('vspp-name').style.color=isHQ?'#FFD700':'#fff';
+    document.getElementById('vspp-city').textContent='📍 '+area.getAttribute('data-city');
+    document.getElementById('vspp-desc').textContent=area.getAttribute('data-desc');
+    panel.classList.add('show');
+  }
+
+  areas.forEach(function(a){
+    a.addEventListener('mousemove',function(e){show(a,e);});
+    a.addEventListener('mouseleave',hide);
+    a.addEventListener('click',function(e){e.preventDefault();openPanel(a);});
+  });
+  img.addEventListener('mouseleave',hide);
+
+  /* Responsive coords scaling */
+  function scale(){
+    var nw=700,nh=700;
+    var dw=img.offsetWidth,dh=img.offsetHeight;
+    areas.forEach(function(a){
+      var orig=a.getAttribute('data-orig')||a.getAttribute('coords');
+      if(!a.getAttribute('data-orig')) a.setAttribute('data-orig',orig);
+      a.setAttribute('coords',orig.split(',').map(function(v,i){
+        return Math.round(i%2===0?v*(dw/nw):v*(dh/nh));
+      }).join(','));
+    });
+  }
+  if(img.complete) scale(); else img.addEventListener('load',scale);
+  window.addEventListener('resize',scale);
+})();
+
+function vsmapClick(e,a){ e.preventDefault(); return false; }
+</script>
 <!-- COOKIE BANNER -->
 <div id="cookie-banner">
   <p class="cookie-text">🍪 We use cookies to improve your experience. By continuing, you agree to our <a href="#">Privacy Policy</a>.</p>
