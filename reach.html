@@ -6,11 +6,10 @@
 <title>Our Reach – V SCAN Alliance</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-:root{--b9:#020810;--b8:#040E1E;--b7:#07182E;--b6:#0C2448;--b5:#133272;--b4:#1A4A9A;--b3:#3A72CC;--gold:#C89010;--goldl:#E0A820;}
+:root{--b9:#020810;--b8:#040E1E;--b7:#07182E;--b6:#0C2448;--b5:#133272;--b4:#1A4A9A;--b3:#3A72CC;--gold:#C89010;--goldl:#E0A820;--sbl:0 8px 32px rgba(19,50,114,.5);}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:#020810;color:#C0D8F0;font-family:'Source Sans 3',sans-serif;overflow-x:hidden}
-/* NAV */
 nav{position:sticky;top:0;z-index:600;background:#fff;padding:0 5vw;height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 16px rgba(0,0,0,.12)}
 .nlogo img{height:48px;object-fit:contain}
 .nlinks{list-style:none;display:flex;gap:.3rem;align-items:center}
@@ -28,83 +27,67 @@ nav{position:sticky;top:0;z-index:600;background:#fff;padding:0 5vw;height:68px;
 .back-btn:hover{color:var(--goldl)}
 
 /* HERO */
-.hero{position:relative;background:linear-gradient(135deg,#020810 0%,#071830 50%,#040E1E 100%);padding:6rem 5vw 4.5rem;overflow:hidden;border-bottom:1px solid rgba(26,74,154,.2);text-align:center}
+.hero{position:relative;background:linear-gradient(135deg,#020810 0%,#071830 50%,#040E1E 100%);padding:6rem 5vw 5rem;overflow:hidden;border-bottom:1px solid rgba(26,74,154,.2);text-align:center}
 .hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px}
-.hero-glow{position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(26,74,154,.2) 0%,transparent 65%);pointer-events:none}
-.hero-in{position:relative;z-index:1;max-width:820px;margin:0 auto}
+.hero-glow{position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(26,74,154,.2) 0%,transparent 65%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(200,144,16,.07) 0%,transparent 65%);pointer-events:none}
+.hero-in{position:relative;z-index:1;max-width:920px;margin:0 auto}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(26,74,154,.18);border:1px solid rgba(26,74,154,.3);color:var(--b3);font-size:.6rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:1.5rem}
-.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--goldl);animation:pulse 2s infinite}
+.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--goldl);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1rem}
 .hero-title span{color:var(--goldl);font-style:italic}
-.hero-sub{font-size:1rem;color:rgba(192,216,240,.5);line-height:1.75;margin-bottom:2.5rem;max-width:620px;margin-left:auto;margin-right:auto}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(26,74,154,.2);border:1px solid rgba(26,74,154,.2);border-radius:14px;overflow:hidden;max-width:860px;margin:0 auto}
-.stat{background:#040E1E;padding:1.8rem 1rem;text-align:center;transition:background .3s}
+.hero-sub{font-size:1rem;color:rgba(192,216,240,.5);line-height:1.75;margin-bottom:2rem;max-width:680px;margin-left:auto;margin-right:auto}
+
+/* THREE PILLARS */
+.hero-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;max-width:820px;margin:0 auto 2.5rem;text-align:left}
+.hero-pillar{background:rgba(255,255,255,.05);border:1px solid rgba(26,74,154,.25);border-radius:10px;padding:1.2rem 1.1rem;transition:background .3s,border-color .3s}
+.hero-pillar:hover{background:rgba(255,255,255,.08);border-color:rgba(58,114,204,.35)}
+.hero-pillar-icon{font-size:1.4rem;margin-bottom:.5rem}
+.hero-pillar-title{font-size:.8rem;font-weight:700;color:#D0E4F8;margin-bottom:.3rem}
+.hero-pillar-desc{font-size:.72rem;color:rgba(192,216,240,.45);line-height:1.58}
+
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(26,74,154,.2);border:1px solid rgba(26,74,154,.2);border-radius:14px;overflow:hidden;max-width:900px;margin:0 auto}
+.stat{background:#040E1E;padding:2rem 1rem;text-align:center;transition:background .3s}
 .stat:hover{background:rgba(26,74,154,.15)}
-.stat-n{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-1px}
-.stat-n em{color:var(--goldl);font-style:normal;font-size:1.6rem}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-1px}
+.stat-n em{color:var(--goldl);font-style:normal;font-size:1.8rem}
 .stat-l{font-size:.58rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(192,216,240,.35);margin-top:.4rem}
 
 /* MAP SECTION */
 .map-section{padding:5rem 5vw;background:#040E1E;border-bottom:1px solid rgba(26,74,154,.2)}
-.map-in{max-width:1280px;margin:0 auto}
+.map-in{max-width:1300px;margin:0 auto}
 .sec-tag{font-size:.58rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--goldl);margin-bottom:.5rem}
 .sec-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:#E8F2FF;margin-bottom:.5rem}
 .sec-sub{font-size:.9rem;color:rgba(192,216,240,.4);margin-bottom:2.5rem}
 
-/* MAP CORE */
-.vsmap-outer{display:grid;grid-template-columns:1fr 300px;gap:2.5rem;align-items:start}
-.vsmap-box{background:rgba(2,8,16,.75);border:1px solid rgba(26,74,154,.28);border-radius:16px;overflow:hidden;padding:1.4rem 1.2rem 1rem;position:relative}
-.vsmap-tribar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FF9933 33%,#fff 33%,#fff 66%,#138808 66%)}
-.vsmap-img-wrap{position:relative;margin-top:.5rem}
-.vsmap-img-wrap img{width:100%;height:auto;display:block;border-radius:6px;filter:saturate(.75) brightness(.88) hue-rotate(185deg) contrast(1.08);transition:filter .4s;cursor:crosshair}
-.vsmap-img-wrap:hover img{filter:saturate(.9) brightness(.95) hue-rotate(185deg) contrast(1.08)}
-.vsmap-pins{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
-.vsmap-tooltip{display:none;position:absolute;background:rgba(7,24,46,.97);border:1.5px solid #E0A820;border-radius:10px;padding:12px 16px;min-width:210px;max-width:250px;z-index:20;box-shadow:0 8px 28px rgba(0,0,0,.75);pointer-events:none;font-family:'Source Sans 3',sans-serif}
-.vsmap-tooltip.show{display:block;animation:tt-in .18s ease}
-@keyframes tt-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.vstt-state{font-weight:700;font-size:.92rem;color:#E0A820;margin-bottom:2px}
-.vstt-city{font-size:.66rem;color:rgba(192,216,240,.4);margin-bottom:5px;font-weight:600;letter-spacing:.5px}
-.vstt-desc{font-size:.75rem;color:rgba(192,216,240,.75);line-height:1.55}
-.vstt-badge{display:inline-block;margin-top:6px;font-size:.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 9px;border-radius:100px}
-.vstt-badge.hq{background:rgba(255,215,0,.18);border:1px solid rgba(255,215,0,.4);color:#FFD700}
-.vstt-badge.active{background:rgba(224,168,32,.15);border:1px solid rgba(224,168,32,.3);color:#E0A820}
-.vsmap-legend{display:flex;align-items:center;gap:1.5rem;margin-top:.8rem;flex-wrap:wrap}
-.vsl-item{display:flex;align-items:center;gap:7px}
-.vsl-dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff}
-.vsl-dot.hq{background:#FFD700;box-shadow:0 0 8px rgba(255,215,0,.7)}
-.vsl-dot.active{background:#E0A820;box-shadow:0 0 6px rgba(224,168,32,.6)}
-.vsl-txt{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;font-weight:700}
-.vsl-txt.hq{color:#FFD700}
-.vsl-txt.active{color:#E0A820}
+/* SVG MAP WRAPPER */
+.svg-map-wrap{max-width:500px;margin:0 auto;position:relative;background:rgba(2,8,16,.75);border:1px solid rgba(26,74,154,.28);border-radius:16px;overflow:hidden;padding:1.2rem 1.2rem 1rem}
+.tricolor-bar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FF9933 33%,#fff 33%,#fff 66%,#138808 66%)}
 
-/* SIDE PANEL */
-.vsmap-side{display:flex;flex-direction:column;gap:1rem}
-.vsmap-panel-card{background:rgba(7,24,46,.9);border:1.5px solid rgba(224,168,32,.3);border-radius:12px;overflow:hidden;display:none}
-.vsmap-panel-card.show{display:block;animation:tt-in .2s ease}
-.panel-card-head{background:rgba(4,14,30,.9);padding:1rem 1.2rem;border-bottom:1px solid rgba(26,74,154,.2);position:relative}
-.panel-card-head::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#E0A820,#FFD700,#E0A820)}
-.panel-default{padding:1.5rem 1.2rem;text-align:center;color:rgba(192,216,240,.3);background:rgba(7,24,46,.5);border:1px solid rgba(26,74,154,.2);border-radius:12px}
-.panel-default .flag-em{font-size:2.5rem;margin-bottom:.6rem}
-.panel-default p{font-size:.78rem;line-height:1.65}
-.panel-default strong{color:#E0A820}
-.vspp-tag{font-size:.52rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#E0A820;margin-bottom:.3rem}
-.vspp-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:800;color:#fff}
-.vspp-city{font-size:.72rem;color:rgba(192,216,240,.4);margin:.2rem 0 .5rem;font-weight:600}
-.panel-card-body{padding:.9rem 1.2rem}
-.vspp-desc{font-size:.8rem;line-height:1.7;color:rgba(192,216,240,.7)}
+/* POPUP */
+.rp-popup{display:none;position:absolute;bottom:3.5rem;left:50%;transform:translateX(-50%);background:#071830;border:1.5px solid #E0A820;border-radius:10px;padding:13px 18px;min-width:230px;max-width:260px;z-index:20;box-shadow:0 8px 28px rgba(0,0,0,.75);text-align:left;pointer-events:none}
+@keyframes popIn{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.rp-popup.show{display:block;animation:popIn .2s ease}
+.rpp-state{font-weight:700;font-size:.92rem;color:#E0A820;margin-bottom:3px}
+.rpp-city{font-size:.68rem;color:rgba(192,216,240,.4);margin-bottom:5px;font-weight:600;letter-spacing:.5px}
+.rpp-desc{font-size:.76rem;color:rgba(192,216,240,.75);line-height:1.55}
 
-/* CHIPS */
-.chips-wrap{background:rgba(4,14,30,.6);border:1px solid rgba(26,74,154,.2);border-radius:10px;padding:1rem 1.1rem}
-.chips-lbl{font-size:.52rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(192,216,240,.22);margin-bottom:.6rem}
-.chips{display:flex;flex-wrap:wrap;gap:.35rem}
-.chip{font-size:.6rem;padding:3px 10px;border-radius:100px;border:1px solid rgba(26,74,154,.25);background:rgba(26,74,154,.1);color:rgba(192,216,240,.55);cursor:pointer;transition:all .2s}
-.chip:hover,.chip.on{border-color:rgba(224,168,32,.5);color:#E0A820;background:rgba(224,168,32,.08)}
-.chip.hq-chip{border-color:rgba(255,215,0,.3);color:#FFD700;background:rgba(255,215,0,.08)}
+/* MAP LEGEND */
+.map-legend{display:flex;align-items:center;gap:1.5rem;max-width:500px;margin:.8rem auto 0;flex-wrap:wrap}
+.ml-item{display:flex;align-items:center;gap:7px}
+.ml-dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff}
+.ml-dot.gold{background:#FFD700;box-shadow:0 0 8px rgba(255,215,0,.7)}
+.ml-dot.amber{background:#E0A820;box-shadow:0 0 6px rgba(224,168,32,.6)}
+.ml-txt{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.ml-txt.gold{color:#FFD700}
+.ml-txt.amber{color:#E0A820}
+.ml-hint{font-size:.55rem;color:rgba(192,216,240,.25)}
 
 /* STATES GRID */
 .states-section{padding:5rem 5vw;background:#020810;border-bottom:1px solid rgba(26,74,154,.15)}
-.states-in{max-width:1280px;margin:0 auto}
+.states-in{max-width:1300px;margin:0 auto}
 .states-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.5rem}
 .state-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.18);border-radius:14px;padding:1.8rem 1.5rem;position:relative;overflow:hidden;transition:all .3s}
 .state-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--b4),var(--goldl));transform:scaleX(0);transform-origin:left;transition:transform .4s}
@@ -114,43 +97,37 @@ nav{position:sticky;top:0;z-index:600;background:#fff;padding:0 5vw;height:68px;
 .state-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:800;color:#E8F2FF;margin-bottom:.4rem}
 .state-capital{font-size:.72rem;color:var(--goldl);font-weight:600;margin-bottom:.6rem}
 .state-desc{font-size:.78rem;line-height:1.6;color:rgba(192,216,240,.48)}
-.state-badge{display:inline-flex;align-items:center;background:rgba(224,168,32,.12);border:1px solid rgba(224,168,32,.25);color:var(--goldl);font-size:.56rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-top:.8rem}
+.state-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(224,168,32,.12);border:1px solid rgba(224,168,32,.25);color:var(--goldl);font-size:.56rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-top:.8rem}
 .state-badge.capital{background:rgba(255,215,0,.15);border-color:rgba(255,215,0,.35);color:#FFD700}
 
-/* OPS */
+/* HOW WE OPERATE */
 .ops-section{padding:5rem 5vw;background:#07142A;border-bottom:1px solid rgba(26,74,154,.2)}
-.ops-in{max-width:1280px;margin:0 auto}
+.ops-in{max-width:1300px;margin:0 auto}
 .ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.5rem}
 .ops-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,74,154,.18);border-radius:14px;padding:2rem;transition:all .3s;position:relative;overflow:hidden}
 .ops-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--b4),var(--goldl));transform:scaleX(0);transition:transform .4s}
 .ops-card:hover{background:rgba(255,255,255,.07);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
 .ops-card:hover::after{transform:scaleX(1)}
-.ops-icon{font-size:2rem;margin-bottom:.8rem}
-.ops-title{font-size:.9rem;font-weight:700;color:#D0E4F8;margin-bottom:.5rem}
+.ops-icon{font-size:2.2rem;margin-bottom:1rem}
+.ops-title{font-size:.9rem;font-weight:700;color:#D0E4F8;margin-bottom:.6rem}
 .ops-text{font-size:.82rem;line-height:1.68;color:rgba(192,216,240,.5)}
 
 /* CTA */
-.cta-sec{background:linear-gradient(135deg,#07182E,#040E1E);padding:5rem 5vw;text-align:center;border-top:1px solid rgba(26,74,154,.2)}
+.cta-sec{background:linear-gradient(135deg,var(--b7),var(--b8));padding:5rem 5vw;text-align:center;border-top:1px solid rgba(26,74,154,.2)}
 .cta-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:1rem}
 .cta-sub{font-size:.95rem;color:rgba(192,216,240,.5);margin-bottom:2rem}
 .cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--goldl);color:#020810;padding:14px 32px;border-radius:8px;font-size:.82rem;font-weight:800;text-decoration:none;transition:all .2s;box-shadow:0 6px 20px rgba(224,168,32,.35)}
 .cta-btn:hover{background:#F5CC60;transform:translateY(-2px)}
+
 footer{background:var(--b9);border-top:3px solid var(--goldl);padding:2rem 5vw;text-align:center}
 footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
 
-@media(max-width:1024px){
-  .vsmap-outer{grid-template-columns:1fr}
-  .vsmap-side{flex-direction:row;flex-wrap:wrap}
-  .vsmap-panel-card,.panel-default,.chips-wrap{flex:1 1 240px}
-  .states-grid{grid-template-columns:repeat(3,1fr)}
-  .nlinks{display:none}.burger{display:flex}
-}
+@media(max-width:1024px){.states-grid{grid-template-columns:1fr 1fr 1fr}.stats-row{grid-template-columns:1fr 1fr}.nlinks{display:none}.burger{display:flex}.hero-pillars{grid-template-columns:1fr}}
 @media(max-width:768px){.states-grid,.ops-grid{grid-template-columns:1fr 1fr}.stats-row{grid-template-columns:1fr 1fr}}
-@media(max-width:500px){.states-grid,.stats-row{grid-template-columns:1fr}}
+@media(max-width:500px){.states-grid,.stats-row{grid-template-columns:1fr}.hero-pillars{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html"><img src="logo.png.png" alt="V SCAN" style="height:48px"/></a>
   <ul class="nlinks">
@@ -167,173 +144,289 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
   </div>
 </nav>
 <div class="mob" id="mob">
-  <a href="about.html">About Us</a><a href="services.html">Services</a>
-  <a href="reach.html">Our Reach</a><a href="team.html">Our Team</a>
-  <a href="advisory.html">Advisory</a><a href="gallery.html">Gallery</a>
+  <a href="about.html">About Us</a>
+  <a href="services.html">Services</a>
+  <a href="reach.html">Our Reach</a>
+  <a href="team.html">Our Team</a>
+  <a href="advisory.html">Advisory Committee</a>
+  <a href="gallery.html">Gallery</a>
   <a href="index.html#contact">Contact Us</a>
 </div>
 <div class="back-bar"><a href="index.html" class="back-btn">← Back to Home</a></div>
 
-<!-- HERO -->
+<!-- ══════ HERO — COMPLETELY REWRITTEN ══════ -->
 <section class="hero">
   <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
   <div class="hero-in">
-    <div class="hero-tag"><div class="hero-dot"></div>Pan-India Presence · Est. 2025</div>
+    <div class="hero-tag">
+      <div class="hero-tag-dot"></div>
+      Pan-India Presence · Est. 2025
+    </div>
     <h1 class="hero-title">Where V SCAN <span>Stands</span> for India</h1>
-    <p class="hero-sub">From the snowcapped peaks of Punjab to the coastal plains of Odisha — from the golden deserts of Rajasthan to the vibrant delta of West Bengal. V SCAN stands where democracy is shaped. Click any state below to explore our ground presence.</p>
+    <p class="hero-sub">
+      We don't strategize from boardrooms — we operate from the ground.
+      V SCAN's teams are embedded across <strong style="color:rgba(255,255,255,.75)">11 of India's most politically decisive states</strong>,
+      running real-time voter intelligence, booth-level data collection, and end-to-end campaign management
+      exactly where elections are won and governance is delivered.
+    </p>
+
+    <!-- 3 PILLARS -->
+    <div class="hero-pillars">
+      <div class="hero-pillar">
+        <div class="hero-pillar-icon">🗺️</div>
+        <div class="hero-pillar-title">North to South. East to West.</div>
+        <div class="hero-pillar-desc">From the snowlines of Punjab to the coastline of Maharashtra — our ground network spans every major political region of Bharat.</div>
+      </div>
+      <div class="hero-pillar">
+        <div class="hero-pillar-icon">📊</div>
+        <div class="hero-pillar-title">Real-Time Data. Every Hour.</div>
+        <div class="hero-pillar-desc">Booth-level voter sentiment and opposition intelligence flowing from every constituency into our central analytics command centre.</div>
+      </div>
+      <div class="hero-pillar">
+        <div class="hero-pillar-icon">🤝</div>
+        <div class="hero-pillar-title">Local Roots. National Vision.</div>
+        <div class="hero-pillar-desc">Deep grassroots connect with community leaders and party workers — building trust networks no digital campaign alone can replicate.</div>
+      </div>
+    </div>
+
     <div class="stats-row">
       <div class="stat"><div class="stat-n">11</div><div class="stat-l">Active States</div></div>
-      <div class="stat"><div class="stat-n">100<em>+</em></div><div class="stat-l">Campaigns</div></div>
+      <div class="stat"><div class="stat-n">100<em>+</em></div><div class="stat-l">Campaigns Managed</div></div>
       <div class="stat"><div class="stat-n">100<em>+</em></div><div class="stat-l">Leaders Trained</div></div>
       <div class="stat"><div class="stat-n">1</div><div class="stat-l">Unified Mission</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ MAP SECTION ══ -->
+<!-- ══════ MAP — FIXED SVG INDIA MAP WITH CORRECT PIN POSITIONS ══════ -->
 <section class="map-section">
   <div class="map-in">
     <div class="sec-tag">Interactive Map</div>
     <h2 class="sec-title">V SCAN's Pan-India Operational Footprint</h2>
-    <p class="sec-sub">Hover over any state for quick details · Click a state to see full information in the panel</p>
+    <p class="sec-sub">Click any pin to explore our presence — 11 states, one unified mission for Indian democracy.</p>
 
-    <div class="vsmap-outer">
+    <div class="svg-map-wrap">
+      <div class="tricolor-bar"></div>
 
-      <!-- MAP BOX -->
-      <div class="vsmap-box">
-        <div class="vsmap-tribar"></div>
-        <div class="vsmap-img-wrap" id="vsmap-wrap">
+      <svg viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;margin-top:.5rem">
+        <defs>
+          <filter id="pinGlow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="hqGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
 
-          <img
-            src="india-map-bg.png"
-            alt="India Map — V SCAN Active States"
-            id="vsmap-img"
-            usemap="#vscan-india-reach"
-            draggable="false"
-          />
+        <!-- India outline (simplified, proportionally correct) -->
+        <path d="
+          M 205 22 L 220 18 L 238 22 L 252 18 L 268 24 L 282 20 L 296 28 L 308 24 L 320 32
+          L 332 28 L 342 36 L 350 33 L 358 42 L 364 38 L 372 48 L 368 56 L 376 65
+          L 372 73 L 380 82 L 375 90 L 382 100 L 377 108 L 384 118 L 379 127
+          L 372 133 L 366 140 L 358 137 L 350 145 L 358 154 L 363 164 L 357 173
+          L 364 183 L 360 194 L 366 204 L 360 215 L 365 226 L 358 237
+          L 351 248 L 344 259 L 338 270 L 345 281 L 349 294 L 342 305
+          L 334 316 L 326 327 L 318 339 L 310 351 L 302 363 L 294 376
+          L 286 389 L 278 402 L 270 415 L 263 428 L 256 441 L 250 453
+          L 245 464 L 240 474 L 237 483 L 234 492 L 231 500 L 228 508
+          L 225 514 L 222 508 L 218 498 L 214 488 L 210 477 L 205 465
+          L 200 453 L 194 440 L 188 427 L 182 415 L 175 404 L 167 393
+          L 159 382 L 151 371 L 144 361 L 136 350 L 129 340 L 122 329
+          L 115 318 L 109 308 L 116 298 L 123 288 L 130 278 L 136 268
+          L 141 258 L 133 249 L 125 239 L 118 229 L 126 219 L 133 209
+          L 140 199 L 131 191 L 123 181 L 115 171 L 108 161 L 116 151
+          L 124 144 L 116 137 L 108 129 L 116 121 L 124 114 L 131 107
+          L 124 99 L 116 91 L 124 83 L 132 76 L 140 69 L 148 62
+          L 156 56 L 164 50 L 172 44 L 180 38 L 188 32 L 197 26
+          Z
+        " fill="rgba(20,55,110,.6)" stroke="rgba(90,150,220,.45)" stroke-width="1.5"/>
 
-          <!-- ANIMATED PULSE PINS OVERLAY -->
-          <svg class="vsmap-pins" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
-            <!-- Delhi HQ ★ -->
-            <circle cx="330" cy="230" r="18" fill="rgba(255,215,0,.15)"><animate attributeName="r" values="12;22;12" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0;.7" dur="1.8s" repeatCount="indefinite"/></circle>
-            <circle cx="330" cy="230" r="9" fill="#FFD700" stroke="#fff" stroke-width="2.2"/>
-            <text x="330" y="234" text-anchor="middle" font-size="10" fill="#020810" font-weight="900" font-family="sans-serif">★</text>
-            <!-- Punjab -->
-            <circle cx="240" cy="175" r="14" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="7;14;7" dur="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.6s" repeatCount="indefinite"/></circle>
-            <circle cx="240" cy="175" r="6" fill="#E0A820" stroke="#fff" stroke-width="1.5"/>
-            <!-- Haryana -->
-            <circle cx="295" cy="232" r="12" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="7;13;7" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="3s" repeatCount="indefinite"/></circle>
-            <circle cx="295" cy="232" r="5.5" fill="#E0A820" stroke="#fff" stroke-width="1.5"/>
-            <!-- Uttarakhand -->
-            <circle cx="375" cy="192" r="12" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="7;12;7" dur="2.9s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.9s" repeatCount="indefinite"/></circle>
-            <circle cx="375" cy="192" r="5.5" fill="#E0A820" stroke="#fff" stroke-width="1.5"/>
-            <!-- UP (bigger) -->
-            <circle cx="440" cy="257" r="18" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="11;20;11" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.2s" repeatCount="indefinite"/></circle>
-            <circle cx="440" cy="257" r="8" fill="#E0A820" stroke="#fff" stroke-width="2"/>
-            <!-- Rajasthan -->
-            <circle cx="215" cy="302" r="16" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="9;17;9" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="3.2s" repeatCount="indefinite"/></circle>
-            <circle cx="215" cy="302" r="7.5" fill="#E0A820" stroke="#fff" stroke-width="2"/>
-            <!-- MP -->
-            <circle cx="362" cy="347" r="15" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="9;16;9" dur="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.6s" repeatCount="indefinite"/></circle>
-            <circle cx="362" cy="347" r="7" fill="#E0A820" stroke="#fff" stroke-width="2"/>
-            <!-- Bihar -->
-            <circle cx="520" cy="270" r="14" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="8;15;8" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.4s" repeatCount="indefinite"/></circle>
-            <circle cx="520" cy="270" r="6.5" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
-            <!-- West Bengal -->
-            <circle cx="565" cy="337" r="13" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="8;14;8" dur="2.9s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.9s" repeatCount="indefinite"/></circle>
-            <circle cx="565" cy="337" r="6.5" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
-            <!-- Odisha -->
-            <circle cx="528" cy="392" r="13" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="7;13;7" dur="3.1s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="3.1s" repeatCount="indefinite"/></circle>
-            <circle cx="528" cy="392" r="6" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
-            <!-- Maharashtra -->
-            <circle cx="308" cy="420" r="16" fill="rgba(224,168,32,.15)"><animate attributeName="r" values="9;18;9" dur="2.7s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;.5" dur="2.7s" repeatCount="indefinite"/></circle>
-            <circle cx="308" cy="420" r="7.5" fill="#E0A820" stroke="#fff" stroke-width="2"/>
-            <!-- State name labels -->
-            <text x="330" y="252" text-anchor="middle" font-size="9.5" fill="rgba(255,215,0,.58)" font-family="sans-serif" font-weight="700">Delhi HQ</text>
-            <text x="440" y="280" text-anchor="middle" font-size="8.5" fill="rgba(224,168,32,.44)" font-family="sans-serif" font-weight="600">Uttar Pradesh</text>
-            <text x="215" y="325" text-anchor="middle" font-size="8" fill="rgba(224,168,32,.42)" font-family="sans-serif">Rajasthan</text>
-            <text x="362" y="370" text-anchor="middle" font-size="8" fill="rgba(224,168,32,.42)" font-family="sans-serif">Madhya Pradesh</text>
-            <text x="308" y="443" text-anchor="middle" font-size="8" fill="rgba(224,168,32,.4)" font-family="sans-serif">Maharashtra</text>
-            <text x="520" y="288" text-anchor="middle" font-size="7.5" fill="rgba(224,168,32,.38)" font-family="sans-serif">Bihar</text>
-            <text x="565" y="355" text-anchor="middle" font-size="7" fill="rgba(224,168,32,.36)" font-family="sans-serif">W. Bengal</text>
-            <text x="528" y="410" text-anchor="middle" font-size="7" fill="rgba(224,168,32,.36)" font-family="sans-serif">Odisha</text>
-            <text x="240" y="193" text-anchor="middle" font-size="7" fill="rgba(224,168,32,.35)" font-family="sans-serif">Punjab</text>
-            <text x="375" y="210" text-anchor="middle" font-size="7" fill="rgba(224,168,32,.35)" font-family="sans-serif">Uttarakhand</text>
-          </svg>
+        <!--
+          COORDINATE MAPPING (viewBox 480x520):
+          India lat range: 8°N – 37°N (height = 29°)
+          India lng range: 68°E – 97°E (width = 29°)
+          x = (lng - 68) / 29 * 310 + 85   (left margin 85, width 310)
+          y = (37 - lat) / 29 * 420 + 30   (top margin 30, height 420)
 
-          <!-- HOVER TOOLTIP -->
-          <div class="vsmap-tooltip" id="vsmap-tooltip">
-            <div class="vstt-state" id="vstt-state"></div>
-            <div class="vstt-city" id="vstt-city"></div>
-            <div class="vstt-desc" id="vstt-desc"></div>
-            <div id="vstt-badge"></div>
-          </div>
+          Delhi:        lat28.61 lng77.21  → x=(9.21/29)*310+85=183  y=(8.39/29)*420+30=152
+          Punjab:       lat30.90 lng75.86  → x=(7.86/29)*310+85=169  y=(6.10/29)*420+30=118
+          Haryana:      lat30.73 lng76.78  → x=(8.78/29)*310+85=179  y=(6.27/29)*420+30=121
+          Uttarakhand:  lat30.32 lng78.03  → x=(10.03/29)*310+85=192 y=(6.68/29)*420+30=127
+          UP:           lat26.85 lng80.95  → x=(12.95/29)*310+85=224 y=(10.15/29)*420+30=177
+          Rajasthan:    lat26.91 lng75.79  → x=(7.79/29)*310+85=168  y=(10.09/29)*420+30=176
+          MP:           lat23.26 lng77.41  → x=(9.41/29)*310+85=186  y=(13.74/29)*420+30=229
+          Bihar:        lat25.59 lng85.14  → x=(17.14/29)*310+85=268 y=(11.41/29)*420+30=195
+          West Bengal:  lat22.57 lng88.36  → x=(20.36/29)*310+85=303 y=(14.43/29)*420+30=239
+          Odisha:       lat20.30 lng85.82  → x=(17.82/29)*310+85=275 y=(16.70/29)*420+30=272
+          Maharashtra:  lat19.08 lng72.88  → x=(4.88/29)*310+85=137  y=(17.92/29)*420+30=289
+        -->
 
-          <!-- IMAGE MAP with all 11 V SCAN states -->
-          <map name="vscan-india-reach">
-            <area shape="poly" coords="316,218,346,218,346,244,316,244" alt="Delhi" data-state="Delhi" data-city="New Delhi" data-desc="National Capital — V SCAN Headquarters &amp; Central Command Centre for all pan-India operations." data-type="hq" onclick="return false"/>
-            <area shape="poly" coords="196,138,254,138,262,160,252,188,226,195,200,185,186,165,188,148" alt="Punjab" data-state="Punjab" data-city="Ludhiana / Chandigarh" data-desc="Active campaign base &amp; booth-level voter analytics hub. Border state with unique political dynamics." data-type="active" onclick="return false"/>
-            <area shape="poly" coords="254,190,316,190,330,215,315,245,290,255,265,248,250,230,248,210" alt="Haryana" data-state="Haryana" data-city="Chandigarh / Gurugram" data-desc="Key swing state — active ground operations &amp; voter intelligence across all 22 districts." data-type="active" onclick="return false"/>
-            <area shape="poly" coords="330,163,400,163,415,185,400,210,375,218,352,210,330,195" alt="Uttarakhand" data-state="Uttarakhand" data-city="Dehradun" data-desc="Hill state with growing political significance — active campaign monitoring &amp; grassroots outreach." data-type="active" onclick="return false"/>
-            <area shape="poly" coords="315,245,415,210,500,215,545,238,548,265,530,290,500,305,460,310,415,305,375,295,340,280,315,260" alt="Uttar Pradesh" data-state="Uttar Pradesh" data-city="Lucknow" data-desc="India's largest state — 80 Lok Sabha seats. Highest priority zone with full ground intelligence network across all 75 districts." data-type="active" onclick="return false"/>
-            <area shape="poly" coords="142,200,252,200,290,258,290,320,270,360,230,375,185,365,150,338,130,300,128,258,140,222" alt="Rajasthan" data-state="Rajasthan" data-city="Jaipur" data-desc="India's largest state by area — full strategic operations with constituency mapping across all 200 assembly seats." data-type="active" onclick="return false"/>
-            <area shape="poly" coords="260,318,330,295,415,308,480,320,492,345,475,375,435,390,390,395,348,385,305,372,275,355,262,335" alt="Madhya Pradesh" data-state="Madhya Pradesh" data-city="Bhopal" data-desc="Heart of India — data-driven campaign architecture deployed across key constituencies. 29 Lok Sabha seats." data-type="active" onclick="return false"/>
-            <area shape="poly" coords="480,238,545,238,565,255,568,280,550,298,520,305,490,298,468,280,468,258" alt="Bihar" data-state="Bihar" data-city="Patna" data-desc="High-stakes state with complex political landscape — full booth-level ground intelligence operational across all 38 districts." data-type="active" onclick="return false"/>
-            <area shape="poly" coords="548,265,590,258,608,278,608,318,592,350,568,368,548,358,532,338,530,308,540,285" alt="West Bengal" data-state="West Bengal" data-city="Kolkata" data-desc="Eastern powerhouse with vibrant political culture — active operations across urban and rural belts. 42 Lok Sabha seats." data-type="active" onclick="return false"/>
-            <area shape="poly" coords="490,348,550,330,580,358,582,395,560,422,528,435,498,428,475,408,472,382,478,358" alt="Odisha" data-state="Odisha" data-city="Bhubaneswar" data-desc="Fast-growing state with emerging political importance — active campaign base and voter outreach across coastal &amp; tribal regions." data-type="active" onclick="return false"/>
-            <area shape="poly" coords="220,390,292,375,360,395,420,398,462,420,460,455,430,478,388,488,340,480,290,462,250,440,222,415,215,398" alt="Maharashtra" data-state="Maharashtra" data-city="Mumbai" data-desc="Financial capital state — complex multi-party dynamics. Full strategic operations, media management &amp; narrative control." data-type="active" onclick="return false"/>
-          </map>
-        </div><!-- vsmap-img-wrap -->
+        <!-- DELHI HQ — x=183 y=152 -->
+        <g filter="url(#hqGlow)" style="cursor:pointer" onclick="rpClick('Delhi','New Delhi','National Capital — V SCAN Headquarters &amp; Command Centre')">
+          <circle cx="183" cy="152" r="20" fill="rgba(255,215,0,.15)">
+            <animate attributeName="r" values="14;22;14" dur="1.8s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="1.8s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="183" cy="152" r="9" fill="#FFD700" stroke="#fff" stroke-width="2.2"/>
+          <text x="183" y="156" text-anchor="middle" font-size="9" fill="#020810" font-weight="900" font-family="sans-serif">★</text>
+          <line x1="183" y1="161" x2="183" y2="170" stroke="#FFD700" stroke-width="1.8" opacity=".7"/>
+          <circle cx="183" cy="172" r="2" fill="#FFD700" opacity=".45"/>
+        </g>
 
-        <!-- LEGEND -->
-        <div class="vsmap-legend">
-          <div class="vsl-item"><div class="vsl-dot hq" style="display:flex;align-items:center;justify-content:center;font-size:7px;color:#020810;font-weight:900">★</div><span class="vsl-txt hq">HQ — New Delhi</span></div>
-          <div class="vsl-item"><div class="vsl-dot active"></div><span class="vsl-txt active">Active States (10)</span></div>
-          <span style="font-size:.55rem;color:rgba(192,216,240,.25)">Hover / click any state</span>
-        </div>
-      </div><!-- vsmap-box -->
+        <!-- PUNJAB — x=169 y=118 -->
+        <g filter="url(#pinGlow)" style="cursor:pointer" onclick="rpClick('Punjab','Ludhiana','Active campaign base &amp; voter analytics hub')">
+          <circle cx="169" cy="118" r="13" fill="rgba(224,168,32,.12)">
+            <animate attributeName="r" values="8;15;8" dur="2.6s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="2.6s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="169" cy="118" r="6.5" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
+          <line x1="169" y1="125" x2="169" y2="132" stroke="#E0A820" stroke-width="1.5" opacity=".6"/>
+          <circle cx="169" cy="134" r="1.8" fill="#E0A820" opacity=".4"/>
+        </g>
 
-      <!-- SIDE PANEL -->
-      <div class="vsmap-side">
-        <!-- Default state -->
-        <div class="panel-default" id="panel-default">
-          <div class="flag-em">🇮🇳</div>
-          <p>Hover or click any<br><strong>highlighted state</strong><br>to view details</p>
-        </div>
-        <!-- Active state card -->
-        <div class="vsmap-panel-card" id="vsmap-panel-card">
-          <div class="panel-card-head">
-            <div class="vspp-tag" id="vspp-tag">Active State</div>
-            <div class="vspp-name" id="vspp-name"></div>
-            <div class="vspp-city" id="vspp-city"></div>
-          </div>
-          <div class="panel-card-body">
-            <div class="vspp-desc" id="vspp-desc"></div>
-            <div style="margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.4rem" id="vspp-badges"></div>
-          </div>
-        </div>
-        <!-- State chips -->
-        <div class="chips-wrap">
-          <div class="chips-lbl">V SCAN Active States</div>
-          <div class="chips">
-            <span class="chip hq-chip" data-state="Delhi" data-city="New Delhi" data-desc="National Capital — V SCAN Headquarters &amp; Central Command" data-type="hq">Delhi ★</span>
-            <span class="chip" data-state="Uttar Pradesh" data-city="Lucknow" data-desc="80 Lok Sabha seats — highest priority zone" data-type="active">UP</span>
-            <span class="chip" data-state="Haryana" data-city="Chandigarh" data-desc="Key swing state — active ground operations" data-type="active">Haryana</span>
-            <span class="chip" data-state="Punjab" data-city="Ludhiana" data-desc="Active campaign &amp; voter analytics base" data-type="active">Punjab</span>
-            <span class="chip" data-state="Uttarakhand" data-city="Dehradun" data-desc="Hill state — active monitoring &amp; outreach" data-type="active">Uttarakhand</span>
-            <span class="chip" data-state="Rajasthan" data-city="Jaipur" data-desc="Largest by area — full strategic operations" data-type="active">Rajasthan</span>
-            <span class="chip" data-state="Madhya Pradesh" data-city="Bhopal" data-desc="Heart of India — active campaign architecture" data-type="active">M.P.</span>
-            <span class="chip" data-state="Bihar" data-city="Patna" data-desc="High-stakes — full booth-level intelligence" data-type="active">Bihar</span>
-            <span class="chip" data-state="West Bengal" data-city="Kolkata" data-desc="Eastern powerhouse — active operations" data-type="active">W. Bengal</span>
-            <span class="chip" data-state="Odisha" data-city="Bhubaneswar" data-desc="Fast growing — active campaign base" data-type="active">Odisha</span>
-            <span class="chip" data-state="Maharashtra" data-city="Mumbai" data-desc="Financial capital — full strategic operations" data-type="active">Maharashtra</span>
-          </div>
-        </div>
-      </div><!-- vsmap-side -->
+        <!-- HARYANA — x=179 y=134 -->
+        <g filter="url(#pinGlow)" style="cursor:pointer" onclick="rpClick('Haryana','Chandigarh','Key swing state — active ground operations across all districts')">
+          <circle cx="179" cy="134" r="12" fill="rgba(224,168,32,.12)">
+            <animate attributeName="r" values="7;13;7" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="179" cy="134" r="6" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
+          <line x1="179" y1="140" x2="179" y2="146" stroke="#E0A820" stroke-width="1.5" opacity=".6"/>
+        </g>
 
-    </div><!-- vsmap-outer -->
+        <!-- UTTARAKHAND — x=192 y=127 -->
+        <g filter="url(#pinGlow)" style="cursor:pointer" onclick="rpClick('Uttarakhand','Dehradun','Hill state — active campaign monitoring &amp; outreach programs')">
+          <circle cx="202" cy="127" r="11" fill="rgba(224,168,32,.12)">
+            <animate attributeName="r" values="7;13;7" dur="2.9s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="2.9s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="202" cy="127" r="6" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
+        </g>
+
+        <!-- UTTAR PRADESH — x=224 y=177 -->
+        <g filter="url(#pinGlow)" style="cursor:pointer" onclick="rpClick('Uttar Pradesh','Lucknow','India\'s largest state — 80 Lok Sabha seats. Top priority zone.')">
+          <circle cx="232" cy="177" r="17" fill="rgba(224,168,32,.12)">
+            <animate attributeName="r" values="11;21;11" dur="2.2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="2.2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="232" cy="177" r="8.5" fill="#E0A820" stroke="#fff" stroke-width="2"/>
+          <line x1="232" y1="186" x2="232" y2="195" stroke="#E0A820" stroke-width="1.8" opacity=".6"/>
+          <circle cx="232" cy="197" r="2" fill="#E0A820" opacity=".45"/>
+        </g>
+
+        <!-- RAJASTHAN — x=168 y=176 -->
+        <g filter="url(#pinGlow)" style="cursor:pointer" onclick="rpClick('Rajasthan','Jaipur','Largest state by area — full strategic operations active')">
+          <circle cx="155" cy="185" r="15" fill="rgba(224,168,32,.12)">
+            <animate attributeName="r" values="10;18;10" dur="3.2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="3.2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="155" cy="185" r="7.5" fill="#E0A820" stroke="#fff" stroke-width="2"/>
+          <line x1="155" y1="193" x2="155" y2="202" stroke="#E0A820" stroke-width="1.8" opacity=".6"/>
+        </g>
+
+        <!-- MADHYA PRADESH — x=186 y=229 -->
+        <g filter="url(#pinGlow)" style="cursor:pointer" onclick="rpClick('Madhya Pradesh','Bhopal','Heart of India — data-driven campaign architecture deployed')">
+          <circle cx="196" cy="232" r="15" fill="rgba(224,168,32,.12)">
+            <animate attributeName="r" values="10;18;10" dur="2.6s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="2.6s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="196" cy="232" r="7.5" fill="#E0A820" stroke="#fff" stroke-width="2"/>
+          <line x1="196" y1="240" x2="196" y2="249" stroke="#E0A820" stroke-width="1.8" opacity=".6"/>
+        </g>
+
+        <!-- BIHAR — x=268 y=195 -->
+        <g filter="url(#pinGlow)" style="cursor:pointer" onclick="rpClick('Bihar','Patna','High-stakes state — full booth-level ground intelligence active')">
+          <circle cx="268" cy="200" r="14" fill="rgba(224,168,32,.12)">
+            <animate attributeName="r" values="9;16;9" dur="2.4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="268" cy="200" r="7" fill="#E0A820" stroke="#fff" stroke-width="2"/>
+          <line x1="268" y1="207" x2="268" y2="216" stroke="#E0A820" stroke-width="1.8" opacity=".6"/>
+        </g>
+
+        <!-- WEST BENGAL — x=303 y=239 -->
+        <g filter="url(#pinGlow)" style="cursor:pointer" onclick="rpClick('West Bengal','Kolkata','Eastern powerhouse — active operations across urban &amp; rural belts')">
+          <circle cx="305" cy="244" r="13" fill="rgba(224,168,32,.12)">
+            <animate attributeName="r" values="9;15;9" dur="2.9s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="2.9s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="305" cy="244" r="6.5" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
+          <line x1="305" y1="251" x2="305" y2="259" stroke="#E0A820" stroke-width="1.5" opacity=".6"/>
+        </g>
+
+        <!-- ODISHA — x=275 y=272 -->
+        <g filter="url(#pinGlow)" style="cursor:pointer" onclick="rpClick('Odisha','Bhubaneswar','Fast-growing state — active campaign &amp; voter outreach base')">
+          <circle cx="278" cy="278" r="13" fill="rgba(224,168,32,.12)">
+            <animate attributeName="r" values="8;14;8" dur="3.1s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="3.1s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="278" cy="278" r="6.5" fill="#E0A820" stroke="#fff" stroke-width="1.8"/>
+          <line x1="278" y1="285" x2="278" y2="293" stroke="#E0A820" stroke-width="1.5" opacity=".6"/>
+        </g>
+
+        <!-- MAHARASHTRA — x=137 y=289 -->
+        <g filter="url(#pinGlow)" style="cursor:pointer" onclick="rpClick('Maharashtra','Mumbai','Financial capital state — full strategic &amp; media operations')">
+          <circle cx="145" cy="295" r="16" fill="rgba(224,168,32,.12)">
+            <animate attributeName="r" values="10;18;10" dur="2.7s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="2.7s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="145" cy="295" r="7.5" fill="#E0A820" stroke="#fff" stroke-width="2"/>
+          <line x1="145" y1="303" x2="145" y2="312" stroke="#E0A820" stroke-width="1.8" opacity=".6"/>
+        </g>
+
+        <!-- Subtle state labels -->
+        <text x="183" y="183" text-anchor="middle" font-size="6.5" fill="rgba(255,215,0,.45)" font-family="sans-serif" font-weight="600">Delhi</text>
+        <text x="145" y="215" text-anchor="middle" font-size="6" fill="rgba(224,168,32,.38)" font-family="sans-serif">Rajasthan</text>
+        <text x="232" y="208" text-anchor="middle" font-size="6" fill="rgba(224,168,32,.38)" font-family="sans-serif">UP</text>
+        <text x="196" y="262" text-anchor="middle" font-size="6" fill="rgba(224,168,32,.38)" font-family="sans-serif">MP</text>
+        <text x="268" y="228" text-anchor="middle" font-size="6" fill="rgba(224,168,32,.38)" font-family="sans-serif">Bihar</text>
+        <text x="305" y="270" text-anchor="middle" font-size="6" fill="rgba(224,168,32,.38)" font-family="sans-serif">W. Bengal</text>
+        <text x="278" y="305" text-anchor="middle" font-size="6" fill="rgba(224,168,32,.38)" font-family="sans-serif">Odisha</text>
+        <text x="145" y="325" text-anchor="middle" font-size="6" fill="rgba(224,168,32,.38)" font-family="sans-serif">Maharashtra</text>
+        <text x="162" y="146" text-anchor="middle" font-size="6" fill="rgba(224,168,32,.35)" font-family="sans-serif">Punjab</text>
+        <text x="215" y="137" text-anchor="middle" font-size="6" fill="rgba(224,168,32,.35)" font-family="sans-serif">Uttarakhand</text>
+      </svg>
+
+      <!-- POPUP -->
+      <div id="rp-popup" class="rp-popup">
+        <div class="rpp-state" id="rpp-state"></div>
+        <div class="rpp-city" id="rpp-city"></div>
+        <div class="rpp-desc" id="rpp-desc"></div>
+      </div>
+    </div>
+
+    <!-- LEGEND -->
+    <div class="map-legend">
+      <div class="ml-item">
+        <div class="ml-dot gold" style="display:flex;align-items:center;justify-content:center;font-size:7px;color:#020810;font-weight:900">★</div>
+        <span class="ml-txt gold">HQ — New Delhi</span>
+      </div>
+      <div class="ml-item">
+        <div class="ml-dot amber"></div>
+        <span class="ml-txt amber">Active States (10)</span>
+      </div>
+      <span class="ml-hint">Click any pin for details</span>
+    </div>
   </div>
 </section>
+
+<script>
+function rpClick(s,c,d){
+  document.getElementById('rpp-state').textContent='📍 '+s;
+  document.getElementById('rpp-city').textContent=c;
+  document.getElementById('rpp-desc').textContent=d;
+  var p=document.getElementById('rp-popup');
+  p.classList.add('show');
+  clearTimeout(p._t);
+  p._t=setTimeout(function(){p.classList.remove('show');},3800);
+}
+// Mobile burger
+var burger=document.getElementById('burger');
+if(burger){burger.addEventListener('click',function(){this.classList.toggle('open');document.getElementById('mob').classList.toggle('open');});}
+</script>
 
 <!-- STATES GRID -->
 <section class="states-section">
@@ -342,23 +435,23 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
     <h2 class="sec-title">11 States. One Mission.</h2>
     <p class="sec-sub">Deep-rooted presence across India's most politically significant states</p>
     <div class="states-grid">
-      <div class="state-card" id="delhi"><div class="state-num">01</div><div class="state-name">Delhi</div><div class="state-capital">📍 New Delhi</div><div class="state-desc">National Capital & V SCAN Headquarters. Political nerve centre of India — full operations active.</div><div class="state-badge capital">★ National Capital</div></div>
-      <div class="state-card" id="up"><div class="state-num">02</div><div class="state-name">Uttar Pradesh</div><div class="state-capital">📍 Lucknow</div><div class="state-desc">India's largest state — 80 Lok Sabha seats. Highest priority zone with full ground intelligence network.</div><div class="state-badge">Priority State</div></div>
-      <div class="state-card" id="haryana"><div class="state-num">03</div><div class="state-name">Haryana</div><div class="state-capital">📍 Chandigarh</div><div class="state-desc">Key swing state bordering Delhi. Active ground operations and booth-level voter intelligence.</div><div class="state-badge">Active</div></div>
-      <div class="state-card" id="punjab"><div class="state-num">04</div><div class="state-name">Punjab</div><div class="state-capital">📍 Ludhiana</div><div class="state-desc">Border state with unique political dynamics. Active campaign management and voter analytics.</div><div class="state-badge">Active</div></div>
-      <div class="state-card" id="uttarakhand"><div class="state-num">05</div><div class="state-name">Uttarakhand</div><div class="state-capital">📍 Dehradun</div><div class="state-desc">Hill state with growing political significance. Active campaign monitoring and outreach.</div><div class="state-badge">Active</div></div>
-      <div class="state-card" id="rajasthan"><div class="state-num">06</div><div class="state-name">Rajasthan</div><div class="state-capital">📍 Jaipur</div><div class="state-desc">India's largest state by area — a key battleground. Full strategic operations with constituency mapping.</div><div class="state-badge">Priority State</div></div>
-      <div class="state-card" id="mp"><div class="state-num">07</div><div class="state-name">Madhya Pradesh</div><div class="state-capital">📍 Bhopal</div><div class="state-desc">Heart of India — strategically vital. Data-driven campaign architecture deployed across key constituencies.</div><div class="state-badge">Active</div></div>
-      <div class="state-card" id="bihar"><div class="state-num">08</div><div class="state-name">Bihar</div><div class="state-capital">📍 Patna</div><div class="state-desc">High-stakes state with complex political landscape. Full booth-level ground intelligence operational.</div><div class="state-badge">Priority State</div></div>
-      <div class="state-card" id="wb"><div class="state-num">09</div><div class="state-name">West Bengal</div><div class="state-capital">📍 Kolkata</div><div class="state-desc">Eastern powerhouse with vibrant political culture. Active operations across urban and rural belts.</div><div class="state-badge">Active</div></div>
-      <div class="state-card" id="odisha"><div class="state-num">10</div><div class="state-name">Odisha</div><div class="state-capital">📍 Bhubaneswar</div><div class="state-desc">Fast-growing state with emerging political importance. Active campaign base and voter outreach.</div><div class="state-badge">Active</div></div>
-      <div class="state-card" id="maharashtra"><div class="state-num">11</div><div class="state-name">Maharashtra</div><div class="state-capital">📍 Mumbai</div><div class="state-desc">Financial capital state — complex multi-party dynamics. Full strategic operations and media management.</div><div class="state-badge">Priority State</div></div>
+      <div class="state-card"><div class="state-num">01</div><div class="state-name">Delhi</div><div class="state-capital">📍 New Delhi</div><div class="state-desc">National Capital & V SCAN Headquarters. Political nerve centre of India — full operations active.</div><div class="state-badge capital">★ National Capital</div></div>
+      <div class="state-card"><div class="state-num">02</div><div class="state-name">Uttar Pradesh</div><div class="state-capital">📍 Lucknow</div><div class="state-desc">India's largest state — 80 Lok Sabha seats. Highest priority zone with full ground intelligence network.</div><div class="state-badge">Priority State</div></div>
+      <div class="state-card"><div class="state-num">03</div><div class="state-name">Haryana</div><div class="state-capital">📍 Chandigarh</div><div class="state-desc">Key swing state bordering Delhi. Active ground operations and booth-level voter intelligence.</div><div class="state-badge">Active</div></div>
+      <div class="state-card"><div class="state-num">04</div><div class="state-name">Punjab</div><div class="state-capital">📍 Ludhiana</div><div class="state-desc">Border state with unique political dynamics. Active campaign management and voter analytics.</div><div class="state-badge">Active</div></div>
+      <div class="state-card"><div class="state-num">05</div><div class="state-name">Uttarakhand</div><div class="state-capital">📍 Dehradun</div><div class="state-desc">Hill state with growing political significance. Active campaign monitoring and outreach.</div><div class="state-badge">Active</div></div>
+      <div class="state-card"><div class="state-num">06</div><div class="state-name">Rajasthan</div><div class="state-capital">📍 Jaipur</div><div class="state-desc">India's largest state by area — a key battleground. Full strategic operations with constituency mapping.</div><div class="state-badge">Priority State</div></div>
+      <div class="state-card"><div class="state-num">07</div><div class="state-name">Madhya Pradesh</div><div class="state-capital">📍 Bhopal</div><div class="state-desc">Heart of India — strategically vital. Data-driven campaign architecture deployed across key constituencies.</div><div class="state-badge">Active</div></div>
+      <div class="state-card"><div class="state-num">08</div><div class="state-name">Bihar</div><div class="state-capital">📍 Patna</div><div class="state-desc">High-stakes state with complex political landscape. Full booth-level ground intelligence operational.</div><div class="state-badge">Priority State</div></div>
+      <div class="state-card"><div class="state-num">09</div><div class="state-name">West Bengal</div><div class="state-capital">📍 Kolkata</div><div class="state-desc">Eastern powerhouse with vibrant political culture. Active operations across urban and rural belts.</div><div class="state-badge">Active</div></div>
+      <div class="state-card"><div class="state-num">10</div><div class="state-name">Odisha</div><div class="state-capital">📍 Bhubaneswar</div><div class="state-desc">Fast-growing state with emerging political importance. Active campaign base and voter outreach.</div><div class="state-badge">Active</div></div>
+      <div class="state-card"><div class="state-num">11</div><div class="state-name">Maharashtra</div><div class="state-capital">📍 Mumbai</div><div class="state-desc">Financial capital state — complex multi-party dynamics. Full strategic operations and media management.</div><div class="state-badge">Priority State</div></div>
       <div class="state-card" style="background:rgba(26,74,154,.06);border-style:dashed;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;min-height:180px"><span style="font-size:1.8rem">🗺️</span><span style="font-size:.78rem;color:rgba(192,216,240,.3);text-align:center">Expanding to more states soon</span></div>
     </div>
   </div>
 </section>
 
-<!-- OPS -->
+<!-- HOW WE OPERATE -->
 <section class="ops-section">
   <div class="ops-in">
     <div class="sec-tag">Our Methodology</div>
@@ -368,8 +461,8 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
       <div class="ops-card"><div class="ops-icon">🏠</div><div class="ops-title">Booth-Level Intelligence</div><div class="ops-text">We operate at the granular booth level — collecting voter sentiment, demographic data, and opposition intelligence from every polling booth in the constituency.</div></div>
       <div class="ops-card"><div class="ops-icon">📡</div><div class="ops-title">Real-Time Ground Network</div><div class="ops-text">Our network of trained field workers provides real-time data and intelligence — ensuring our strategies are always current, accurate, and actionable.</div></div>
       <div class="ops-card"><div class="ops-icon">🏙️</div><div class="ops-title">Urban + Rural Coverage</div><div class="ops-text">We understand that Indian elections are won in both metros and villages. Our approach covers urban wards, semi-urban towns, and deep rural constituencies equally.</div></div>
-      <div class="ops-card"><div class="ops-icon">📊</div><div class="ops-title">Data Command Centre</div><div class="ops-text">All field data flows into our central analytics platform — processed, visualised, and converted into actionable campaign intelligence in real time.</div></div>
-      <div class="ops-card"><div class="ops-icon">🤝</div><div class="ops-title">Local Leadership Connect</div><div class="ops-text">We build deep relationships with local leaders, community heads, and grassroots workers — creating trust networks that amplify our campaign reach organically.</div></div>
+      <div class="ops-card"><div class="ops-icon">📊</div><div class="ops-title">Data Command Centre</div><div class="ops-text">All field data flows into our central analytics platform — where it is processed, visualised, and converted into actionable campaign intelligence in real time.</div></div>
+      <div class="ops-card"><div class="ops-icon">🤝</div><div class="ops-title">Local Leadership Connect</div><div class="ops-text">We build deep relationships with local leaders, community heads, and grassroots workers — creating a trust network that amplifies our campaign reach organically.</div></div>
       <div class="ops-card"><div class="ops-icon">📱</div><div class="ops-title">Digital + Physical Presence</div><div class="ops-text">Our operations seamlessly blend physical ground work with digital outreach — ensuring every voter is reached through the channel most relevant to them.</div></div>
     </div>
   </div>
@@ -378,94 +471,12 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.2)}
 <!-- CTA -->
 <section class="cta-sec">
   <h2 class="cta-title">Want V SCAN in Your State?</h2>
-  <p class="cta-sub">We are expanding our presence. If you want data-driven, ethical political consulting in your region — let's talk.</p>
+  <p class="cta-sub">We are expanding our presence. If you want to bring data-driven, ethical political consulting to your region — let's talk.</p>
   <a href="index.html#contact" class="cta-btn">Partner With V SCAN →</a>
 </section>
-<footer><p>© 2025 V SCAN Alliance. All Rights Reserved. Delhi, India.</p></footer>
 
-<script>
-(function(){
-  var tt=document.getElementById('vsmap-tooltip');
-  var wrap=document.getElementById('vsmap-wrap');
-  var img=document.getElementById('vsmap-img');
-  var panel=document.getElementById('vsmap-panel-card');
-  var panelDefault=document.getElementById('panel-default');
-  if(!tt||!wrap||!img) return;
-
-  var areas=document.querySelectorAll('map[name="vscan-india-reach"] area');
-  var chips=document.querySelectorAll('.chip');
-
-  function updatePanel(state,city,desc,type){
-    var isHQ=type==='hq';
-    document.getElementById('vspp-tag').textContent=isHQ?'★ National Capital — HQ':'Active State';
-    document.getElementById('vspp-tag').style.color=isHQ?'#FFD700':'#E0A820';
-    document.getElementById('vspp-name').textContent=state;
-    document.getElementById('vspp-name').style.color=isHQ?'#FFD700':'#fff';
-    document.getElementById('vspp-city').textContent='📍 '+city;
-    document.getElementById('vspp-desc').textContent=desc;
-    document.getElementById('vspp-badges').innerHTML=
-      (isHQ?'<span style="background:rgba(255,215,0,.15);border:1px solid rgba(255,215,0,.35);color:#FFD700;font-size:.55rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px">★ HQ</span>':'')+
-      '<span style="background:rgba(224,168,32,.12);border:1px solid rgba(224,168,32,.28);color:#E0A820;font-size:.55rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-left:4px">● V SCAN Active</span>';
-    panelDefault.style.display='none';
-    panel.classList.add('show');
-  }
-
-  function showTT(state,city,desc,type,e){
-    document.getElementById('vstt-state').textContent='📍 '+state;
-    document.getElementById('vstt-city').textContent=city;
-    document.getElementById('vstt-desc').textContent=desc;
-    document.getElementById('vstt-badge').innerHTML=type==='hq'?'<span class="vstt-badge hq">★ HQ</span>':'<span class="vstt-badge active">● V SCAN Active</span>';
-    var r=wrap.getBoundingClientRect();
-    var x=e.clientX-r.left+12, y=e.clientY-r.top-15;
-    if(x+240>r.width) x=x-255;
-    if(y<10) y=10;
-    tt.style.left=x+'px'; tt.style.top=y+'px';
-    tt.classList.add('show');
-  }
-
-  // Area events
-  areas.forEach(function(a){
-    a.addEventListener('mousemove',function(e){
-      showTT(a.getAttribute('data-state'),a.getAttribute('data-city'),a.getAttribute('data-desc'),a.getAttribute('data-type'),e);
-    });
-    a.addEventListener('mouseleave',function(){tt.classList.remove('show');});
-    a.addEventListener('click',function(e){
-      e.preventDefault();
-      updatePanel(a.getAttribute('data-state'),a.getAttribute('data-city'),a.getAttribute('data-desc'),a.getAttribute('data-type'));
-    });
-  });
-  img.addEventListener('mouseleave',function(){tt.classList.remove('show');});
-
-  // Chip events
-  chips.forEach(function(c){
-    c.addEventListener('click',function(){
-      chips.forEach(function(x){x.classList.remove('on');});
-      c.classList.add('on');
-      updatePanel(c.getAttribute('data-state'),c.getAttribute('data-city'),c.getAttribute('data-desc'),c.getAttribute('data-type'));
-    });
-  });
-
-  // Responsive coord scaling
-  function scale(){
-    var nw=700,nh=700,dw=img.offsetWidth,dh=img.offsetHeight;
-    areas.forEach(function(a){
-      var orig=a.getAttribute('data-orig')||a.getAttribute('coords');
-      if(!a.getAttribute('data-orig')) a.setAttribute('data-orig',orig);
-      a.setAttribute('coords',orig.split(',').map(function(v,i){
-        return Math.round(i%2===0?v*(dw/nw):v*(dh/nh));
-      }).join(','));
-    });
-  }
-  if(img.complete) scale(); else img.addEventListener('load',scale);
-  window.addEventListener('resize',scale);
-
-  // Burger
-  var burger=document.getElementById('burger');
-  if(burger) burger.addEventListener('click',function(){
-    this.classList.toggle('open');
-    document.getElementById('mob').classList.toggle('open');
-  });
-})();
-</script>
+<footer>
+  <p>© 2025 V SCAN Alliance. All Rights Reserved. Delhi, India.</p>
+</footer>
 </body>
 </html>
